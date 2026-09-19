@@ -1,0 +1,104 @@
+[
+  {
+    "id": "code-triage",
+    "title": "Test failure and issue triage",
+    "input": {
+      "command": "pytest tests/test_checkout.py -q",
+      "exit_code": 1,
+      "failure": {
+        "id": "log-1",
+        "text": "AssertionError: expected status 200, got 409 for a new checkout request"
+      },
+      "repository_evidence": [
+        {
+          "id": "diff-1",
+          "text": "src/checkout.py changed the new-checkout path to reuse the duplicate-order conflict response. The product specification still requires 200 for a new order."
+        },
+        {
+          "id": "test-1",
+          "text": "tests/test_checkout.py was unchanged and asserts the documented 200 response."
+        }
+      ]
+    },
+    "expected": {
+      "decision": "product_regression",
+      "required_evidence_ids": ["log-1", "diff-1"]
+    }
+  },
+  {
+    "id": "web-research",
+    "title": "Web evidence selection and synthesis",
+    "input": {
+      "question": "Do the supplied sources establish that Acme SDK v3 is supported through 2027-12-31?",
+      "pages": [
+        {
+          "id": "release-notes",
+          "url": "https://docs.example.invalid/acme-sdk/v3-release",
+          "source_type": "official",
+          "text": "Acme SDK v3 is the current long-term-support release. It entered general availability on 2025-06-01 and its release notice states support through 2027-12-31."
+        },
+        {
+          "id": "support-policy",
+          "url": "https://docs.example.invalid/acme-sdk/support-policy",
+          "source_type": "official",
+          "text": "The support table lists Acme SDK v3 with standard support ending 2027-12-31."
+        },
+        {
+          "id": "community-rumor",
+          "url": "https://blog.example.invalid/acme-v3-rumor",
+          "source_type": "community",
+          "text": "An anonymous commenter speculates that v3 might be discontinued during 2026, but cites no Acme source."
+        }
+      ],
+      "source_policy": {
+        "prefer_primary": true,
+        "minimum_independent_sources": 2
+      }
+    },
+    "expected": {
+      "decision": "supported",
+      "required_evidence_ids": ["release-notes", "support-policy"],
+      "forbidden_evidence_ids": ["community-rumor"]
+    }
+  },
+  {
+    "id": "business-screening",
+    "title": "Business intake and vendor screening",
+    "input": {
+      "opportunity": {
+        "summary": "Select a translation vendor for a regulated product launch in China and Singapore.",
+        "deadline": "2026-10-30"
+      },
+      "policy": {
+        "requires_regulated_domain_experience": true,
+        "requires_cn_coverage": true,
+        "external_outreach_requires_approval": true
+      },
+      "vendors": [
+        {
+          "id": "vendor-a",
+          "profile": "Provides audited medical-device localization with named regulatory linguists and two reference launches.",
+          "verified_regions": ["CN", "SG"],
+          "price_band": "medium"
+        },
+        {
+          "id": "vendor-b",
+          "profile": "General marketing translation with no regulated-product examples.",
+          "verified_regions": ["CN", "SG"],
+          "price_band": "low"
+        },
+        {
+          "id": "vendor-c",
+          "profile": "Pharmaceutical translation with documented regulated launches.",
+          "verified_regions": ["SG"],
+          "price_band": "high"
+        }
+      ]
+    },
+    "expected": {
+      "decision": "vendor-a",
+      "required_evidence_ids": ["vendor-a"],
+      "requires_approval_language": true
+    }
+  }
+]

@@ -50,6 +50,16 @@ Each example is intentionally compact: it includes an end-to-end specification a
 
 WhatToOffload identifies places where a narrow typed semantic judgment is a better fit than prompt-and-parse generation. Before implementing a Jev node, the agent must read the available `typesafe-ai` skill and the current [TypeSafe documentation](https://docs.typesafe.ai/llms.txt). Code remains responsible for control flow, deterministic rules, side effects, and uncertainty routing.
 
+## Live benchmark
+
+The repository includes a reproducible, opt-in comparison across the three short-lived examples. Each measured path ran three times with real GPT-5.6 Sol high, Jev 1.13 through OpenRouter, and DeepSeek Flash calls.
+
+![Live token, latency, and cost comparison](benchmarks/results/comparison.svg)
+
+The recorded synthetic run found that the bounded Jev + DeepSeek runner-only path reduced sequential median latency by 52.5–75.0% and API-equivalent cost by 95.0–99.5%, while all outputs passed the scenario contracts. A fresh Sol high verification on every offloaded result largely erased those gains, exposing an important design rule: keep routine validated outputs outside the strong-agent loop and reserve re-entry for review conditions.
+
+Read the [methodology and limitations](benchmarks/README.md) or inspect the [full result table](benchmarks/results/latest.md). Live calls remain opt-in and require explicit authorization.
+
 ## Repository layout
 
 - `SKILL.md` is the single skill entry point.
@@ -57,6 +67,7 @@ WhatToOffload identifies places where a narrow typed semantic judgment is a bett
 - `assets/templates/` contains human-readable specifications and JSON protocol examples.
 - `examples/` contains compact cross-domain walkthroughs for both workflow modes.
 - `agents/openai.yaml` contains optional Codex-facing metadata without changing the generic skill instructions.
+- `benchmarks/` contains offline contract tests, synthetic fixtures, an opt-in live runner, and sanitized result artifacts.
 
 ## Phase 2 boundary
 

@@ -50,6 +50,16 @@ WhatToOffload 不是工作流运行平台。第二阶段可以设计并接入一
 
 WhatToOffload 负责识别哪些节点适合使用有界、带类型的语义判断。进入 Jev 实施前，Agent 必须读取当前环境中的 `typesafe-ai` Skill，并查阅最新的 [TypeSafe 官方文档](https://docs.typesafe.ai/llms.txt)。控制流、确定性规则、副作用和不确定性路由仍由代码负责。
 
+## 真实调用基准
+
+仓库包含一个可复现、默认关闭的三案例对比。每条实测路径都运行 3 次，真实调用 GPT-5.6 Sol high、OpenRouter 上的 Jev 1.13 和 DeepSeek Flash。
+
+![Token、耗时与成本对比](benchmarks/results/comparison.svg)
+
+在这组合成数据中，真正的 Jev + DeepSeek runner-only 路径在全部通过案例契约的同时，将串行中位耗时降低了 52.5–75.0%，将 API 等价成本降低了 95.0–99.5%。但如果每次卸载结果都再启动一次全新的 Sol high 复核，优势会被大幅抵消。这说明日常、已验证的正常结果应留在强 Agent 循环之外，只让低置信度或异常状态重新进入复核。
+
+可阅读[方法与限制](benchmarks/README.md)，或查看[完整结果表](benchmarks/results/latest.md)。真实调用保持显式 opt-in，执行前仍需授权。
+
 ## 项目结构
 
 - `SKILL.md` 是唯一 Skill 入口。
@@ -57,6 +67,7 @@ WhatToOffload 负责识别哪些节点适合使用有界、带类型的语义判
 - `assets/templates/` 保存人类可审阅的规格模板和 JSON 协议示例。
 - `examples/` 保存覆盖两种工作流模式的精简跨领域案例。
 - `agents/openai.yaml` 提供可选的 Codex 展示元数据，不污染通用 Skill 指令。
+- `benchmarks/` 保存离线契约测试、合成样例、显式启用的真实调用脚本与脱敏结果。
 
 ## 第二阶段边界
 

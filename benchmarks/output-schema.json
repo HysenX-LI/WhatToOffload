@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "scenario_id", "decision", "summary", "evidence_ids", "next_actions"],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["completed", "needs_review"]
+    },
+    "scenario_id": {"type": "string"},
+    "decision": {"type": "string"},
+    "summary": {"type": "string"},
+    "evidence_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
