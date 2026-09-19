@@ -1,0 +1,86 @@
+[
+  {
+    "status": "completed",
+    "summary": "The bounded workflow completed successfully.",
+    "result": {
+      "example": "structured business result"
+    },
+    "required_action": null,
+    "diagnostics": null,
+    "resume": null
+  },
+  {
+    "status": "needs_input",
+    "summary": "A required source field is missing.",
+    "result": null,
+    "required_action": {
+      "type": "provide_input",
+      "fields": [
+        "example_required_field"
+      ]
+    },
+    "diagnostics": null,
+    "resume": {
+      "state": {
+        "safe_partial_state": "caller-managed"
+      }
+    }
+  },
+  {
+    "status": "needs_review",
+    "summary": "The semantic result is too uncertain for automatic action.",
+    "result": {
+      "leading_candidates": [
+        {
+          "value": "candidate_a",
+          "probability": 0.48
+        },
+        {
+          "value": "candidate_b",
+          "probability": 0.45
+        }
+      ]
+    },
+    "required_action": {
+      "type": "review",
+      "question": "Which candidate should be used?"
+    },
+    "diagnostics": null,
+    "resume": {
+      "state": {
+        "safe_partial_state": "caller-managed"
+      }
+    }
+  },
+  {
+    "status": "needs_approval",
+    "summary": "The workflow is ready to perform an external side effect.",
+    "result": {
+      "prepared_action": "send the reviewed message"
+    },
+    "required_action": {
+      "type": "approve",
+      "target": "explicit external target",
+      "reversible": false
+    },
+    "diagnostics": null,
+    "resume": {
+      "state": {
+        "safe_partial_state": "caller-managed"
+      }
+    }
+  },
+  {
+    "status": "failed",
+    "summary": "The workflow could not complete.",
+    "result": null,
+    "required_action": null,
+    "diagnostics": {
+      "node": "example_node",
+      "code": "provider_unavailable",
+      "retryable": true,
+      "message": "Sanitized diagnostic without credentials or sensitive input."
+    },
+    "resume": null
+  }
+]
