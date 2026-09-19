@@ -13,6 +13,7 @@ It finds atomic nodes, combines them into short-lived bounded or durable asynchr
 - Separates *where a node runs* from *what capability executes it*.
 - Expands a selected candidate into a workflow diagram, node table, interfaces, failure paths, approvals, and tests.
 - Recognizes when a flow must survive restarts or wait for timers, events, delayed retries, input, review, or approval, then designs the durable state and recovery boundary.
+- Uses contract-driven TDD: define observable behavior first, confirm a meaningful failing test, implement the smallest slice, and keep the workflow protected by regression tests.
 - Preserves the target project's stack and generates an importable runner plus a JSON CLI when implementation is authorized.
 - Uses explicit result states for completion, missing input, semantic review, approval, and failure.
 
@@ -52,7 +53,7 @@ WhatToOffload identifies places where a narrow typed semantic judgment is a bett
 ## Repository layout
 
 - `SKILL.md` is the single skill entry point.
-- `references/` contains short-lived, durable, executor-selection, and safety guidance loaded only when relevant.
+- `references/` contains short-lived, durable, executor-selection, safety, and test-driven implementation guidance loaded only when relevant.
 - `assets/templates/` contains human-readable specifications and JSON protocol examples.
 - `examples/` contains compact cross-domain walkthroughs for both workflow modes.
 - `agents/openai.yaml` contains optional Codex-facing metadata without changing the generic skill instructions.

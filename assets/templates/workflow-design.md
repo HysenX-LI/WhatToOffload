@@ -57,13 +57,19 @@ input
 
 Describe the smallest changes needed in the target project. Preserve its language, package manager, test stack, and existing authorization boundaries.
 
-## Test plan
+## Test-first acceptance plan
 
+- First behavior slice and expected failing assertion:
+- Test seam, fakes, fixtures, and controlled dependencies:
+- Existing behavior that needs characterization tests:
 - Contract tests:
 - Representative semantic cases:
+- Composition-policy and uncertainty-routing tests:
 - Uncertainty and review cases:
 - Side-effect approval cases:
+- Idempotency and unknown-outcome cases:
 - Provider mocks:
+- Focused and broader regression suites:
 - Optional live probe requiring confirmation:
 
 ## User authorization boundary

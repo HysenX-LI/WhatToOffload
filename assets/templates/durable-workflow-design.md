@@ -112,8 +112,11 @@ Do not implement a runtime choice that materially changes infrastructure without
 - **Operational review queue:**
 - **Runbook owner:**
 
-## Test plan
+## Test-first acceptance plan
 
+- First behavior slice and expected failing assertion:
+- Test seam, virtual clock, fakes, fixtures, and controlled dependencies:
+- Existing behavior that needs characterization tests:
 - Transition and terminal-state tests:
 - Restart and replay tests:
 - Duplicate and out-of-order event tests:
@@ -123,7 +126,9 @@ Do not implement a runtime choice that materially changes infrastructure without
 - Cancellation and compensation tests:
 - State-schema migration tests:
 - Representative Jev / LLM and uncertainty tests:
+- Composition-policy and action-suppression tests:
 - Provider mocks:
+- Focused and broader regression suites:
 - Optional live probe requiring confirmation:
 
 ## Implementation plan and authorization boundary

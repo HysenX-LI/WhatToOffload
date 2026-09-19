@@ -23,6 +23,7 @@ Do not pre-load every reference, template, or example when this skill is activat
 - During initial analysis, read only the short-lived or durable playbook that matches the candidate being evaluated. Read both only when the evidence genuinely contains both workflow classes or the classification itself is ambiguous.
 - Open [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md) only when producing a candidate-analysis deliverable.
 - During detailed design, open exactly the matching short-lived or durable design template, plus only the executor or safety references required by the selected nodes.
+- Read [references/test-driven-workflows.md](references/test-driven-workflows.md) only after a candidate reaches detailed design or implementation and code or executable workflow behavior is in scope.
 - Treat files under `assets/` as output resources, not background instructions. Do not inspect an asset merely because it exists.
 - Read an example only after the domain and pattern are known, and only when that example materially helps the current task. Never load all examples for orientation.
 - Load `typesafe-ai` and its routed documentation only when a selected node is actually being designed or implemented with Jev.
@@ -65,6 +66,20 @@ Show the connection between nodes with the best visualization capability availab
 
 Do not edit the target project after presenting the design. Wait for an explicit implementation request unless the user already granted autonomous implementation.
 
+## Design for test-driven implementation
+
+For a selected workflow, define observable acceptance behavior before production implementation. Include normal results, uncertainty routes, missing input, provider failure, approval stops, and side-effect containment. If the target is an existing implementation, plan characterization tests before changing behavior.
+
+When implementation is authorized, read [references/test-driven-workflows.md](references/test-driven-workflows.md) and work in small red-green-refactor slices:
+
+1. Add the smallest meaningful test and run it to confirm that it fails for the intended missing behavior.
+2. Implement only enough workflow or activity code to make that test pass.
+3. Refactor while keeping the relevant suite green, then repeat for the next behavior.
+
+Do not claim a TDD cycle when the test was never observed failing. Preserve the target project's test framework and conventions. Test public contracts and state transitions rather than private implementation structure.
+
+For Jev and LLM nodes, combine deterministic contract tests with representative semantic cases. Assert downstream policy outcomes, valid uncertainty routing, and schema invariants; do not lock tests to exact prose or one permanent probability. Use provider fakes by default and keep live probes behind explicit confirmation.
+
 ## Use Jev deliberately
 
 Use Jev for narrow, typed semantic judgments over supplied state, not for open-ended planning, prose generation, tool execution, or control flow. Code owns deterministic rules, branching, composition, side effects, and confidence gates.
@@ -80,6 +95,7 @@ Do not copy the TypeSafe manual into this skill. This skill decides *where* Jev 
 ## Implement only after authorization
 
 - Preserve the target project's language, package manager, conventions, and test stack.
+- Begin with the test-first slice defined in the approved design. For legacy behavior without coverage, add characterization tests before refactoring it.
 - When a standalone Python runner is genuinely needed and the target has no Python environment choice, ask whether to use `uv`. If the user declines or does not answer, use the available Python environment. Treat this as an environment detail, not a product feature.
 - Expose core runner logic as an importable function and a JSON CLI unless the target project provides a more appropriate equivalent interface.
 - Use environment-based configuration for OpenAI-compatible LLM calls: base URL, model, and API key. Do not bind the design to OpenRouter or another provider.
