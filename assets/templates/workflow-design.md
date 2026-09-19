@@ -1,4 +1,4 @@
-# Selected workflow design: `<name>`
+# Short-lived workflow design: `<name>`
 
 ## Boundary
 
@@ -69,4 +69,3 @@ Describe the smallest changes needed in the target project. Preserve its languag
 ## User authorization boundary
 
 State explicitly that this document is a design. Do not edit the target project until implementation has been authorized, unless autonomous implementation was already requested.
-

@@ -1,7 +1,6 @@
 interface:
   display_name: "WhatToOffload"
-  short_description: "Find bounded workflow steps to move out of an agent"
-  default_prompt: "Use $what-to-offload to analyze this workflow and recommend which bounded subflows to offload."
+  short_description: "Find bounded and durable work to move out of an agent"
+  default_prompt: "Use $what-to-offload to analyze this workflow and recommend which bounded or durable asynchronous subflows to offload."
 policy:
   allow_implicit_invocation: true
-

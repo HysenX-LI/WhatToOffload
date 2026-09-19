@@ -2,7 +2,7 @@
 
 Use this playbook to turn an existing conversation, project, SOP, or workflow into a small set of defensible offload candidates.
 
-## Phase 1 boundary
+## Short-lived boundary
 
 A short-lived bounded subflow:
 
@@ -12,7 +12,7 @@ A short-lived bounded subflow:
 - can receive all required context explicitly;
 - does not depend on this skill to host, schedule, persist, or deploy it.
 
-Do not reinterpret a long-running or event-driven workflow as short-lived merely to fit Phase 1. Keep durable timers, queues, cross-day waits, background workers, and stored orchestration out of the design.
+Do not reinterpret a long-running or event-driven workflow as short-lived merely to avoid durable design. If correctness depends on state surviving the caller, a timer, delayed retry, external event, or human wait, route to [durable-async-workflows.md](durable-async-workflows.md).
 
 ## Evidence gate
 
@@ -99,4 +99,3 @@ The first analysis should contain:
 5. a request for the user to select a candidate, unless autonomous selection was explicitly authorized.
 
 Do not generate implementation files during this phase.
-

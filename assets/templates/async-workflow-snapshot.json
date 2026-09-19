@@ -1,0 +1,89 @@
+[
+  {
+    "workflow_definition": "vendor_review",
+    "workflow_version": "2",
+    "workflow_id": "wf_example_123",
+    "run_id": "run_example_001",
+    "lifecycle": "active",
+    "wait": null,
+    "current_step": {
+      "id": "evaluate_evidence",
+      "attempt": 1
+    },
+    "state_version": 4,
+    "updated_at": "2030-01-15T10:00:00Z",
+    "result": null,
+    "failure": null
+  },
+  {
+    "workflow_definition": "vendor_review",
+    "workflow_version": "2",
+    "workflow_id": "wf_example_123",
+    "run_id": "run_example_001",
+    "lifecycle": "waiting",
+    "wait": {
+      "reason": "approval",
+      "resume_on": "authorized approval event for step approve_vendor",
+      "expires_at": "2030-01-22T10:00:00Z",
+      "correlation_id": "approval_example_456"
+    },
+    "current_step": {
+      "id": "approve_vendor",
+      "attempt": 1
+    },
+    "state_version": 5,
+    "updated_at": "2030-01-15T10:05:00Z",
+    "result": null,
+    "failure": null
+  },
+  {
+    "workflow_definition": "vendor_review",
+    "workflow_version": "2",
+    "workflow_id": "wf_example_123",
+    "run_id": "run_example_001",
+    "lifecycle": "completed",
+    "wait": null,
+    "current_step": null,
+    "state_version": 7,
+    "updated_at": "2030-01-16T09:30:00Z",
+    "result": {
+      "decision": "approved",
+      "record_id": "vendor_example_789"
+    },
+    "failure": null
+  },
+  {
+    "workflow_definition": "vendor_review",
+    "workflow_version": "2",
+    "workflow_id": "wf_example_124",
+    "run_id": "run_example_002",
+    "lifecycle": "failed",
+    "wait": null,
+    "current_step": null,
+    "state_version": 3,
+    "updated_at": "2030-01-16T11:00:00Z",
+    "result": null,
+    "failure": {
+      "step": "collect_evidence",
+      "code": "retry_exhausted",
+      "retryable": false,
+      "message": "Sanitized diagnostic without credentials or source documents."
+    }
+  },
+  {
+    "workflow_definition": "vendor_review",
+    "workflow_version": "2",
+    "workflow_id": "wf_example_125",
+    "run_id": "run_example_003",
+    "lifecycle": "cancelled",
+    "wait": null,
+    "current_step": null,
+    "state_version": 2,
+    "updated_at": "2030-01-16T12:00:00Z",
+    "result": {
+      "cancelled_by": "authorized_request",
+      "reason_code": "request_withdrawn"
+    },
+    "failure": null
+  }
+]

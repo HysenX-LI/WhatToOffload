@@ -7,6 +7,8 @@
 - Inputs available at decision time:
 - Expected output and consumer:
 - Side effects and accountable owner:
+- Process-lifetime boundary, timers, external events, or human waits:
+- Existing runtime, queue, database, and operational owner:
 
 ## Blocking questions
 
@@ -19,6 +21,8 @@ Repeat the following card no more than three times.
 ### Candidate: `<bounded subflow name>`
 
 - **Boundary:** `<start trigger>` → `<final result or handoff>`
+- **Workflow class:** `short-lived bounded | durable asynchronous`
+- **Why this class:**
 - **Why offload:**
 - **Atomic nodes:**
 - **Likely executors:**
@@ -51,4 +55,3 @@ Explain the trade-off. Do not calculate a synthetic total score.
 ## Next decision
 
 Ask the user to select one candidate for detailed workflow design, unless they explicitly authorized autonomous selection and implementation.
-
