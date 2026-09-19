@@ -16,6 +16,17 @@ Turn an existing workflow into a clearer division of labor. Keep the current age
 
 Never treat a request to analyze or optimize as permission to modify code, call paid APIs, perform side effects, install the skill, or publish anything.
 
+## Load supporting resources progressively
+
+Do not pre-load every reference, template, or example when this skill is activated. Start with this `SKILL.md`, inspect the available evidence, and determine the current operating mode and workflow class first.
+
+- During initial analysis, read only the short-lived or durable playbook that matches the candidate being evaluated. Read both only when the evidence genuinely contains both workflow classes or the classification itself is ambiguous.
+- Open [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md) only when producing a candidate-analysis deliverable.
+- During detailed design, open exactly the matching short-lived or durable design template, plus only the executor or safety references required by the selected nodes.
+- Treat files under `assets/` as output resources, not background instructions. Do not inspect an asset merely because it exists.
+- Read an example only after the domain and pattern are known, and only when that example materially helps the current task. Never load all examples for orientation.
+- Load `typesafe-ai` and its routed documentation only when a selected node is actually being designed or implemented with Jev.
+
 ## Analyze the existing workflow
 
 1. Inspect the conversation, repository, configuration, documents, and other materials already available to the agent. Do not make the user restate discoverable facts.
@@ -24,7 +35,7 @@ Never treat a request to analyze or optimize as permission to modify code, call 
 4. Evaluate whether each node should stay in the current agent or move to an external runner. Separately choose the node's capability role and concrete implementation.
 5. Present at most three leading offload candidates by default. Also identify important nodes that should remain in the current agent and explain why.
 
-Read [references/short-lived-workflows.md](references/short-lived-workflows.md) for candidates that complete in one invocation or return a caller-managed handoff. Read [references/durable-async-workflows.md](references/durable-async-workflows.md) when a candidate crosses process lifetimes, waits for timers or external events, resumes after human action, or needs persisted retries. Copy or adapt [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md) for the result.
+Read [references/short-lived-workflows.md](references/short-lived-workflows.md) for candidates that complete in one invocation or return a caller-managed handoff. Read [references/durable-async-workflows.md](references/durable-async-workflows.md) when a candidate crosses process lifetimes, waits for timers or external events, resumes after human action, or needs persisted retries. When it is time to present candidates, copy or adapt [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md).
 
 Do not collapse the comparison into a fabricated precise score. Compare boundary clarity, agent supervision removed, replaceability, reuse, verifiability, cost and latency, implementation effort, uncertainty, and side-effect risk. Recommend an order using those dimensions.
 
@@ -48,7 +59,7 @@ For every node, record both layers:
 
 Choose the simplest executor that can meet the node's quality, safety, and testability requirements. This is a fitness decision, not a rigid cost-first ordering.
 
-Read [references/executor-selection.md](references/executor-selection.md) when assigning executors. Read [references/safety-and-uncertainty.md](references/safety-and-uncertainty.md) whenever the workflow contains semantic uncertainty, external API calls, credentials, or side effects. Use [assets/templates/workflow-design.md](assets/templates/workflow-design.md) for a short-lived design. For a durable design, first read [references/durable-async-workflows.md](references/durable-async-workflows.md), then use [assets/templates/durable-workflow-design.md](assets/templates/durable-workflow-design.md).
+Read [references/executor-selection.md](references/executor-selection.md) when assigning executors. Read [references/safety-and-uncertainty.md](references/safety-and-uncertainty.md) whenever the workflow contains semantic uncertainty, external API calls, credentials, or side effects. For a short-lived design, open only [assets/templates/workflow-design.md](assets/templates/workflow-design.md). For a durable design, read [references/durable-async-workflows.md](references/durable-async-workflows.md) and open only [assets/templates/durable-workflow-design.md](assets/templates/durable-workflow-design.md).
 
 Show the connection between nodes with the best visualization capability available in the environment, then provide the node table. Keep the underlying workflow description renderer-independent. If no visualization capability is available, use a compact text diagram or simple Mermaid as a fallback.
 
@@ -91,7 +102,7 @@ These statuses describe a node or bounded runner result. They do not describe th
 
 Phase 1 covers short-lived bounded workflows. Phase 2 adds a playbook for designing and, when explicitly authorized, integrating durable asynchronous workflows into an existing or deliberately selected runtime. Neither phase makes this Skill a scheduler, worker host, persistence layer, deployment system, operations console, or secret manager.
 
-Use a relevant example only when it helps the current task:
+Do not read examples during initial skill loading. After the workflow class and domain are known, read at most the closest relevant example when it materially helps the task:
 
 - [examples/code-triage.md](examples/code-triage.md) for test-failure and issue triage.
 - [examples/web-research.md](examples/web-research.md) for browser-assisted research and evidence handling.
