@@ -667,7 +667,6 @@ def render_svg(report: Mapping[str, Any]) -> str:
     arms = [
         ("codex_only", "Codex-only", "#6366f1"),
         ("offloaded_runner_only", "Jev + DeepSeek", "#10b981"),
-        ("offloaded_verified", "+ Codex verification", "#f59e0b"),
     ]
     scenarios = report["scenarios"]
     metrics = [
@@ -679,13 +678,13 @@ def render_svg(report: Mapping[str, Any]) -> str:
     parts = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="{}" height="{}" viewBox="0 0 {} {}" role="img" aria-labelledby="title desc">'.format(width, height, width, height),
         '<title id="title">WhatToOffload live benchmark comparison</title>',
-        '<desc id="desc">Three grouped bar charts compare main-agent tokens, sequential wall time, and API-equivalent cost for Codex-only, Jev plus DeepSeek runner-only, and offload with Codex verification. Each value is the median of three live runs and all paths passed the quality contract.</desc>',
+        '<desc id="desc">Three grouped bar charts compare main-agent tokens, sequential wall time, and API-equivalent cost for Codex-only and Jev plus DeepSeek runner-only. Each value is the median of three live runs and all paths passed the quality contract.</desc>',
         '<rect width="1200" height="900" fill="#ffffff"/>',
         '<style>text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#111827}.muted{fill:#6b7280}.grid{stroke:#e5e7eb;stroke-width:1}.axis{stroke:#9ca3af;stroke-width:1}</style>',
         '<text x="45" y="48" font-size="25" font-weight="600">WhatToOffload · live benchmark</text>',
         '<text x="45" y="76" font-size="14" class="muted">Median of 3 live runs per scenario and path · quality contract 100% passed</text>',
     ]
-    legend_x = 630
+    legend_x = 755
     for index, (_, label, color) in enumerate(arms):
         x = legend_x + index * 175
         parts.append('<rect x="{}" y="39" width="13" height="13" rx="2" fill="{}"/>'.format(x, color))
@@ -724,7 +723,7 @@ def render_svg(report: Mapping[str, Any]) -> str:
                 label_y = max(top + 12, y - 7)
                 parts.append('<text x="{:.1f}" y="{:.1f}" text-anchor="middle" font-size="11">{}</text>'.format(x + bar_width / 2, label_y, html.escape(formatter(value))))
             parts.append('<text x="{:.1f}" y="{}" text-anchor="middle" font-size="12" class="muted">{}</text>'.format(center, bottom + 21, html.escape(short_names[scenario["id"]])))
-    parts.append('<text x="45" y="880" font-size="12" class="muted">Runner-only excludes the host invocation/return envelope; verified offload includes a fresh GPT-5.6 Sol high contract check.</text>')
+    parts.append('<text x="45" y="880" font-size="12" class="muted">Runner-only excludes the host invocation/return envelope. Full per-run measurements remain available in the accompanying report.</text>')
     parts.append('</svg>')
     return "\n".join(parts) + "\n"
 

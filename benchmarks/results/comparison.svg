@@ -1,16 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
 <title id="title">WhatToOffload live benchmark comparison</title>
-<desc id="desc">Three grouped bar charts compare main-agent tokens, sequential wall time, and API-equivalent cost for Codex-only, Jev plus DeepSeek runner-only, and offload with Codex verification. Each value is the median of three live runs and all paths passed the quality contract.</desc>
+<desc id="desc">Three grouped bar charts compare main-agent tokens, sequential wall time, and API-equivalent cost for Codex-only and Jev plus DeepSeek runner-only. Each value is the median of three live runs and all paths passed the quality contract.</desc>
 <rect width="1200" height="900" fill="#ffffff"/>
 <style>text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#111827}.muted{fill:#6b7280}.grid{stroke:#e5e7eb;stroke-width:1}.axis{stroke:#9ca3af;stroke-width:1}</style>
 <text x="45" y="48" font-size="25" font-weight="600">WhatToOffload · live benchmark</text>
 <text x="45" y="76" font-size="14" class="muted">Median of 3 live runs per scenario and path · quality contract 100% passed</text>
-<rect x="630" y="39" width="13" height="13" rx="2" fill="#6366f1"/>
-<text x="650" y="51" font-size="13">Codex-only</text>
-<rect x="805" y="39" width="13" height="13" rx="2" fill="#10b981"/>
-<text x="825" y="51" font-size="13">Jev + DeepSeek</text>
-<rect x="980" y="39" width="13" height="13" rx="2" fill="#f59e0b"/>
-<text x="1000" y="51" font-size="13">+ Codex verification</text>
+<rect x="755" y="39" width="13" height="13" rx="2" fill="#6366f1"/>
+<text x="775" y="51" font-size="13">Codex-only</text>
+<rect x="930" y="39" width="13" height="13" rx="2" fill="#10b981"/>
+<text x="950" y="51" font-size="13">Jev + DeepSeek</text>
 <text x="45" y="91" font-size="16" font-weight="600">Main-agent tokens</text>
 <line class="grid" x1="110" y1="270.0" x2="1165" y2="270.0"/>
 <text x="101" y="270.0" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">0</text>
@@ -23,59 +21,47 @@
 <line class="grid" x1="110" y1="115.0" x2="1165" y2="115.0"/>
 <text x="101" y="115.0" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">16,053</text>
 <line class="axis" x1="110" y1="270" x2="1165" y2="270"/>
-<rect x="194.8" y="132.3" width="54" height="137.7" rx="3" fill="#6366f1"/>
-<text x="221.8" y="127.0" text-anchor="middle" font-size="11">14,262</text>
-<rect x="258.8" y="270.0" width="54" height="1.0" rx="3" fill="#10b981"/>
-<text x="285.8" y="263.0" text-anchor="middle" font-size="11">0</text>
-<rect x="322.8" y="133.2" width="54" height="136.8" rx="3" fill="#f59e0b"/>
-<text x="349.8" y="127.0" text-anchor="middle" font-size="11">14,165</text>
+<rect x="226.8" y="132.3" width="54" height="137.7" rx="3" fill="#6366f1"/>
+<text x="253.8" y="127.0" text-anchor="middle" font-size="11">14,262</text>
+<rect x="290.8" y="270.0" width="54" height="1.0" rx="3" fill="#10b981"/>
+<text x="317.8" y="263.0" text-anchor="middle" font-size="11">0</text>
 <text x="285.8" y="291" text-anchor="middle" font-size="12" class="muted">Code triage</text>
-<rect x="546.5" y="131.6" width="54" height="138.4" rx="3" fill="#6366f1"/>
-<text x="573.5" y="127.0" text-anchor="middle" font-size="11">14,333</text>
-<rect x="610.5" y="270.0" width="54" height="1.0" rx="3" fill="#10b981"/>
-<text x="637.5" y="263.0" text-anchor="middle" font-size="11">0</text>
-<rect x="674.5" y="133.6" width="54" height="136.4" rx="3" fill="#f59e0b"/>
-<text x="701.5" y="127.0" text-anchor="middle" font-size="11">14,125</text>
+<rect x="578.5" y="131.6" width="54" height="138.4" rx="3" fill="#6366f1"/>
+<text x="605.5" y="127.0" text-anchor="middle" font-size="11">14,333</text>
+<rect x="642.5" y="270.0" width="54" height="1.0" rx="3" fill="#10b981"/>
+<text x="669.5" y="263.0" text-anchor="middle" font-size="11">0</text>
 <text x="637.5" y="291" text-anchor="middle" font-size="12" class="muted">Web research</text>
-<rect x="898.2" y="132.2" width="54" height="137.8" rx="3" fill="#6366f1"/>
-<text x="925.2" y="127.0" text-anchor="middle" font-size="11">14,268</text>
-<rect x="962.2" y="270.0" width="54" height="1.0" rx="3" fill="#10b981"/>
-<text x="989.2" y="263.0" text-anchor="middle" font-size="11">0</text>
-<rect x="1026.2" y="133.5" width="54" height="136.5" rx="3" fill="#f59e0b"/>
-<text x="1053.2" y="127.0" text-anchor="middle" font-size="11">14,132</text>
+<rect x="930.2" y="132.2" width="54" height="137.8" rx="3" fill="#6366f1"/>
+<text x="957.2" y="127.0" text-anchor="middle" font-size="11">14,268</text>
+<rect x="994.2" y="270.0" width="54" height="1.0" rx="3" fill="#10b981"/>
+<text x="1021.2" y="263.0" text-anchor="middle" font-size="11">0</text>
 <text x="989.2" y="291" text-anchor="middle" font-size="12" class="muted">Business screening</text>
 <text x="45" y="361" font-size="16" font-weight="600">Sequential wall time (seconds)</text>
 <line class="grid" x1="110" y1="540.0" x2="1165" y2="540.0"/>
 <text x="101" y="540.0" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">0.0s</text>
 <line class="grid" x1="110" y1="501.2" x2="1165" y2="501.2"/>
-<text x="101" y="501.2" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">4.3s</text>
+<text x="101" y="501.2" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">3.6s</text>
 <line class="grid" x1="110" y1="462.5" x2="1165" y2="462.5"/>
-<text x="101" y="462.5" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">8.5s</text>
+<text x="101" y="462.5" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">7.3s</text>
 <line class="grid" x1="110" y1="423.8" x2="1165" y2="423.8"/>
-<text x="101" y="423.8" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">12.8s</text>
+<text x="101" y="423.8" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">10.9s</text>
 <line class="grid" x1="110" y1="385.0" x2="1165" y2="385.0"/>
-<text x="101" y="385.0" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">17.0s</text>
+<text x="101" y="385.0" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">14.6s</text>
 <line class="axis" x1="110" y1="540" x2="1165" y2="540"/>
-<rect x="194.8" y="421.4" width="54" height="118.6" rx="3" fill="#6366f1"/>
-<text x="221.8" y="414.4" text-anchor="middle" font-size="11">13.0s</text>
-<rect x="258.8" y="509.7" width="54" height="30.3" rx="3" fill="#10b981"/>
-<text x="285.8" y="502.7" text-anchor="middle" font-size="11">3.3s</text>
-<rect x="322.8" y="408.4" width="54" height="131.6" rx="3" fill="#f59e0b"/>
-<text x="349.8" y="401.4" text-anchor="middle" font-size="11">14.5s</text>
+<rect x="226.8" y="401.6" width="54" height="138.4" rx="3" fill="#6366f1"/>
+<text x="253.8" y="397.0" text-anchor="middle" font-size="11">13.0s</text>
+<rect x="290.8" y="504.6" width="54" height="35.4" rx="3" fill="#10b981"/>
+<text x="317.8" y="497.6" text-anchor="middle" font-size="11">3.3s</text>
 <text x="285.8" y="561" text-anchor="middle" font-size="12" class="muted">Code triage</text>
-<rect x="546.5" y="432.0" width="54" height="108.0" rx="3" fill="#6366f1"/>
-<text x="573.5" y="425.0" text-anchor="middle" font-size="11">11.9s</text>
-<rect x="610.5" y="513.0" width="54" height="27.0" rx="3" fill="#10b981"/>
-<text x="637.5" y="506.0" text-anchor="middle" font-size="11">3.0s</text>
-<rect x="674.5" y="411.0" width="54" height="129.0" rx="3" fill="#f59e0b"/>
-<text x="701.5" y="404.0" text-anchor="middle" font-size="11">14.2s</text>
+<rect x="578.5" y="414.1" width="54" height="125.9" rx="3" fill="#6366f1"/>
+<text x="605.5" y="407.1" text-anchor="middle" font-size="11">11.9s</text>
+<rect x="642.5" y="508.5" width="54" height="31.5" rx="3" fill="#10b981"/>
+<text x="669.5" y="501.5" text-anchor="middle" font-size="11">3.0s</text>
 <text x="637.5" y="561" text-anchor="middle" font-size="12" class="muted">Web research</text>
-<rect x="898.2" y="462.0" width="54" height="78.0" rx="3" fill="#6366f1"/>
-<text x="925.2" y="455.0" text-anchor="middle" font-size="11">8.6s</text>
-<rect x="962.2" y="503.0" width="54" height="37.0" rx="3" fill="#10b981"/>
-<text x="989.2" y="496.0" text-anchor="middle" font-size="11">4.1s</text>
-<rect x="1026.2" y="401.6" width="54" height="138.4" rx="3" fill="#f59e0b"/>
-<text x="1053.2" y="397.0" text-anchor="middle" font-size="11">15.2s</text>
+<rect x="930.2" y="449.1" width="54" height="90.9" rx="3" fill="#6366f1"/>
+<text x="957.2" y="442.1" text-anchor="middle" font-size="11">8.6s</text>
+<rect x="994.2" y="496.8" width="54" height="43.2" rx="3" fill="#10b981"/>
+<text x="1021.2" y="489.8" text-anchor="middle" font-size="11">4.1s</text>
 <text x="989.2" y="561" text-anchor="middle" font-size="12" class="muted">Business screening</text>
 <text x="45" y="631" font-size="16" font-weight="600">API-equivalent cost per 1,000 runs (USD)</text>
 <line class="grid" x1="110" y1="810.0" x2="1165" y2="810.0"/>
@@ -89,26 +75,20 @@
 <line class="grid" x1="110" y1="655.0" x2="1165" y2="655.0"/>
 <text x="101" y="655.0" text-anchor="end" dominant-baseline="middle" font-size="11" class="muted">$65.88</text>
 <line class="axis" x1="110" y1="810" x2="1165" y2="810"/>
-<rect x="194.8" y="671.6" width="54" height="138.4" rx="3" fill="#6366f1"/>
-<text x="221.8" y="667.0" text-anchor="middle" font-size="11">$58.82</text>
-<rect x="258.8" y="809.3" width="54" height="1.0" rx="3" fill="#10b981"/>
-<text x="285.8" y="802.3" text-anchor="middle" font-size="11">$0.30</text>
-<rect x="322.8" y="672.7" width="54" height="137.3" rx="3" fill="#f59e0b"/>
-<text x="349.8" y="667.0" text-anchor="middle" font-size="11">$58.38</text>
+<rect x="226.8" y="671.6" width="54" height="138.4" rx="3" fill="#6366f1"/>
+<text x="253.8" y="667.0" text-anchor="middle" font-size="11">$58.82</text>
+<rect x="290.8" y="809.3" width="54" height="1.0" rx="3" fill="#10b981"/>
+<text x="317.8" y="802.3" text-anchor="middle" font-size="11">$0.30</text>
 <text x="285.8" y="831" text-anchor="middle" font-size="12" class="muted">Code triage</text>
-<rect x="546.5" y="788.1" width="54" height="21.9" rx="3" fill="#6366f1"/>
-<text x="573.5" y="781.1" text-anchor="middle" font-size="11">$9.29</text>
-<rect x="610.5" y="809.5" width="54" height="1.0" rx="3" fill="#10b981"/>
-<text x="637.5" y="802.5" text-anchor="middle" font-size="11">$0.20</text>
-<rect x="674.5" y="790.1" width="54" height="19.9" rx="3" fill="#f59e0b"/>
-<text x="701.5" y="783.1" text-anchor="middle" font-size="11">$8.48</text>
+<rect x="578.5" y="788.1" width="54" height="21.9" rx="3" fill="#6366f1"/>
+<text x="605.5" y="781.1" text-anchor="middle" font-size="11">$9.29</text>
+<rect x="642.5" y="809.5" width="54" height="1.0" rx="3" fill="#10b981"/>
+<text x="669.5" y="802.5" text-anchor="middle" font-size="11">$0.20</text>
 <text x="637.5" y="831" text-anchor="middle" font-size="12" class="muted">Web research</text>
-<rect x="898.2" y="789.1" width="54" height="20.9" rx="3" fill="#6366f1"/>
-<text x="925.2" y="782.1" text-anchor="middle" font-size="11">$8.90</text>
-<rect x="962.2" y="809.0" width="54" height="1.0" rx="3" fill="#10b981"/>
-<text x="989.2" y="802.0" text-anchor="middle" font-size="11">$0.44</text>
-<rect x="1026.2" y="673.1" width="54" height="136.9" rx="3" fill="#f59e0b"/>
-<text x="1053.2" y="667.0" text-anchor="middle" font-size="11">$58.17</text>
+<rect x="930.2" y="789.1" width="54" height="20.9" rx="3" fill="#6366f1"/>
+<text x="957.2" y="782.1" text-anchor="middle" font-size="11">$8.90</text>
+<rect x="994.2" y="809.0" width="54" height="1.0" rx="3" fill="#10b981"/>
+<text x="1021.2" y="802.0" text-anchor="middle" font-size="11">$0.44</text>
 <text x="989.2" y="831" text-anchor="middle" font-size="12" class="muted">Business screening</text>
-<text x="45" y="880" font-size="12" class="muted">Runner-only excludes the host invocation/return envelope; verified offload includes a fresh GPT-5.6 Sol high contract check.</text>
+<text x="45" y="880" font-size="12" class="muted">Runner-only excludes the host invocation/return envelope. Full per-run measurements remain available in the accompanying report.</text>
 </svg>
