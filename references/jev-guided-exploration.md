@@ -63,6 +63,8 @@ Use a stronger LLM or the current agent only on an explicit exception path, such
 
 For each expansion, record the run ID, candidate and batch IDs, parent and depth, normalized source, context and question versions, Jev output, selection or pruning reason, budget state, fetch result, new evidence, and stop cause. Keep source text and sensitive data in private traces; publish only sanitized aggregates unless the data is explicitly approved for release.
 
+Use the portable event, local trace, and deterministic gap-attribution contract in [workflow observability and gap attribution](workflow-observability.md). In particular, record eligible, packed, excluded, and unevaluated candidate counts. Preserve discovery evidence when a later page fetch fails; evidence replacement must be an explicit lineage event rather than a silent overwrite.
+
 Measure result quality before celebrating fewer calls. Useful measures include required-field recall, asserted-field precision, evidence validity, candidate coverage before judgment, pages fetched, Jev and fallback calls, wall time, cost, and validated evidence added per expansion. Compare these measures on frozen cases and on unseen cases. Join gold answers only after the run so evaluation data cannot guide exploration.
 
 ## Test the control policy

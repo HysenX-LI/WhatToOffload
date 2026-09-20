@@ -64,6 +64,20 @@ Complete one row per material substitution. Include a retained agent/LLM node wh
 - **Caller-managed resume fields:**
 - **Result-envelope statuses used:**
 
+## Audit and gap attribution (when the workflow is multi-stage or model-assisted)
+
+- **Capture level:** minimal / diagnostic / full_local, and when it changes
+- **Portable audit path and retention:** JSONL metadata, IDs, reason codes, usage, and hashes
+- **Local trace path and retention:** raw evidence and provider request/response snapshots; state who may access it
+- **Stable IDs and lineage:** run, node, subject, source, candidate, batch, decision, evidence, and parent events
+- **Candidate coverage events:** eligible, packed, excluded, unevaluated, and budget-exhausted counts
+- **Decision events:** executor, model, contract/question version, input candidates, output, score, threshold, and reason
+- **Evidence merge policy:** supplement versus explicit replacement; failed fetches cannot silently erase discovery evidence
+- **Terminal field events:** accepted, rejected, quarantined, missing, and emitted
+- **Gap attribution output:** frozen reference version, earliest causal stage, reason code, contributing events, and replayability
+- **Portable-log validation:** trace completeness, count reconciliation, and secret/raw-payload checks
+- **Safe aggregate output:** non-identifying quality, reason-code distribution, calls, latency, cost, and limitations
+
 ## Provider capability assumptions
 
 | Capability | required | verified / unsupported / unknown | Evidence or planned probe |
@@ -92,6 +106,7 @@ Describe the smallest changes needed in the target project. Preserve its languag
 - Old-versus-new comparison on common inputs and acceptance criteria:
 - Unsupported-input detection, evidence coverage, and lost-context cases:
 - Broad-search batching, cross-batch composition, page-expansion, cycle, and exploration-budget cases:
+- Audit lineage, model-call references, candidate-coverage accounting, terminal reasons, and secret-redaction cases:
 - Contract tests:
 - Representative semantic cases:
 - Composition-policy and uncertainty-routing tests:
@@ -107,7 +122,7 @@ Describe the smallest changes needed in the target project. Preserve its languag
 - **Per-substitution result:** measured benefit, capability loss, and adopt / revise / retain decision
 - **Whole-task result:** quality, model cost, wall time, retrieval/retries, and remaining supervision
 - **Exception effectiveness:** escalation count and denominator, reason, and additional validated outcomes
-- **Failure attribution:** retrieval / parsing / context / judgment / routing / validation
+- **Failure attribution:** discovery / retrieval / parsing / normalization / context packing / judgment / fallback / evidence replacement / handoff / assembly / grading
 - **Cost boundary:** recurring execution versus construction and maintenance; unmeasured costs remain unknown
 - **Transfer check:** separate development cases from new evaluation inputs; retain initial outcomes
 

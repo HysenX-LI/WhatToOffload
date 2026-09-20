@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": "opaque-run-id",
+  "workflow_version": "content-hash-or-release",
+  "reference_version": "content-hash",
+  "summary": {
+    "evaluated_fields": 20,
+    "gaps": 3,
+    "by_primary_cause": {
+      "candidate_omitted": 1,
+      "below_threshold": 1,
+      "assembly_drop": 1
+    }
+  },
+  "gaps": [
+    {
+      "subject_ref": "sha256:opaque-subject-hash",
+      "field": "example_field",
+      "expected_status": "available",
+      "observed_status": "missing",
+      "primary_stage": "judge",
+      "primary_cause": "below_threshold",
+      "causal_event_id": "opaque-event-id",
+      "contributing_event_ids": [],
+      "recommended_boundary": "threshold-policy",
+      "replayable": true
+    }
+  ]
+}

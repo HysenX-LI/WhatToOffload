@@ -68,6 +68,8 @@ For performance, account for evidence preparation, normal decisions, exception f
 
 Adopt the change when it meets the declared quality boundary and offers a useful cost, latency, supervision, or maintainability trade-off. Report a quality regression as a trade-off, not successful-task savings. Separate recurring execution cost from construction and maintenance effort; estimate payback only when reuse volume and build cost are known. Evaluate new inputs independently before claiming generalization.
 
+When the composed workflow has several stages or semantic nodes, validate its audit trail before attributing regressions. Use [workflow observability and gap attribution](workflow-observability.md) to distinguish discovery, retrieval, parsing, normalization, context packing, judgment, fallback, evidence replacement, handoff, assembly, and grading failures. Fix the earliest verified causal boundary instead of tuning whichever model is easiest to change.
+
 **Deliver:** the replacement map, measured comparison, and remaining boundaries. Keep private task identities and raw evidence out of reusable skill instructions and public examples.
 
 ## Record two independent decisions

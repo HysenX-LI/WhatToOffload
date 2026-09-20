@@ -133,8 +133,15 @@ Do not implement a runtime choice that materially changes infrastructure without
 ## Observability
 
 - **Metrics and service-level indicators:**
-- **Structured logs and redaction:**
-- **Trace / correlation fields:**
+- **Capture level:** minimal / diagnostic / full_local, and when it changes
+- **Portable JSONL audit log, retention, and redaction:**
+- **Separate local raw trace store, access, encryption if required, and deletion:**
+- **Trace / correlation fields:** run, workflow version, node, subject, source, candidate, batch, decision, evidence, and parent events
+- **Candidate coverage and budget events:**
+- **Semantic decision, threshold, question/contract version, and reason-code events:**
+- **Evidence supplement/replacement and accepted-to-emitted lineage:**
+- **Deterministic gap attribution and safe aggregate output:**
+- **Portable-log validation and count reconciliation:**
 - **Stuck-workflow detection:**
 - **Operational review queue:**
 - **Runbook owner:**
@@ -147,6 +154,7 @@ Do not implement a runtime choice that materially changes infrastructure without
 - Old-versus-new comparison on common inputs and acceptance criteria:
 - Unsupported-input detection, evidence coverage, and lost-context cases:
 - Broad-search batching, cross-batch composition, page-expansion, cycle, exploration-budget, restart, and replay cases:
+- Audit lineage, replay idempotency, model-call references, candidate-coverage accounting, terminal reasons, and secret-redaction cases:
 - Transition and terminal-state tests:
 - Restart and replay tests:
 - Duplicate and out-of-order event tests:
@@ -166,7 +174,7 @@ Do not implement a runtime choice that materially changes infrastructure without
 - **Per-substitution result:** measured benefit, capability loss, and adopt / revise / retain decision
 - **Whole-task result:** quality, execution cost, wall time, active processing versus external waits, and supervision
 - **Exception effectiveness:** escalation count and denominator, reason, and additional validated outcomes
-- **Failure attribution:** retrieval / parsing / context / judgment / routing / validation
+- **Failure attribution:** discovery / retrieval / parsing / normalization / context packing / judgment / fallback / evidence replacement / handoff / assembly / grading
 - **Cost boundary:** recurring execution versus construction, runtime operations, and maintenance
 - **Transfer check:** separate development cases from new evaluation inputs; retain initial outcomes
 

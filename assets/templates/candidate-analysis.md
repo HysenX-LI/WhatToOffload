@@ -32,6 +32,7 @@ Repeat the following card no more than three times.
 - **Expected benefit:**
 - **Capability or coverage potentially lost:**
 - **Failure detection and recovery:**
+- **Diagnosability:** current traces available, missing audit boundaries, and the minimum events needed to locate a regression
 - **Broad-search policy, if applicable:** candidate generators, Jev-guided direction choice, context batching, exploration budgets, and stop conditions
 - **Smallest comparison that could support or reject the replacement:**
 - **Main risk or unknown:**

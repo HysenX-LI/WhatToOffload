@@ -26,6 +26,7 @@ Do not pre-load every reference, template, or example when this skill is activat
 - Open [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md) only when producing a candidate-analysis deliverable.
 - During detailed design, open exactly the matching short-lived or durable design template, plus only the executor or safety references required by the selected nodes.
 - Read [references/jev-guided-exploration.md](references/jev-guided-exploration.md) when a selected node must search or navigate a large candidate space and Jev will help choose what to inspect next.
+- Read [references/workflow-observability.md](references/workflow-observability.md) when a selected workflow has multiple stages, semantic decisions, retrieval, fallback, or measured quality whose failures must be attributable. Use ordinary application logs for simple deterministic transformations.
 - Read [references/test-driven-workflows.md](references/test-driven-workflows.md) only after a candidate reaches detailed design or implementation and code or executable workflow behavior is in scope.
 - Treat files under `assets/` as output resources, not background instructions. Do not inspect an asset merely because it exists.
 - Read an example only after the domain and pattern are known, and only when that example materially helps the current task. Never load all examples for orientation.
@@ -33,7 +34,7 @@ Do not pre-load every reference, template, or example when this skill is activat
 
 ## Analyze the existing workflow
 
-1. Inspect the conversation, repository, configuration, documents, and other materials already available to the agent. Do not make the user restate discoverable facts.
+1. Inspect the conversation, repository, configuration, documents, traces, and other materials already available to the agent. Do not make the user restate discoverable facts. If only final outputs exist, state which proposed failure causes cannot yet be distinguished.
 2. Identify missing facts that would materially change the workflow boundary or recommendation. Ask for those facts before recommending candidates.
 3. Decompose the work into atomic nodes, then group related nodes into subflows with clear input, output, termination, and failure boundaries. Classify each subflow as short-lived or durable asynchronous.
 4. Identify the specific behavior being replaced, the context it currently relies on, and the capability the replacement must preserve. Evaluate whether it should stay in the current agent or move to an external runner. Separately choose its capability role and concrete implementation; state the benefit, capability loss, and evidence behind each proposed replacement.
@@ -67,6 +68,8 @@ Apply the [replacement procedure](references/executor-selection.md#work-through-
 
 Read [references/executor-selection.md](references/executor-selection.md) when assigning executors. Read [references/safety-and-uncertainty.md](references/safety-and-uncertainty.md) whenever the workflow contains semantic uncertainty, external API calls, credentials, or side effects. For a short-lived design, open only [assets/templates/workflow-design.md](assets/templates/workflow-design.md). For a durable design, read [references/durable-async-workflows.md](references/durable-async-workflows.md) and open only [assets/templates/durable-workflow-design.md](assets/templates/durable-workflow-design.md).
 
+For a multi-stage or model-assisted workflow, also define its audit boundary before implementation. Record candidate coverage, the exact candidate IDs supplied to semantic calls, decision and contract versions, thresholds, reason codes, evidence lineage, fallback triggers, accepted-to-emitted handoffs, budgets, latency, tokens, and cost. Keep raw evidence and provider payloads in a separate permitted local trace store; the portable audit log contains opaque references and hashes. Follow [workflow observability and gap attribution](references/workflow-observability.md).
+
 Show the connection between nodes with the best visualization capability available in the environment, then provide the node table. Keep the underlying workflow description renderer-independent. If no visualization capability is available, use a compact text diagram or simple Mermaid as a fallback.
 
 Do not edit the target project after presenting the design. Wait for an explicit implementation request unless the user already granted autonomous implementation.
@@ -84,6 +87,8 @@ When implementation is authorized, read [references/test-driven-workflows.md](re
 Do not claim a TDD cycle when the test was never observed failing. Preserve the target project's test framework and conventions. Test public contracts and state transitions rather than private implementation structure.
 
 For Jev and LLM nodes, combine deterministic contract tests with representative semantic cases. Assert downstream policy outcomes, valid uncertainty routing, and schema invariants; do not lock tests to exact prose or one permanent probability. Use provider fakes by default and keep live probes behind explicit confirmation.
+
+For workflows with an audit boundary, test trace completeness as a public contract: every emitted field must descend from an accepted candidate and evidence reference; every required missing field must have a terminal reason; every model decision must identify its input candidates and local request/response references; candidate packing counts must balance. Validate the portable JSONL log before using it for gap attribution.
 
 ## Use Jev deliberately
 
@@ -109,6 +114,7 @@ Do not copy the TypeSafe manual into this skill. This skill decides *where* Jev 
 - Expose core runner logic as an importable function and a JSON CLI unless the target project provides a more appropriate equivalent interface.
 - Use environment-based configuration for OpenAI-compatible LLM calls: base URL, model, and API key. Do not bind the design to OpenRouter or another provider.
 - Never write credentials into source, examples, logs, diagnostics, or returned state.
+- For multi-stage or model-assisted workflows, emit the portable audit events and local trace references defined in [workflow observability and gap attribution](references/workflow-observability.md). Use `scripts/validate_audit_log.py` when adopting this repository's event contract. Do not treat a private repository as permission to publish raw identities or evidence.
 - Run static and mock validation by default. Obtain explicit confirmation immediately before any real Jev, LLM, or other paid/external API call.
 - For durable work, preserve the target project's existing workflow engine, queue, database, event bus, deployment model, and observability conventions. Add adapters and workflow definitions rather than a parallel home-grown control plane.
 - If the target has no durable runtime, stop at an explicit runtime-selection decision unless the user authorizes choosing and implementing one. Record operational ownership, hosting, retention, and cost implications before implementation.

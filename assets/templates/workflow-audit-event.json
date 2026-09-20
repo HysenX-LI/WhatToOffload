@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "run_id": "opaque-run-id",
+  "event_id": "opaque-event-id",
+  "seq": 7,
+  "timestamp": "2026-01-01T00:00:00Z",
+  "workflow_version": "content-hash-or-release",
+  "node_id": "judge-candidate-ownership",
+  "stage": "judge",
+  "event_type": "decision_recorded",
+  "executor": "jev",
+  "status": "completed",
+  "privacy": "metadata",
+  "subject_ref": "sha256:opaque-subject-hash",
+  "field": "example_field",
+  "candidate_ids": [
+    "candidate-12"
+  ],
+  "parents": [
+    "event-6"
+  ],
+  "request_ref": "local-traces/request-7.json#sha256=example",
+  "response_ref": "local-traces/response-7.json#sha256=example",
+  "contract_version": "ownership-v3",
+  "model": "provider/model-version",
+  "decision": {
+    "outcome": "reject",
+    "score": 0.63,
+    "threshold": 0.8,
+    "reason_code": "below_threshold"
+  },
+  "metrics": {
+    "latency_ms": 120,
+    "input_tokens": 800,
+    "output_tokens": 12,
+    "known_cost_usd": 0.0001
+  }
+}
