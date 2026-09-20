@@ -43,6 +43,19 @@ Complete one row per material substitution. Include a retained agent/LLM node wh
 - **Recovery budget and preservation of accepted results:**
 - **Retained agent supervision and context still required:**
 
+## Exploration contract (when retrieval is broad)
+
+- **Goal, entity identity, and unresolved fields:**
+- **Candidate generators and supported search scope:**
+- **Candidate representation:** stable ID, source, parent, depth, snippet, provenance, and local context
+- **Jev judgment:** primitive, exact decision meaning, question version, and threshold policy
+- **Context and batching:** required repeated context, candidates per call, coverage check, and cross-batch composition
+- **Frontier policy:** priority rule, active branches or beam width, visited-source and cycle handling
+- **Budgets:** maximum depth, pages, Jev calls, elapsed time, tokens, cost, retries, and no-improvement rounds
+- **Page-expansion rule:** when a page is worth following and what evidence can stop that branch
+- **Stop and handoff:** completed, searched-scope no-match, budget exhaustion, uncertainty, and stronger-model or agent escalation
+- **Trace fields and redaction:**
+
 ## Runner contract
 
 - **Importable entry point:**
@@ -78,6 +91,7 @@ Describe the smallest changes needed in the target project. Preserve its languag
 - Existing behavior that needs characterization tests:
 - Old-versus-new comparison on common inputs and acceptance criteria:
 - Unsupported-input detection, evidence coverage, and lost-context cases:
+- Broad-search batching, cross-batch composition, page-expansion, cycle, and exploration-budget cases:
 - Contract tests:
 - Representative semantic cases:
 - Composition-policy and uncertainty-routing tests:

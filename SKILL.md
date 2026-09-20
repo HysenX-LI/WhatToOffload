@@ -25,6 +25,7 @@ Do not pre-load every reference, template, or example when this skill is activat
 - When recommending concrete replacements, also read the replacement procedure in [references/executor-selection.md](references/executor-selection.md#work-through-a-replacement). Use steps 1–3 during analysis; complete steps 4–7 for a selected design and its authorized implementation.
 - Open [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md) only when producing a candidate-analysis deliverable.
 - During detailed design, open exactly the matching short-lived or durable design template, plus only the executor or safety references required by the selected nodes.
+- Read [references/jev-guided-exploration.md](references/jev-guided-exploration.md) when a selected node must search or navigate a large candidate space and Jev will help choose what to inspect next.
 - Read [references/test-driven-workflows.md](references/test-driven-workflows.md) only after a candidate reaches detailed design or implementation and code or executable workflow behavior is in scope.
 - Treat files under `assets/` as output resources, not background instructions. Do not inspect an asset merely because it exists.
 - Read an example only after the domain and pattern are known, and only when that example materially helps the current task. Never load all examples for orientation.
@@ -87,6 +88,8 @@ For Jev and LLM nodes, combine deterministic contract tests with representative 
 ## Use Jev deliberately
 
 Use Jev for narrow, typed semantic judgments over supplied state, not for open-ended planning, prose generation, tool execution, or control flow. Code owns deterministic rules, branching, composition, side effects, and confidence gates.
+
+For broad information retrieval, let code and tools generate a wide candidate set, then give Jev as many relevant options as safely fit with the context needed to judge them. Split larger sets into self-contained calls without dropping candidate coverage; use comparable per-candidate judgments or a final common comparison rather than comparing conditional Choice probabilities across separate batches. Let code maintain the frontier, visited set, and explicit depth, page, call, time, and cost budgets. Jev may judge whether a page is likely to provide or lead to evidence for an unresolved question, while code decides whether to expand or stop. Follow [Jev-guided bounded exploration](references/jev-guided-exploration.md) for the complete control policy.
 
 When code and Jev cover the normal path, reserve stronger models for explicit exceptions. Do not require an LLM before or after every Jev decision. Follow the [exception-routing guidance](references/executor-selection.md#keep-stronger-models-on-an-explicit-exception-branch) and measure escalation frequency alongside quality and latency.
 

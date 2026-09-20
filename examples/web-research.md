@@ -65,6 +65,8 @@ Input:
 
 The browser or connector can gather page content before invoking the runner. If automated fetching is part of the target project, it remains an existing-tool node with its own authorization, robots, login, and network policy.
 
+If the allowed sources form a large link graph, the runner changes from a single supplied-page pass to [Jev-guided bounded exploration](../references/jev-guided-exploration.md). Code and search tools generate and normalize candidate links; Jev independently judges which pages are likely to provide or lead to primary evidence for each unresolved claim. The runner keeps a bounded frontier, visited-source set, and configurable depth, page, call, time, and cost limits. Candidates that do not fit in one context are judged in self-contained batches, then combined through comparable per-page judgments or a final common comparison. Exhausting a budget leaves the claim unresolved rather than asserting a global no-match.
+
 ## Node map
 
 | Node | Location | Capability role | Concrete implementation | Why |
@@ -117,6 +119,9 @@ Jev questions over the same source state should be batched when independent. The
 - A citation that exists but does not support its associated claim fails the semantic case evaluation.
 - A report preserves incompatible services and unknown claims even when the majority of evidence is favorable.
 - Duplicate tracking URLs collapse to one canonical source.
+- A candidate set larger than one Jev context is fully covered across batches without comparing conditional Choice probabilities from different batches.
+- Pages judged worth following can expand only within the configured depth and page budgets; cycles and repeated content do not expand again.
+- Exploration-budget exhaustion returns unresolved claims and the remaining frontier rather than a verified no-match.
 - An irrelevant source receives a low relevance result and is excluded by code.
 - Conflicting but individually plausible sources return `needs_review` when the policy cannot choose safely.
 - Citations in the LLM output are restricted to selected source IDs.

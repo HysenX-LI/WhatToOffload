@@ -60,6 +60,19 @@ Complete one row per material substitution, including retained agent/LLM work wh
 - **Recovery budget, preservation of accepted results, and persisted recovery state:**
 - **Retained agent supervision and context still required:**
 
+## Exploration contract (when retrieval is broad)
+
+- **Goal, entity identity, and unresolved fields:**
+- **Candidate generators and supported search scope:**
+- **Candidate representation:** stable ID, source, parent, depth, snippet, provenance, and local context
+- **Jev judgment:** primitive, exact decision meaning, question version, and threshold policy
+- **Context and batching:** required repeated context, candidates per call, coverage check, and cross-batch composition
+- **Persisted frontier:** priority rule, active branches or beam width, visited-source set, duplicate map, and cycle handling
+- **Persisted budgets:** maximum depth, pages, Jev calls, elapsed time, tokens, cost, retries, and no-improvement rounds
+- **Page-expansion rule:** when a page is worth following and what evidence can stop that branch
+- **Stop and handoff:** completed, searched-scope no-match, budget exhaustion, uncertainty, and stronger-model or agent escalation
+- **Trace fields, retention, and redaction:**
+
 ## Durable state
 
 - **Workflow definition and version:**
@@ -133,6 +146,7 @@ Do not implement a runtime choice that materially changes infrastructure without
 - Existing behavior that needs characterization tests:
 - Old-versus-new comparison on common inputs and acceptance criteria:
 - Unsupported-input detection, evidence coverage, and lost-context cases:
+- Broad-search batching, cross-batch composition, page-expansion, cycle, exploration-budget, restart, and replay cases:
 - Transition and terminal-state tests:
 - Restart and replay tests:
 - Duplicate and out-of-order event tests:

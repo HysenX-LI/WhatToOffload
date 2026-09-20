@@ -95,6 +95,8 @@ For each atomic step, the Skill records both a capability role and a concrete im
 
 The result is not a mandatory code → Jev → LLM cascade. Each step goes to the simplest executor that can meet its quality, safety, and testability requirements. Code owns deterministic control flow and side effects; uncertain or unsupported cases follow explicit recovery and handoff paths.
 
+For broad information retrieval, WhatToOffload first lets code and search tools generate a wide set of candidates with provenance, then gives Jev as many relevant options as safely fit while preserving the goal, entity identity, and local evidence. Larger sets are split into self-contained calls and combined through comparable per-item judgments or one final common comparison. Code maintains the exploration frontier, visited sources, and depth, page, call, time, and cost budgets; Jev can also judge whether a page is likely to provide or lead to evidence for an unresolved question. Exhausting a budget leaves the result unresolved rather than turning it into a verified no-match. [Read the Jev-guided bounded exploration method](references/jev-guided-exploration.md).
+
 The evaluation method is:
 
 1. Observe the current behavior and its context.
@@ -161,7 +163,7 @@ This measures repeated execution after the program was prepared; one-time constr
 | --- | --- |
 | [SKILL.md](SKILL.md) | Agent instructions and operating modes |
 | [LICENSE](LICENSE) | MIT license |
-| [`references/`](references/) | Executor selection, workflow classes, safety, uncertainty, and test-driven implementation |
+| [`references/`](references/) | Executor selection, bounded exploration, workflow classes, safety, uncertainty, and test-driven implementation |
 | [`assets/templates/`](assets/templates/) | Candidate analysis, workflow design, result envelopes, and durable snapshots |
 | [`examples/`](examples/) | Worked short-lived and durable workflow analyses |
 | [`benchmarks/`](benchmarks/) | Benchmark method, fixtures, tests, reports, and published aggregate results |
