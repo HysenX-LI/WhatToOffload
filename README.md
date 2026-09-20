@@ -58,13 +58,13 @@ The three short-lived walkthroughs now describe multi-stage tasks with conflicti
 
 WhatToOffload identifies places where a narrow typed semantic judgment is a better fit than prompt-and-parse generation. Before implementing a Jev node, the agent must read the available `typesafe-ai` skill and the current [TypeSafe documentation](https://docs.typesafe.ai/llms.txt). Code remains responsible for control flow, deterministic rules, side effects, and uncertainty routing.
 
-The configured reference stack for upgraded model-assisted runners is Jev (`typesafe/jev-1.13`) plus DeepSeek-V4.1-Flash, whose official API model ID is [`deepseek-flash`](https://api-docs.deepseek.com/quick_start/pricing/). Jev supplies bounded typed judgments; DeepSeek handles complex extraction, review, and missing-evidence recovery. Code owns tools, control flow, validation, and final status.
+The configured reference stack for model-assisted runners is Jev (`typesafe/jev-1.13`) plus DeepSeek-V4.1-Flash, whose official API model ID is [`deepseek-flash`](https://api-docs.deepseek.com/quick_start/pricing/). Code and Jev handle the normal path; DeepSeek supplements explicit exceptions such as uncertain judgments, conflicting evidence, or unsupported extraction cases. Accepted Jev results do not require routine DeepSeek review. Code owns tools, control flow, validation, and final status.
 
 ## Long-horizon website information processing
 
 A real private website task compares **Sol high directly**, **Sol high + the original task Skill**, and a **WhatToOffload workflow using Jev + DeepSeek-V4.1-Flash**. Evaluation measures entity coverage, available-field recall, asserted-field precision, evidence and strict acceptance alongside time and model cost.
 
-The latest three-path comparison reports completion scores of **92.8 / 96.4 / 89.2**, with execution-model costs of **$4.5361 / $3.5562 / $0.2095** respectively. Read the [full report and measurement method](benchmarks/results/website-long-horizon.md).
+The latest three-path comparison reports completion scores of **92.8 / 96.4 / 83.2**, with execution-model costs of **$4.5361 / $3.5562 / $0.0472** respectively. Read the [full report and measurement method](benchmarks/results/website-long-horizon.md).
 
 ![Website task comparison](benchmarks/results/website-long-horizon-comparison.svg)
 

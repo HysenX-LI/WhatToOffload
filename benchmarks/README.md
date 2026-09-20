@@ -6,7 +6,7 @@ The website comparison measures three paths against the same private task and sh
 - [Machine-readable metrics](results/website-long-horizon.json)
 - [Per-path CSV](results/website-long-horizon.csv)
 
-Both agent paths use independent `gpt-5.6-sol` / `high` subagents. The direct path receives the goal without procedural steps; the second also receives the original task Skill. The WhatToOffload workflow uses Jev (`typesafe/jev-1.13`) plus DeepSeek-V4.1-Flash (`deepseek-flash` API alias). Jev handles typed verification; DeepSeek handles complex extraction and recovery; code owns tools, control flow and validation.
+Both agent paths use independent `gpt-5.6-sol` / `high` subagents. The direct path receives the goal without procedural steps; the second also receives the original task Skill. The WhatToOffload workflow uses Jev (`typesafe/jev-1.13`) plus DeepSeek-V4.1-Flash (`deepseek-flash` API alias). Code prepares candidates and source context; Jev selects values and verifies ownership and evidence. DeepSeek handles explicit exceptions only; accepted Jev results do not receive routine DeepSeek review. Code owns tools, control flow and validation.
 
 One execution per path is reported on one private case. The same reference and quality rubric apply to all paths, and all executor turns are included. All three recovered all reference entities; none passed strict acceptance. Completion, field recall, field precision and strict acceptance are reported alongside execution-model cost and time. Codex costs are API-equivalent estimates from actual session tokens; construction and debugging costs are excluded.
 

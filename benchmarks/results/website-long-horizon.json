@@ -2,7 +2,7 @@
   "schema_version": 1,
   "benchmark_id": "private-website-long-horizon",
   "name": "Long-horizon website information processing",
-  "generated_at": "2026-09-20T05:47:42.522665+00:00",
+  "generated_at": "2026-09-20T07:59:04.557712+00:00",
   "case_count": 1,
   "raw_case_public": false,
   "runs": [
@@ -107,45 +107,45 @@
         "entity_recall": 1.0,
         "entity_precision": 1.0,
         "available_reference_fields": 50,
-        "correct_fields": 41,
-        "asserted_fields": 43,
-        "available_field_recall": 0.82,
-        "asserted_field_precision": 0.9534883720930233,
-        "evidence_supported_fields": 41,
-        "evidence_coverage": 1.0,
-        "reference_unavailable_fields_on_matched_entities": 11,
-        "explicit_missing_field_statuses": 11,
-        "completion_score": 89.19999999999999,
+        "correct_fields": 36,
+        "asserted_fields": 36,
+        "available_field_recall": 0.72,
+        "asserted_field_precision": 1.0,
+        "evidence_supported_fields": 35,
+        "evidence_coverage": 0.9722222222222222,
+        "reference_unavailable_fields_on_matched_entities": 13,
+        "explicit_missing_field_statuses": 13,
+        "completion_score": 83.2,
         "required_artifacts_present": true,
         "strict_pass": false,
         "failure_categories": [
           "missing_available_field",
-          "unverified_additional_value"
+          "missing_support_url"
         ]
       },
-      "result_sha256": "71dc3a4acb06f588f87094657e96675cc855e23b91736a536e21455f7d597e73",
-      "wall_ms": 495589.62508400145,
+      "result_sha256": "f0543c8b4a2df5e1f3d6e9c975bf197291941f7ae226cd253944968192c43886",
+      "wall_ms": 204049.01066599996,
       "execution_status": "completed",
       "measurement_present": true,
-      "provider_call_attempts": 46,
-      "recorded_provider_call_attempts": 46,
+      "provider_call_attempts": 69,
+      "recorded_provider_call_attempts": 69,
       "unrecorded_provider_attempts": 0,
       "unpriced_request_attempts": 0,
       "diagnostic_replay_attempts": 0,
       "unpriced_diagnostic_replay_attempts": 0,
-      "known_cost_usd": 0.20946816599999996,
-      "cost_usd": 0.20946816599999996,
+      "known_cost_usd": 0.04722606599999999,
+      "cost_usd": 0.04722606599999999,
       "cost_is_lower_bound": false,
       "provider_known_cost_usd": {
-        "jev": 0.0025900560000000003,
-        "deepseek": 0.20687810999999998
+        "jev": 0.019144818000000004,
+        "deepseek": 0.028081248
       },
       "provider_tokens": {
-        "jev_input": 61668,
-        "jev_output": 1385,
-        "deepseek_prompt_cache_hit": 849920,
-        "deepseek_prompt_cache_miss": 543621,
-        "deepseek_completion": 204642
+        "jev_input": 455829,
+        "jev_output": 7731,
+        "deepseek_prompt_cache_hit": 2816,
+        "deepseek_prompt_cache_miss": 93356,
+        "deepseek_completion": 23449
       },
       "requested_models": {
         "jev": [
@@ -164,9 +164,23 @@
         ]
       },
       "main_agent_tokens": 0,
-      "captured_pages": 346,
-      "web_tool_requests": 29,
-      "runner_sha256": "beb155e48bcc1a714826d13cd53e6d85161542e0bac108fa7684da3d32d70b2a"
+      "captured_pages": 182,
+      "web_tool_requests": 12,
+      "runner_sha256": "cb537630b5e24dbb7c712331986080adffce5f25c17cc03edf607b05afa1c0d3",
+      "provider_call_counts": {
+        "jev": 61,
+        "deepseek": 8
+      },
+      "routing": {
+        "policy": "code_and_jev_normal_path_deepseek_exceptions",
+        "deepseek_calls_with_explicit_reason": 8,
+        "deepseek_calls_without_explicit_reason": 0,
+        "records_with_deepseek_escalation": 7,
+        "exception_reason_counts": {
+          "uncertain_candidate_selection": 7,
+          "roster_structure_or_membership_unresolved": 1
+        }
+      }
     }
   ],
   "baseline_trace_manifest_sha256": "443c8cd897b7b695add6e0a152b81d19ec4fabc1d57d80a721bf8dce06afe26b",

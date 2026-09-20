@@ -58,13 +58,13 @@ WhatToOffload 不是工作流运行平台。第二阶段可以设计并接入一
 
 WhatToOffload 负责识别哪些节点适合使用有界、带类型的语义判断。进入 Jev 实施前，Agent 必须读取当前环境中的 `typesafe-ai` Skill，并查阅最新的 [TypeSafe 官方文档](https://docs.typesafe.ai/llms.txt)。控制流、确定性规则、副作用和不确定性路由仍由代码负责。
 
-升级后的模型辅助 runner 采用 Jev（`typesafe/jev-1.13`）与 DeepSeek-V4.1-Flash 作为配置参考栈；后者的官方 API 模型 ID 为 [`deepseek-flash`](https://api-docs.deepseek.com/quick_start/pricing/)。Jev 负责有界、带类型的判断；DeepSeek 负责复杂抽取、复核和缺失证据恢复；工具调用、控制流、验证与最终状态由代码负责。
+模型辅助 runner 采用 Jev（`typesafe/jev-1.13`）与 DeepSeek-V4.1-Flash 作为配置参考栈；后者的官方 API 模型 ID 为 [`deepseek-flash`](https://api-docs.deepseek.com/quick_start/pricing/)。代码与 Jev 处理常规路径；DeepSeek 仅补充判断不确定、证据冲突或现有抽取方式无法处理等明确异常。已被接受的 Jev 结果无需例行调用 DeepSeek 复核。工具调用、控制流、验证与最终状态由代码负责。
 
 ## 网站信息处理长程任务
 
 真实私有网站任务对比 **Sol high 直接执行**、**Sol high + 原版任务 Skill** 和 **采用 Jev + DeepSeek-V4.1-Flash 的 WhatToOffload 工作流**。除耗时和模型费用，还评估对象覆盖率、可用字段召回率、已填写字段准确率、证据与严格验收结果。
 
-最新三组对比的完成度依次为 **92.8 / 96.4 / 89.2**，执行模型费用依次为 **$4.5361 / $3.5562 / $0.2095**。详见[完整报告与测量口径](benchmarks/results/website-long-horizon.md)。
+最新三组对比的完成度依次为 **92.8 / 96.4 / 83.2**，执行模型费用依次为 **$4.5361 / $3.5562 / $0.0472**。详见[完整报告与测量口径](benchmarks/results/website-long-horizon.md)。
 
 ![网站信息处理长程任务对比](benchmarks/results/website-long-horizon-comparison.svg)
 
