@@ -1,90 +1,131 @@
 # WhatToOffload
 
-[中文说明](README.zh-CN.md)
+[简体中文](README.zh-CN.md)
 
-**Turning a task into a Skill can still leave repeated execution consuming substantial agent reasoning resources.**
+**Turn repeated agent work into testable software workflows.**
 
-A Skill gives an agent instructions and reusable knowledge. As long as the agent advances the workflow step by step, it must keep reading context, deciding what comes next, calling tools, and checking results. Even when a Skill includes helper scripts, the remaining coordination and judgments can consume substantial tokens and time.
+WhatToOffload is an Agent Skill that analyzes an existing task, conversation, SOP, or codebase and identifies work that can move from continuous agent reasoning into deterministic code, existing tools, [Jev](https://docs.typesafe.ai/llms.txt), or LLM services. It also makes explicit what should stay with the agent or a human.
 
-**WhatToOffload aims to move more of that work into scripts, Jev, and LLM services, reducing the need for continuous agent reasoning and coordination across repeated runs.**
+A Skill can make an agent more consistent without making repeated execution cheap: the agent may still need to reread context, choose the next step, call tools, and check results on every run. WhatToOffload looks for the automation boundary where work can run independently of the agent.
 
-This project is itself a Skill. It guides an agent to inspect an existing task, identify steps worth replacing, design the division of work, and implement and test it when authorized. The resulting program handles routine execution; work that still needs open-ended exploration, negotiation with the user, or recovery beyond its capabilities returns to the agent.
+[Quick start](#quick-start) · [How it works](#how-it-works) · [Examples](#example-supplier-review) · [Measurements](#measurements) · [Project boundaries](#project-boundaries)
 
-## How further offloading works
+## When to use it
 
-“Offloading” means turning work that the agent would otherwise advance on every run into steps a program can execute directly.
+Use WhatToOffload when:
 
-| Work within a task | Possible executor | What must be checked |
-| --- | --- | --- |
-| Read files, call existing APIs, calculate, deduplicate, validate, and save results | Scripts and existing tools | Are the rules explicit, and can unsupported inputs be detected? |
-| Classify a description or judge whether a candidate meets a condition | Jev | Is the question narrow enough, with adequate candidates and context? |
-| Interpret complex material, generate explanations, or handle cases needing additional reasoning | LLM service | Is the necessary evidence supplied, can the output be verified, and is there a call budget? |
-| Respond to changing goals, replan, or negotiate with the user | Agent or human | Does the work still require open-ended exploration and conversation? |
+- an agent repeats the same multi-step workflow and spends substantial time or tokens coordinating it;
+- a prompt-and-parse step could become a narrow, typed decision;
+- deterministic rules, calculations, API calls, or validation are still being performed through agent reasoning;
+- a workflow must wait for approvals, callbacks, timers, or retries without keeping an agent in a polling loop;
+- you want an evidence-based comparison of scripts, Jev, LLM services, agents, and human review.
 
-Jev is a TypeSafe model for narrow judgments whose outputs code can use directly, such as choosing a candidate or judging whether a condition holds. LLM services handle generation or more complex reasoning through an API. Code connects the steps, passes evidence, manages retries, and saves results.
+It is less useful for a one-off exploratory task whose goal is still changing. It is also not a workflow host: it helps design and integrate a runner, but does not provide scheduling, persistence, deployment, or secret management.
 
-**Offloading places necessary reasoning where it fits. It does not eliminate all model inference.** A task need not use all three execution methods, and a Jev judgment does not automatically need an LLM review.
+## Quick start
 
-## An example
+### 1. Install the Skill
 
-Suppose you ask an agent to process supplier quotations every week: read files, calculate amounts, interpret terms, shortlist offers, and write an explanation.
+In Codex, ask the built-in Skill installer to install the repository root as `what-to-offload`:
 
-WhatToOffload can help divide that work into:
+```text
+Use $skill-installer to install the Skill at the repository root of
+https://github.com/HysenX-LI/WhatToOffload and name it what-to-offload.
+```
 
-1. **Scripts** read the files, check for missing material, and calculate amounts under explicit rules.
-2. **Jev** judges whether quoted terms satisfy predefined requirements using the source text.
-3. **An LLM service** handles material the scripts and Jev cannot reliably resolve, and drafts an explanation from verified results.
-4. **Code** assembles the results and unresolved questions, handing back to the agent when material is missing or the goal must change.
+Codex normally detects newly installed Skills automatically; restart it if the Skill does not appear. To inspect the project before installing it, start with [SKILL.md](SKILL.md).
 
-Each replacement has a cost: scripts can miss unfamiliar formats, Jev cannot select an answer absent from its candidates, and LLM recovery still incurs spend. The design must explain how these failures are detected, when to gather more evidence, and when to stop and hand back.
+This repository currently ships as a standalone Skill. The installer flow above is intended for local use and evaluation rather than marketplace distribution.
 
-## How to use it and what you receive
+### 2. Analyze a workflow
 
-Provide an existing conversation, task description, codebase, or execution trace to an agent that can read this Skill. The entry point is [SKILL.md](SKILL.md). Start with a request such as:
+Give the agent the relevant conversation, task description, codebase, SOP, or execution trace:
 
 ```text
 Use $what-to-offload to analyze this task.
-Identify specific steps that scripts, Jev, or LLM services could handle,
-and which should remain with the agent. Explain each replacement's benefit,
-capability loss, and validation method. Propose a plan without editing code.
+Identify up to three steps that scripts, Jev, or LLM services could handle,
+and which steps should remain with the agent or a human.
+For each replacement, explain the benefit, capability loss, failure detection,
+and validation method. Propose a plan without editing code.
 ```
 
-The agent inspects the available material and normally recommends up to three candidates. Each recommendation describes the current agent behavior, proposed executor, prerequisites, benefits, risks, and a way to test the substitution.
+### 3. Design, then implement
 
-After choosing a candidate, ask for a design:
+After choosing a candidate, ask for a detailed design:
 
 ```text
-Expand the first proposal: show how the steps connect, the input and output
-of each step, exception handling, and the tests needed to validate it.
+Expand the first proposal. Show the workflow, each step's input and output,
+exception handling, handoff conditions, and acceptance tests.
 ```
 
-Once the design is agreed, request implementation:
+When the design is agreed, explicitly authorize implementation:
 
 ```text
 Implement this design using the project's existing stack.
-Validate result quality before comparing cost and latency, and explain
-which situations still require the agent.
+Validate quality before comparing cost and latency, and document the cases
+that still return to the agent or require human review.
 ```
 
-The implementation may be functions in an existing project, a directly callable execution program (runner), or steps integrated into an existing workflow system. Live API calls and external actions must remain within the user's authorization.
+Live API calls, paid model calls, deployment, and external side effects remain subject to explicit authorization.
 
-## How to decide whether a replacement is worthwhile
+## What it produces
 
-WhatToOffload uses seven steps to look beyond call counts and prices:
+WhatToOffload separates analysis, design, and implementation so a recommendation does not silently turn into a code change.
 
-1. **Observe the current behavior:** what exactly is being replaced, and what context does it depend on?
-2. **Define acceptance:** which results must be correct, complete, and supported by evidence?
-3. **Compare executors:** what can scripts, Jev, and LLMs do, and what capability might each replacement lose?
-4. **Specify evidence:** are candidates complete enough, and are sources and context preserved?
-5. **Design recovery:** handle insufficient evidence, parser failures, and uncertain judgments according to their cause.
-6. **Test the substitution:** compare old and new behavior on the same inputs and requirements.
-7. **Evaluate the complete task:** measure quality, cost, latency, and remaining agent work together.
+| Mode | Output | Changes code? |
+| --- | --- | --- |
+| **Analyze** | Up to three leading candidates, prerequisites, benefits, capability loss, risks, and validation plans | No |
+| **Design** | Node-by-node workflow, executor choices, contracts, recovery paths, handoffs, and acceptance tests | No |
+| **Implement** | Tested runner or project integration using the existing stack | Yes, only when explicitly requested |
 
-**Lower cost and latency with more missing results do not establish a successful optimization.** Building and maintaining a program also costs effort; a good choice for repeated execution may not suit a one-time task. [Read the full method](references/executor-selection.md#work-through-a-replacement).
+Candidates may be **short-lived**—finishing in one invocation—or **durable asynchronous**, where state must survive restarts or wait for an event, timer, retry, review, or approval.
 
-## Measurement: a long-horizon website task
+## How it works
 
-We compared three execution paths on the same private task. Both Codex paths use Sol high. The WhatToOffload path uses Jev (`typesafe/jev-1.13`) and DeepSeek-V4.1-Flash (`deepseek-flash` API alias), with DeepSeek handling explicit exceptions.
+For each atomic step, the Skill records both a capability role and a concrete implementation:
+
+| Work in the task | Likely executor | Key question |
+| --- | --- | --- |
+| Read files, call known APIs, calculate, deduplicate, validate, and save | Deterministic code or an existing tool | Are the rules explicit, and can unsupported inputs be detected? |
+| Classify a description or judge whether a candidate meets a condition | Jev | Is the question narrow, typed, and supported by complete candidates and context? |
+| Interpret complex material or generate an explanation | LLM service | Is the necessary evidence supplied, can the result be checked, and is there a call budget? |
+| Replan around changing goals or negotiate with the user | Current agent or human | Does the work still require open-ended exploration or accountability? |
+
+The result is not a mandatory code → Jev → LLM cascade. Each step goes to the simplest executor that can meet its quality, safety, and testability requirements. Code owns deterministic control flow and side effects; uncertain or unsupported cases follow explicit recovery and handoff paths.
+
+The evaluation method is:
+
+1. Observe the current behavior and its context.
+2. Define acceptance before selecting a replacement.
+3. Compare executors and the capability each would lose.
+4. Specify the evidence and input contract.
+5. Bound retries, uncertainty, and handoff behavior.
+6. Test old and new behavior on the same cases.
+7. Measure the complete task: quality, cost, latency, and remaining agent work.
+
+[Read the full executor-selection method](references/executor-selection.md#work-through-a-replacement).
+
+## Example: supplier review
+
+Suppose an agent reviews supplier quotations every week: it reads files, calculates totals, interprets terms, shortlists offers, and writes an explanation.
+
+| Step | After offloading |
+| --- | --- |
+| Ingest quotations and revisions | Code parses known formats, checks required material, and detects unsupported inputs |
+| Calculate totals and apply explicit constraints | Code performs reproducible calculations and policy checks |
+| Judge whether quoted terms satisfy a stated requirement | Jev makes a narrow judgment over the original evidence |
+| Resolve exceptional or ambiguous material | An LLM service runs only on an explicit exception branch |
+| Change the goal, approve a purchase, or resolve missing evidence | The workflow hands back to the agent or a human |
+
+The design must also say how parser failures, incomplete candidate sets, uncertain judgments, and provider errors are detected. Faster and cheaper execution with missing or unsupported results is not a successful optimization.
+
+See the public examples for [test-failure analysis](examples/code-triage.md), [web research](examples/web-research.md), [candidate screening](examples/business-screening.md), and a [multi-day supplier review](examples/durable-vendor-review.md).
+
+## Measurements
+
+### Long-horizon website task
+
+We compared three execution paths on the same private task. Both Codex paths used Sol high. The WhatToOffload-designed workflow used Jev (`typesafe/jev-1.13`) with DeepSeek-V4.1-Flash on explicit exception paths.
 
 | Path | Execution-model cost | Time | Completion / 100 |
 | --- | ---: | ---: | ---: |
@@ -94,23 +135,32 @@ We compared three execution paths on the same private task. Both Codex paths use
 
 ![Website task comparison](benchmarks/results/website-long-horizon-comparison.svg)
 
-In this execution, the workflow cost less and finished sooner, but its completion score was below both baselines. One run per path is reported, and **none passed strict acceptance**; these results do not establish a general success rate. Completion measures information coverage, while strict acceptance also checks precision, evidence, and complete deliverables.
+The workflow was cheaper and faster in this run, but it had lower completion than both baselines. There was one run per path, and **none passed strict acceptance**. This is evidence about a specific design tradeoff, not a general success rate. Costs cover model execution only and exclude construction, debugging, and other setup costs. [Read the report and measurement boundaries](benchmarks/results/website-long-horizon.md).
 
-Costs cover model execution only. Codex spend is an API-equivalent estimate from actual session tokens; construction, debugging, and other excluded costs are outside the table. Task details and raw material remain local; only anonymized aggregate results are published. [Full report and measurement boundaries](benchmarks/results/website-long-horizon.md).
+### Synthetic batch task
 
-## Another measurement: a synthetic batch task
-
-This task covers 120 documents, 24 candidates, and three projects, including quotation revisions, conflicting evidence, calculations, rankings, and a report. It compares the same three approaches, with three runs per path.
+A second study covers 120 documents, 24 candidates, and three projects, including quotation revisions, conflicting evidence, calculations, rankings, and a report. It compares the same three approaches over three runs per path.
 
 ![Three-path batch-task cost and time comparison](benchmarks/results/long-task-comparison.svg)
 
-These measurements cover repeated execution after the program is prepared; one-time construction cost was not fully measured. The task was used in development, so this is a development case study rather than a guarantee for new tasks or production. [Full results](benchmarks/results/long-task.md) · [Measurement method](benchmarks/README.md).
+This measures repeated execution after the program was prepared; one-time construction cost was not fully measured. The task also participated in development, so it is a development case study rather than evidence of unseen-case generalization. [Full results](benchmarks/results/long-task.md) · [Measurement method](benchmarks/README.md)
 
-## Further reading
+## Project boundaries
 
-- **Public examples:** [test-failure analysis](examples/code-triage.md), [web research](examples/web-research.md), [candidate screening](examples/business-screening.md), and [multi-day supplier review](examples/durable-vendor-review.md).
-- **Methods and templates:** [executor selection](references/executor-selection.md), [testing and acceptance](references/test-driven-workflows.md), and [workflow design template](assets/templates/workflow-design.md).
-- **Tasks that wait or resume:** for multi-day work, approval waits, or execution that must survive a restart, see [durable workflow design](references/durable-async-workflows.md).
-- **Jev implementation:** use the available `typesafe-ai` Skill and [official TypeSafe documentation](https://docs.typesafe.ai/llms.txt) for API and usage guidance.
+- WhatToOffload is a design and implementation Skill, not a scheduler, worker host, database, queue, deployment platform, operations console, or secret manager.
+- Offloading moves necessary reasoning to the appropriate executor; it does not eliminate all model inference.
+- Jev cannot select an answer absent from its candidates, scripts can miss unfamiliar formats, and LLM recovery still has cost and failure modes.
+- Quality and evidence are acceptance requirements. Cost and latency improvements are evaluated only after result quality.
+- External actions and live API calls stay within the user's authorization.
 
-This repository provides Skill instructions, references, templates, examples, and measurement reports. The Skill is not installed automatically; generated workflows run in your project environment. Where scheduling, persisted state, or deployment is needed, it helps select and integrate the relevant systems rather than hosting the workflow itself.
+## Repository map
+
+| Path | Contents |
+| --- | --- |
+| [SKILL.md](SKILL.md) | Agent instructions and operating modes |
+| [`references/`](references/) | Executor selection, workflow classes, safety, uncertainty, and test-driven implementation |
+| [`assets/templates/`](assets/templates/) | Candidate analysis, workflow design, result envelopes, and durable snapshots |
+| [`examples/`](examples/) | Worked short-lived and durable workflow analyses |
+| [`benchmarks/`](benchmarks/) | Benchmark method, fixtures, tests, reports, and published aggregate results |
+
+For Jev implementation details, use the `typesafe-ai` Skill when available and consult the [official TypeSafe documentation](https://docs.typesafe.ai/llms.txt).
