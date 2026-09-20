@@ -1,18 +1,16 @@
 # Private website long-horizon benchmark
 
-The current real-web pilot measures three paths against the same private task and a shared completion rubric. The exact case and raw artifacts are not published.
+The website comparison measures three paths against the same private task and shared quality rubric. The report presents the latest measured workflow configuration; the exact case and raw artifacts are not published.
 
-- [Completion, cost, timing and retained failures](results/website-long-horizon.md)
+- [Completion, cost and timing](results/website-long-horizon.md)
 - [Machine-readable metrics](results/website-long-horizon.json)
 - [Per-path CSV](results/website-long-horizon.csv)
 
-Both agent paths use independent `gpt-5.6-sol` / `high` subagents. The direct path receives the goal without procedural steps; the second also receives an original task Skill. The prepared workflow is measured independently. It was repaired on this case, and all earlier attempts remain in the report. Results include strict quality gates: an incomplete execution does not establish end-to-end savings.
+Both agent paths use independent `gpt-5.6-sol` / `high` subagents. The direct path receives the goal without procedural steps; the second also receives the original task Skill. The WhatToOffload workflow uses Jev (`typesafe/jev-1.13`) plus DeepSeek-V4.1-Flash (`deepseek-flash` API alias). Jev handles typed verification; DeepSeek handles complex extraction and recovery; code owns tools, control flow and validation.
 
-The historical website pilot used Jev alone. Upgraded runs use Jev (`typesafe/jev-1.13`) plus DeepSeek-V4.1-Flash (official API alias [`deepseek-flash`](https://api-docs.deepseek.com/quick_start/pricing/)). Jev handles typed verification; DeepSeek handles complex extraction and recovery; code owns tools, control flow and validation.
+One execution per path is reported on one private case. The same reference and quality rubric apply to all paths, and all executor turns are included. All three recovered all reference entities; none passed strict acceptance. Completion, field recall, field precision and strict acceptance are reported alongside execution-model cost and time. Codex costs are API-equivalent estimates from actual session tokens; construction and debugging costs are excluded.
 
-A second, independently selected private case tests the frozen workflow's transfer. Read the [independent transfer report](results/website-long-horizon-heldout.md) for both Sol high baselines, the original frozen transfer, and explicitly labeled post-inspection repairs. Earlier failures are retained. The [development-case report](results/website-long-horizon.md) remains available separately.
-
-Each baseline has one measured run per case, with uncontrolled live web and cache conditions. This is not a statistical study. Task-specific content, reference data, code and traces remain Git-ignored locally; only generic measurements and hashes are exported.
+Live web and cache conditions are uncontrolled. This comparison does not establish a statistical success rate or unseen-case generalization. Task-specific content, reference data, code and traces remain Git-ignored locally; only generic measurements and hashes are exported.
 
 ---
 

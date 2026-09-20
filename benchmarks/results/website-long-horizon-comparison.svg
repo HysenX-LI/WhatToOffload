@@ -9,21 +9,19 @@
 <text x="250.0" y="116.0" font-size="14" font-weight="bold" fill="#111827" text-anchor="start">Known model cost (USD, log)</text>
 <text x="550.0" y="116.0" font-size="14" font-weight="bold" fill="#111827" text-anchor="start">Executor time (minutes)</text>
 <text x="850.0" y="116.0" font-size="14" font-weight="bold" fill="#111827" text-anchor="start">Completion score / 100</text>
-<text x="1150.0" y="116.0" font-size="14" font-weight="bold" fill="#111827" text-anchor="start">Strict success rate</text>
+<text x="1150.0" y="116.0" font-size="14" font-weight="bold" fill="#111827" text-anchor="start">Strict acceptance</text>
 <line x1="250.0" y1="135" x2="250.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
-<text x="250.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">$0.01</text>
-<line x1="324.0" y1="135" x2="324.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
-<text x="324.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">$0.1</text>
-<line x1="398.0" y1="135" x2="398.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
-<text x="398.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">$1</text>
+<text x="250.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">$0.1</text>
+<line x1="361.0" y1="135" x2="361.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
+<text x="361.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">$1</text>
 <line x1="472.0" y1="135" x2="472.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
 <text x="472.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">$10</text>
 <line x1="550.0" y1="135" x2="550.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
 <text x="550.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">0.0</text>
 <line x1="661.0" y1="135" x2="661.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
-<text x="661.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">4.5</text>
+<text x="661.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">7.6</text>
 <line x1="772.0" y1="135" x2="772.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
-<text x="772.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">9.0</text>
+<text x="772.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">15.1</text>
 <line x1="850.0" y1="135" x2="850.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
 <text x="850.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">0%</text>
 <line x1="961.0" y1="135" x2="961.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
@@ -36,33 +34,33 @@
 <text x="1261.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">50%</text>
 <line x1="1372.0" y1="135" x2="1372.0" y2="390" stroke="#E5E7EB" stroke-width="1"/>
 <text x="1372.0" y="410.0" font-size="10" font-weight="normal" fill="#6B7280" text-anchor="middle">100%</text>
-<rect x="250.0" y="157.0" width="172.5" height="36" rx="3" fill="#3978B5"/>
-<text x="430.5" y="180.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">$2.1447</text>
-<rect x="550.0" y="157.0" width="188.3" height="36" rx="3" fill="#3978B5"/>
-<text x="746.3" y="180.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">7.59</text>
-<rect x="850.0" y="157.0" width="222.0" height="36" rx="3" fill="#3978B5"/>
-<text x="1080.0" y="180.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">100.0</text>
-<rect x="1150.0" y="157.0" width="222.0" height="36" rx="3" fill="#188977"/>
-<text x="1380.0" y="180.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">1/1</text>
-<rect x="250.0" y="247.0" width="165.2" height="36" rx="3" fill="#7862A6"/>
-<text x="423.2" y="270.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">$1.7102</text>
-<rect x="550.0" y="247.0" width="193.0" height="36" rx="3" fill="#7862A6"/>
-<text x="751.0" y="270.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">7.79</text>
-<rect x="850.0" y="247.0" width="210.1" height="36" rx="3" fill="#7862A6"/>
-<text x="1068.1" y="270.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">94.6</text>
+<rect x="250.0" y="157.0" width="183.9" height="36" rx="3" fill="#3978B5"/>
+<text x="441.9" y="180.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">$4.5361</text>
+<rect x="550.0" y="157.0" width="193.0" height="36" rx="3" fill="#3978B5"/>
+<text x="751.0" y="180.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">13.14</text>
+<rect x="850.0" y="157.0" width="206.0" height="36" rx="3" fill="#3978B5"/>
+<text x="1064.0" y="180.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">92.8</text>
+<rect x="1150.0" y="157.0" width="2.0" height="36" rx="3" fill="#C56A3D"/>
+<text x="1158.0" y="180.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">0/1</text>
+<rect x="250.0" y="247.0" width="172.2" height="36" rx="3" fill="#7862A6"/>
+<text x="430.2" y="270.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">$3.5562</text>
+<rect x="550.0" y="247.0" width="186.8" height="36" rx="3" fill="#7862A6"/>
+<text x="744.8" y="270.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">12.72</text>
+<rect x="850.0" y="247.0" width="214.0" height="36" rx="3" fill="#7862A6"/>
+<text x="1072.0" y="270.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">96.4</text>
 <rect x="1150.0" y="247.0" width="2.0" height="36" rx="3" fill="#C56A3D"/>
 <text x="1158.0" y="270.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">0/1</text>
-<rect x="250.0" y="337.0" width="67.1" height="36" rx="3" fill="#188977"/>
-<text x="325.1" y="360.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">$0.0806</text>
-<rect x="550.0" y="337.0" width="106.8" height="36" rx="3" fill="#188977"/>
-<text x="664.8" y="360.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">4.31</text>
-<rect x="850.0" y="337.0" width="217.2" height="36" rx="3" fill="#188977"/>
-<text x="1075.2" y="360.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">97.9</text>
+<rect x="250.0" y="337.0" width="35.6" height="36" rx="3" fill="#188977"/>
+<text x="293.6" y="360.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">$0.2095</text>
+<rect x="550.0" y="337.0" width="121.3" height="36" rx="3" fill="#188977"/>
+<text x="679.3" y="360.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">8.26</text>
+<rect x="850.0" y="337.0" width="198.0" height="36" rx="3" fill="#188977"/>
+<text x="1056.0" y="360.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">89.2</text>
 <rect x="1150.0" y="337.0" width="2.0" height="36" rx="3" fill="#C56A3D"/>
 <text x="1158.0" y="360.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">0/1</text>
-<text x="34.0" y="460.0" font-size="13" font-weight="normal" fill="#4B5563" text-anchor="start">Baselines: n=1 each. Workflow: n=1 caller-specified run; bars show means and thin lines show ranges when n&gt;1.</text>
-<text x="34.0" y="486.0" font-size="13" font-weight="normal" fill="#4B5563" text-anchor="start">Completion measures recovered coverage; strict success applies the full gate. 7 earlier Jev-only or upgraded development attempts retained.</text>
-<text x="34.0" y="512.0" font-size="13" font-weight="normal" fill="#4B5563" text-anchor="start">≥ marks a known cost lower bound. Search-tool fees, setup and repair, local compute, and human review are excluded.</text>
+<text x="34.0" y="460.0" font-size="13" font-weight="normal" fill="#4B5563" text-anchor="start">One private case; one reported execution per path. All executor turns are included.</text>
+<text x="34.0" y="486.0" font-size="13" font-weight="normal" fill="#4B5563" text-anchor="start">Completion measures recovered coverage; strict acceptance applies the full quality gate. No statistical success-rate claim.</text>
+<text x="34.0" y="512.0" font-size="13" font-weight="normal" fill="#4B5563" text-anchor="start">Codex cost is API-equivalent. Setup/debugging, orchestration, grading, local compute and search fees are excluded.</text>
 <text x="1506.0" y="558.0" font-size="12" font-weight="normal" fill="#6B7280" text-anchor="end">Workflow stack: Jev typesafe/jev-1.13 + DeepSeek-V4.1-Flash (deepseek-flash alias)</text>
 </g>
 </svg>

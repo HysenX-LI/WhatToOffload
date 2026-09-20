@@ -62,17 +62,15 @@ The configured reference stack for upgraded model-assisted runners is Jev (`type
 
 ## Long-horizon website information processing
 
-Real private website tasks compare **Sol high directly**, **Sol high + the original task Skill**, and a **WhatToOffload workflow using Jev + DeepSeek-V4.1-Flash**. Evaluation measures entity coverage, available-field recall, asserted-field precision, evidence and strict acceptance alongside time and model cost.
+A real private website task compares **Sol high directly**, **Sol high + the original task Skill**, and a **WhatToOffload workflow using Jev + DeepSeek-V4.1-Flash**. Evaluation measures entity coverage, available-field recall, asserted-field precision, evidence and strict acceptance alongside time and model cost.
 
-A second case was independently selected after freezing the workflow. Its original transfer result and later repairs are reported separately, so a repair made after seeing the new case cannot be mistaken for untouched transfer success. Read the [independent transfer report](benchmarks/results/website-long-horizon-heldout.md).
+The latest three-path comparison reports completion scores of **92.8 / 96.4 / 89.2**, with execution-model costs of **$4.5361 / $3.5562 / $0.2095** respectively. Read the [full report and measurement method](benchmarks/results/website-long-horizon.md).
 
-![Independent website task comparison](benchmarks/results/website-long-horizon-heldout-comparison.svg)
+![Website task comparison](benchmarks/results/website-long-horizon-comparison.svg)
 
-There is one measured run per baseline on each case. **Cheap incomplete output is not a successful-task saving.** Completion score and strict success are separate; these small live-web measurements do not establish a general success rate. The [development-case report](benchmarks/results/website-long-horizon.md) retains the earlier attempts and the upgraded run.
+One execution per path is reported on this case. All three recovered all reference entities, but **none passed strict acceptance**. Completion and strict acceptance are separate measures; the comparison does not establish a general success rate or unseen-case generalization. Codex costs are API-equivalent estimates from actual session tokens; setup and debugging costs are excluded.
 
-The original website pilot used Jev alone. Later dual-model results are explicitly labeled; historical measurements are not relabeled. Generic reliability checks now cover optional-field recovery, response contracts, source evidence and frozen transfer evaluation in the [implementation playbook](references/test-driven-workflows.md#validate-extraction-and-batch-completion).
-
-The tasks, source identities, raw materials, reference answers, execution outputs and implementations remain local. Only sanitized metrics, opaque hashes and generic methodology are public.
+The task, source identities, raw materials, reference answers, execution outputs and implementation remain local. Only sanitized metrics, opaque hashes and generic methodology are public.
 
 ## Historical synthetic batch-task comparison
 

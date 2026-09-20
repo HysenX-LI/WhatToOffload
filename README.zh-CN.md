@@ -62,15 +62,13 @@ WhatToOffload 负责识别哪些节点适合使用有界、带类型的语义判
 
 ## 网站信息处理长程任务
 
-真实私有网站任务对比 **Sol high 直接执行**、**Sol high + 原版任务 Skill** 和 **采用 Jev + DeepSeek-V4.1-Flash 的 WhatToOffload 工作流**。除耗时和模型费用，还独立评估对象覆盖率、可用字段召回率、已填写字段准确率、证据与严格验收结果。
+真实私有网站任务对比 **Sol high 直接执行**、**Sol high + 原版任务 Skill** 和 **采用 Jev + DeepSeek-V4.1-Flash 的 WhatToOffload 工作流**。除耗时和模型费用，还评估对象覆盖率、可用字段召回率、已填写字段准确率、证据与严格验收结果。
 
-第二个样例在工作流冻结后独立选定。原始迁移结果与看到失败后的修复结果分开呈现，避免把针对新样例修复后的表现当成未见过该样例时的泛化效果。详见[独立迁移测试报告](benchmarks/results/website-long-horizon-heldout.md)。
+最新三组对比的完成度依次为 **92.8 / 96.4 / 89.2**，执行模型费用依次为 **$4.5361 / $3.5562 / $0.2095**。详见[完整报告与测量口径](benchmarks/results/website-long-horizon.md)。
 
-![独立网站任务对比](benchmarks/results/website-long-horizon-heldout-comparison.svg)
+![网站信息处理长程任务对比](benchmarks/results/website-long-horizon-comparison.svg)
 
-每个样例的两个基线路径各实测一次。**低成本但未完成的结果不算任务级降本**；完成度和严格成功分别报告，这些小规模实时网页测试不能证明普遍成功率。[开发样例报告](benchmarks/results/website-long-horizon.md)保留了早期尝试和升级后的测试。
-
-原始网站试点仅使用 Jev；后续双模型测试明确标注，历史数据不改名。可选字段恢复、响应契约、证据验证和冻结后迁移测试的通用要求已补入[实现验收文档](references/test-driven-workflows.md#validate-extraction-and-batch-completion)。
+本样例每组呈现一次实测。三组均覆盖全部参考对象，但**均未通过严格验收**。完成度与严格验收分别报告，本次对比不能证明普遍成功率或对未见样例的泛化效果。Codex 费用按实际会话 token 折算为 API 等价费用；构建与调试费用不计入。
 
 具体任务、网站、原始材料、参考答案、执行结果及实现只保存在本地；仓库仅公开脱敏指标、摘要哈希与通用测量口径。
 
