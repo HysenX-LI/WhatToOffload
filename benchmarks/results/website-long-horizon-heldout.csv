@@ -1,0 +1,5 @@
+arm,evaluation_phase,wall_ms,known_cost_usd,cost_is_lower_bound,completion_score,entity_recall,available_field_recall,asserted_field_precision,evidence_coverage,strict_pass
+codex_only,independent_baseline,788692,4.53614,False,92.80000000000001,1.0,0.88,1.0,1.0,False
+codex_with_skill,independent_baseline,763321,3.5562312,False,96.39999999999999,1.0,0.94,1.0,0.9787234042553191,False
+whattooffload,frozen_transfer_before_inspection,24307.74341700453,0.005934947999999999,False,0.0,0.0,0.0,,,False
+whattooffload_repaired,post_inspection_repair,495589.62508400145,0.20946816599999996,False,89.19999999999999,1.0,0.82,0.9534883720930233,1.0,False

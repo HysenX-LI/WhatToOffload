@@ -8,7 +8,11 @@ The current real-web pilot measures three paths against the same private task an
 
 Both agent paths use independent `gpt-5.6-sol` / `high` subagents. The direct path receives the goal without procedural steps; the second also receives an original task Skill. The prepared workflow is measured independently. It was repaired on this case, and all earlier attempts remain in the report. Results include strict quality gates: an incomplete execution does not establish end-to-end savings.
 
-This is one case and one run per agent path, with uncontrolled live web and cache conditions. It is not a statistical study. Task-specific content, reference data, code and traces remain Git-ignored locally; only generic measurements and hashes are exported.
+The historical website pilot used Jev alone. Upgraded runs use Jev (`typesafe/jev-1.13`) plus DeepSeek-V4.1-Flash (official API alias [`deepseek-flash`](https://api-docs.deepseek.com/quick_start/pricing/)). Jev handles typed verification; DeepSeek handles complex extraction and recovery; code owns tools, control flow and validation.
+
+A second, independently selected private case tests the frozen workflow's transfer. Read the [independent transfer report](results/website-long-horizon-heldout.md) for both Sol high baselines, the original frozen transfer, and explicitly labeled post-inspection repairs. Earlier failures are retained. The [development-case report](results/website-long-horizon.md) remains available separately.
+
+Each baseline has one measured run per case, with uncontrolled live web and cache conditions. This is not a statistical study. Task-specific content, reference data, code and traces remain Git-ignored locally; only generic measurements and hashes are exported.
 
 ---
 

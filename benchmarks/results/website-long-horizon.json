@@ -1,18 +1,28 @@
 {
-  "schema_version": 1,
-  "benchmark_id": "private-website-long-horizon-v1",
+  "schema_version": 2,
+  "benchmark_id": "private-website-long-horizon-v2",
   "name": "Long-horizon website information processing",
-  "generated_at": "2026-09-20T04:27:11.020579+00:00",
-  "status": "measured_with_quality_failures",
+  "generated_at": "2026-09-20T05:47:42.377568+00:00",
   "case_count": 1,
-  "repetitions_per_arm": 1,
   "live_web": true,
   "raw_case_public": false,
-  "reference_entities": 9,
+  "baseline_repetitions_per_arm": 1,
+  "final_workflow_repetitions": 1,
   "runs": [
     {
       "arm": "codex_only",
       "repetition": 1,
+      "execution_status": "completed",
+      "wall_ms": 455545,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "tool_calls": 27,
+      "codex_usage": {
+        "input_tokens": 3105248,
+        "cached_input_tokens": 2942336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15806
+      },
       "quality": {
         "reference_entities": 9,
         "output_entities": 9,
@@ -33,29 +43,27 @@
         "strict_pass": true,
         "failure_categories": []
       },
-      "result_sha256": "bd346e4e0ecf3c67066c42bdecede32444d9c1c23a7ca32fdb8ac3ce9942cb0b",
-      "tool_calls": 27,
-      "max_request_input_tokens": 178805,
-      "model": "gpt-5.6-sol",
-      "reasoning_effort": "high",
-      "codex_usage": {
-        "input_tokens": 3105248,
-        "cached_input_tokens": 2942336,
-        "cache_write_input_tokens": 0,
-        "output_tokens": 15806,
-        "reasoning_output_tokens": 4100,
-        "total_tokens": 3121054
-      },
-      "wall_ms": 455545,
-      "cost_usd": 2.1447024000000003,
       "known_cost_usd": 2.1447024000000003,
+      "cost_usd": 2.1447024000000003,
+      "cost_is_lower_bound": false,
       "unpriced_request_attempts": 0,
       "main_agent_tokens": 3121054,
-      "execution_status": "completed"
+      "result_sha256": "bd346e4e0ecf3c67066c42bdecede32444d9c1c23a7ca32fdb8ac3ce9942cb0b"
     },
     {
       "arm": "codex_with_skill",
       "repetition": 1,
+      "execution_status": "completed",
+      "wall_ms": 467117,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "tool_calls": 25,
+      "codex_usage": {
+        "input_tokens": 2316494,
+        "cached_input_tokens": 2194944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17302
+      },
       "quality": {
         "reference_entities": 9,
         "output_entities": 9,
@@ -78,25 +86,12 @@
           "missing_available_field"
         ]
       },
-      "result_sha256": "5aa998eae64789746a65d25e557f41eedd5039374d9baad1e07c17bacd39fb07",
-      "tool_calls": 25,
-      "max_request_input_tokens": 145358,
-      "model": "gpt-5.6-sol",
-      "reasoning_effort": "high",
-      "codex_usage": {
-        "input_tokens": 2316494,
-        "cached_input_tokens": 2194944,
-        "cache_write_input_tokens": 0,
-        "output_tokens": 17302,
-        "reasoning_output_tokens": 5693,
-        "total_tokens": 2333796
-      },
-      "wall_ms": 467117,
-      "cost_usd": 1.7102176,
       "known_cost_usd": 1.7102176,
+      "cost_usd": 1.7102176,
+      "cost_is_lower_bound": false,
       "unpriced_request_attempts": 0,
       "main_agent_tokens": 2333796,
-      "execution_status": "completed"
+      "result_sha256": "5aa998eae64789746a65d25e557f41eedd5039374d9baad1e07c17bacd39fb07"
     },
     {
       "arm": "whattooffload",
@@ -108,12 +103,218 @@
         "entity_recall": 1.0,
         "entity_precision": 1.0,
         "available_reference_fields": 56,
+        "correct_fields": 54,
+        "asserted_fields": 55,
+        "available_field_recall": 0.9642857142857143,
+        "asserted_field_precision": 0.9818181818181818,
+        "evidence_supported_fields": 53,
+        "evidence_coverage": 0.9814814814814815,
+        "reference_unavailable_fields_on_matched_entities": 6,
+        "explicit_missing_field_statuses": 6,
+        "completion_score": 97.85714285714285,
+        "required_artifacts_present": true,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field",
+          "missing_support_url",
+          "unverified_additional_value"
+        ]
+      },
+      "result_sha256": "ebf00b0ef3266db190fd5520d2ecbcd42d4309b82ea312fcb2c800fc009b2478",
+      "wall_ms": 258500.0140419943,
+      "execution_status": "needs_review",
+      "measurement_present": true,
+      "provider_call_attempts": 28,
+      "recorded_provider_call_attempts": 28,
+      "unrecorded_provider_attempts": 0,
+      "unpriced_request_attempts": 0,
+      "diagnostic_replay_attempts": 0,
+      "unpriced_diagnostic_replay_attempts": 0,
+      "known_cost_usd": 0.080565576,
+      "cost_usd": 0.080565576,
+      "cost_is_lower_bound": false,
+      "provider_known_cost_usd": {
+        "jev": 0.00271383,
+        "deepseek": 0.07785174599999999
+      },
+      "provider_tokens": {
+        "jev_input": 64615,
+        "jev_output": 1545,
+        "deepseek_prompt_cache_hit": 178432,
+        "deepseek_prompt_cache_miss": 125411,
+        "deepseek_completion": 97508
+      },
+      "requested_models": {
+        "jev": [
+          "typesafe/jev-1.13"
+        ],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "returned_models": {
+        "jev": [
+          "typesafe/jev-1.13-20260917"
+        ],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "workflow_generation": "upgraded_jev_deepseek",
+      "main_agent_tokens": 0,
+      "captured_pages": 152,
+      "web_tool_requests": 15
+    }
+  ],
+  "earlier_workflow_attempts": [
+    {
+      "arm": "whattooffload",
+      "repetition": 1,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 0,
+        "matched_entities": 0,
+        "entity_recall": 0.0,
+        "entity_precision": null,
+        "available_reference_fields": 56,
+        "correct_fields": 0,
+        "asserted_fields": 0,
+        "available_field_recall": 0.0,
+        "asserted_field_precision": null,
+        "evidence_supported_fields": 0,
+        "evidence_coverage": null,
+        "reference_unavailable_fields_on_matched_entities": 0,
+        "explicit_missing_field_statuses": 0,
+        "completion_score": 0.0,
+        "required_artifacts_present": false,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field",
+          "missing_required_artifact"
+        ]
+      },
+      "result_sha256": "c54b9a6e377bdce7fb3b9fde676de1eb280f7f0b00f7c0af9853ec96ff62eca4",
+      "wall_ms": 49648.124375002226,
+      "execution_status": "completed",
+      "measurement_present": true,
+      "provider_call_attempts": 21,
+      "recorded_provider_call_attempts": 21,
+      "unrecorded_provider_attempts": 0,
+      "unpriced_request_attempts": 0,
+      "diagnostic_replay_attempts": 0,
+      "unpriced_diagnostic_replay_attempts": 0,
+      "known_cost_usd": 0.0012531539999999998,
+      "cost_usd": 0.0012531539999999998,
+      "cost_is_lower_bound": false,
+      "provider_known_cost_usd": {
+        "jev": 0.0012531539999999998,
+        "deepseek": 0.0
+      },
+      "provider_tokens": {
+        "jev_input": 29837,
+        "jev_output": 4201,
+        "deepseek_prompt_cache_hit": 0,
+        "deepseek_prompt_cache_miss": 0,
+        "deepseek_completion": 0
+      },
+      "requested_models": {
+        "jev": [],
+        "deepseek": []
+      },
+      "returned_models": {
+        "jev": [
+          "typesafe/jev-1.13-20260917"
+        ],
+        "deepseek": []
+      },
+      "workflow_generation": "historical_jev_only",
+      "main_agent_tokens": 0,
+      "captured_pages": 2,
+      "web_tool_requests": null,
+      "attempt": 1
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 2,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 0,
+        "matched_entities": 0,
+        "entity_recall": 0.0,
+        "entity_precision": null,
+        "available_reference_fields": 56,
+        "correct_fields": 0,
+        "asserted_fields": 0,
+        "available_field_recall": 0.0,
+        "asserted_field_precision": null,
+        "evidence_supported_fields": 0,
+        "evidence_coverage": null,
+        "reference_unavailable_fields_on_matched_entities": 0,
+        "explicit_missing_field_statuses": 0,
+        "completion_score": 0.0,
+        "required_artifacts_present": false,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field",
+          "missing_required_artifact"
+        ]
+      },
+      "result_sha256": "644e48bb720b809a6fcef120aa11916b720fba6f848e1c609b9deac0c0ae576e",
+      "wall_ms": 135066.17849999748,
+      "execution_status": "failed",
+      "measurement_present": true,
+      "provider_call_attempts": 44,
+      "recorded_provider_call_attempts": 43,
+      "unrecorded_provider_attempts": 1,
+      "unpriced_request_attempts": 1,
+      "diagnostic_replay_attempts": 0,
+      "unpriced_diagnostic_replay_attempts": 0,
+      "known_cost_usd": 0.002038428,
+      "cost_usd": null,
+      "cost_is_lower_bound": true,
+      "provider_known_cost_usd": {
+        "jev": 0.002038428,
+        "deepseek": 0.0
+      },
+      "provider_tokens": {
+        "jev_input": 48534,
+        "jev_output": 5801,
+        "deepseek_prompt_cache_hit": 0,
+        "deepseek_prompt_cache_miss": 0,
+        "deepseek_completion": 0
+      },
+      "requested_models": {
+        "jev": [],
+        "deepseek": []
+      },
+      "returned_models": {
+        "jev": [
+          "typesafe/jev-1.13-20260917"
+        ],
+        "deepseek": []
+      },
+      "workflow_generation": "historical_jev_only",
+      "main_agent_tokens": 0,
+      "captured_pages": 5,
+      "web_tool_requests": null,
+      "attempt": 2
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 3,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 9,
+        "matched_entities": 9,
+        "entity_recall": 1.0,
+        "entity_precision": 1.0,
+        "available_reference_fields": 56,
         "correct_fields": 36,
         "asserted_fields": 38,
         "available_field_recall": 0.6428571428571429,
         "asserted_field_precision": 0.9473684210526315,
-        "evidence_supported_fields": 36,
-        "evidence_coverage": 1.0,
+        "evidence_supported_fields": 9,
+        "evidence_coverage": 0.25,
         "reference_unavailable_fields_on_matched_entities": 6,
         "explicit_missing_field_statuses": 6,
         "completion_score": 78.57142857142858,
@@ -122,6 +323,7 @@
         "failure_categories": [
           "missing_available_field",
           "missing_required_artifact",
+          "missing_support_url",
           "unverified_additional_value",
           "wrong_field"
         ]
@@ -129,82 +331,47 @@
       "result_sha256": "590c14cb81c8848499094ecac06cef2430b61df626ad8f06e0c50fa9e4fa083c",
       "wall_ms": 144411.4069999996,
       "execution_status": "completed",
+      "measurement_present": true,
       "provider_call_attempts": 53,
+      "recorded_provider_call_attempts": 53,
+      "unrecorded_provider_attempts": 0,
       "unpriced_request_attempts": 3,
+      "diagnostic_replay_attempts": 0,
+      "unpriced_diagnostic_replay_attempts": 0,
       "known_cost_usd": 0.0023903880000000002,
       "cost_usd": null,
-      "provider_tokens": {
-        "input": 56914,
-        "output": 7248
+      "cost_is_lower_bound": true,
+      "provider_known_cost_usd": {
+        "jev": 0.0023903880000000002,
+        "deepseek": 0.0
       },
+      "provider_tokens": {
+        "jev_input": 56914,
+        "jev_output": 7248,
+        "deepseek_prompt_cache_hit": 0,
+        "deepseek_prompt_cache_miss": 0,
+        "deepseek_completion": 0
+      },
+      "requested_models": {
+        "jev": [],
+        "deepseek": []
+      },
+      "returned_models": {
+        "jev": [
+          "typesafe/jev-1.13",
+          "typesafe/jev-1.13-20260917"
+        ],
+        "deepseek": []
+      },
+      "workflow_generation": "historical_jev_only",
       "main_agent_tokens": 0,
       "captured_pages": 11,
-      "provider_models": [
-        "typesafe/jev-1.13",
-        "typesafe/jev-1.13-20260917"
-      ]
-    }
-  ],
-  "earlier_workflow_attempts": [
-    {
-      "attempt": 1,
-      "wall_ms": 49648.124375002226,
-      "execution_status": "completed",
-      "provider_call_attempts": 21,
-      "unpriced_request_attempts": 0,
-      "known_cost_usd": 0.0012531539999999998,
-      "cost_usd": 0.0012531539999999998,
-      "provider_tokens": {
-        "input": 29837,
-        "output": 4201
-      },
-      "main_agent_tokens": 0,
-      "captured_pages": 2,
-      "provider_models": [
-        "typesafe/jev-1.13-20260917"
-      ],
-      "quality": {
-        "reference_entities": 9,
-        "output_entities": 0,
-        "matched_entities": 0,
-        "entity_recall": 0.0,
-        "entity_precision": null,
-        "available_reference_fields": 56,
-        "correct_fields": 0,
-        "asserted_fields": 0,
-        "available_field_recall": 0.0,
-        "asserted_field_precision": null,
-        "evidence_supported_fields": 0,
-        "evidence_coverage": null,
-        "reference_unavailable_fields_on_matched_entities": 0,
-        "explicit_missing_field_statuses": 0,
-        "completion_score": 0.0,
-        "required_artifacts_present": false,
-        "strict_pass": false,
-        "failure_categories": [
-          "missing_available_field",
-          "missing_required_artifact"
-        ]
-      },
-      "result_sha256": "c54b9a6e377bdce7fb3b9fde676de1eb280f7f0b00f7c0af9853ec96ff62eca4"
+      "web_tool_requests": null,
+      "attempt": 3
     },
     {
-      "attempt": 2,
-      "wall_ms": 135066.17849999748,
-      "execution_status": "failed",
-      "provider_call_attempts": 44,
-      "unpriced_request_attempts": 1,
-      "known_cost_usd": 0.002038428,
-      "cost_usd": null,
-      "provider_tokens": {
-        "input": 48534,
-        "output": 5801
-      },
-      "main_agent_tokens": 0,
-      "captured_pages": 5,
-      "provider_models": [
-        "typesafe/jev-1.13-20260917"
-      ],
+      "arm": "whattooffload",
+      "repetition": 4,
       "quality": {
         "reference_entities": 9,
         "output_entities": 0,
@@ -221,39 +388,336 @@
         "reference_unavailable_fields_on_matched_entities": 0,
         "explicit_missing_field_statuses": 0,
         "completion_score": 0.0,
-        "required_artifacts_present": false,
+        "required_artifacts_present": true,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field"
+        ]
+      },
+      "result_sha256": "247e3283e4870729b266ec1f7b77252c101dd742d453d991ed06a56101d624b8",
+      "wall_ms": 35349.94508300588,
+      "execution_status": "failed",
+      "measurement_present": true,
+      "provider_call_attempts": 1,
+      "recorded_provider_call_attempts": 1,
+      "unrecorded_provider_attempts": 0,
+      "unpriced_request_attempts": 0,
+      "diagnostic_replay_attempts": 0,
+      "unpriced_diagnostic_replay_attempts": 0,
+      "known_cost_usd": 0.0006774,
+      "cost_usd": 0.0006774,
+      "cost_is_lower_bound": false,
+      "provider_known_cost_usd": {
+        "jev": 0.0,
+        "deepseek": 0.0006774
+      },
+      "provider_tokens": {
+        "jev_input": 0,
+        "jev_output": 0,
+        "deepseek_prompt_cache_hit": 0,
+        "deepseek_prompt_cache_miss": 252,
+        "deepseek_completion": 1066
+      },
+      "requested_models": {
+        "jev": [],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "returned_models": {
+        "jev": [],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "workflow_generation": "upgraded_jev_deepseek",
+      "main_agent_tokens": 0,
+      "captured_pages": 2,
+      "web_tool_requests": 1,
+      "attempt": 4
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 5,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 0,
+        "matched_entities": 0,
+        "entity_recall": 0.0,
+        "entity_precision": null,
+        "available_reference_fields": 56,
+        "correct_fields": 0,
+        "asserted_fields": 0,
+        "available_field_recall": 0.0,
+        "asserted_field_precision": null,
+        "evidence_supported_fields": 0,
+        "evidence_coverage": null,
+        "reference_unavailable_fields_on_matched_entities": 0,
+        "explicit_missing_field_statuses": 0,
+        "completion_score": 0.0,
+        "required_artifacts_present": true,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field"
+        ]
+      },
+      "result_sha256": "f10db3817b746b16c712fccf48bca4da7aae072e4e36b3baf5ec765483cbb29a",
+      "wall_ms": 30795.161875001213,
+      "execution_status": "failed",
+      "measurement_present": true,
+      "provider_call_attempts": 2,
+      "recorded_provider_call_attempts": 2,
+      "unrecorded_provider_attempts": 0,
+      "unpriced_request_attempts": 0,
+      "diagnostic_replay_attempts": 0,
+      "unpriced_diagnostic_replay_attempts": 0,
+      "known_cost_usd": 0.004602858,
+      "cost_usd": 0.004602858,
+      "cost_is_lower_bound": false,
+      "provider_known_cost_usd": {
+        "jev": 0.000559524,
+        "deepseek": 0.004043334
+      },
+      "provider_tokens": {
+        "jev_input": 13322,
+        "jev_output": 157,
+        "deepseek_prompt_cache_hit": 128,
+        "deepseek_prompt_cache_miss": 10669,
+        "deepseek_completion": 4071
+      },
+      "requested_models": {
+        "jev": [
+          "typesafe/jev-1.13"
+        ],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "returned_models": {
+        "jev": [
+          "typesafe/jev-1.13-20260917"
+        ],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "workflow_generation": "upgraded_jev_deepseek",
+      "main_agent_tokens": 0,
+      "captured_pages": 2,
+      "web_tool_requests": 0,
+      "attempt": 5
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 6,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 3,
+        "matched_entities": 3,
+        "entity_recall": 0.3333333333333333,
+        "entity_precision": 1.0,
+        "available_reference_fields": 56,
+        "correct_fields": 16,
+        "asserted_fields": 16,
+        "available_field_recall": 0.2857142857142857,
+        "asserted_field_precision": 1.0,
+        "evidence_supported_fields": 16,
+        "evidence_coverage": 1.0,
+        "reference_unavailable_fields_on_matched_entities": 3,
+        "explicit_missing_field_statuses": 3,
+        "completion_score": 30.476190476190474,
+        "required_artifacts_present": true,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field"
+        ]
+      },
+      "result_sha256": "c6f48fa740ec69149fe700049ffb57ac482828aa8d9669dd0f4224a5762d2264",
+      "wall_ms": 358636.0331659962,
+      "execution_status": "needs_review",
+      "measurement_present": true,
+      "provider_call_attempts": 36,
+      "recorded_provider_call_attempts": 36,
+      "unrecorded_provider_attempts": 0,
+      "unpriced_request_attempts": 8,
+      "diagnostic_replay_attempts": 1,
+      "unpriced_diagnostic_replay_attempts": 1,
+      "known_cost_usd": 0.12883369800000005,
+      "cost_usd": null,
+      "cost_is_lower_bound": true,
+      "provider_known_cost_usd": {
+        "jev": 0.00790335,
+        "deepseek": 0.12093034800000001
+      },
+      "provider_tokens": {
+        "jev_input": 188175,
+        "jev_output": 820,
+        "deepseek_prompt_cache_hit": 255616,
+        "deepseek_prompt_cache_miss": 256634,
+        "deepseek_completion": 136114
+      },
+      "requested_models": {
+        "jev": [
+          "typesafe/jev-1.13"
+        ],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "returned_models": {
+        "jev": [
+          "typesafe/jev-1.13-20260917"
+        ],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "workflow_generation": "upgraded_jev_deepseek",
+      "main_agent_tokens": 0,
+      "captured_pages": 204,
+      "web_tool_requests": 19,
+      "attempt": 6
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 7,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 9,
+        "matched_entities": 9,
+        "entity_recall": 1.0,
+        "entity_precision": 1.0,
+        "available_reference_fields": 56,
+        "correct_fields": 54,
+        "asserted_fields": 54,
+        "available_field_recall": 0.9642857142857143,
+        "asserted_field_precision": 1.0,
+        "evidence_supported_fields": 53,
+        "evidence_coverage": 0.9814814814814815,
+        "reference_unavailable_fields_on_matched_entities": 7,
+        "explicit_missing_field_statuses": 7,
+        "completion_score": 97.85714285714285,
+        "required_artifacts_present": true,
         "strict_pass": false,
         "failure_categories": [
           "missing_available_field",
-          "missing_required_artifact"
+          "missing_support_url"
         ]
       },
-      "result_sha256": "644e48bb720b809a6fcef120aa11916b720fba6f848e1c609b9deac0c0ae576e"
+      "result_sha256": "9304250d9272272e48ee80e06fe925824b84c793248061ff15f3f4fcc688bb8d",
+      "wall_ms": 350023.0114579972,
+      "execution_status": "needs_review",
+      "measurement_present": true,
+      "provider_call_attempts": 34,
+      "recorded_provider_call_attempts": 34,
+      "unrecorded_provider_attempts": 0,
+      "unpriced_request_attempts": 0,
+      "diagnostic_replay_attempts": 0,
+      "unpriced_diagnostic_replay_attempts": 0,
+      "known_cost_usd": 0.09548174999999999,
+      "cost_usd": 0.09548174999999999,
+      "cost_is_lower_bound": false,
+      "provider_known_cost_usd": {
+        "jev": 0.0029184120000000004,
+        "deepseek": 0.092563338
+      },
+      "provider_tokens": {
+        "jev_input": 69486,
+        "jev_output": 1608,
+        "deepseek_prompt_cache_hit": 218496,
+        "deepseek_prompt_cache_miss": 145963,
+        "deepseek_completion": 116689
+      },
+      "requested_models": {
+        "jev": [
+          "typesafe/jev-1.13"
+        ],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "returned_models": {
+        "jev": [
+          "typesafe/jev-1.13-20260917"
+        ],
+        "deepseek": [
+          "deepseek-flash"
+        ]
+      },
+      "workflow_generation": "upgraded_jev_deepseek",
+      "main_agent_tokens": 0,
+      "captured_pages": 147,
+      "web_tool_requests": 15,
+      "attempt": 7
     }
   ],
   "protocol_sha256": "c364f7e903ff7600e4027d1ded12e4fa796266191513eccd6022f10a8495d580",
-  "reference_sha256": "713586330359a9b5c4c913dfc28ba147e18a61e6165eeb857353afd404ba9c58",
-  "input_sha256": "d7d3115e09a7a259860c0d4f0e417d9081f9611dfad3dcc1de06e98ee7a5b42a",
+  "evaluation_series": {
+    "manifest_applicable": true,
+    "manifest_sha256": "5a4e44e9091c4b066a8e4771d22a8508bb6faa138701f6c55bb8729c0fcb89a5",
+    "amendment_sha256": "434dd4524aaf45a9cc6333cc3c5721d6bf00e8e9d3aa44ec036ec945bba2bf32",
+    "frozen_runner_sha256": "cf9a0a50d0aa0597c627aa0af8bef580b6c7393c55759bcde8924f05ec9acda2",
+    "protocol_sha256": "c364f7e903ff7600e4027d1ded12e4fa796266191513eccd6022f10a8495d580",
+    "originally_declared_repetitions": 3,
+    "pre_run_cancelled_repetitions": 2,
+    "effective_repetitions": 1,
+    "selection": "All three predeclared sequential repetitions, regardless of outcome. No source or output cache reused across repetitions.",
+    "amendment_reason": "Explicit user instruction replaced unstarted same-case repetitions with a separate held-out evaluation.",
+    "exact_selection_verified": true,
+    "frozen_runner_verified": true
+  },
   "setup_cost_usd": null,
-  "setup_cost_note": "Selection, harness, Skill/workflow adaptation, grading and report preparation were not separately metered. Excluded does not mean zero.",
+  "model_stack": {
+    "jev_requested": "typesafe/jev-1.13",
+    "deepseek_product": "DeepSeek-V4.1-Flash",
+    "deepseek_requested_api_id": "deepseek-flash",
+    "deepseek_mapping": "Official product-to-API alias; not a pinned model version.",
+    "executor_semantic_codex_calls": 0
+  },
   "price_snapshot": {
     "date": "2026-09-20",
-    "sol_usd_per_million": {
-      "input": 4,
-      "cached_input": 0.4,
-      "cache_write": 5,
-      "output": 20
+    "deepseek_offpeak_sunday_usd_per_million": {
+      "prompt_cache_hit": 0.003,
+      "prompt_cache_miss": 0.15,
+      "completion": 0.6
     },
-    "sol_source": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-    "jev_source": "https://openrouter.ai/typesafe/jev-1.13",
-    "jev_basis": "provider-reported usage.cost"
+    "deepseek_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "jev_basis": "provider-reported usage.cost",
+    "jev_source": "https://openrouter.ai/typesafe/jev-1.13/"
   },
+  "measurement_boundary": {
+    "latency": "Executor invocation through saved artifacts, including the fixed-code host web-tool bridge.",
+    "excluded": [
+      "parent dispatch",
+      "workflow setup and repair",
+      "grading",
+      "local compute",
+      "human review"
+    ],
+    "unknown_costs": [
+      "search-tool fees",
+      "failed provider attempts without usage"
+    ]
+  },
+  "workflow_repairs": [
+    {
+      "generation": "historical_jev_only",
+      "cause": "The initial bounded workflow relied on narrower deterministic retrieval and parsing, and could report completion despite unresolved coverage.",
+      "fix": "The upgraded workflow separates complex extraction and recovery from typed verification, and makes unresolved coverage part of executor status."
+    },
+    {
+      "generation": "upgraded_jev_deepseek",
+      "cause": "Development runs exposed generic grounding, section-context, decision-size, truncated-response, and citation-source canonicalization failure modes.",
+      "fix": "The frozen runner self-grounds discovered URLs, preserves source sections, splits oversized Jev decisions deterministically, retries truncated DeepSeek JSON, merges complementary snippets for the same canonical source URL, and cites an outbound account through its referring evidence page without changing the value; Jev still verifies ownership."
+    }
+  ],
   "limitations": [
-    "One private case, one run per agent arm; no statistical inference or public task reproduction.",
-    "Revised workflow was repaired on this case; all earlier execution attempts are retained.",
-    "Live web content, provider caches, web-search behavior and tool environments were not controlled.",
-    "No end-to-end saving is claimed for a path that fails the common acceptance gate.",
-    "Costs are model-execution components: Codex API equivalents and Jev reported charges. Search-tool fees, local compute, setup and human review costs are not measured.",
-    "Reference additions are independently source-checked and applied uniformly; the reference review is by agents and the benchmark author, not an external audit."
-  ]
+    "The two Codex baselines each have one measured run.",
+    "Workflow repairs and reruns use the same private case; this is not a held-out evaluation.",
+    "Every caller-specified final run is reported; no winner is selected.",
+    "Live web content, provider caches, web search, and tool environments are uncontrolled.",
+    "Unknown failed-call charges make the reported workflow cost a lower bound, never zero.",
+    "Completion score and strict success are separate: a high completion score is not a pass."
+  ],
+  "status": "measured_with_quality_failures"
 }

@@ -1,4 +1,4 @@
-arm,wall_ms,known_cost_usd,cost_usd,completion_score,entity_recall,available_field_recall,asserted_field_precision,strict_pass
-codex_only,455545,2.1447024000000003,2.1447024000000003,100.0,1.0,1.0,1.0,True
-codex_with_skill,467117,1.7102176,1.7102176,94.64285714285714,1.0,0.9107142857142857,1.0,False
-whattooffload,144411.4069999996,0.0023903880000000002,,78.57142857142858,1.0,0.6428571428571429,0.9473684210526315,False
+arm,repetition,execution_status,wall_ms,known_cost_usd,cost_is_lower_bound,completion_score,entity_recall,available_field_recall,asserted_field_precision,evidence_coverage,strict_pass
+codex_only,1,completed,455545,2.1447024000000003,False,100.0,1.0,1.0,1.0,1.0,True
+codex_with_skill,1,completed,467117,1.7102176,False,94.64285714285714,1.0,0.9107142857142857,1.0,1.0,False
+whattooffload,1,needs_review,258500.0140419943,0.080565576,False,97.85714285714285,1.0,0.9642857142857143,0.9818181818181818,0.9814814814814815,False

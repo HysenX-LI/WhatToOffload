@@ -58,15 +58,21 @@ The three short-lived walkthroughs now describe multi-stage tasks with conflicti
 
 WhatToOffload identifies places where a narrow typed semantic judgment is a better fit than prompt-and-parse generation. Before implementing a Jev node, the agent must read the available `typesafe-ai` skill and the current [TypeSafe documentation](https://docs.typesafe.ai/llms.txt). Code remains responsible for control flow, deterministic rules, side effects, and uncertainty routing.
 
+The configured reference stack for upgraded model-assisted runners is Jev (`typesafe/jev-1.13`) plus DeepSeek-V4.1-Flash, whose official API model ID is [`deepseek-flash`](https://api-docs.deepseek.com/quick_start/pricing/). Jev supplies bounded typed judgments; DeepSeek handles complex extraction, review, and missing-evidence recovery. Code owns tools, control flow, validation, and final status.
+
 ## Long-horizon website information processing
 
-A real, private website task compares **Sol high directly**, **Sol high + the original task Skill**, and a **WhatToOffload workflow**. Independent evaluation measures entity coverage, available-field recall, asserted-field precision, evidence and strict acceptance alongside time and model cost.
+Real private website tasks compare **Sol high directly**, **Sol high + the original task Skill**, and a **WhatToOffload workflow using Jev + DeepSeek-V4.1-Flash**. Evaluation measures entity coverage, available-field recall, asserted-field precision, evidence and strict acceptance alongside time and model cost.
 
-![Website task cost, duration and completion](benchmarks/results/website-long-horizon-comparison.svg)
+A second case was independently selected after freezing the workflow. Its original transfer result and later repairs are reported separately, so a repair made after seeing the new case cannot be mistaken for untouched transfer success. Read the [independent transfer report](benchmarks/results/website-long-horizon-heldout.md).
 
-This is one case with one run per agent path. The workflow was repaired on the same case; earlier failures and retry costs remain visible. **Cheap incomplete output is not a successful-task saving.** The workflow still has omissions and errors, so its cost and latency alone do not establish effectiveness. Read the [completion and cost report](benchmarks/results/website-long-horizon.md).
+![Independent website task comparison](benchmarks/results/website-long-horizon-heldout-comparison.svg)
 
-The task, source identities, raw materials, reference answers, execution outputs and implementation remain local. Only sanitized metrics, opaque hashes and generic methodology are public.
+There is one measured run per baseline on each case. **Cheap incomplete output is not a successful-task saving.** Completion score and strict success are separate; these small live-web measurements do not establish a general success rate. The [development-case report](benchmarks/results/website-long-horizon.md) retains the earlier attempts and the upgraded run.
+
+The original website pilot used Jev alone. Later dual-model results are explicitly labeled; historical measurements are not relabeled. Generic reliability checks now cover optional-field recovery, response contracts, source evidence and frozen transfer evaluation in the [implementation playbook](references/test-driven-workflows.md#validate-extraction-and-batch-completion).
+
+The tasks, source identities, raw materials, reference answers, execution outputs and implementations remain local. Only sanitized metrics, opaque hashes and generic methodology are public.
 
 ## Historical synthetic batch-task comparison
 

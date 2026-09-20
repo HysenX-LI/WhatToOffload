@@ -58,13 +58,19 @@ WhatToOffload 不是工作流运行平台。第二阶段可以设计并接入一
 
 WhatToOffload 负责识别哪些节点适合使用有界、带类型的语义判断。进入 Jev 实施前，Agent 必须读取当前环境中的 `typesafe-ai` Skill，并查阅最新的 [TypeSafe 官方文档](https://docs.typesafe.ai/llms.txt)。控制流、确定性规则、副作用和不确定性路由仍由代码负责。
 
+升级后的模型辅助 runner 采用 Jev（`typesafe/jev-1.13`）与 DeepSeek-V4.1-Flash 作为配置参考栈；后者的官方 API 模型 ID 为 [`deepseek-flash`](https://api-docs.deepseek.com/quick_start/pricing/)。Jev 负责有界、带类型的判断；DeepSeek 负责复杂抽取、复核和缺失证据恢复；工具调用、控制流、验证与最终状态由代码负责。
+
 ## 网站信息处理长程任务
 
-新增一个真实网站上的本地私有样例，对比 **Sol high 直接执行**、**Sol high + 原版任务 Skill** 和 **WhatToOffload 工作流**。除耗时和模型费用，还独立评估对象覆盖率、可用字段召回率、已填写字段准确率、证据和严格验收结果。
+真实私有网站任务对比 **Sol high 直接执行**、**Sol high + 原版任务 Skill** 和 **采用 Jev + DeepSeek-V4.1-Flash 的 WhatToOffload 工作流**。除耗时和模型费用，还独立评估对象覆盖率、可用字段召回率、已填写字段准确率、证据与严格验收结果。
 
-![网站信息处理任务的成本、耗时与完成度](benchmarks/results/website-long-horizon-comparison.svg)
+第二个样例在工作流冻结后独立选定。原始迁移结果与看到失败后的修复结果分开呈现，避免把针对新样例修复后的表现当成未见过该样例时的泛化效果。详见[独立迁移测试报告](benchmarks/results/website-long-horizon-heldout.md)。
 
-这是单个样例的实测，两个子智能体路径各运行一次。工作流在该样例上经过修复，早期失败与重试费用均保留。**低成本但未完成的结果不算任务级降本**；本次工作流仍有遗漏和错误，不能用耗时与费用单独证明效果。详见[完成度与成本报告](benchmarks/results/website-long-horizon.md)。
+![独立网站任务对比](benchmarks/results/website-long-horizon-heldout-comparison.svg)
+
+每个样例的两个基线路径各实测一次。**低成本但未完成的结果不算任务级降本**；完成度和严格成功分别报告，这些小规模实时网页测试不能证明普遍成功率。[开发样例报告](benchmarks/results/website-long-horizon.md)保留了早期尝试和升级后的测试。
+
+原始网站试点仅使用 Jev；后续双模型测试明确标注，历史数据不改名。可选字段恢复、响应契约、证据验证和冻结后迁移测试的通用要求已补入[实现验收文档](references/test-driven-workflows.md#validate-extraction-and-batch-completion)。
 
 具体任务、网站、原始材料、参考答案、执行结果及实现只保存在本地；仓库仅公开脱敏指标、摘要哈希与通用测量口径。
 

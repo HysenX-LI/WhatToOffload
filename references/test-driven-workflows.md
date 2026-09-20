@@ -83,6 +83,19 @@ For generated LLM text, prefer structural requirements, required evidence refere
 
 Keep real provider evaluations separate from the default suite. They require explicit confirmation, controlled cost, non-sensitive inputs, recorded provider/model versions, and a report that distinguishes contract failure from model-quality failure.
 
+## Validate extraction and batch completion
+
+For workflows that assemble records from external sources, test the boundary between partial evidence and a deliverable result:
+
+- **Optional data:** a missing optional field or link must not abort unrelated records. Exercise the configured recovery route and preserve explicit unknowns; keep missing required input and unresolved required sources visible in status.
+- **Model output:** validate the application schema as well as JSON syntax before advancing. Cover truncated responses, missing envelopes and invalid field types. Use bounded retries; accept a format-only normalization only when it has one unambiguous interpretation and preserves every fact.
+- **Evidence:** retain complementary observations from the same canonical source. Verify a value against retrieved evidence and the intended entity, not just a matching string somewhere in the document. A discovered link can be supported by its referring page; it does not prove ownership by itself.
+- **Assertions:** keep rejected claims in an audit record, not in populated output fields. An executor returning `completed` does not prove semantic acceptance. Measure missing entities, available-field recall, asserted-field precision, evidence and required artifacts separately.
+
+Keep Jev decisions narrow enough to preserve the relevant context within provider limits; splitting evidence must not remove the identity or relationship that the question asks it to verify.
+
+When measuring transfer to new inputs, freeze the workflow before selecting the evaluation case. Retain every initial outcome. Once a case informs a repair, label subsequent runs as post-inspection tests and do not present them as untouched hold-out results. Compare execution cost only alongside the declared quality gate, and distinguish measured provider spend from unpriced calls and workflow construction cost.
+
 ## Test approvals and side effects before enabling them
 
 Use a fake effect sink or sandbox adapter to prove:
