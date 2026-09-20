@@ -43,16 +43,16 @@ Complete one row per material substitution. Include a retained agent/LLM node wh
 - **Recovery budget and preservation of accepted results:**
 - **Retained agent supervision and context still required:**
 
-## Exploration contract (when retrieval is broad)
+## Retrieval contract (when retrieval is broad)
 
 - **Goal, entity identity, and unresolved fields:**
 - **Candidate generators and supported search scope:**
 - **Candidate representation:** stable ID, source, parent, depth, snippet, provenance, and local context
-- **Jev judgment:** primitive, exact decision meaning, question version, and threshold policy
-- **Context and batching:** required repeated context, candidates per call, coverage check, and cross-batch composition
-- **Frontier policy:** priority rule, active branches or beam width, visited-source and cycle handling
-- **Budgets:** maximum depth, pages, Jev calls, elapsed time, tokens, cost, retries, and no-improvement rounds
-- **Page-expansion rule:** when a page is worth following and what evidence can stop that branch
+- **Source-role and format policy:** primary and identity-owned sources, aggregators, supported parsers, and unsupported-input detection
+- **Deterministic frontier policy:** priority rule, visited-source and cycle handling, and explicit expansion rules
+- **Narrow semantic exceptions:** exact decision, supplied evidence, executor, threshold, and why code cannot decide it
+- **Budgets:** maximum depth, pages, elapsed time, tokens, cost, retries, and no-improvement rounds; include semantic-call limits when used
+- **Evidence merge rule:** when new evidence supplements, conflicts with, or explicitly replaces earlier evidence
 - **Stop and handoff:** completed, searched-scope no-match, budget exhaustion, uncertainty, and stronger-model or agent escalation
 - **Trace fields and redaction:**
 
@@ -105,7 +105,7 @@ Describe the smallest changes needed in the target project. Preserve its languag
 - Existing behavior that needs characterization tests:
 - Old-versus-new comparison on common inputs and acceptance criteria:
 - Unsupported-input detection, evidence coverage, and lost-context cases:
-- Broad-search batching, cross-batch composition, page-expansion, cycle, and exploration-budget cases:
+- Broad-retrieval source ordering, supported formats, normalization, page expansion, cycles, evidence merge, and budget cases:
 - Audit lineage, model-call references, candidate-coverage accounting, terminal reasons, and secret-redaction cases:
 - Contract tests:
 - Representative semantic cases:

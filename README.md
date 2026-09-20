@@ -95,7 +95,7 @@ For each atomic step, the Skill records both a capability role and a concrete im
 
 The result is not a mandatory code → Jev → LLM cascade. Each step goes to the simplest executor that can meet its quality, safety, and testability requirements. Code owns deterministic control flow and side effects; uncertain or unsupported cases follow explicit recovery and handoff paths.
 
-For broad information retrieval, WhatToOffload first lets code and search tools generate a wide set of candidates with provenance, then gives Jev as many relevant options as safely fit while preserving the goal, entity identity, and local evidence. Larger sets are split into self-contained calls and combined through comparable per-item judgments or one final common comparison. Code maintains the exploration frontier, visited sources, and depth, page, call, time, and cost budgets; Jev can also judge whether a page is likely to provide or lead to evidence for an unresolved question. Exhausting a budget leaves the result unresolved rather than turning it into a verified no-match. [Read the Jev-guided bounded exploration method](references/jev-guided-exploration.md).
+For broad information retrieval, code and search tools own source discovery, source-type priorities, normalization, deduplication, retrieval order, and explicit budgets. Jev is reserved for narrow semantic ambiguity after deterministic filtering; WhatToOffload does not recommend sending every candidate or page-expansion decision to Jev. A broad Jev-routing policy remains experimental until it improves complete-task quality and cost on separately frozen transfer cases. Exhausting a retrieval budget leaves the result unresolved rather than turning it into a verified no-match.
 
 For multi-stage or model-assisted workflows, WhatToOffload also designs an audit boundary. A portable JSONL log records candidate coverage, semantic decisions, thresholds, reason codes, budgets, evidence lineage, fallback routes, and accepted-to-emitted handoffs. Raw sources and exact model payloads stay in a separate permitted local trace store and are linked by opaque references and hashes. After grading, deterministic gap attribution identifies the earliest causal stage—discovery, retrieval, parsing, normalization, context packing, judgment, fallback, evidence replacement, handoff, assembly, or grading—so the next iteration changes the responsible boundary instead of guessing from the final score. [Read the workflow observability and gap-attribution method](references/workflow-observability.md).
 
@@ -165,7 +165,7 @@ This measures repeated execution after the program was prepared; one-time constr
 | --- | --- |
 | [SKILL.md](SKILL.md) | Agent instructions and operating modes |
 | [LICENSE](LICENSE) | MIT license |
-| [`references/`](references/) | Executor selection, bounded exploration, workflow observability, workflow classes, safety, uncertainty, and test-driven implementation |
+| [`references/`](references/) | Executor selection, workflow observability, workflow classes, safety, uncertainty, and test-driven implementation |
 | [`assets/templates/`](assets/templates/) | Candidate analysis, workflow design, audit events, gap attribution, result envelopes, and durable snapshots |
 | [`scripts/`](scripts/) | Deterministic helpers, including portable audit-log validation |
 | [`examples/`](examples/) | Worked short-lived and durable workflow analyses |

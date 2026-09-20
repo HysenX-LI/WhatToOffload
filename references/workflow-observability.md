@@ -40,7 +40,7 @@ At minimum, make these facts reconstructable:
 - whether a fetch succeeded and whether its evidence supplemented or replaced earlier evidence;
 - why a fallback ran, which fields it could change, and how its output was checked;
 - every accepted, rejected, quarantined, missing, and emitted field with candidate and evidence references;
-- depth, page, call, time, token, and cost budgets before and after bounded exploration;
+- depth, page, call, time, token, and cost budgets before and after bounded retrieval;
 - final quality metrics and provider usage.
 
 Never log only the winning candidate. Candidate coverage and excluded candidates are necessary to distinguish a judgment error from an incomplete input.
