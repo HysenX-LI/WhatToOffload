@@ -6,6 +6,14 @@ WhatToOffload is an Agent Skill for redesigning existing conversations, codebase
 
 It finds atomic nodes, combines them into short-lived bounded or durable asynchronous subflows, and recommends the simplest executor that can reliably handle each node: deterministic code, an existing tool or API, Jev, a smaller model, a stronger model or agent, or human review.
 
+## Why not stop at a Skill?
+
+Many agent workflows take a mature, repeatable task and document it as a Skill. This improves consistency, but the agent still has to load the instructions, carry the working context, invoke every tool, follow the intermediate state, and make each routine decision every time the task runs.
+
+WhatToOffload uses a Skill for a different purpose: to help the agent move a stable normal path out of its own loop. Once the boundary is understood and tested, the task can be packaged as an ordinary runner that combines deterministic scripts and tools, a configured model API, and the Jev API. The runner completes the bounded workflow without an agent continuously supervising it; the agent returns only for missing input, low-confidence review, approval, failure, or genuinely open-ended decisions.
+
+The goal is therefore not merely to teach an agent how to repeat the work. It is to turn mature work into callable software and reduce the agent context, tokens, elapsed time, and attention consumed across repeated runs. The Skill remains the analysis and design layer; the generated runner owns routine execution.
+
 ## What it does
 
 - Inspects available workflow evidence before asking the user to restate anything.
