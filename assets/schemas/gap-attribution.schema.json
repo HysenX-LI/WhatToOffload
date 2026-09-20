@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/what-to-offload/gap-attribution.schema.json",
+  "title": "WhatToOffload gap attribution report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "workflow_version", "reference_version", "summary", "gaps"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "workflow_version": {"type": "string", "minLength": 1},
+    "reference_version": {"type": "string", "minLength": 1},
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evaluated_fields", "gaps", "by_primary_cause"],
+      "properties": {
+        "evaluated_fields": {"type": "integer", "minimum": 0},
+        "gaps": {"type": "integer", "minimum": 0},
+        "by_primary_cause": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["subject_ref", "field", "expected_status", "observed_status", "primary_stage", "primary_cause", "causal_event_id", "contributing_event_ids", "recommended_boundary", "replayable"],
+        "properties": {
+          "subject_ref": {"type": "string", "pattern": "^sha256:[0-9a-fA-F]{64}$"},
+          "field": {"type": "string", "minLength": 1},
+          "expected_status": {"enum": ["available", "missing", "not_applicable"]},
+          "observed_status": {"enum": ["missing", "emitted_but_failed"]},
+          "primary_stage": {"enum": ["discover", "retrieve", "parse", "normalize", "pack", "judge", "repair", "accept", "assemble", "grade", "trace"]},
+          "primary_cause": {"enum": ["source_not_discovered", "source_not_retrieved", "fetch_failed", "budget_exhausted", "parser_unsupported", "candidate_omitted", "normalization_loss", "candidate_overflow", "context_omission", "batch_not_evaluated", "identity_context_missing", "below_threshold", "semantic_rejection", "ambiguous_candidates", "provider_failure", "exception_not_routed", "repair_unsupported", "repair_rejected", "evidence_overwritten", "typed_handoff_lost", "assembly_drop", "output_contract_failure", "wrong_identity", "wrong_value", "missing_evidence", "reference_or_grader_gap", "trace_incomplete"]},
+          "causal_event_id": {"type": ["string", "null"], "minLength": 1},
+          "contributing_event_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "recommended_boundary": {"enum": ["source-discovery", "retrieval-policy", "parser", "candidate-normalization", "context-packing", "semantic-decision", "fallback-and-evidence-merge", "typed-handoff", "output-assembly", "reference-or-grader", "audit-instrumentation"]},
+          "replayable": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

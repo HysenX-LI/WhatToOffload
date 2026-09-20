@@ -14,7 +14,7 @@
   },
   "gaps": [
     {
-      "subject_ref": "sha256:opaque-subject-hash",
+      "subject_ref": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
       "field": "example_field",
       "expected_status": "available",
       "observed_status": "missing",

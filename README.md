@@ -68,7 +68,7 @@ Validate quality before comparing cost and latency, and document the cases
 that still return to the agent or require human review.
 ```
 
-Live API calls, paid model calls, deployment, and external side effects remain subject to explicit authorization.
+A precise current-task authorization for a live API or paid-model call remains valid for the same service, data, cost, target, effect, and scope. Confirm again when one changes materially. Deployment and external side effects remain within their exact authorization boundary.
 
 ## What it produces
 
@@ -98,6 +98,8 @@ The result is not a mandatory code → Jev → LLM cascade. Each step goes to th
 For broad information retrieval, code and search tools own source discovery, source-type priorities, normalization, deduplication, retrieval order, and explicit budgets. Jev is reserved for narrow semantic ambiguity after deterministic filtering; WhatToOffload does not recommend sending every candidate or page-expansion decision to Jev. A broad Jev-routing policy remains experimental until it improves complete-task quality and cost on separately frozen transfer cases. Exhausting a retrieval budget leaves the result unresolved rather than turning it into a verified no-match.
 
 For multi-stage or model-assisted workflows, WhatToOffload also designs an audit boundary. A portable JSONL log records candidate coverage, semantic decisions, thresholds, reason codes, budgets, evidence lineage, fallback routes, and accepted-to-emitted handoffs. Raw sources and exact model payloads stay in a separate permitted local trace store and are linked by opaque references and hashes. After grading, deterministic gap attribution identifies the earliest causal stage—discovery, retrieval, parsing, normalization, context packing, judgment, fallback, evidence replacement, handoff, assembly, or grading—so the next iteration changes the responsible boundary instead of guessing from the final score. [Read the workflow observability and gap-attribution method](references/workflow-observability.md).
+
+The audit event, frozen field reference, and gap report have strict JSON Schemas under `assets/schemas/`. `scripts/validate_audit_log.py` checks cross-event lineage and privacy invariants with the Python standard library; `scripts/generate_gap_attribution.py` produces deterministic field-level attribution and returns `trace_incomplete` when the record cannot support a cause. Files under `assets/templates/` remain examples or design aids rather than formal schemas.
 
 The evaluation method is:
 
@@ -166,8 +168,9 @@ This measures repeated execution after the program was prepared; one-time constr
 | [SKILL.md](SKILL.md) | Agent instructions and operating modes |
 | [LICENSE](LICENSE) | MIT license |
 | [`references/`](references/) | Executor selection, workflow observability, workflow classes, safety, uncertainty, and test-driven implementation |
-| [`assets/templates/`](assets/templates/) | Candidate analysis, workflow design, audit events, gap attribution, result envelopes, and durable snapshots |
-| [`scripts/`](scripts/) | Deterministic helpers, including portable audit-log validation |
+| [`assets/templates/`](assets/templates/) | Candidate/design handoffs plus example audit, gap, result-envelope, and durable-snapshot artifacts |
+| [`assets/schemas/`](assets/schemas/) | Formal audit-event, frozen-field-reference, and gap-attribution JSON Schemas |
+| [`scripts/`](scripts/) | Standard-library audit validation and deterministic field-level gap attribution |
 | [`examples/`](examples/) | Worked short-lived and durable workflow analyses |
 | [`benchmarks/`](benchmarks/) | Benchmark method, fixtures, tests, reports, and published aggregate results |
 

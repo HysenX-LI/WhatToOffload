@@ -6,135 +6,81 @@ license: MIT
 
 # WhatToOffload
 
-Turn an existing workflow into a clearer division of labor. Keep the current agent where open-ended coordination is valuable; move contractible, testable work into ordinary software. A candidate may finish in one invocation or continue through durable state, events, timers, and human waits owned by an external runtime.
+Move stable, contractible work out of repeated agent supervision while keeping open-ended coordination, changing goals, and accountable decisions with the current agent or a human. A candidate may finish in one invocation or continue through durable state owned by an external runtime.
 
-## Establish the operating mode
+## Choose the operating mode
 
-- **Analyze** is the default. Inspect evidence and recommend candidates without editing the target project.
-- **Design** begins after the user selects a candidate. Produce the detailed workflow and implementation plan without editing the target project.
-- **Implement** begins only when the user explicitly asks for implementation.
-- If the user explicitly authorizes autonomous selection and implementation, choose the strongest candidate and continue, but keep required approval, live-API, and environment-choice stops.
+- **Analyze** by default: inspect evidence and recommend at most three candidates without editing the target project.
+- **Design** after the user selects a candidate: define the workflow and implementation plan without editing the target project.
+- **Implement** only after explicit authorization. Autonomous selection plus implementation is allowed only when the user explicitly grants both.
 
-Never treat a request to analyze or optimize as permission to modify code, call paid APIs, perform side effects, install the skill, or publish anything.
+Analysis or optimization is not permission to edit code, install the skill, publish data, make live calls, deploy, or perform side effects.
 
-## Load supporting resources progressively
+Keep a lightweight handoff across modes: stable candidate/design IDs, analysis/design versions, input or case-set version, frozen quality boundary, explicitly accepted trade-offs, and exact authorization scope. Use the supplied templates rather than inventing a state-management system.
 
-Do not pre-load every reference, template, or example when this skill is activated. Start with this `SKILL.md`, inspect the available evidence, and determine the current operating mode and workflow class first.
+## Load resources progressively
 
-- During initial analysis, read only the short-lived or durable playbook that matches the candidate being evaluated. Read both only when the evidence genuinely contains both workflow classes or the classification itself is ambiguous.
-- When recommending concrete replacements, also read the replacement procedure in [references/executor-selection.md](references/executor-selection.md#work-through-a-replacement). Use steps 1–3 during analysis; complete steps 4–7 for a selected design and its authorized implementation.
-- Open [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md) only when producing a candidate-analysis deliverable.
-- During detailed design, open exactly the matching short-lived or durable design template, plus only the executor or safety references required by the selected nodes.
-- Read [references/workflow-observability.md](references/workflow-observability.md) when a selected workflow has multiple stages, semantic decisions, retrieval, fallback, or measured quality whose failures must be attributable. Use ordinary application logs for simple deterministic transformations.
-- Read [references/test-driven-workflows.md](references/test-driven-workflows.md) only after a candidate reaches detailed design or implementation and code or executable workflow behavior is in scope.
-- Treat files under `assets/` as output resources, not background instructions. Do not inspect an asset merely because it exists.
-- Read an example only after the domain and pattern are known, and only when that example materially helps the current task. Never load all examples for orientation.
-- Load `typesafe-ai` and its routed documentation only when a selected node is actually being designed or implemented with Jev.
+Start with this file and the available evidence. Do not preload every reference, asset, or example.
 
-## Analyze the existing workflow
+- For analysis, read [short-lived workflows](references/short-lived-workflows.md) or [durable asynchronous workflows](references/durable-async-workflows.md), whichever matches the candidate. Read both only when classification is genuinely ambiguous.
+- When comparing replacements, use steps 1–3 of [executor selection](references/executor-selection.md); finish the procedure for a selected design or authorized implementation.
+- Open [candidate-analysis.md](assets/templates/candidate-analysis.md) only when producing the analysis deliverable.
+- For design, open exactly [workflow-design.md](assets/templates/workflow-design.md) or [durable-workflow-design.md](assets/templates/durable-workflow-design.md), plus only the references required by selected nodes.
+- Read [safety and uncertainty](references/safety-and-uncertainty.md) for model judgment, credentials, external calls, or side effects.
+- Read [workflow observability](references/workflow-observability.md) for multi-stage retrieval, semantic decisions, fallback, or measured quality that needs causal diagnosis.
+- Read [test-driven workflows](references/test-driven-workflows.md) only when detailed design or implementation makes executable behavior relevant.
+- Read at most the closest example after the domain and workflow class are known.
 
-1. Inspect the conversation, repository, configuration, documents, traces, and other materials already available to the agent. Do not make the user restate discoverable facts. If only final outputs exist, state which proposed failure causes cannot yet be distinguished.
-2. Identify missing facts that would materially change the workflow boundary or recommendation. Ask for those facts before recommending candidates.
-3. Decompose the work into atomic nodes, then group related nodes into subflows with clear input, output, termination, and failure boundaries. Classify each subflow as short-lived or durable asynchronous.
-4. Identify the specific behavior being replaced, the context it currently relies on, and the capability the replacement must preserve. Evaluate whether it should stay in the current agent or move to an external runner. Separately choose its capability role and concrete implementation; state the benefit, capability loss, and evidence behind each proposed replacement.
-5. Present at most three leading offload candidates by default. Also identify important nodes that should remain in the current agent and explain why.
+Treat files under `assets/` as output resources, not background instructions.
 
-Read [references/short-lived-workflows.md](references/short-lived-workflows.md) for candidates that complete in one invocation or return a caller-managed handoff. Read [references/durable-async-workflows.md](references/durable-async-workflows.md) when a candidate crosses process lifetimes, waits for timers or external events, resumes after human action, or needs persisted retries. When it is time to present candidates, copy or adapt [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md).
+## Analyze the workflow
 
-Do not collapse the comparison into a fabricated precise score. Compare boundary clarity, agent supervision removed, replaceability, reuse, verifiability, cost and latency, implementation effort, uncertainty, and side-effect risk. Recommend an order using those dimensions.
+Inspect discoverable conversations, code, SOPs, configuration, tests, traces, and outputs; do not ask the user to restate them. Ask only for missing facts that would materially change a boundary or recommendation.
 
-## Choose the workflow class
+Decompose the work into atomic nodes, then group nodes into subflows with explicit inputs, outputs, termination, and failures. For each candidate identify:
 
-- **Short-lived bounded:** one invocation can reach a terminal result or return state that the immediate caller owns. Use the ordinary workflow design template.
-- **Durable asynchronous:** progress must survive worker or agent restarts, or the workflow waits for a timer, callback, external event, delayed retry, human input, review, or approval. Use the durable design playbook and template.
+- the behavior and context being replaced;
+- the capability and quality boundary that must survive;
+- the proposed execution location, capability role, and concrete implementation;
+- expected benefit, capability or coverage loss, failure detection, recovery, and smallest fair comparison;
+- work that should remain in the current agent or human process.
 
-Elapsed time alone is not the deciding factor. A long computation can remain a bounded job; a two-minute approval wait may require durable state. Do not disguise a durable workflow as repeated agent polling.
+Compare boundary clarity, supervision removed, replaceability, reuse, verifiability, cost and latency, implementation effort, uncertainty, and side-effect risk. Do not fabricate a precise aggregate score.
 
-WhatToOffload is still a design and implementation skill, not a control plane. For a durable candidate, identify the existing runtime that will own state, scheduling, event delivery, and recovery. If none exists, present the missing runtime as an architecture decision; do not silently invent a scheduler, database, queue, or deployment.
+## Classify the workflow
 
-## Design a selected subflow
+- **Short-lived bounded:** one invocation reaches a terminal result or returns state owned by its immediate caller.
+- **Durable asynchronous:** correctness depends on state surviving restarts or waiting for a timer, callback, delayed retry, external event, human input, review, or approval.
 
-At the start of detailed design, inspect the skills available in the current environment. Use skills that directly improve a workflow node or the artifact being analyzed. Do not maintain a speculative catalog of skill names.
+Elapsed time alone does not decide the class. Do not disguise durable waiting as repeated agent polling. For durable work, identify the existing owner of persistence, scheduling, delivery, and recovery. If none exists, stop at an architecture decision rather than inventing a scheduler, database, queue, or deployment.
 
-For every node, record both layers:
+## Select executors and design
+
+Record both layers for every material node:
 
 - **Capability role:** deterministic code, existing tool or API, Jev, smaller LLM, stronger LLM or external agent, current agent, or human approval.
-- **Concrete implementation:** the target project's language, function, provider, model, API, tool, or skill.
+- **Concrete implementation:** target language, function, provider, model, API, tool, or skill.
 
-Choose the simplest executor that can meet the node's quality, safety, and testability requirements. This is a fitness decision, not a rigid cost-first ordering.
+Choose the simplest executor that meets quality, safety, and testability requirements. This is a fitness decision, not a fixed code → Jev → LLM cascade. State what is gained, what may be lost, how failure is detected, and what evidence would justify keeping or reversing each substitution.
 
-Apply the [replacement procedure](references/executor-selection.md#work-through-a-replacement): observe the current behavior → define acceptance → compare executors → specify evidence → bound recovery → test the substitution → measure the complete path. For each material replacement, record what is gained, what flexibility or coverage may be lost, how failure is detected, and what evidence would justify retaining or reversing it. Do not assume every workflow should be a code → Jev → LLM cascade.
-
-Read [references/executor-selection.md](references/executor-selection.md) when assigning executors. Read [references/safety-and-uncertainty.md](references/safety-and-uncertainty.md) whenever the workflow contains semantic uncertainty, external API calls, credentials, or side effects. For a short-lived design, open only [assets/templates/workflow-design.md](assets/templates/workflow-design.md). For a durable design, read [references/durable-async-workflows.md](references/durable-async-workflows.md) and open only [assets/templates/durable-workflow-design.md](assets/templates/durable-workflow-design.md).
-
-For a multi-stage or model-assisted workflow, also define its audit boundary before implementation. Record candidate coverage, the exact candidate IDs supplied to semantic calls, decision and contract versions, thresholds, reason codes, evidence lineage, fallback triggers, accepted-to-emitted handoffs, budgets, latency, tokens, and cost. Keep raw evidence and provider payloads in a separate permitted local trace store; the portable audit log contains opaque references and hashes. Follow [workflow observability and gap attribution](references/workflow-observability.md).
-
-Show the connection between nodes with the best visualization capability available in the environment, then provide the node table. Keep the underlying workflow description renderer-independent. If no visualization capability is available, use a compact text diagram or simple Mermaid as a fallback.
-
-Do not edit the target project after presenting the design. Wait for an explicit implementation request unless the user already granted autonomous implementation.
-
-## Design for test-driven implementation
-
-For a selected workflow, define observable acceptance behavior before production implementation. Include normal results, uncertainty routes, missing input, provider failure, approval stops, and side-effect containment. If the target is an existing implementation, plan characterization tests before changing behavior.
-
-When implementation is authorized, read [references/test-driven-workflows.md](references/test-driven-workflows.md) and work in small red-green-refactor slices:
-
-1. Add the smallest meaningful test and run it to confirm that it fails for the intended missing behavior.
-2. Implement only enough workflow or activity code to make that test pass.
-3. Refactor while keeping the relevant suite green, then repeat for the next behavior.
-
-Do not claim a TDD cycle when the test was never observed failing. Preserve the target project's test framework and conventions. Test public contracts and state transitions rather than private implementation structure.
-
-For Jev and LLM nodes, combine deterministic contract tests with representative semantic cases. Assert downstream policy outcomes, valid uncertainty routing, and schema invariants; do not lock tests to exact prose or one permanent probability. Use provider fakes by default and keep live probes behind explicit confirmation.
-
-For workflows with an audit boundary, test trace completeness as a public contract: every emitted field must descend from an accepted candidate and evidence reference; every required missing field must have a terminal reason; every model decision must identify its input candidates and local request/response references; candidate packing counts must balance. Validate the portable JSONL log before using it for gap attribution.
+Preserve a renderer-independent node map. For multi-stage or model-assisted work, define the audit boundary from [workflow observability](references/workflow-observability.md); keep raw evidence and provider payloads in a separately permitted local trace store.
 
 ## Use Jev deliberately
 
-Use Jev for narrow, typed semantic judgments over supplied state, not for open-ended planning, prose generation, tool execution, or control flow. Code owns deterministic rules, branching, composition, side effects, and confidence gates.
+Use Jev for narrow typed semantic judgments over supplied state, not open-ended planning, prose generation, tool execution, branching, side effects, or broad retrieval control. Code and tools own rules, source discovery, normalization, deduplication, frontier order, budgets, composition, and confidence gates. Use stronger models only on explicit exception paths whose frequency and value are measured.
 
-For broad information retrieval, code and tools own source discovery, source-role rules, normalization, deduplication, retrieval order, the frontier, and depth, page, call, time, and cost budgets. Do not send every candidate or page-expansion decision to Jev by default. First use deterministic structure and source priority to retrieve high-signal evidence; use Jev only for narrow remaining ambiguity where the supplied context is sufficient and the answer changes a defined action. Treat broad Jev routing as experimental until it improves end-to-end quality and cost on separately frozen transfer cases.
+Before specifying Jev questions or code, read the available `typesafe-ai` skill completely and follow its routing to current official documentation. If it is unavailable, state that limitation and start from <https://docs.typesafe.ai/llms.txt>. This skill decides *where* Jev fits; current TypeSafe guidance decides *how* to call it.
 
-When code and Jev cover the normal path, reserve stronger models for explicit exceptions. Do not require an LLM before or after every Jev decision. Follow the [exception-routing guidance](references/executor-selection.md#keep-stronger-models-on-an-explicit-exception-branch) and measure escalation frequency alongside quality and latency.
+## Implement within authorization
 
-Before designing Jev questions or writing Jev code:
+Preserve the target stack and begin from the approved design handoff. Follow [test-driven workflows](references/test-driven-workflows.md): first observe a meaningful test fail, then implement the smallest slice and keep provider calls mocked by default. Use the target project's interface conventions; for a standalone runner, prefer an importable function plus JSON CLI.
 
-1. Find and read the complete `typesafe-ai` skill available in the current environment.
-2. Follow that skill's routing to the current official TypeSafe documentation and the relevant primitive or cookbook.
-3. If the skill is unavailable, state the limitation and read the live official documentation starting at <https://docs.typesafe.ai/llms.txt>. Do not invent version-dependent API details.
+A precise authorization for a live external or paid call in the current task remains valid for that same service, data, cost, target, effect, and scope. Confirm again only when one of those changes materially. General implementation authorization never implies a live call or side effect. Never place credentials, raw identities, or provider payloads in portable logs or returned state.
 
-Do not copy the TypeSafe manual into this skill. This skill decides *where* Jev fits; `typesafe-ai` and the live docs decide *how* to implement it.
+For durable work, preserve the existing runtime and operational ownership. A new runtime, infrastructure change, deployment, or externally consequential action requires authorization matching that change.
 
-## Implement only after authorization
-
-- Preserve the target project's language, package manager, conventions, and test stack.
-- Begin with the test-first slice defined in the approved design. For legacy behavior without coverage, add characterization tests before refactoring it.
-- When a standalone Python runner is genuinely needed and the target has no Python environment choice, ask whether to use `uv`. If the user declines or does not answer, use the available Python environment. Treat this as an environment detail, not a product feature.
-- Expose core runner logic as an importable function and a JSON CLI unless the target project provides a more appropriate equivalent interface.
-- Use environment-based configuration for OpenAI-compatible LLM calls: base URL, model, and API key. Do not bind the design to OpenRouter or another provider.
-- Never write credentials into source, examples, logs, diagnostics, or returned state.
-- For multi-stage or model-assisted workflows, emit the portable audit events and local trace references defined in [workflow observability and gap attribution](references/workflow-observability.md). Use `scripts/validate_audit_log.py` when adopting this repository's event contract. Do not treat a private repository as permission to publish raw identities or evidence.
-- Run static and mock validation by default. Obtain explicit confirmation immediately before any real Jev, LLM, or other paid/external API call.
-- For durable work, preserve the target project's existing workflow engine, queue, database, event bus, deployment model, and observability conventions. Add adapters and workflow definitions rather than a parallel home-grown control plane.
-- If the target has no durable runtime, stop at an explicit runtime-selection decision unless the user authorizes choosing and implementing one. Record operational ownership, hosting, retention, and cost implications before implementation.
-
-Return the result envelope described in [assets/templates/result-envelope.json](assets/templates/result-envelope.json). Use these statuses consistently:
-
-- `completed`: the bounded workflow produced its final result.
-- `needs_input`: required source information is missing.
-- `needs_review`: the input is complete, but a semantic judgment is too uncertain to continue safely.
-- `needs_approval`: a side effect is ready but requires explicit approval.
-- `failed`: execution failed and safe diagnostics are available.
-
-These statuses describe a node or bounded runner result. They do not describe the lifecycle of a durable workflow. For durable designs, also adapt [assets/templates/async-workflow-snapshot.json](assets/templates/async-workflow-snapshot.json): use `active`, `waiting`, `completed`, `failed`, or `cancelled` for lifecycle and record a separate wait reason. Do not expose secrets, raw authorization material, or unnecessary source content in persisted snapshots.
+Use [result-envelope.json](assets/templates/result-envelope.json) for bounded results and adapt [async-workflow-snapshot.json](assets/templates/async-workflow-snapshot.json) to an existing durable runtime. These are design templates, not hosted services or universal schemas.
 
 ## Keep the product boundary clear
 
-Phase 1 covers short-lived bounded workflows. Phase 2 adds a playbook for designing and, when explicitly authorized, integrating durable asynchronous workflows into an existing or deliberately selected runtime. Neither phase makes this Skill a scheduler, worker host, persistence layer, deployment system, operations console, or secret manager.
-
-Do not read examples during initial skill loading. After the workflow class and domain are known, read at most the closest relevant example when it materially helps the task:
-
-- [examples/code-triage.md](examples/code-triage.md) for test-failure and issue triage.
-- [examples/web-research.md](examples/web-research.md) for browser-assisted research and evidence handling.
-- [examples/business-screening.md](examples/business-screening.md) for multi-label business intake and candidate scoring.
-- [examples/durable-vendor-review.md](examples/durable-vendor-review.md) for an event-driven, multi-day review with model judgments and human approval.
+WhatToOffload analyzes, designs, and—when authorized—implements integrations. It is not a scheduler, worker host, persistence layer, deployment system, operations console, or secret manager. Do not claim success from lower cost or latency until the frozen quality boundary passes, and do not create automatic adoption or rollback policy unless the user asks for it.

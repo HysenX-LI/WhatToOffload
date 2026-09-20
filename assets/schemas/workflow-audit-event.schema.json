@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/what-to-offload/workflow-audit-event.schema.json",
+  "title": "WhatToOffload portable workflow audit event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "event_id", "seq", "timestamp", "workflow_version", "node_id", "stage", "event_type", "executor", "status", "privacy", "parents"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"$ref": "#/$defs/id"},
+    "event_id": {"$ref": "#/$defs/id"},
+    "seq": {"type": "integer", "minimum": 0},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "workflow_version": {"$ref": "#/$defs/id"},
+    "node_id": {"$ref": "#/$defs/id"},
+    "stage": {"enum": ["run", "discover", "retrieve", "parse", "normalize", "pack", "judge", "repair", "accept", "assemble", "grade"]},
+    "event_type": {"enum": ["run_started", "source_declared", "source_retrieved", "candidate_declared", "evidence_declared", "context_packed", "decision_recorded", "fallback_started", "evidence_supplemented", "evidence_replaced", "field_accepted", "field_rejected", "field_quarantined", "field_missing", "field_emitted", "field_graded", "budget_recorded", "run_finished"]},
+    "executor": {"enum": ["code", "tool", "jev", "llm", "agent", "human"]},
+    "status": {"enum": ["started", "completed", "failed", "unresolved", "skipped"]},
+    "privacy": {"enum": ["metadata", "pseudonymous", "aggregate"]},
+    "parents": {"$ref": "#/$defs/idArray"},
+    "subject_ref": {"type": "string", "pattern": "^sha256:[0-9a-fA-F]{64}$"},
+    "required_fields": {"$ref": "#/$defs/nonemptyIdArray"},
+    "source_id": {"$ref": "#/$defs/id"},
+    "source_ids": {"$ref": "#/$defs/nonemptyIdArray"},
+    "candidate_id": {"$ref": "#/$defs/id"},
+    "candidate_ids": {"$ref": "#/$defs/idArray"},
+    "evidence_id": {"$ref": "#/$defs/id"},
+    "evidence_refs": {"$ref": "#/$defs/nonemptyIdArray"},
+    "prior_evidence_ids": {"$ref": "#/$defs/nonemptyIdArray"},
+    "field": {"$ref": "#/$defs/id"},
+    "fields": {"$ref": "#/$defs/nonemptyIdArray"},
+    "trigger_event_id": {"$ref": "#/$defs/id"},
+    "request_ref": {"$ref": "#/$defs/traceRef"},
+    "response_ref": {"$ref": "#/$defs/traceRef"},
+    "trace_ref": {"$ref": "#/$defs/traceRef"},
+    "contract_version": {"$ref": "#/$defs/id"},
+    "model": {"$ref": "#/$defs/id"},
+    "reason_code": {"$ref": "#/$defs/reasonCode"},
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome", "reason_code"],
+      "properties": {
+        "outcome": {"$ref": "#/$defs/id"},
+        "reason_code": {"$ref": "#/$defs/reasonCode"},
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "threshold": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eligible", "packed", "excluded", "unevaluated"],
+      "properties": {
+        "eligible": {"type": "integer", "minimum": 0},
+        "packed": {"type": "integer", "minimum": 0},
+        "excluded": {"type": "integer", "minimum": 0},
+        "unevaluated": {"type": "integer", "minimum": 0}
+      }
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "limit", "used", "exhausted"],
+      "properties": {
+        "unit": {"enum": ["pages", "calls", "time_ms", "tokens", "cost_usd", "retries"]},
+        "limit": {"type": "number", "minimum": 0},
+        "used": {"type": "number", "minimum": 0},
+        "exhausted": {"type": "boolean"}
+      }
+    },
+    "verdict": {"enum": ["pass", "fail"]},
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "latency_ms": {"type": "number", "minimum": 0},
+        "input_tokens": {"type": "integer", "minimum": 0},
+        "output_tokens": {"type": "integer", "minimum": 0},
+        "known_cost_usd": {"type": "number", "minimum": 0}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sources_declared", "candidates_declared", "evidence_declared", "decisions", "budget_events", "fields_emitted", "fields_missing", "fields_rejected", "fields_quarantined"],
+      "properties": {
+        "sources_declared": {"type": "integer", "minimum": 0},
+        "candidates_declared": {"type": "integer", "minimum": 0},
+        "evidence_declared": {"type": "integer", "minimum": 0},
+        "decisions": {"type": "integer", "minimum": 0},
+        "budget_events": {"type": "integer", "minimum": 0},
+        "fields_emitted": {"type": "integer", "minimum": 0},
+        "fields_missing": {"type": "integer", "minimum": 0},
+        "fields_rejected": {"type": "integer", "minimum": 0},
+        "fields_quarantined": {"type": "integer", "minimum": 0}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1},
+    "idArray": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "nonemptyIdArray": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "traceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref", "sha256"],
+      "properties": {
+        "ref": {"type": "string", "minLength": 1, "not": {"pattern": "^(?:/|~/|[A-Za-z]:[\\\\/])|\\.\\.|://"}},
+        "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"}
+      }
+    },
+    "reasonCode": {"enum": ["source_not_discovered", "source_not_retrieved", "fetch_failed", "budget_exhausted", "parser_unsupported", "candidate_omitted", "normalization_loss", "candidate_overflow", "context_omission", "batch_not_evaluated", "identity_context_missing", "above_threshold", "below_threshold", "semantic_rejection", "ambiguous_candidates", "provider_failure", "exception_not_routed", "repair_unsupported", "repair_rejected", "evidence_overwritten", "typed_handoff_lost", "assembly_drop", "output_contract_failure", "wrong_identity", "wrong_value", "missing_evidence", "reference_or_grader_gap", "trace_incomplete"]}
+  },
+  "allOf": [
+    {"if": {"properties": {"event_type": {"const": "run_started"}}}, "then": {"properties": {"stage": {"const": "run"}}, "required": ["required_fields"]}},
+    {"if": {"properties": {"event_type": {"const": "source_declared"}}}, "then": {"properties": {"stage": {"const": "discover"}}, "required": ["source_id"]}},
+    {"if": {"properties": {"event_type": {"const": "source_retrieved"}}}, "then": {"properties": {"stage": {"const": "retrieve"}}, "required": ["source_id"]}},
+    {"if": {"properties": {"event_type": {"const": "candidate_declared"}}}, "then": {"properties": {"stage": {"enum": ["parse", "normalize"]}}, "required": ["candidate_id", "source_ids"]}},
+    {"if": {"properties": {"event_type": {"const": "evidence_declared"}}}, "then": {"properties": {"stage": {"enum": ["retrieve", "parse", "normalize", "repair"]}}, "required": ["evidence_id", "candidate_ids", "source_ids"]}},
+    {"if": {"properties": {"event_type": {"const": "context_packed"}}}, "then": {"properties": {"stage": {"const": "pack"}}, "required": ["candidate_ids", "coverage"]}},
+    {"if": {"properties": {"event_type": {"const": "decision_recorded"}}}, "then": {"properties": {"stage": {"const": "judge"}}, "required": ["candidate_ids", "decision"]}},
+    {"if": {"properties": {"event_type": {"const": "fallback_started"}}}, "then": {"properties": {"stage": {"const": "repair"}}, "required": ["fields", "trigger_event_id", "reason_code"]}},
+    {"if": {"properties": {"event_type": {"enum": ["evidence_supplemented", "evidence_replaced"]}}}, "then": {"properties": {"stage": {"const": "repair"}}, "required": ["evidence_id", "prior_evidence_ids", "candidate_ids", "fields", "reason_code"]}},
+    {"if": {"properties": {"event_type": {"const": "field_accepted"}}}, "then": {"properties": {"stage": {"const": "accept"}}, "required": ["field", "candidate_id", "evidence_refs"]}},
+    {"if": {"properties": {"event_type": {"const": "field_emitted"}}}, "then": {"properties": {"stage": {"const": "assemble"}}, "required": ["field", "candidate_id", "evidence_refs"]}},
+    {"if": {"properties": {"event_type": {"enum": ["field_rejected", "field_quarantined"]}}}, "then": {"properties": {"stage": {"const": "accept"}}, "required": ["field", "reason_code"]}},
+    {"if": {"properties": {"event_type": {"const": "field_missing"}}}, "then": {"properties": {"stage": {"enum": ["accept", "assemble"]}}, "required": ["field", "reason_code"]}},
+    {"if": {"properties": {"event_type": {"const": "field_graded"}}}, "then": {"properties": {"stage": {"const": "grade"}}, "required": ["field", "verdict"]}},
+    {"if": {"properties": {"event_type": {"const": "budget_recorded"}}}, "then": {"properties": {"stage": {"enum": ["discover", "retrieve", "pack", "judge", "repair"]}}, "required": ["budget"]}},
+    {"if": {"properties": {"event_type": {"const": "run_finished"}}}, "then": {"properties": {"stage": {"const": "run"}}, "required": ["summary"]}},
+    {"if": {"properties": {"event_type": {"const": "decision_recorded"}, "executor": {"enum": ["jev", "llm", "agent"]}}, "required": ["event_type", "executor"]}, "then": {"required": ["request_ref", "response_ref", "contract_version", "model"]}}
+  ]
+}

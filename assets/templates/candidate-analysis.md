@@ -1,5 +1,14 @@
 # Offload candidate analysis
 
+## Analysis handoff
+
+- **Analysis ID:** stable opaque ID
+- **Analysis version:**
+- **Input / case-set version:**
+- **Frozen quality boundary:**
+- **Authorization scope at analysis time:** inspect / design / implement / live calls / side effects
+- **Explicitly accepted trade-offs:** none until accepted; record the user decision here
+
 ## Evidence reviewed
 
 - Sources inspected:
@@ -20,6 +29,7 @@ Repeat the following card no more than three times.
 
 ### Candidate: `<bounded subflow name>`
 
+- **Candidate ID:** stable across later design revisions
 - **Boundary:** `<start trigger>` → `<final result or handoff>`
 - **Workflow class:** `short-lived bounded | durable asynchronous`
 - **Why this class:**
@@ -29,6 +39,7 @@ Repeat the following card no more than three times.
 - **Concrete replacements:** `<observed behavior → proposed code/tool/Jev/LLM/retained agent>`
 - **Replacement prerequisites and supporting evidence:**
 - **Quality that must be preserved:**
+- **Trade-offs requiring explicit acceptance:**
 - **Expected benefit:**
 - **Capability or coverage potentially lost:**
 - **Failure detection and recovery:**

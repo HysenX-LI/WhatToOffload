@@ -1,5 +1,16 @@
 # Durable workflow design: `<name>`
 
+## Design handoff
+
+- **Candidate ID:**
+- **Design ID:**
+- **Analysis version:**
+- **Design version:**
+- **Input / case-set version:**
+- **Frozen quality boundary:**
+- **Explicitly accepted trade-offs:**
+- **Authorized implementation scope:** files, infrastructure, services, live calls, and side effects included or excluded
+
 ## Boundary and ownership
 
 - **Goal:**
@@ -167,7 +178,7 @@ Do not implement a runtime choice that materially changes infrastructure without
 - Composition-policy and action-suppression tests:
 - Provider mocks:
 - Focused and broader regression suites:
-- Optional live probe requiring confirmation:
+- Optional live probe and its precise current-task authorization (or required confirmation):
 
 ## Evaluation and adoption
 
@@ -182,4 +193,4 @@ Do not implement a runtime choice that materially changes infrastructure without
 
 Describe the smallest target-project changes: workflow definition, activities, adapters, state migration, tests, deployment, and observability. Preserve the existing stack and operational ownership.
 
-This document is a design. Do not edit the target project or provision infrastructure until implementation has been explicitly authorized, unless autonomous implementation was already requested. External side effects and live paid API calls retain their own approval stops.
+This document is a design. Carry the IDs, versions, frozen quality boundary, accepted trade-offs, and exact authorized scope into implementation. Do not edit the target project or provision infrastructure until implementation has been explicitly authorized, unless autonomous implementation was already requested. A precise current-task authorization for a live call or side effect remains valid; confirm again only if its service, data, cost, target, effect, or scope changes materially.

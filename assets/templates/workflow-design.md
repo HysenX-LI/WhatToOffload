@@ -1,5 +1,16 @@
 # Short-lived workflow design: `<name>`
 
+## Design handoff
+
+- **Candidate ID:**
+- **Design ID:**
+- **Analysis version:**
+- **Design version:**
+- **Input / case-set version:**
+- **Frozen quality boundary:**
+- **Explicitly accepted trade-offs:**
+- **Authorized implementation scope:** files, services, live calls, and side effects included or excluded
+
 ## Boundary
 
 - **Goal:**
@@ -115,7 +126,7 @@ Describe the smallest changes needed in the target project. Preserve its languag
 - Idempotency and unknown-outcome cases:
 - Provider mocks:
 - Focused and broader regression suites:
-- Optional live probe requiring confirmation:
+- Optional live probe and its precise current-task authorization (or required confirmation):
 
 ## Evaluation and adoption
 
@@ -128,4 +139,4 @@ Describe the smallest changes needed in the target project. Preserve its languag
 
 ## User authorization boundary
 
-State explicitly that this document is a design. Do not edit the target project until implementation has been authorized, unless autonomous implementation was already requested.
+State explicitly that this document is a design. Carry the IDs, versions, frozen quality boundary, accepted trade-offs, and exact authorized scope into implementation. Do not edit the target project until implementation has been authorized, unless autonomous implementation was already requested.

@@ -48,7 +48,7 @@ Do not broaden authorization from one action to another.
 
 ## External calls
 
-Static checks and mocks are the default. Immediately before a live Jev, LLM, paid, or data-transmitting API call, obtain explicit confirmation unless the user already authorized that precise live test or operation in the current task.
+Static checks and mocks are the default. A precise authorization already granted for a live Jev, LLM, paid, or data-transmitting API call in the current task remains valid and may be reused. Confirm again only when the service, endpoint class, transmitted data, expected cost, target, side effect, or call scope changes materially. General permission to analyze, design, or implement is not permission for a live call.
 
 Use the smallest non-sensitive synthetic payload that verifies the required interface. Report provider, endpoint class, model identifier returned by the service, response shape, latency, and sanitized usage or cost when available. Never report the key.
 
@@ -67,4 +67,3 @@ If a key was pasted into a chat or other durable log, recommend rotation after t
 Retry only errors that are both transient and safe to repeat. Bound retries by attempt count or elapsed time. Respect rate-limit guidance when present. Do not retry side effects unless the operation is idempotent or has an explicit idempotency key.
 
 Diagnostics should identify the failing node, stable error code, retryability, and sanitized message. Do not include raw provider bodies when they may contain source data or secrets.
-

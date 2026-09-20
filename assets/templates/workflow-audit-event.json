@@ -11,7 +11,7 @@
   "executor": "jev",
   "status": "completed",
   "privacy": "metadata",
-  "subject_ref": "sha256:opaque-subject-hash",
+  "subject_ref": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
   "field": "example_field",
   "candidate_ids": [
     "candidate-12"
@@ -19,8 +19,14 @@
   "parents": [
     "event-6"
   ],
-  "request_ref": "local-traces/request-7.json#sha256=example",
-  "response_ref": "local-traces/response-7.json#sha256=example",
+  "request_ref": {
+    "ref": "local-traces/request-7.json",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "response_ref": {
+    "ref": "opaque:response-7",
+    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
   "contract_version": "ownership-v3",
   "model": "provider/model-version",
   "decision": {

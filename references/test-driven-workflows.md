@@ -81,7 +81,7 @@ For Jev Choice, Noul, or Score, test that code handles valid options, probabilit
 
 For generated LLM text, prefer structural requirements, required evidence references, prohibited claims, and human-meaningful evaluation criteria over exact-string snapshots.
 
-Keep real provider evaluations separate from the default suite. They require explicit confirmation, controlled cost, non-sensitive inputs, recorded provider/model versions, and a report that distinguishes contract failure from model-quality failure.
+Keep real provider evaluations separate from the default suite. They require precise current-task authorization, controlled cost, non-sensitive inputs, recorded provider/model versions, and a report that distinguishes contract failure from model-quality failure. Reuse an existing authorization when the service, data, cost, target, effect, and scope are unchanged.
 
 ## Validate extraction and batch completion
 
@@ -117,7 +117,7 @@ Use a fake effect sink or sandbox adapter to prove:
 - timeout with an unknown outcome reconciles before retry;
 - diagnostics and logs contain no secrets or unnecessary source data.
 
-The first live side-effect test remains a separate authorization boundary even when all fake-based tests pass.
+The first live side-effect test remains a separate authorization boundary even when all fake-based tests pass, unless that exact test and effect were already authorized in the current task. Reconfirm only when the target, data, service, cost, effect, or scope changes materially.
 
 ## Add durable-workflow tests when applicable
 

@@ -148,4 +148,4 @@ Test observable transitions and recovery behavior:
 - redaction of secrets and unnecessary source data from state, logs, and traces;
 - representative Jev or LLM cases, including uncertainty and provider failure.
 
-Use mocks and deterministic clocks by default. A real external API probe still requires explicit confirmation immediately before the call.
+Use mocks and deterministic clocks by default. A real external API probe needs precise current-task authorization; reuse that authorization for the same scoped probe, and confirm again only if the service, data, cost, target, effect, or scope changes materially.

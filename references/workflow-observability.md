@@ -1,111 +1,122 @@
 # Workflow observability and gap attribution
 
-Use this mechanism when an offloaded workflow has multiple stages, semantic decisions, retrieval, fallback, or a quality metric whose failures need diagnosis. A one-step deterministic transformation usually needs ordinary application logs rather than this audit trail.
+Use this mechanism for a multi-stage workflow with retrieval, semantic decisions, fallback, or quality failures that must be located. A one-step deterministic transform usually needs ordinary application logs instead.
 
-The purpose is to answer where a missing or wrong outcome first became inevitable. Final quality metrics cannot distinguish a source that was never retrieved from a correct decision that was later dropped.
+The contract answers where a missing or wrong field first became inevitable. It does not turn WhatToOffload into a trace store, grader, or workflow runtime.
+
+## Normative contract and examples
+
+The formal JSON Schemas are normative for individual records:
+
+- [workflow-audit-event.schema.json](../assets/schemas/workflow-audit-event.schema.json)
+- [frozen-field-reference.schema.json](../assets/schemas/frozen-field-reference.schema.json)
+- [gap-attribution.schema.json](../assets/schemas/gap-attribution.schema.json)
+
+[workflow-audit-event.json](../assets/templates/workflow-audit-event.json) and [gap-attribution.json](../assets/templates/gap-attribution.json) are examples, not schemas. Cross-event invariants such as declaration order, lineage, terminal coverage, and reconciled counts cannot be expressed fully by an individual-event schema; `scripts/validate_audit_log.py` enforces them with the standard library.
 
 ## Keep two linked stores
 
-Write an append-only, portable audit log as JSON Lines. It contains stable IDs, lifecycle events, reason codes, counts, hashes, latency, cost, and references. It must be safe to retain with the workflow's other sanitized diagnostics.
+Write the portable audit log as append-only JSON Lines. It contains pseudonymous IDs, lifecycle events, reason codes, counts, hashes, latency, cost, and safe references. It must not contain raw source text, personal data, credentials, authorization headers, model prompts, provider bodies, URLs that identify a subject, or absolute local paths.
 
-Keep raw source snapshots and exact Jev or LLM request and response bodies in a separate local trace store only when they are needed and permitted. The audit log points to those files through opaque references and content hashes. Do not copy raw source text, personal data, credentials, authorization headers, or model prompts into the portable log.
+When raw source or exact model payloads are permitted and needed, put them in a separate project-owned local trace store with an explicit retention policy. A portable event may point to a snapshot only through a safe relative or `opaque:` reference plus its SHA-256 content hash. The reference never grants permission to publish the snapshot.
 
-Use three capture levels:
+Use one of three capture levels:
 
-- `minimal`: stage transitions, candidate lineage, decisions, reason codes, budgets, provider usage, and final-field lineage. Enable this for representative production runs.
-- `diagnostic`: minimal events plus local request, response, and evidence snapshots for uncertain, rejected, repaired, or failed paths. Prefer this for iterative evaluation.
-- `full_local`: local snapshots for every semantic call and evidence transition. Use for bounded test runs with an explicit retention period, not as the default production setting.
+- `minimal`: declarations, lineage, decisions, budgets, terminal fields, and summaries;
+- `diagnostic`: minimal events plus local snapshots for uncertain, rejected, repaired, or failed paths;
+- `full_local`: local snapshots for every semantic and evidence transition during a bounded test, with explicit retention.
 
-The raw trace store and its retention policy belong to the target project. WhatToOffload only specifies the contract.
+The event `privacy` value is one of `metadata`, `pseudonymous`, or `aggregate`; it describes the portable event, not the separate raw trace.
 
-## Record a candidate and field lifecycle
+## Vocabulary
 
-Use stable `run_id`, `event_id`, `node_id`, `candidate_id`, and hashed or otherwise non-identifying `subject_ref` values. Preserve parent event IDs so a final output can be traced backward.
-
-Useful stages are:
+Stages follow execution order:
 
 ```text
-discover -> retrieve -> normalize -> pack -> judge -> extract
-         -> repair -> accept/quarantine -> assemble -> grade
+run
+discover -> retrieve -> parse -> normalize -> pack -> judge
+         -> repair -> accept -> assemble -> grade
 ```
 
-Record the transitions that actually occur. Do not emit fabricated stages merely to satisfy a diagram. The portable event shape is illustrated in [workflow-audit-event.json](../assets/templates/workflow-audit-event.json).
+Only emit transitions that occurred. The allowed event types and their stages are:
 
-At minimum, make these facts reconstructable:
+| Event type | Allowed stage | Required purpose |
+| --- | --- | --- |
+| `run_started`, `run_finished` | `run` | Freeze required fields; reconcile final counts |
+| `source_declared` | `discover` | Declare a source ID before reference |
+| `source_retrieved` | `retrieve` | Record retrieval outcome for a declared source |
+| `candidate_declared` | `parse`, `normalize` | Declare a candidate and its source IDs |
+| `evidence_declared` | `retrieve`, `parse`, `normalize`, `repair` | Declare evidence linked to candidates and sources |
+| `context_packed` | `pack` | Record exact candidate IDs and coverage counts |
+| `decision_recorded` | `judge` | Record typed outcome, input candidates, reason, and model trace references when applicable |
+| `fallback_started` | `repair` | Record trigger parent and fields the fallback may change |
+| `evidence_supplemented`, `evidence_replaced` | `repair` | Record prior/new evidence, candidate and field scope, and declaration parents |
+| `field_accepted`, `field_rejected`, `field_quarantined` | `accept` | Record typed handoff or terminal rejection |
+| `field_missing` | `accept`, `assemble` | Record a required field with no accepted output |
+| `field_emitted` | `assemble` | Record an emitted accepted field |
+| `field_graded` | `grade` | Record pass/fail against the frozen reference |
+| `budget_recorded` | `discover`, `retrieve`, `pack`, `judge`, `repair` | Record one limit, usage, and exhaustion state |
 
-- which sources and candidates were generated, deduplicated, excluded, or left unevaluated;
-- which candidate IDs and identity context entered every Jev or LLM call;
-- the question, contract, parser, normalization, and workflow versions;
-- the returned typed decision, score or probability, active threshold, and reason code;
-- whether a fetch succeeded and whether its evidence supplemented or replaced earlier evidence;
-- why a fallback ran, which fields it could change, and how its output was checked;
-- every accepted, rejected, quarantined, missing, and emitted field with candidate and evidence references;
-- depth, page, call, time, token, and cost budgets before and after bounded retrieval;
-- final quality metrics and provider usage.
+Every source, candidate, and evidence ID must be declared before use. Accepted and emitted fields must name a declared candidate and declared evidence linked to that candidate. Each field listed by `run_started.required_fields` must have exactly one terminal event: emitted, missing, rejected, or quarantined.
 
-Never log only the winning candidate. Candidate coverage and excluded candidates are necessary to distinguish a judgment error from an incomplete input.
+Candidate packing uses `eligible`, `packed`, `excluded`, and `unevaluated`; the final three counts must sum to `eligible`, and `packed` must equal the recorded candidate-ID count. `run_finished.summary` reconciles source, candidate, evidence, decision, budget, and terminal-field event counts.
 
-## Use stable reason codes
+## Stable reason codes
 
-Keep a small project-owned vocabulary. Add a new code only when it changes recovery or analysis. Recommended starting codes are:
+Use only a code whose boundary changes recovery or analysis:
 
-| Boundary | Reason codes |
+| Primary boundary | Reason codes |
 | --- | --- |
-| Discovery and retrieval | `source_not_discovered`, `source_not_retrieved`, `fetch_failed`, `budget_exhausted` |
-| Parsing and normalization | `parser_unsupported`, `candidate_omitted`, `normalization_loss`, `candidate_overflow` |
+| Discovery | `source_not_discovered` |
+| Retrieval | `source_not_retrieved`, `fetch_failed` |
+| Parsing | `parser_unsupported` |
+| Normalization | `candidate_omitted`, `normalization_loss`, `candidate_overflow` |
 | Context packing | `context_omission`, `batch_not_evaluated`, `identity_context_missing` |
-| Semantic judgment | `below_threshold`, `semantic_rejection`, `ambiguous_candidates`, `provider_failure` |
-| Exception routing | `exception_not_routed`, `repair_unsupported`, `repair_rejected` |
-| Handoff and assembly | `evidence_overwritten`, `typed_handoff_lost`, `assembly_drop`, `output_contract_failure` |
-| Evaluation | `wrong_identity`, `wrong_value`, `missing_evidence`, `reference_or_grader_gap` |
+| Semantic judgment | `above_threshold`, `below_threshold`, `semantic_rejection`, `ambiguous_candidates`, `provider_failure` |
+| Fallback and evidence merge | `exception_not_routed`, `repair_unsupported`, `repair_rejected`, `evidence_overwritten` |
+| Handoff and assembly | `typed_handoff_lost`, `assembly_drop`, `output_contract_failure` |
+| Grading | `wrong_identity`, `wrong_value`, `missing_evidence`, `reference_or_grader_gap` |
+| Trace completeness | `trace_incomplete` |
 
-Store the active threshold and decision score separately from the reason code. Changing a threshold should not require rewriting historical events.
+`budget_exhausted` is attributed to the stage of its `budget_recorded` event because discovery, retrieval, packing, judgment, and repair can have independent budgets.
 
-## Attribute each gap deterministically
+Store a score and threshold separately from the reason code. Evidence replacement or supplementation must reference the declaration events for both prior and new evidence as explicit parents. A fallback must name its trigger event as a parent and state its field scope.
 
-Join the frozen reference only after execution. For every expected entity or field that is missing, wrong, or unsupported, walk its lineage in this order:
+## Deterministic gap attribution
 
-1. If no relevant source was discovered, attribute the gap to discovery.
-2. If the source was known but not retrieved, attribute it to retrieval, fetch failure, or budget exhaustion.
-3. If the retrieved source contains the value but no candidate represents it, attribute it to parsing or normalization.
-4. If a candidate exists but was not packed or evaluated, attribute it to context packing or budget policy.
-5. If it was evaluated and rejected, attribute it to the semantic decision or threshold; retain the exact decision event.
-6. If it was selected but fallback or verification removed it, attribute it to exception validation or evidence replacement.
-7. If it was accepted but not emitted, attribute it to handoff or assembly.
-8. If it was emitted but grading rejects it, attribute it to identity, value, evidence, output contract, or the reference/grader.
+After execution, join the validated log to a frozen field reference. The reference contains pseudonymous subject/field keys and, when known, expected source, candidate, and evidence IDs; it stores only a value hash when value identity is needed.
 
-Assign the earliest causal boundary as `primary_cause`. Preserve later contributing events separately. The gap-report shape is illustrated in [gap-attribution.json](../assets/templates/gap-attribution.json).
+For every expected available field that is absent or fails grading, choose the earliest supported boundary:
 
-Do not let an LLM assign the authoritative cause from a prose trace. Code should derive the stage from lifecycle events. An LLM may summarize a validated gap report or group unfamiliar examples for review.
+1. source not discovered;
+2. source known but not retrieved;
+3. retrieved material not parsed or normalized into the expected candidate;
+4. candidate not packed or evaluated;
+5. semantic decision rejected it;
+6. fallback or evidence replacement removed it;
+7. accepted field was lost during handoff or assembly;
+8. emitted field failed identity, value, evidence, contract, reference, or grader checks.
 
-## Turn diagnosis into a controlled improvement loop
+Code owns the authoritative result. An LLM may summarize a validated report but must not choose its cause. When IDs, terminal events, or reason-coded lineage are insufficient, emit `primary_stage: trace` and `primary_cause: trace_incomplete` rather than guessing.
 
-1. Freeze the workflow version, question and contract versions, budgets, reference, and acceptance criteria.
-2. Run representative cases with minimal or diagnostic capture.
-3. Validate the audit log before interpreting quality. Use `scripts/validate_audit_log.py` when adopting this repository's event contract.
-4. Grade the final result, then generate field-level gap attribution.
-5. Aggregate primary causes, recovery success, cost, and latency by stage and reason code.
-6. Change the smallest boundary that addresses the dominant verified cause: candidate generator, parser, context packer, question, threshold, fallback, evidence merge, or assembler.
-7. Replay deterministic policy changes against saved events where possible. Treat threshold replay as a counterfactual, not as a fresh end-to-end result.
-8. Add a contract or characterization test for the demonstrated failure.
-9. Rerun the inspected case as a post-inspection regression test and use a separately frozen case for the next transfer claim.
+Generate a report with:
 
-Do not tune a Jev prompt when the correct candidate was absent, or add more LLM review when assembly dropped an already accepted value. The audit boundary should make such category mistakes visible.
+```bash
+python3 scripts/generate_gap_attribution.py audit.jsonl frozen-field-reference.json
+```
 
-## Gate adoption on trace completeness
+The JSON output includes reference and workflow versions, causal and contributing events, recommended boundary, replayability, and aggregate cause counts. Replayability means saved events are sufficient to replay the relevant deterministic policy; it does not claim a fresh end-to-end result.
 
-Before using the log to justify a workflow change, require:
+## Validation and controlled improvement
 
-- every emitted field has an earlier accepted candidate and at least one evidence reference;
-- every unresolved required field has a terminal reason code;
-- every semantic call records the candidate IDs it received plus request, response, model, and contract references;
-- candidate packing records eligible, packed, and excluded counts;
-- accepted evidence is never silently replaced; replacement has an explicit event and parent lineage;
-- the run-finished summary agrees with emitted and missing event counts;
-- the portable log passes secret and raw-payload checks.
+Validate before attributing:
 
-An incomplete trace can still reveal a problem, but it cannot establish that another stage was correct.
+```bash
+python3 scripts/validate_audit_log.py audit.jsonl
+```
 
-## Publish only safe aggregates
+The validator rejects unknown vocabulary, undeclared references, broken accepted-to-emitted lineage, implicit evidence replacement, unscoped fallback, missing required-field terminals, unbalanced coverage or summary counts, unsafe trace references, raw-payload keys, credentials, personal-data-like strings, and absolute paths.
 
-Keep task identities, source URLs when identifying, raw evidence, and provider payloads local unless release is explicitly authorized. Reusable reports should contain counts, rates, reason-code distributions, quality, latency, cost, workflow hashes, and stated limitations. A private repository does not by itself change the data-release boundary chosen for the task.
+Then freeze workflow, contract, budget, input/case-set, reference, and quality-boundary versions; grade outputs; generate field gaps; aggregate verified causes; change the smallest responsible boundary; and add a regression test. Do not tune a model when discovery omitted the source or add more review when assembly dropped an accepted field.
+
+Publish only explicitly authorized aggregates. Keep task identities, identifying URLs, raw evidence, and provider payloads local even when the repository is private.
