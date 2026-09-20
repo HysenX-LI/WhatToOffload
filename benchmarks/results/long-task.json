@@ -1,0 +1,467 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-09-20T03:38:05.117409+00:00",
+  "benchmark_id": "local-long-workflow-v1",
+  "status": "complete",
+  "workload": {
+    "sha256": "263eba5b9f6f48c4f71bad71ce8b35b4137bae3caef5798f377c4241c9cb4dd2",
+    "files": 123,
+    "source_documents": 120,
+    "suppliers": 24,
+    "lots": 3,
+    "input_bytes": 73035
+  },
+  "protocol": {
+    "repetitions": 3,
+    "codex_model": "gpt-5.6-sol",
+    "reasoning_effort": "high",
+    "jev_confidence_threshold": 0.6,
+    "agent_context": "fresh fork_turns=none; isolated input copies",
+    "quality": "complete structured equality plus report contract and author review",
+    "no_answer_cache": true,
+    "primary_scope": "prepared repeated execution, setup cost unknown",
+    "dataset_type": "synthetic development fixture, not held-out evaluation"
+  },
+  "artifact_hashes": {
+    "runner.py": "13b501204f0276efd1eef95c3a6b7abae9db9c5c16e1b9917f40e949b8ead014",
+    "workflow.py": "9061050c6eb29a296eed6380079b83ba61933985c8763d4d1780fb1c58c0181c",
+    "evaluate.py": "fa5849b00d231c9a59fed245e8b41a94eac786f13bc8de6017fac5d455894375",
+    "gold.json": "156b350c58c35ee924279454d83bbc6af435896aff1c737d1fc1a6c42b79024c",
+    "task-skill/SKILL.md": "a5f1a9355180089e1aaaaefe8e897a0b8da54272c4303ff36d9d7a5a95cb8b90",
+    "task-skill/workflow.py": "9061050c6eb29a296eed6380079b83ba61933985c8763d4d1780fb1c58c0181c"
+  },
+  "grader_corrections": [
+    "Reference rounding corrected to predeclared decimal half-up.",
+    "Accept Lot A / lot-a as equivalent narrative labels; enforce cent-accurate amounts. No task input or executor output changed."
+  ],
+  "runs": [
+    {
+      "arm": "codex_only",
+      "repetition": 1,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 396,
+        "failure_categories": [],
+        "author_prose_review": "pass"
+      },
+      "result_sha256": "eea391982f27789000fcafcc04251270083ce81fb1cdf99c8d8c12e45016bc30",
+      "brief_sha256": "4067d3ee8df191b9c7dad26e81071220ebedcb73bd9c8da0a06a9e107a571552",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "wall_ms": 209260,
+      "codex_usage": {
+        "input_tokens": 474837,
+        "cached_input_tokens": 409600,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10172,
+        "reasoning_output_tokens": 2763,
+        "total_tokens": 485009
+      },
+      "tool_calls": 9,
+      "max_request_input_tokens": 63730,
+      "main_agent_tokens": 485009,
+      "codex_api_equivalent_usd": 0.628228,
+      "external_cost_usd": 0,
+      "total_cost_usd": 0.628228,
+      "provider_tokens": {},
+      "provider_call_count": 0,
+      "execution_status": "completed"
+    },
+    {
+      "arm": "codex_only",
+      "repetition": 2,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 365,
+        "failure_categories": [],
+        "author_prose_review": "pass"
+      },
+      "result_sha256": "eea391982f27789000fcafcc04251270083ce81fb1cdf99c8d8c12e45016bc30",
+      "brief_sha256": "233498d084e35cc48e2ac8cc7c9988a437200a3937feb2ea011e7643c793c19b",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "wall_ms": 171106,
+      "codex_usage": {
+        "input_tokens": 425402,
+        "cached_input_tokens": 396288,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7670,
+        "reasoning_output_tokens": 1839,
+        "total_tokens": 433072
+      },
+      "tool_calls": 9,
+      "max_request_input_tokens": 55567,
+      "main_agent_tokens": 433072,
+      "codex_api_equivalent_usd": 0.4283712,
+      "external_cost_usd": 0,
+      "total_cost_usd": 0.4283712,
+      "provider_tokens": {},
+      "provider_call_count": 0,
+      "execution_status": "completed"
+    },
+    {
+      "arm": "codex_only",
+      "repetition": 3,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 358,
+        "failure_categories": [],
+        "author_prose_review": "pass"
+      },
+      "result_sha256": "eea391982f27789000fcafcc04251270083ce81fb1cdf99c8d8c12e45016bc30",
+      "brief_sha256": "1ca253c9a5434b0e51c2452e2b5cfc052ea33b739e2034eca122940a692c8dbd",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "wall_ms": 237103,
+      "codex_usage": {
+        "input_tokens": 442175,
+        "cached_input_tokens": 412544,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11586,
+        "reasoning_output_tokens": 3612,
+        "total_tokens": 453761
+      },
+      "tool_calls": 9,
+      "max_request_input_tokens": 56163,
+      "main_agent_tokens": 453761,
+      "codex_api_equivalent_usd": 0.5152616,
+      "external_cost_usd": 0,
+      "total_cost_usd": 0.5152616,
+      "provider_tokens": {},
+      "provider_call_count": 0,
+      "execution_status": "completed"
+    },
+    {
+      "arm": "codex_with_skill",
+      "repetition": 1,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 426,
+        "failure_categories": [],
+        "author_prose_review": "pass"
+      },
+      "result_sha256": "156b350c58c35ee924279454d83bbc6af435896aff1c737d1fc1a6c42b79024c",
+      "brief_sha256": "f7724388358c3e1d95267da3d9c96fc5b1c12a79585afac7568c747582a89df1",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "wall_ms": 102143,
+      "codex_usage": {
+        "input_tokens": 477924,
+        "cached_input_tokens": 447872,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3870,
+        "reasoning_output_tokens": 1052,
+        "total_tokens": 481794
+      },
+      "tool_calls": 10,
+      "max_request_input_tokens": 56146,
+      "main_agent_tokens": 481794,
+      "codex_api_equivalent_usd": 0.37675680000000006,
+      "external_cost_usd": 0,
+      "total_cost_usd": 0.37675680000000006,
+      "provider_tokens": {},
+      "provider_call_count": 0,
+      "execution_status": "completed"
+    },
+    {
+      "arm": "codex_with_skill",
+      "repetition": 2,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 382,
+        "failure_categories": [],
+        "author_prose_review": "pass"
+      },
+      "result_sha256": "156b350c58c35ee924279454d83bbc6af435896aff1c737d1fc1a6c42b79024c",
+      "brief_sha256": "84e0bde46b30ce597cef0507c1aae1cec409547e972aadd17f24553fec96b990",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "wall_ms": 75542,
+      "codex_usage": {
+        "input_tokens": 381543,
+        "cached_input_tokens": 356352,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2883,
+        "reasoning_output_tokens": 517,
+        "total_tokens": 384426
+      },
+      "tool_calls": 8,
+      "max_request_input_tokens": 51808,
+      "main_agent_tokens": 384426,
+      "codex_api_equivalent_usd": 0.30096480000000003,
+      "external_cost_usd": 0,
+      "total_cost_usd": 0.30096480000000003,
+      "provider_tokens": {},
+      "provider_call_count": 0,
+      "execution_status": "completed"
+    },
+    {
+      "arm": "codex_with_skill",
+      "repetition": 3,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 458,
+        "failure_categories": [],
+        "author_prose_review": "pass"
+      },
+      "result_sha256": "156b350c58c35ee924279454d83bbc6af435896aff1c737d1fc1a6c42b79024c",
+      "brief_sha256": "357dfb8a861e81d23f4ecb5cdb2246decd139ed1c63ced179670ddad5b5cfb6b",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "wall_ms": 114938,
+      "codex_usage": {
+        "input_tokens": 463332,
+        "cached_input_tokens": 434432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4950,
+        "reasoning_output_tokens": 1580,
+        "total_tokens": 468282
+      },
+      "tool_calls": 9,
+      "max_request_input_tokens": 55454,
+      "main_agent_tokens": 468282,
+      "codex_api_equivalent_usd": 0.3883728000000001,
+      "external_cost_usd": 0,
+      "total_cost_usd": 0.3883728000000001,
+      "provider_tokens": {},
+      "provider_call_count": 0,
+      "execution_status": "completed"
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 1,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 494,
+        "failure_categories": [],
+        "author_prose_review": "pass"
+      },
+      "result_sha256": "156b350c58c35ee924279454d83bbc6af435896aff1c737d1fc1a6c42b79024c",
+      "brief_sha256": "ec1d2ad32e23b993d2e85db0554e11e4fa27ad4765bdc64d2b61df290e5b03ec",
+      "wall_ms": 5816,
+      "main_agent_tokens": 0,
+      "codex_usage": null,
+      "codex_api_equivalent_usd": 0,
+      "external_cost_usd": 0.0008221139999999999,
+      "total_cost_usd": 0.0008221139999999999,
+      "provider_tokens": {
+        "jev_input": 11642,
+        "jev_output": 1279,
+        "deepseek_input": 613,
+        "deepseek_output": 402,
+        "deepseek_cached": 0
+      },
+      "provider_call_count": 5,
+      "low_confidence_routes": 2,
+      "execution_status": "completed",
+      "provider_models": [
+        "deepseek-flash",
+        "typesafe/jev-1.13-20260917"
+      ]
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 2,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 494,
+        "failure_categories": [],
+        "author_prose_review": "pass (identical to reviewed deterministic brief)"
+      },
+      "result_sha256": "156b350c58c35ee924279454d83bbc6af435896aff1c737d1fc1a6c42b79024c",
+      "brief_sha256": "ec1d2ad32e23b993d2e85db0554e11e4fa27ad4765bdc64d2b61df290e5b03ec",
+      "wall_ms": 5922,
+      "main_agent_tokens": 0,
+      "codex_usage": null,
+      "codex_api_equivalent_usd": 0,
+      "external_cost_usd": 0.0007452659999999999,
+      "total_cost_usd": 0.0007452659999999999,
+      "provider_tokens": {
+        "jev_input": 11642,
+        "jev_output": 1279,
+        "deepseek_input": 613,
+        "deepseek_output": 368,
+        "deepseek_cached": 384
+      },
+      "provider_call_count": 5,
+      "low_confidence_routes": 2,
+      "execution_status": "completed",
+      "provider_models": [
+        "deepseek-flash",
+        "typesafe/jev-1.13-20260917"
+      ]
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 3,
+      "quality": {
+        "passed": true,
+        "row_accuracy": 1.0,
+        "rows_correct": 24,
+        "brief_pass": true,
+        "brief_word_count": 494,
+        "failure_categories": [],
+        "author_prose_review": "pass (identical to reviewed deterministic brief)"
+      },
+      "result_sha256": "156b350c58c35ee924279454d83bbc6af435896aff1c737d1fc1a6c42b79024c",
+      "brief_sha256": "ec1d2ad32e23b993d2e85db0554e11e4fa27ad4765bdc64d2b61df290e5b03ec",
+      "wall_ms": 6065,
+      "main_agent_tokens": 0,
+      "codex_usage": null,
+      "codex_api_equivalent_usd": 0,
+      "external_cost_usd": 0.0007656659999999999,
+      "total_cost_usd": 0.0007656659999999999,
+      "provider_tokens": {
+        "jev_input": 11642,
+        "jev_output": 1279,
+        "deepseek_input": 613,
+        "deepseek_output": 402,
+        "deepseek_cached": 384
+      },
+      "provider_call_count": 5,
+      "low_confidence_routes": 2,
+      "execution_status": "completed",
+      "provider_models": [
+        "deepseek-flash",
+        "typesafe/jev-1.13-20260917"
+      ]
+    }
+  ],
+  "aggregate": {
+    "codex_only": {
+      "n": 3,
+      "passed": 3,
+      "median_wall_ms": 209260,
+      "min_wall_ms": 171106,
+      "max_wall_ms": 237103,
+      "median_main_agent_tokens": 453761,
+      "median_cost_usd": 0.5152616,
+      "min_cost_usd": 0.4283712,
+      "max_cost_usd": 0.628228,
+      "mean_row_accuracy": 1.0,
+      "cost_per_passing_task_usd": 0.5239536
+    },
+    "codex_with_skill": {
+      "n": 3,
+      "passed": 3,
+      "median_wall_ms": 102143,
+      "min_wall_ms": 75542,
+      "max_wall_ms": 114938,
+      "median_main_agent_tokens": 468282,
+      "median_cost_usd": 0.37675680000000006,
+      "min_cost_usd": 0.30096480000000003,
+      "max_cost_usd": 0.3883728000000001,
+      "mean_row_accuracy": 1.0,
+      "cost_per_passing_task_usd": 0.3553648000000001
+    },
+    "whattooffload": {
+      "n": 3,
+      "passed": 3,
+      "median_wall_ms": 5922,
+      "min_wall_ms": 5816,
+      "max_wall_ms": 6065,
+      "median_main_agent_tokens": 0,
+      "median_cost_usd": 0.0007656659999999999,
+      "min_cost_usd": 0.0007452659999999999,
+      "max_cost_usd": 0.0008221139999999999,
+      "mean_row_accuracy": 1.0,
+      "cost_per_passing_task_usd": 0.0007776819999999999
+    }
+  },
+  "development_attempts": [
+    {
+      "attempt": 1,
+      "execution_status": "failed",
+      "contract_pass": false,
+      "wall_ms": 42331,
+      "external_cost_usd": 0.006914676,
+      "provider_tokens": {
+        "jev_input": 11642,
+        "jev_output": 1279,
+        "deepseek_input": 5096,
+        "deepseek_output": 10000,
+        "deepseek_cached": 2304
+      },
+      "provider_call_count": 6
+    },
+    {
+      "attempt": 2,
+      "execution_status": "completed",
+      "contract_pass": false,
+      "wall_ms": 7117,
+      "external_cost_usd": 0.001340964,
+      "provider_tokens": {
+        "jev_input": 11642,
+        "jev_output": 1280,
+        "deepseek_input": 3076,
+        "deepseek_output": 651,
+        "deepseek_cached": 0
+      },
+      "provider_call_count": 6
+    },
+    {
+      "attempt": 3,
+      "execution_status": "completed",
+      "contract_pass": false,
+      "wall_ms": 7609,
+      "external_cost_usd": 0.001121028,
+      "provider_tokens": {
+        "jev_input": 11642,
+        "jev_output": 1279,
+        "deepseek_input": 3076,
+        "deepseek_output": 943,
+        "deepseek_cached": 2688
+      },
+      "provider_call_count": 6
+    }
+  ],
+  "setup": {
+    "full_cost_usd": null,
+    "reason": "Skill/runner construction, documentation and harness work were not separately metered; parent-session costs cannot be attributed cleanly.",
+    "known_runner_development_api_usd": 0.009376668
+  },
+  "prices": {
+    "snapshot": "2026-09-20",
+    "codex_usd_per_million": {
+      "input": 4,
+      "cached_input": 0.4,
+      "cache_write": 5,
+      "output": 20
+    },
+    "deepseek_offpeak_usd_per_million": {
+      "input_miss": 0.15,
+      "input_hit": 0.003,
+      "output": 0.6
+    },
+    "jev": "provider-reported usage.cost; fallback input rate $0.042/M",
+    "sources": [
+      "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "https://api-docs.deepseek.com/quick_start/pricing/",
+      "https://openrouter.ai/typesafe/jev-1.13"
+    ]
+  }
+}

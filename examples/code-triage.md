@@ -1,6 +1,32 @@
 # Example: test-failure and issue triage
 
-This compact example shows how a repeatedly supervised debugging intake can become a short-lived runner. It does not attempt to fix the code.
+This example follows a release-gate investigation across multiple test jobs, repository changes, and product requirements. The runner prepares a decision-ready investigation package; applying repairs remains a separate task.
+
+## Worked scenario: a release candidate with several failures
+
+A checkout release has twelve CI jobs. Four jobs fail, one reports a timeout before tests start, and two failures repeat the same checkout assertion on different platforms. The release owner needs a consolidated brief, an evidence-backed classification for each distinct failure, likely owners, and the next checks before deciding whether to ship.
+
+The input pack contains the job manifest, structured test results, raw log excerpts, a diff against the last passing commit, current checkout requirements, an ownership map, and the previous three runs. One test still expects the old response format; another exposes an implementation change that conflicts with the current requirement. A dependency download timeout is unrelated to product behavior. A payment callback fails intermittently, but the supplied history is too short to establish flakiness.
+
+The work is deliberately more than classifying one error message:
+
+1. Check that logs, test results and diffs refer to the same commit. Return missing evidence explicitly when they do not.
+2. Extract failed tests, stack frames, setup failures and exit codes. Preserve the original job and source IDs.
+3. Group repeated manifestations by test identity and normalized error signature. Keep both platform observations attached to the group.
+4. Join each group to changed files, current requirements and historical observations. A matching filename alone is not proof of causation.
+5. Ask bounded semantic questions about the competing explanations. Evaluate uncertainty per failure group, not just once for the release.
+6. Map supported findings to owners and investigation actions with deterministic rules. Do not invent an owner when the ownership map has no match.
+7. Draft a release brief and a machine-readable queue. A source ID must resolve to supplied evidence, and each failure must appear exactly once in the queue.
+8. Return completed groups together with unresolved groups. A missing log for one job must not erase useful results from the others.
+
+| Evidence pattern | Expected handling | What stays with the agent |
+| --- | --- | --- |
+| Same assertion on two platforms; implementation contradicts current requirement | One product-regression group, two job references, responsible file owner | Investigate and repair the implementation |
+| Old assertion conflicts with an explicit revised requirement | Test-regression group with requirement and test references | Decide and implement the test update |
+| Download timeout before collection | Environment group; do not describe it as a failed product test | Retry or infrastructure coordination if authorized |
+| Intermittent callback failure with limited history | Review queue with competing explanations | Decide which additional evidence to collect |
+
+The deliverables are `triage.json`, a grouped investigation queue, and a brief that identifies unresolved release risks. The runner must not report that a release is safe merely because it successfully generated those artifacts.
 
 ## Before
 
@@ -77,10 +103,13 @@ The importable function and JSON CLI consume the same payload and return the com
 
 ## Representative tests
 
+- Multiple jobs with the same root signature produce one group without losing platform evidence.
+- A stale requirement or mismatched commit cannot support a confident diagnosis.
+- The number of accounted-for jobs equals the supplied manifest, including setup failures and incomplete jobs.
+- Every cited file, requirement and log ID resolves to the input pack; absent ownership routes to review.
 - Syntax or import error is parsed without a model.
 - Clear assertion mismatch selects `product_regression` or `test_regression` according to supplied evidence.
 - Competing categories with a flat distribution return `needs_review`.
 - Missing logs return `needs_input`.
 - Provider failure returns sanitized `failed`; no raw authorization header or repository secret is captured.
 - No test auto-applies a repair.
-

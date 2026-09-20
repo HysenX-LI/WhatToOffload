@@ -1,3 +1,5 @@
+> Historical microbenchmark: two measured paths plus a derived runner-only view. This is not the Codex / Codex + task Skill / WhatToOffload comparison. See [the long-task report](long-task.md) for the current three-arm study.
+
 # WhatToOffload live benchmark
 
 Generated: `2026-09-19T18:07:35.154347+00:00`

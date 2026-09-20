@@ -2,6 +2,34 @@
 
 This example combines multi-label intake with candidate scoring. The normal path is automated; outreach, purchasing, or rejection remains behind human approval.
 
+## Worked scenario: three regional launch projects
+
+A launch team needs a procurement recommendation across several regional projects. Each project has its own document domain, required regions, budget and delivery window. Candidates submit a profile, a reference letter, an operations confirmation and revised quotations. The deliverable is a review of every candidate, an ordered shortlist for each project, a traceable cost comparison and a list of outstanding evidence requests.
+
+The difficult cases are ordinary business cases: an attractive price belongs to a superseded quotation; a worldwide marketing claim conflicts with the signed coverage confirmation; a reference confirms general translation work but not the required regulated-document experience; a client explicitly disputes a vendor's claimed scope; and a quotation omits its currency. None of these should disappear from the final review merely because another candidate is easy to recommend.
+
+1. Build a manifest of candidates and their project assignments, then validate required documents and identifiers.
+2. Reconcile signed quotation revisions. Preserve the selected revision and exclude the superseded amount from comparisons.
+3. Normalize currencies using supplied policy rates, apply inclusive budget and deadline limits, and compare verified coverage against required regions.
+4. Compare the vendor's experience claim with its independent reference for the assigned domain. Distinguish corroborated experience, clearly unrelated work, explicit contradiction and insufficient evidence.
+5. Route ambiguous semantic judgments through the chosen review path. Keep confidence separate from eligibility, and measure how often review is needed.
+6. Combine those signals with hard constraints using an explicit precedence rule. Missing inputs, unresolved evidence and disqualification remain distinguishable.
+7. Rank only eligible candidates, using a documented order and deterministic tie-breaker. A low price cannot compensate for a failed mandatory requirement.
+8. Generate the evidence table, shortlists, exception queue and narrative brief. Validate totals, citations and counts before returning the package.
+
+| Situation | Result | Evidence retained |
+| --- | --- | --- |
+| Corroborated domain experience and all hard gates pass | Eligible for ranking | Profile, reference, operational confirmation and current quote |
+| Candidate explicitly lacks relevant experience | Excluded under the domain gate | The actual scope statement and reference |
+| Candidate claims qualifying work but client disputes that scope | Needs review | Both conflicting statements |
+| Reference does not establish what work was performed | Needs review | Missing evidence and the next question |
+| Currency absent from the authoritative quotation | Needs input; no invented conversion | Current quote and missing field |
+| Coverage or final delivery fails a mandatory condition | Excluded with every applicable reason | Signed confirmation and governing requirement |
+
+The complete result must account for every candidate and every project. It can finish with some records awaiting input or review. The business decision to award work remains outside this bounded task.
+
+This walkthrough describes the workflow pattern. The larger local benchmark's exact documents, task-specific Skill, reference answers and runner are intentionally not published; only its measurements and methodology appear under `benchmarks/results/`.
+
 ## Before
 
 An agent reads an incoming opportunity, checks several independent eligibility conditions, compares possible vendors, writes a shortlist, and asks the user what to do. The same judgments and formatting recur for each intake.
@@ -99,6 +127,10 @@ The screening invocation can complete with a shortlist. A separate invocation th
 
 ## Representative tests
 
+- A later signed quote replaces an earlier cheaper one; a missing currency cannot inherit an older revision's currency.
+- Exact deadline and budget equality pass; one-day or one-cent excess fails.
+- Missing input and disputed evidence cannot enter the shortlist, even at the lowest price.
+- Status totals cover every input candidate once; every recommendation has the required evidence chain.
 - Missing deadline or required policy evidence returns `needs_input`.
 - Structured region mismatch is rejected by code without a model call.
 - Several independent true conditions can coexist; the design does not force them into one Choice.

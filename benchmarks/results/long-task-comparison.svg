@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1008pt" height="381.6pt" viewBox="0 0 1008 381.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-20T11:40:04.282742</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 381.6
+L 1008 381.6
+L 1008 0
+L 0 0
+z
+" style="fill: #f6f8fc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 131.04 286.2
+L 308.49 286.2
+L 308.49 99.216
+L 131.04 99.216
+z
+" style="fill: #f6f8fc"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 131.04 286.2
+L 131.04 99.216
+" clip-path="url(#p02a86a4d88)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="131.04" y="297.297656" transform="rotate(-0 131.04 297.297656)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 193.39207 286.2
+L 193.39207 99.216
+" clip-path="url(#p02a86a4d88)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="193.39207" y="297.297656" transform="rotate(-0 193.39207 297.297656)">100</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 255.74414 286.2
+L 255.74414 99.216
+" clip-path="url(#p02a86a4d88)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="255.74414" y="297.297656" transform="rotate(-0 255.74414 297.297656)">200</text>
+     </g>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #61718a" x="219.765" y="319.298437" transform="rotate(-0 219.765 319.298437)">seconds</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_7"/>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="127.54" y="129.846256" transform="rotate(-0 127.54 129.846256)">Codex</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_8"/>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="127.54" y="196.507219" transform="rotate(-0 127.54 196.507219)">Codex + task Skill</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_9"/>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="127.54" y="263.168181" transform="rotate(-0 127.54 263.168181)">WhatToOffload</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 131.04 107.715273
+L 261.517941 107.715273
+L 261.517941 144.378802
+L 131.04 144.378802
+z
+" clip-path="url(#p02a86a4d88)" style="fill: #507ce8"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 131.04 174.376235
+L 194.728275 174.376235
+L 194.728275 211.039765
+L 131.04 211.039765
+z
+" clip-path="url(#p02a86a4d88)" style="fill: #9a79ca"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 131.04 241.037198
+L 134.73249 241.037198
+L 134.73249 277.700727
+L 131.04 277.700727
+z
+" clip-path="url(#p02a86a4d88)" style="fill: #18a181"/>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="264.77989" y="128.644694" transform="rotate(-0 264.77989 128.644694)">209.26s</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="197.990223" y="195.305656" transform="rotate(-0 197.990223 195.305656)">102.14s</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="137.994438" y="261.966619" transform="rotate(-0 137.994438 261.966619)">5.92s</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="131.04" y="79.216" transform="rotate(-0 131.04 79.216)">Median wall time</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_6">
+    <path d="M 468.195 286.2
+L 645.645 286.2
+L 645.645 99.216
+L 468.195 99.216
+z
+" style="fill: #f6f8fc"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_4">
+     <g id="line2d_10">
+      <path d="M 468.195 286.2
+L 468.195 99.216
+" clip-path="url(#p45d43f313f)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_11"/>
+     <g id="text_12">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="468.195" y="297.298437" transform="rotate(-0 468.195 297.298437)">0k</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_12">
+      <path d="M 523.921225 286.2
+L 523.921225 99.216
+" clip-path="url(#p45d43f313f)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_13"/>
+     <g id="text_13">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="523.921225" y="297.298437" transform="rotate(-0 523.921225 297.298437)">200k</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_14">
+      <path d="M 579.647451 286.2
+L 579.647451 99.216
+" clip-path="url(#p45d43f313f)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_15"/>
+     <g id="text_14">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="579.647451" y="297.298437" transform="rotate(-0 579.647451 297.298437)">400k</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_16">
+      <path d="M 635.373676 286.2
+L 635.373676 99.216
+" clip-path="url(#p45d43f313f)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_17"/>
+     <g id="text_15">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="635.373676" y="297.298437" transform="rotate(-0 635.373676 297.298437)">600k</text>
+     </g>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #61718a" x="556.92" y="319.299219" transform="rotate(-0 556.92 319.299219)">cumulative input + output</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_4">
+     <g id="line2d_18"/>
+     <g id="text_17">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="464.695" y="129.846256" transform="rotate(-0 464.695 129.846256)">Codex</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_19"/>
+     <g id="text_18">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="464.695" y="196.507219" transform="rotate(-0 464.695 196.507219)">Codex + task Skill</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_20"/>
+     <g id="text_19">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="464.695" y="263.168181" transform="rotate(-0 464.695 263.168181)">WhatToOffload</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_7">
+    <path d="M 468.195 107.715273
+L 594.626939 107.715273
+L 594.626939 144.378802
+L 468.195 144.378802
+z
+" clip-path="url(#p45d43f313f)" style="fill: #507ce8"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 468.195 174.376235
+L 598.672941 174.376235
+L 598.672941 211.039765
+L 468.195 211.039765
+z
+" clip-path="url(#p45d43f313f)" style="fill: #9a79ca"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 468.195 241.037198
+L 468.195 241.037198
+L 468.195 277.700727
+L 468.195 277.700727
+z
+" clip-path="url(#p45d43f313f)" style="fill: #18a181"/>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="597.888887" y="128.644694" transform="rotate(-0 597.888887 128.644694)">453,761</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="601.93489" y="195.305656" transform="rotate(-0 601.93489 195.305656)">468,282</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="471.456949" y="261.966619" transform="rotate(-0 471.456949 261.966619)">0</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="468.195" y="79.216" transform="rotate(-0 468.195 79.216)">Median Codex token usage</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_10">
+    <path d="M 805.35 286.2
+L 982.8 286.2
+L 982.8 99.216
+L 805.35 99.216
+z
+" style="fill: #f6f8fc"/>
+   </g>
+   <g id="matplotlib.axis_5">
+    <g id="xtick_8">
+     <g id="line2d_21">
+      <path d="M 805.35 286.2
+L 805.35 99.216
+" clip-path="url(#p1692ad1166)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22"/>
+     <g id="text_24">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="805.35" y="297.298437" transform="rotate(-0 805.35 297.298437)">$0.00</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_23">
+      <path d="M 855.995319 286.2
+L 855.995319 99.216
+" clip-path="url(#p1692ad1166)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_24"/>
+     <g id="text_25">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="855.995319" y="297.298437" transform="rotate(-0 855.995319 297.298437)">$0.20</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_25">
+      <path d="M 906.640639 286.2
+L 906.640639 99.216
+" clip-path="url(#p1692ad1166)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_26"/>
+     <g id="text_26">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="906.640639" y="297.298437" transform="rotate(-0 906.640639 297.298437)">$0.40</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_27">
+      <path d="M 957.285958 286.2
+L 957.285958 99.216
+" clip-path="url(#p1692ad1166)" style="fill: none; stroke: #e2e7f0; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_28"/>
+     <g id="text_27">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="957.285958" y="297.298437" transform="rotate(-0 957.285958 297.298437)">$0.60</text>
+     </g>
+    </g>
+    <g id="text_28">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #61718a" x="894.075" y="319.299219" transform="rotate(-0 894.075 319.299219)">USD per completed task</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_6">
+    <g id="ytick_7">
+     <g id="line2d_29"/>
+     <g id="text_29">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="801.85" y="129.846256" transform="rotate(-0 801.85 129.846256)">Codex</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_30"/>
+     <g id="text_30">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="801.85" y="196.507219" transform="rotate(-0 801.85 196.507219)">Codex + task Skill</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_31"/>
+     <g id="text_31">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="801.85" y="263.168181" transform="rotate(-0 801.85 263.168181)">WhatToOffload</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_11">
+    <path d="M 805.35 107.715273
+L 935.827941 107.715273
+L 935.827941 144.378802
+L 805.35 144.378802
+z
+" clip-path="url(#p1692ad1166)" style="fill: #507ce8"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 805.35 174.376235
+L 900.754842 174.376235
+L 900.754842 211.039765
+L 805.35 211.039765
+z
+" clip-path="url(#p1692ad1166)" style="fill: #9a79ca"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 805.35 241.037198
+L 805.543887 241.037198
+L 805.543887 277.700727
+L 805.35 277.700727
+z
+" clip-path="url(#p1692ad1166)" style="fill: #18a181"/>
+   </g>
+   <g id="text_32">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="939.08989" y="128.645084" transform="rotate(-0 939.08989 128.645084)">$0.515262</text>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="904.016791" y="195.306047" transform="rotate(-0 904.016791 195.306047)">$0.376757</text>
+   </g>
+   <g id="text_34">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="808.805836" y="261.967009" transform="rotate(-0 808.805836 261.967009)">$0.000766</text>
+   </g>
+   <g id="text_35">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="805.35" y="79.216" transform="rotate(-0 805.35 79.216)">Median API-equivalent cost</text>
+   </g>
+  </g>
+  <g id="text_36">
+   <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #17243b" x="30.24" y="25.885031" transform="rotate(-0 30.24 25.885031)">A longer task. Three independent execution paths.</text>
+  </g>
+  <g id="text_37">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52627d" x="30.24" y="49.608" transform="rotate(-0 30.24 49.608)">120 documents · 24 candidates · 3 projects · Sol high · 3 repetitions per path · all final contracts passed</text>
+  </g>
+  <g id="text_38">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52627d" x="30.24" y="339.624" transform="rotate(-0 30.24 339.624)">Prepared repeated execution only. One-time build cost is unmeasured; development failures are reported separately.</text>
+  </g>
+  <g id="text_39">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52627d" x="30.24" y="360.612" transform="rotate(-0 30.24 360.612)">Synthetic development fixture, not held-out. Codex token totals include cached input; provider tokens are separate in the report.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p02a86a4d88">
+   <rect x="131.04" y="99.216" width="177.45" height="186.984"/>
+  </clipPath>
+  <clipPath id="p45d43f313f">
+   <rect x="468.195" y="99.216" width="177.45" height="186.984"/>
+  </clipPath>
+  <clipPath id="p1692ad1166">
+   <rect x="805.35" y="99.216" width="177.45" height="186.984"/>
+  </clipPath>
+ </defs>
+</svg>

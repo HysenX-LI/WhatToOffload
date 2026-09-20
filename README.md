@@ -52,30 +52,32 @@ Phase 2 keeps activity results separate from workflow lifecycle. Activities use 
 - [Business intake and candidate screening](examples/business-screening.md)
 - [Durable multi-day vendor review](examples/durable-vendor-review.md)
 
-Each example is intentionally compact: it includes an end-to-end specification and the key implementation shape, not a separate runnable application.
+The three short-lived walkthroughs now describe multi-stage tasks with conflicting evidence, partial results, exception handling and complete deliverables. They explain the workflow; the larger benchmark task and its implementation stay local.
 
 ## Jev and TypeSafe
 
 WhatToOffload identifies places where a narrow typed semantic judgment is a better fit than prompt-and-parse generation. Before implementing a Jev node, the agent must read the available `typesafe-ai` skill and the current [TypeSafe documentation](https://docs.typesafe.ai/llms.txt). Code remains responsible for control flow, deterministic rules, side effects, and uncertainty routing.
 
-## Live benchmark
+## Three ways to complete a longer task
 
-The repository includes a reproducible, opt-in comparison across the three short-lived examples. Each measured path ran three times with real GPT-5.6 Sol high, Jev 1.13 through OpenRouter, and DeepSeek Flash calls.
+The primary benchmark compares **Codex**, **Codex + a task-specific Skill**, and **a WhatToOffload-designed runner** on the same local workload: 120 source documents, 24 candidates and three projects, with revised quotations, evidence conflicts, missing inputs, calculations, rankings and a complete report.
 
-![Live token, latency, and cost comparison](benchmarks/results/comparison.svg)
+The two Codex paths use fresh **GPT-5.6 Sol high** subagents. The Skill path includes reusable deterministic helpers. The third path is an independently measured runner combining code, Jev and DeepSeek review for uncertain cases. Each final path runs three times under the same acceptance contract.
 
-The recorded synthetic run found that the bounded Jev + DeepSeek runner-only path reduced sequential median latency by 52.5–75.0% and API-equivalent cost by 95.0–99.5%, while all outputs passed the scenario contracts. A fresh Sol high verification on every offloaded result largely erased those gains, exposing an important design rule: keep routine validated outputs outside the strong-agent loop and reserve re-entry for review conditions.
+![Three-arm long-task comparison](benchmarks/results/long-task-comparison.svg)
 
-Read the [methodology and limitations](benchmarks/README.md) or inspect the [full result table](benchmarks/results/latest.md). Live calls remain opt-in and require explicit authorization.
+These are prepared **repeat-execution** measurements. Full one-time construction cost is unknown and is not treated as zero; development failures and their measured provider costs are disclosed. The task was used during runner development, so this is a synthetic development case study, not a held-out or production performance guarantee.
+
+The exact task, input documents, reference answers, task Skill, runner and raw logs stay local and Git-ignored. The repository publishes only sanitized measurements, hashes and methodology. Read the [full comparison](benchmarks/results/long-task.md) and [measurement method](benchmarks/README.md). The earlier small-example results remain available as historical microbenchmarks, not as evidence for this three-arm comparison.
 
 ## Repository layout
 
 - `SKILL.md` is the single skill entry point.
 - `references/` contains short-lived, durable, executor-selection, safety, and test-driven implementation guidance loaded only when relevant.
 - `assets/templates/` contains human-readable specifications and JSON protocol examples.
-- `examples/` contains compact cross-domain walkthroughs for both workflow modes.
+- `examples/` contains multi-stage cross-domain walkthroughs for both workflow modes.
 - `agents/openai.yaml` contains optional Codex-facing metadata without changing the generic skill instructions.
-- `benchmarks/` contains offline contract tests, synthetic fixtures, an opt-in live runner, and sanitized result artifacts.
+- `benchmarks/` contains the long-task measurement report and historical microbenchmark tooling; the new long-task workload and implementation stay under Git-ignored `.local/`.
 
 ## Phase 2 boundary
 

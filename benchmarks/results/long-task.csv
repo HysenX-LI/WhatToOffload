@@ -1,0 +1,10 @@
+arm,repetition,wall_ms,main_agent_tokens,total_cost_usd,quality_pass,rows_correct,brief_word_count
+codex_only,1,209260,485009,0.628228,True,24,396
+codex_only,2,171106,433072,0.4283712,True,24,365
+codex_only,3,237103,453761,0.5152616,True,24,358
+codex_with_skill,1,102143,481794,0.37675680000000006,True,24,426
+codex_with_skill,2,75542,384426,0.30096480000000003,True,24,382
+codex_with_skill,3,114938,468282,0.3883728000000001,True,24,458
+whattooffload,1,5816,0,0.0008221139999999999,True,24,494
+whattooffload,2,5922,0,0.0007452659999999999,True,24,494
+whattooffload,3,6065,0,0.0007656659999999999,True,24,494

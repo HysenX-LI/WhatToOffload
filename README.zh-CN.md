@@ -52,30 +52,32 @@ WhatToOffload 不是工作流运行平台。第二阶段可以设计并接入一
 - [商业入口与候选对象初筛](examples/business-screening.md)
 - [持久化的多日供应商审查](examples/durable-vendor-review.md)
 
-每个案例刻意保持小体量：提供端到端规格和关键代码形态，但不维护单独的完整示例应用。
+三个短时案例已扩展为多阶段任务，覆盖材料冲突、部分结果、异常分支和完整交付物。公开案例解释工作流；更长的基准任务及其实现保留在本地。
 
 ## Jev 与 TypeSafe
 
 WhatToOffload 负责识别哪些节点适合使用有界、带类型的语义判断。进入 Jev 实施前，Agent 必须读取当前环境中的 `typesafe-ai` Skill，并查阅最新的 [TypeSafe 官方文档](https://docs.typesafe.ai/llms.txt)。控制流、确定性规则、副作用和不确定性路由仍由代码负责。
 
-## 真实调用基准
+## 同一长任务的三组对比
 
-仓库包含一个可复现、默认关闭的三案例对比。每条实测路径都运行 3 次，真实调用 GPT-5.6 Sol high、OpenRouter 上的 Jev 1.13 和 DeepSeek Flash。
+主基准比较 **Codex 直接执行**、**Codex + 任务专用 Skill**、**通过 WhatToOffload 设计的 runner**。三组处理同一份本地任务：120 份源材料、24 个候选对象、3 个项目，包含报价修订、证据冲突、缺失信息、计算、排序和完整报告。
 
-![Token、耗时与成本对比](benchmarks/results/comparison.svg)
+两个 Codex 路径均使用独立的 **GPT-5.6 Sol high** 子智能体。任务 Skill 包含可复用的确定性辅助脚本；第三组则独立实测代码、Jev 与 DeepSeek 低置信度复核组成的 runner。每组正式运行 3 次，采用相同验收标准。
 
-在这组合成数据中，真正的 Jev + DeepSeek runner-only 路径在全部通过案例契约的同时，将串行中位耗时降低了 52.5–75.0%，将 API 等价成本降低了 95.0–99.5%。但如果每次卸载结果都再启动一次全新的 Sol high 复核，优势会被大幅抵消。这说明日常、已验证的正常结果应留在强 Agent 循环之外，只让低置信度或异常状态重新进入复核。
+![三组长任务成本与耗时对比](benchmarks/results/long-task-comparison.svg)
 
-可阅读[方法与限制](benchmarks/README.md)，或查看[完整结果表](benchmarks/results/latest.md)。真实调用保持显式 opt-in，执行前仍需授权。
+这里展示的是流程准备完成后的**重复执行成本**。完整的一次性构建成本未单独计量，不能视为零；开发阶段失败尝试及已知 API 费用单独披露。任务也用于 runner 开发，因此这是合成数据上的开发案例，不能当作独立留出集或生产环境的效果保证。
+
+任务原文、输入材料、标准答案、任务 Skill、runner 和原始日志只放在本地并由 Git 忽略。仓库仅呈现脱敏测量、摘要哈希和方法。详见[完整对比数据](benchmarks/results/long-task.md)与[测量口径](benchmarks/README.md)。之前的小样例数据保留为历史微型测试，不再用于代表这次三组对比。
 
 ## 项目结构
 
 - `SKILL.md` 是唯一 Skill 入口。
 - `references/` 保存按需读取的短时流程、持久异步流程、执行者选择、安全方法与测试驱动实施指南。
 - `assets/templates/` 保存人类可审阅的规格模板和 JSON 协议示例。
-- `examples/` 保存覆盖两种工作流模式的精简跨领域案例。
+- `examples/` 保存覆盖两种工作流模式的多阶段跨领域案例。
 - `agents/openai.yaml` 提供可选的 Codex 展示元数据，不污染通用 Skill 指令。
-- `benchmarks/` 保存离线契约测试、合成样例、显式启用的真实调用脚本与脱敏结果。
+- `benchmarks/` 保存长任务测量报告与历史微型测试工具；新长任务及其实现保留在 Git 忽略的 `.local/`。
 
 ## 第二阶段边界
 
