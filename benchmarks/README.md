@@ -1,6 +1,20 @@
-# Three-arm long-task benchmark
+# Private website long-horizon benchmark
 
-The primary comparison is now the same longer local task completed through three independently measured paths:
+The current real-web pilot measures three paths against the same private task and a shared completion rubric. The exact case and raw artifacts are not published.
+
+- [Completion, cost, timing and retained failures](results/website-long-horizon.md)
+- [Machine-readable metrics](results/website-long-horizon.json)
+- [Per-path CSV](results/website-long-horizon.csv)
+
+Both agent paths use independent `gpt-5.6-sol` / `high` subagents. The direct path receives the goal without procedural steps; the second also receives an original task Skill. The prepared workflow is measured independently. It was repaired on this case, and all earlier attempts remain in the report. Results include strict quality gates: an incomplete execution does not establish end-to-end savings.
+
+This is one case and one run per agent path, with uncontrolled live web and cache conditions. It is not a statistical study. Task-specific content, reference data, code and traces remain Git-ignored locally; only generic measurements and hashes are exported.
+
+---
+
+# Historical synthetic batch-task benchmark
+
+The earlier synthetic comparison uses the same longer local task through three independently measured paths:
 
 | Arm | How the task runs | What is included |
 | --- | --- | --- |

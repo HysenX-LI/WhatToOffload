@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "benchmark_id": "private-website-long-horizon-v1",
+  "name": "Long-horizon website information processing",
+  "generated_at": "2026-09-20T04:27:11.020579+00:00",
+  "status": "measured_with_quality_failures",
+  "case_count": 1,
+  "repetitions_per_arm": 1,
+  "live_web": true,
+  "raw_case_public": false,
+  "reference_entities": 9,
+  "runs": [
+    {
+      "arm": "codex_only",
+      "repetition": 1,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 9,
+        "matched_entities": 9,
+        "entity_recall": 1.0,
+        "entity_precision": 1.0,
+        "available_reference_fields": 56,
+        "correct_fields": 56,
+        "asserted_fields": 56,
+        "available_field_recall": 1.0,
+        "asserted_field_precision": 1.0,
+        "evidence_supported_fields": 56,
+        "evidence_coverage": 1.0,
+        "reference_unavailable_fields_on_matched_entities": 7,
+        "explicit_missing_field_statuses": 7,
+        "completion_score": 100.0,
+        "required_artifacts_present": true,
+        "strict_pass": true,
+        "failure_categories": []
+      },
+      "result_sha256": "bd346e4e0ecf3c67066c42bdecede32444d9c1c23a7ca32fdb8ac3ce9942cb0b",
+      "tool_calls": 27,
+      "max_request_input_tokens": 178805,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "codex_usage": {
+        "input_tokens": 3105248,
+        "cached_input_tokens": 2942336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15806,
+        "reasoning_output_tokens": 4100,
+        "total_tokens": 3121054
+      },
+      "wall_ms": 455545,
+      "cost_usd": 2.1447024000000003,
+      "known_cost_usd": 2.1447024000000003,
+      "unpriced_request_attempts": 0,
+      "main_agent_tokens": 3121054,
+      "execution_status": "completed"
+    },
+    {
+      "arm": "codex_with_skill",
+      "repetition": 1,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 9,
+        "matched_entities": 9,
+        "entity_recall": 1.0,
+        "entity_precision": 1.0,
+        "available_reference_fields": 56,
+        "correct_fields": 51,
+        "asserted_fields": 51,
+        "available_field_recall": 0.9107142857142857,
+        "asserted_field_precision": 1.0,
+        "evidence_supported_fields": 51,
+        "evidence_coverage": 1.0,
+        "reference_unavailable_fields_on_matched_entities": 7,
+        "explicit_missing_field_statuses": 7,
+        "completion_score": 94.64285714285714,
+        "required_artifacts_present": true,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field"
+        ]
+      },
+      "result_sha256": "5aa998eae64789746a65d25e557f41eedd5039374d9baad1e07c17bacd39fb07",
+      "tool_calls": 25,
+      "max_request_input_tokens": 145358,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "codex_usage": {
+        "input_tokens": 2316494,
+        "cached_input_tokens": 2194944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17302,
+        "reasoning_output_tokens": 5693,
+        "total_tokens": 2333796
+      },
+      "wall_ms": 467117,
+      "cost_usd": 1.7102176,
+      "known_cost_usd": 1.7102176,
+      "unpriced_request_attempts": 0,
+      "main_agent_tokens": 2333796,
+      "execution_status": "completed"
+    },
+    {
+      "arm": "whattooffload",
+      "repetition": 1,
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 9,
+        "matched_entities": 9,
+        "entity_recall": 1.0,
+        "entity_precision": 1.0,
+        "available_reference_fields": 56,
+        "correct_fields": 36,
+        "asserted_fields": 38,
+        "available_field_recall": 0.6428571428571429,
+        "asserted_field_precision": 0.9473684210526315,
+        "evidence_supported_fields": 36,
+        "evidence_coverage": 1.0,
+        "reference_unavailable_fields_on_matched_entities": 6,
+        "explicit_missing_field_statuses": 6,
+        "completion_score": 78.57142857142858,
+        "required_artifacts_present": false,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field",
+          "missing_required_artifact",
+          "unverified_additional_value",
+          "wrong_field"
+        ]
+      },
+      "result_sha256": "590c14cb81c8848499094ecac06cef2430b61df626ad8f06e0c50fa9e4fa083c",
+      "wall_ms": 144411.4069999996,
+      "execution_status": "completed",
+      "provider_call_attempts": 53,
+      "unpriced_request_attempts": 3,
+      "known_cost_usd": 0.0023903880000000002,
+      "cost_usd": null,
+      "provider_tokens": {
+        "input": 56914,
+        "output": 7248
+      },
+      "main_agent_tokens": 0,
+      "captured_pages": 11,
+      "provider_models": [
+        "typesafe/jev-1.13",
+        "typesafe/jev-1.13-20260917"
+      ]
+    }
+  ],
+  "earlier_workflow_attempts": [
+    {
+      "attempt": 1,
+      "wall_ms": 49648.124375002226,
+      "execution_status": "completed",
+      "provider_call_attempts": 21,
+      "unpriced_request_attempts": 0,
+      "known_cost_usd": 0.0012531539999999998,
+      "cost_usd": 0.0012531539999999998,
+      "provider_tokens": {
+        "input": 29837,
+        "output": 4201
+      },
+      "main_agent_tokens": 0,
+      "captured_pages": 2,
+      "provider_models": [
+        "typesafe/jev-1.13-20260917"
+      ],
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 0,
+        "matched_entities": 0,
+        "entity_recall": 0.0,
+        "entity_precision": null,
+        "available_reference_fields": 56,
+        "correct_fields": 0,
+        "asserted_fields": 0,
+        "available_field_recall": 0.0,
+        "asserted_field_precision": null,
+        "evidence_supported_fields": 0,
+        "evidence_coverage": null,
+        "reference_unavailable_fields_on_matched_entities": 0,
+        "explicit_missing_field_statuses": 0,
+        "completion_score": 0.0,
+        "required_artifacts_present": false,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field",
+          "missing_required_artifact"
+        ]
+      },
+      "result_sha256": "c54b9a6e377bdce7fb3b9fde676de1eb280f7f0b00f7c0af9853ec96ff62eca4"
+    },
+    {
+      "attempt": 2,
+      "wall_ms": 135066.17849999748,
+      "execution_status": "failed",
+      "provider_call_attempts": 44,
+      "unpriced_request_attempts": 1,
+      "known_cost_usd": 0.002038428,
+      "cost_usd": null,
+      "provider_tokens": {
+        "input": 48534,
+        "output": 5801
+      },
+      "main_agent_tokens": 0,
+      "captured_pages": 5,
+      "provider_models": [
+        "typesafe/jev-1.13-20260917"
+      ],
+      "quality": {
+        "reference_entities": 9,
+        "output_entities": 0,
+        "matched_entities": 0,
+        "entity_recall": 0.0,
+        "entity_precision": null,
+        "available_reference_fields": 56,
+        "correct_fields": 0,
+        "asserted_fields": 0,
+        "available_field_recall": 0.0,
+        "asserted_field_precision": null,
+        "evidence_supported_fields": 0,
+        "evidence_coverage": null,
+        "reference_unavailable_fields_on_matched_entities": 0,
+        "explicit_missing_field_statuses": 0,
+        "completion_score": 0.0,
+        "required_artifacts_present": false,
+        "strict_pass": false,
+        "failure_categories": [
+          "missing_available_field",
+          "missing_required_artifact"
+        ]
+      },
+      "result_sha256": "644e48bb720b809a6fcef120aa11916b720fba6f848e1c609b9deac0c0ae576e"
+    }
+  ],
+  "protocol_sha256": "c364f7e903ff7600e4027d1ded12e4fa796266191513eccd6022f10a8495d580",
+  "reference_sha256": "713586330359a9b5c4c913dfc28ba147e18a61e6165eeb857353afd404ba9c58",
+  "input_sha256": "d7d3115e09a7a259860c0d4f0e417d9081f9611dfad3dcc1de06e98ee7a5b42a",
+  "setup_cost_usd": null,
+  "setup_cost_note": "Selection, harness, Skill/workflow adaptation, grading and report preparation were not separately metered. Excluded does not mean zero.",
+  "price_snapshot": {
+    "date": "2026-09-20",
+    "sol_usd_per_million": {
+      "input": 4,
+      "cached_input": 0.4,
+      "cache_write": 5,
+      "output": 20
+    },
+    "sol_source": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+    "jev_source": "https://openrouter.ai/typesafe/jev-1.13",
+    "jev_basis": "provider-reported usage.cost"
+  },
+  "limitations": [
+    "One private case, one run per agent arm; no statistical inference or public task reproduction.",
+    "Revised workflow was repaired on this case; all earlier execution attempts are retained.",
+    "Live web content, provider caches, web-search behavior and tool environments were not controlled.",
+    "No end-to-end saving is claimed for a path that fails the common acceptance gate.",
+    "Costs are model-execution components: Codex API equivalents and Jev reported charges. Search-tool fees, local compute, setup and human review costs are not measured.",
+    "Reference additions are independently source-checked and applied uniformly; the reference review is by agents and the benchmark author, not an external audit."
+  ]
+}

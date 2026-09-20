@@ -58,7 +58,17 @@ The three short-lived walkthroughs now describe multi-stage tasks with conflicti
 
 WhatToOffload identifies places where a narrow typed semantic judgment is a better fit than prompt-and-parse generation. Before implementing a Jev node, the agent must read the available `typesafe-ai` skill and the current [TypeSafe documentation](https://docs.typesafe.ai/llms.txt). Code remains responsible for control flow, deterministic rules, side effects, and uncertainty routing.
 
-## Three ways to complete a longer task
+## Long-horizon website information processing
+
+A real, private website task compares **Sol high directly**, **Sol high + the original task Skill**, and a **WhatToOffload workflow**. Independent evaluation measures entity coverage, available-field recall, asserted-field precision, evidence and strict acceptance alongside time and model cost.
+
+![Website task cost, duration and completion](benchmarks/results/website-long-horizon-comparison.svg)
+
+This is one case with one run per agent path. The workflow was repaired on the same case; earlier failures and retry costs remain visible. **Cheap incomplete output is not a successful-task saving.** The workflow still has omissions and errors, so its cost and latency alone do not establish effectiveness. Read the [completion and cost report](benchmarks/results/website-long-horizon.md).
+
+The task, source identities, raw materials, reference answers, execution outputs and implementation remain local. Only sanitized metrics, opaque hashes and generic methodology are public.
+
+## Historical synthetic batch-task comparison
 
 The primary benchmark compares **Codex**, **Codex + a task-specific Skill**, and **a WhatToOffload-designed runner** on the same local workload: 120 source documents, 24 candidates and three projects, with revised quotations, evidence conflicts, missing inputs, calculations, rankings and a complete report.
 
