@@ -21,6 +21,7 @@ Never treat a request to analyze or optimize as permission to modify code, call 
 Do not pre-load every reference, template, or example when this skill is activated. Start with this `SKILL.md`, inspect the available evidence, and determine the current operating mode and workflow class first.
 
 - During initial analysis, read only the short-lived or durable playbook that matches the candidate being evaluated. Read both only when the evidence genuinely contains both workflow classes or the classification itself is ambiguous.
+- When recommending concrete replacements, also read the replacement procedure in [references/executor-selection.md](references/executor-selection.md#work-through-a-replacement). Use steps 1–3 during analysis; complete steps 4–7 for a selected design and its authorized implementation.
 - Open [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md) only when producing a candidate-analysis deliverable.
 - During detailed design, open exactly the matching short-lived or durable design template, plus only the executor or safety references required by the selected nodes.
 - Read [references/test-driven-workflows.md](references/test-driven-workflows.md) only after a candidate reaches detailed design or implementation and code or executable workflow behavior is in scope.
@@ -33,7 +34,7 @@ Do not pre-load every reference, template, or example when this skill is activat
 1. Inspect the conversation, repository, configuration, documents, and other materials already available to the agent. Do not make the user restate discoverable facts.
 2. Identify missing facts that would materially change the workflow boundary or recommendation. Ask for those facts before recommending candidates.
 3. Decompose the work into atomic nodes, then group related nodes into subflows with clear input, output, termination, and failure boundaries. Classify each subflow as short-lived or durable asynchronous.
-4. Evaluate whether each node should stay in the current agent or move to an external runner. Separately choose the node's capability role and concrete implementation.
+4. Identify the specific behavior being replaced, the context it currently relies on, and the capability the replacement must preserve. Evaluate whether it should stay in the current agent or move to an external runner. Separately choose its capability role and concrete implementation; state the benefit, capability loss, and evidence behind each proposed replacement.
 5. Present at most three leading offload candidates by default. Also identify important nodes that should remain in the current agent and explain why.
 
 Read [references/short-lived-workflows.md](references/short-lived-workflows.md) for candidates that complete in one invocation or return a caller-managed handoff. Read [references/durable-async-workflows.md](references/durable-async-workflows.md) when a candidate crosses process lifetimes, waits for timers or external events, resumes after human action, or needs persisted retries. When it is time to present candidates, copy or adapt [assets/templates/candidate-analysis.md](assets/templates/candidate-analysis.md).
@@ -60,6 +61,8 @@ For every node, record both layers:
 
 Choose the simplest executor that can meet the node's quality, safety, and testability requirements. This is a fitness decision, not a rigid cost-first ordering.
 
+Apply the [replacement procedure](references/executor-selection.md#work-through-a-replacement): observe the current behavior → define acceptance → compare executors → specify evidence → bound recovery → test the substitution → measure the complete path. For each material replacement, record what is gained, what flexibility or coverage may be lost, how failure is detected, and what evidence would justify retaining or reversing it. Do not assume every workflow should be a code → Jev → LLM cascade.
+
 Read [references/executor-selection.md](references/executor-selection.md) when assigning executors. Read [references/safety-and-uncertainty.md](references/safety-and-uncertainty.md) whenever the workflow contains semantic uncertainty, external API calls, credentials, or side effects. For a short-lived design, open only [assets/templates/workflow-design.md](assets/templates/workflow-design.md). For a durable design, read [references/durable-async-workflows.md](references/durable-async-workflows.md) and open only [assets/templates/durable-workflow-design.md](assets/templates/durable-workflow-design.md).
 
 Show the connection between nodes with the best visualization capability available in the environment, then provide the node table. Keep the underlying workflow description renderer-independent. If no visualization capability is available, use a compact text diagram or simple Mermaid as a fallback.
@@ -83,6 +86,8 @@ For Jev and LLM nodes, combine deterministic contract tests with representative 
 ## Use Jev deliberately
 
 Use Jev for narrow, typed semantic judgments over supplied state, not for open-ended planning, prose generation, tool execution, or control flow. Code owns deterministic rules, branching, composition, side effects, and confidence gates.
+
+When code and Jev cover the normal path, reserve stronger models for explicit exceptions. Do not require an LLM before or after every Jev decision. Follow the [exception-routing guidance](references/executor-selection.md#keep-stronger-models-on-an-explicit-exception-branch) and measure escalation frequency alongside quality and latency.
 
 Before designing Jev questions or writing Jev code:
 

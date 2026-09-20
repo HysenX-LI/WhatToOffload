@@ -26,7 +26,13 @@ Repeat the following card no more than three times.
 - **Why offload:**
 - **Atomic nodes:**
 - **Likely executors:**
+- **Concrete replacements:** `<observed behavior → proposed code/tool/Jev/LLM/retained agent>`
+- **Replacement prerequisites and supporting evidence:**
+- **Quality that must be preserved:**
 - **Expected benefit:**
+- **Capability or coverage potentially lost:**
+- **Failure detection and recovery:**
+- **Smallest comparison that could support or reject the replacement:**
 - **Main risk or unknown:**
 - **Expandable map:** `atomic nodes | complete subflow | both`
 

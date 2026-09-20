@@ -29,6 +29,20 @@ input
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | current agent / runner | code / tool / Jev / small LLM / strong LLM or agent / human | | | | | |
 
+## Replacement decisions and balance
+
+Complete one row per material substitution. Include a retained agent/LLM node when removing it would lose necessary capability. Benefits remain hypotheses until measured.
+
+| Existing behavior → proposed executor | Preconditions and evidence available | Expected gain | Capability or coverage at risk | Failure detection → recovery / stop | Comparison that would support or reject it |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
+
+- **Quality boundary and explicitly accepted trade-offs:**
+- **Evidence contract:** candidate values, source/context/ownership where relevant, supported scope, and coverage checks
+- **Missing or unresolved states and next actions:** distinguish unsearched evidence, retrieval failure, scoped no-match, and ambiguity when their recovery differs
+- **Recovery budget and preservation of accepted results:**
+- **Retained agent supervision and context still required:**
+
 ## Runner contract
 
 - **Importable entry point:**
@@ -62,6 +76,8 @@ Describe the smallest changes needed in the target project. Preserve its languag
 - First behavior slice and expected failing assertion:
 - Test seam, fakes, fixtures, and controlled dependencies:
 - Existing behavior that needs characterization tests:
+- Old-versus-new comparison on common inputs and acceptance criteria:
+- Unsupported-input detection, evidence coverage, and lost-context cases:
 - Contract tests:
 - Representative semantic cases:
 - Composition-policy and uncertainty-routing tests:
@@ -71,6 +87,15 @@ Describe the smallest changes needed in the target project. Preserve its languag
 - Provider mocks:
 - Focused and broader regression suites:
 - Optional live probe requiring confirmation:
+
+## Evaluation and adoption
+
+- **Per-substitution result:** measured benefit, capability loss, and adopt / revise / retain decision
+- **Whole-task result:** quality, model cost, wall time, retrieval/retries, and remaining supervision
+- **Exception effectiveness:** escalation count and denominator, reason, and additional validated outcomes
+- **Failure attribution:** retrieval / parsing / context / judgment / routing / validation
+- **Cost boundary:** recurring execution versus construction and maintenance; unmeasured costs remain unknown
+- **Transfer check:** separate development cases from new evaluation inputs; retain initial outcomes
 
 ## User authorization boundary
 

@@ -46,6 +46,20 @@ request
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | workflow runtime / activity runner / current agent | code / tool / Jev / small LLM / strong LLM or agent / human | | | | | |
 
+## Replacement decisions and balance
+
+Complete one row per material substitution, including retained agent/LLM work when necessary. Apply the same quality boundary to the existing and proposed behavior.
+
+| Existing behavior → proposed executor | Preconditions and evidence available | Expected gain | Capability or coverage at risk | Failure detection → recovery / stop | Comparison that would support or reject it |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
+
+- **Quality boundary and explicitly accepted trade-offs:**
+- **Evidence contract, supported scope, and coverage checks:**
+- **Missing or unresolved states and next actions:**
+- **Recovery budget, preservation of accepted results, and persisted recovery state:**
+- **Retained agent supervision and context still required:**
+
 ## Durable state
 
 - **Workflow definition and version:**
@@ -117,6 +131,8 @@ Do not implement a runtime choice that materially changes infrastructure without
 - First behavior slice and expected failing assertion:
 - Test seam, virtual clock, fakes, fixtures, and controlled dependencies:
 - Existing behavior that needs characterization tests:
+- Old-versus-new comparison on common inputs and acceptance criteria:
+- Unsupported-input detection, evidence coverage, and lost-context cases:
 - Transition and terminal-state tests:
 - Restart and replay tests:
 - Duplicate and out-of-order event tests:
@@ -130,6 +146,15 @@ Do not implement a runtime choice that materially changes infrastructure without
 - Provider mocks:
 - Focused and broader regression suites:
 - Optional live probe requiring confirmation:
+
+## Evaluation and adoption
+
+- **Per-substitution result:** measured benefit, capability loss, and adopt / revise / retain decision
+- **Whole-task result:** quality, execution cost, wall time, active processing versus external waits, and supervision
+- **Exception effectiveness:** escalation count and denominator, reason, and additional validated outcomes
+- **Failure attribution:** retrieval / parsing / context / judgment / routing / validation
+- **Cost boundary:** recurring execution versus construction, runtime operations, and maintenance
+- **Transfer check:** separate development cases from new evaluation inputs; retain initial outcomes
 
 ## Implementation plan and authorization boundary
 
