@@ -2,6 +2,8 @@
 
 [English](README.md)
 
+> **状态：Experimental（实验阶段）。** 工作流、模板和评估方法仍在演进；用于生产环境前，请自行验证输出。
+
 **把 Agent 反复执行的工作，变成可测试的软件工作流。**
 
 WhatToOffload 是一个 Agent Skill。它分析已有任务、会话、SOP 或代码库，找出哪些工作可以从 Agent 的持续推理中移出，交给确定性代码、现有工具、[Jev](https://docs.typesafe.ai/llms.txt) 或 LLM 服务，并明确哪些工作仍应由 Agent 或人工处理。
@@ -159,9 +161,14 @@ Skill 会为每个原子步骤同时记录“能力角色”和“具体实现�
 | 路径 | 内容 |
 | --- | --- |
 | [SKILL.md](SKILL.md) | Agent 指令与工作模式 |
+| [LICENSE](LICENSE) | MIT 许可证 |
 | [`references/`](references/) | 执行方式选择、流程分类、安全、不确定性和测试驱动实施 |
 | [`assets/templates/`](assets/templates/) | 候选分析、工作流设计、结果信封和持久状态快照模板 |
 | [`examples/`](examples/) | 短时与持久工作流的完整案例 |
 | [`benchmarks/`](benchmarks/) | Benchmark 方法、Fixture、测试、报告和公开汇总结果 |
 
 实施 Jev 节点时，优先使用可用的 `typesafe-ai` Skill，并查阅 [TypeSafe 官方文档](https://docs.typesafe.ai/llms.txt)。
+
+## 许可证
+
+WhatToOffload 使用 [MIT License](LICENSE) 发布。

@@ -1,6 +1,7 @@
 ---
 name: what-to-offload
 description: Analyze an existing agent conversation, codebase, SOP, or workflow to find bounded or durable asynchronous subflows that should move into software, and map each atomic node to deterministic code, tools, Jev, LLMs, the current agent, or human review. Use when a user wants to reduce ongoing agent supervision, replace prompt-and-parse steps, or design and implement an offload plan. This skill designs integrations with workflow runtimes; it does not itself host, schedule, deploy, or manage secrets for them.
+license: MIT
 ---
 
 # WhatToOffload

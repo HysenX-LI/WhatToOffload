@@ -2,6 +2,8 @@
 
 [简体中文](README.zh-CN.md)
 
+> **Status: Experimental.** The workflow, templates, and evaluation method are still evolving. Validate outputs before relying on them in production.
+
 **Turn repeated agent work into testable software workflows.**
 
 WhatToOffload is an Agent Skill that analyzes an existing task, conversation, SOP, or codebase and identifies work that can move from continuous agent reasoning into deterministic code, existing tools, [Jev](https://docs.typesafe.ai/llms.txt), or LLM services. It also makes explicit what should stay with the agent or a human.
@@ -158,9 +160,14 @@ This measures repeated execution after the program was prepared; one-time constr
 | Path | Contents |
 | --- | --- |
 | [SKILL.md](SKILL.md) | Agent instructions and operating modes |
+| [LICENSE](LICENSE) | MIT license |
 | [`references/`](references/) | Executor selection, workflow classes, safety, uncertainty, and test-driven implementation |
 | [`assets/templates/`](assets/templates/) | Candidate analysis, workflow design, result envelopes, and durable snapshots |
 | [`examples/`](examples/) | Worked short-lived and durable workflow analyses |
 | [`benchmarks/`](benchmarks/) | Benchmark method, fixtures, tests, reports, and published aggregate results |
 
 For Jev implementation details, use the `typesafe-ai` Skill when available and consult the [official TypeSafe documentation](https://docs.typesafe.ai/llms.txt).
+
+## License
+
+WhatToOffload is released under the [MIT License](LICENSE).
