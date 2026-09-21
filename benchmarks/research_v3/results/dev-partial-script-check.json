@@ -1,0 +1,45 @@
+{
+  "stage": "offline_script_check_of_interrupted_development_candidate",
+  "codex_calls": 0,
+  "source": "dev-1 incomplete model construction; not reclassified as completed",
+  "cases": [
+    {
+      "case_id": "s-dev-good",
+      "output": {
+        "case_id": "s-dev-good",
+        "status": "completed",
+        "on_hand": {
+          "sensor": 8
+        },
+        "available": {
+          "sensor": 6
+        },
+        "issue": "none",
+        "action_performed": false
+      },
+      "error": null,
+      "grade": {
+        "passed": true,
+        "reasons": []
+      },
+      "wall_ms": 142.93
+    },
+    {
+      "case_id": "s-dev-conflict",
+      "output": {
+        "case_id": "s-dev-conflict",
+        "status": "needs_review",
+        "on_hand": {},
+        "available": {},
+        "issue": "conflict",
+        "action_performed": false
+      },
+      "error": null,
+      "grade": {
+        "passed": true,
+        "reasons": []
+      },
+      "wall_ms": 129.407
+    }
+  ]
+}

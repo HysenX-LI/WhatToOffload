@@ -8,6 +8,7 @@ written to benchmarks/results/ when --write-results is supplied.
 from __future__ import annotations
 
 import argparse
+import copy
 import html
 import json
 import math
@@ -22,6 +23,8 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
+
+from benchmarks.contracts import APPROVAL_ACTION, HISTORICAL_FIELDS, object_errors, source_ids
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -281,7 +284,7 @@ def compose_offload_result(scenario: Mapping[str, Any], answers: Mapping[str, An
             "status": "completed" if decision != "insufficient_evidence" and confidence >= 0.35 else "needs_review",
             "scenario_id": scenario_id,
             "decision": decision,
-            "evidence_ids": ["log-1", "diff-1", "test-1"],
+            "evidence_ids": sorted(source_ids(scenario["input"])),
             "signals": {"confidence": confidence, "probabilities": answer.get("probabilities", {})},
             "next_actions": ["Inspect src/checkout.py and verify the new-checkout branch before editing."],
         }
@@ -327,7 +330,7 @@ def compose_offload_result(scenario: Mapping[str, Any], answers: Mapping[str, An
             "decision": decision,
             "evidence_ids": [decision] if ranked else [],
             "signals": signals,
-            "next_actions": ["Request human approval before any vendor outreach or purchase."],
+            "next_actions": [APPROVAL_ACTION],
         }
     raise ValueError("Unknown scenario: " + str(scenario_id))
 
@@ -339,9 +342,8 @@ def call_deepseek(compact: Mapping[str, Any], key: str) -> Tuple[Dict[str, Any],
             {
                 "role": "system",
                 "content": (
-                    "Turn the bounded workflow result into concise JSON. Preserve status, scenario_id, decision, "
-                    "evidence_ids, and next_actions exactly. Add only a factual summary under 70 words. "
-                    "Return exactly those six keys. Never claim an external action occurred."
+                    "Return only a JSON object with one key, summary: a factual string under 70 words. "
+                    "Do not return decisions, status, evidence or actions. Never claim an external action occurred."
                 ),
             },
             {"role": "user", "content": json.dumps(compact, ensure_ascii=False)},
@@ -368,10 +370,13 @@ def call_deepseek(compact: Mapping[str, Any], key: str) -> Tuple[Dict[str, Any],
             result = parse_json_object(content)
         except (json.JSONDecodeError, ValueError):
             continue
-        required = {"status", "scenario_id", "decision", "summary", "evidence_ids", "next_actions"}
-        if set(result) == required:
+        if set(result) == {"summary"} and isinstance(result["summary"], str) and result["summary"].strip():
             total_usage["attempts"] = attempt
-            return result, total_usage, total_elapsed
+            protected = {field: copy.deepcopy(compact[field]) for field in HISTORICAL_FIELDS if field != "summary"}
+            protected["summary"] = result["summary"]
+            if object_errors(protected, HISTORICAL_FIELDS):
+                raise RuntimeError("Invalid code-owned result contract")
+            return protected, total_usage, total_elapsed
         last_reason = "contract keys"
     raise RuntimeError("DeepSeek returned no valid JSON after 2 attempts; last_reason={}".format(last_reason))
 
@@ -396,7 +401,7 @@ def codex_prompt(scenario: Mapping[str, Any], offload_result: Optional[Mapping[s
             "You are completing one bounded workflow case. Analyze the raw synthetic input independently and return only "
             "JSON matching the supplied output schema. Use needs_review only when the evidence cannot support a safe bounded "
             "decision. Do not use tools or inspect unrelated repository files. For business screening, never perform outreach "
-            "and put the approval requirement in next_actions. For web research, cite only supplied page ids in evidence_ids.\n\n"
+            "and set next_actions to exactly [\"" + APPROVAL_ACTION + "\"]. For web research, cite only supplied page ids in evidence_ids.\n\n"
             + json.dumps({"scenario_id": scenario["id"], "task": scenario["title"], "output_contract": contracts[scenario["id"]], "input": scenario["input"]}, ensure_ascii=False)
         )
     return (
@@ -434,19 +439,31 @@ def run_codex(scenario: Mapping[str, Any], offload_result: Optional[Mapping[str,
         safe_error = SECRET_PATTERN.sub("[REDACTED]", completed.stderr[-1000:])
         raise RuntimeError("Codex failed with exit {}: {}".format(completed.returncode, safe_error))
     parsed = parse_codex_jsonl(completed.stdout)
+    if object_errors(parsed["output"], HISTORICAL_FIELDS):
+        raise RuntimeError("Codex returned an invalid result contract")
+    if offload_result is not None:
+        for field in HISTORICAL_FIELDS:
+            if field != "summary" and parsed["output"].get(field) != offload_result.get(field):
+                raise RuntimeError("Verifier changed protected field: " + field)
     return parsed["output"], parsed["usage"], elapsed, completed.stdout
 
 
 def quality_check(scenario: Mapping[str, Any], output: Mapping[str, Any]) -> Tuple[bool, List[str]]:
-    reasons = []
+    reasons = object_errors(output, HISTORICAL_FIELDS)
+    if reasons:
+        return False, reasons
     expected = scenario["expected"]
-    if output.get("status") != "completed":
-        reasons.append("status is not completed")
+    if output.get("status") != expected.get("status", "completed"):
+        reasons.append("status mismatch")
     if output.get("scenario_id") != scenario["id"]:
         reasons.append("scenario_id changed")
     if output.get("decision") != expected["decision"]:
         reasons.append("decision mismatch")
     evidence = set(output.get("evidence_ids") or [])
+    if len(evidence) != len(output["evidence_ids"]):
+        reasons.append("duplicate evidence")
+    if evidence - source_ids(scenario["input"]):
+        reasons.append("unknown evidence")
     for item in expected.get("required_evidence_ids", []):
         if item not in evidence:
             reasons.append("missing evidence " + item)
@@ -454,9 +471,8 @@ def quality_check(scenario: Mapping[str, Any], output: Mapping[str, Any]) -> Tup
         if item in evidence:
             reasons.append("forbidden evidence " + item)
     if expected.get("requires_approval_language"):
-        text = " ".join(str(item) for item in output.get("next_actions", [])).lower()
-        if "approval" not in text and "approve" not in text:
-            reasons.append("approval boundary missing")
+        if output["next_actions"] != [APPROVAL_ACTION]:
+            reasons.append("approval boundary must match the code-owned action contract")
     return not reasons, reasons
 
 
@@ -669,6 +685,10 @@ def render_svg(report: Mapping[str, Any]) -> str:
         ("offloaded_runner_only", "Jev + DeepSeek", "#10b981"),
     ]
     scenarios = report["scenarios"]
+    visible = [report["aggregate"]["groups"][s["id"] + ":" + a] for s in scenarios for a, _, _ in arms]
+    quality_min = min(item["quality_pass_rate"] for item in visible)
+    quality_max = max(item["quality_pass_rate"] for item in visible)
+    caption = "Requested repetitions: {} · observed contract pass range {:.0%}–{:.0%}".format(report["repetitions"], quality_min, quality_max)
     metrics = [
         ("Main-agent tokens", lambda item: item["median_main_agent_tokens"], lambda value: "{:,.0f}".format(value)),
         ("Sequential wall time (seconds)", lambda item: item["median_wall_ms"] / 1000, lambda value: "{:.1f}s".format(value)),
@@ -678,11 +698,11 @@ def render_svg(report: Mapping[str, Any]) -> str:
     parts = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="{}" height="{}" viewBox="0 0 {} {}" role="img" aria-labelledby="title desc">'.format(width, height, width, height),
         '<title id="title">WhatToOffload live benchmark comparison</title>',
-        '<desc id="desc">Three grouped bar charts compare main-agent tokens, sequential wall time, and API-equivalent cost for Codex-only and Jev plus DeepSeek runner-only. Each value is the median of three live runs and all paths passed the quality contract.</desc>',
+        '<desc id="desc">Observed median tokens, wall time and API-equivalent cost. {}</desc>'.format(html.escape(caption)),
         '<rect width="1200" height="900" fill="#ffffff"/>',
         '<style>text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:#111827}.muted{fill:#6b7280}.grid{stroke:#e5e7eb;stroke-width:1}.axis{stroke:#9ca3af;stroke-width:1}</style>',
         '<text x="45" y="48" font-size="25" font-weight="600">WhatToOffload · live benchmark</text>',
-        '<text x="45" y="76" font-size="14" class="muted">Median of 3 live runs per scenario and path · quality contract 100% passed</text>',
+        '<text x="45" y="76" font-size="14" class="muted">{}</text>'.format(html.escape(caption)),
     ]
     legend_x = 755
     for index, (_, label, color) in enumerate(arms):
@@ -733,6 +753,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--repetitions", type=int, default=3)
     parser.add_argument("--codex-path", default="/Applications/ChatGPT.app/Contents/Resources/codex")
     parser.add_argument("--write-results", action="store_true")
+    parser.add_argument("--output-dir", help="New directory for v2 results; archived results are never overwritten")
     parser.add_argument("--rebuild-existing", action="store_true")
     args = parser.parse_args(argv)
     if args.repetitions < 1:
@@ -785,10 +806,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         },
     }
     if args.write_results:
-        RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-        (RESULTS_DIR / "latest.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        (RESULTS_DIR / "latest.md").write_text(render_markdown(report), encoding="utf-8")
-        (RESULTS_DIR / "comparison.svg").write_text(render_svg(report), encoding="utf-8")
+        destination = Path(args.output_dir) if args.output_dir else ROOT / ".local" / ("microbenchmark-v2-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ"))
+        destination.mkdir(parents=True, exist_ok=False)
+        (destination / "latest.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        (destination / "latest.md").write_text(render_markdown(report), encoding="utf-8")
+        (destination / "comparison.svg").write_text(render_svg(report), encoding="utf-8")
     print(json.dumps(report["aggregate"], ensure_ascii=False, indent=2))
     return 0
 

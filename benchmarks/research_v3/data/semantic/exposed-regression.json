@@ -1,0 +1,10 @@
+{
+  "source": "benchmarks/public_v1/data/final/inputs.json",
+  "case": "final-contact-partial-eligibility",
+  "vendor": "e",
+  "historical_gold": "unrelated",
+  "historical_bounded_codex": "conflict",
+  "v3_rule_annotation": "unrelated",
+  "rationale": "The profile is a broad claim. The reference affirmatively describes slogans only on an unlinked engagement. No same-project or quoted-claim link establishes a contradiction. This is a prospective rule interpretation, not historical regrading.",
+  "exposure": "old final exposed in codex-v2-formal-1; entire old final retired as unseen data"
+}

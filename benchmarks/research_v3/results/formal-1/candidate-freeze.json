@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-09-20T08:51:20.336865+00:00",
+  "candidates": {
+    "stockroom/without_skill": "f37dfc0b67124c3e5b06f188df75409442d3073444c9faa0eb9be50d58c0bdba",
+    "stockroom/with_skill": "1c459b2d264f4d32f795d162f44c5363ef99c1a3044fe9ff1a6c501ce401ea4b",
+    "release/with_skill": "2af33df6371475e56940c64cd2668e072d1f0f51ef4389b65c1c9ae5ea9bc8e4",
+    "release/without_skill": "81bd144d72ab9184a7f6ca30f14fd4b78e0b1f90ed061b7e33eb4ae7d740f44b",
+    "customer/without_skill": "f1d0dc60894fedaf29ff8d54ab9d10cf182fcada879c8f050b908ebc4a9b6a64",
+    "customer/with_skill": "744bb3b1bf83ee136b68b046866ce01436880d82c97f38e3380861765b58b5a9"
+  },
+  "final_inputs_exposed": false
+}

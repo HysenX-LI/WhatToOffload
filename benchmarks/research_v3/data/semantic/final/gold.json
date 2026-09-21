@@ -1,0 +1,222 @@
+{
+  "sem-f01": {
+    "rationale": "Client + deliverable + engagement establish same project without project IDs.",
+    "result": {
+      "request_id": "sem-f01",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_conflict"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "sem-f02": {
+    "rationale": "Different named client establishes other work, not refutation of Ember claim.",
+    "result": {
+      "request_id": "sem-f02",
+      "status": "completed",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "completed",
+          "decision": "ineligible",
+          "reasons": [
+            "reference_unrelated"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "sem-f03": {
+    "rationale": "Required leaflet lacks support; silence is not denial.",
+    "result": {
+      "request_id": "sem-f03",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_unclear"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "sem-f04": {
+    "rationale": "Only instructions are required by changed screening policy; they are explicitly supported.",
+    "result": {
+      "request_id": "sem-f04",
+      "status": "needs_approval",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "completed",
+          "decision": "eligible",
+          "reasons": [
+            "policy_satisfied"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [
+        "supplier"
+      ],
+      "approval_required": true,
+      "action_performed": false
+    }
+  },
+  "sem-f05": {
+    "rationale": "Explicit quotation links the refutation to the exact claim even without reference metadata.",
+    "result": {
+      "request_id": "sem-f05",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_conflict"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "sem-f06": {
+    "rationale": "Bare denial lacks linkage and does not affirm any other vendor work.",
+    "result": {
+      "request_id": "sem-f06",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_unclear"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "sem-f07": {
+    "rationale": "Same named project and relevant deliverable positively confirmed.",
+    "result": {
+      "request_id": "sem-f07",
+      "status": "completed",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "completed",
+          "decision": "eligible",
+          "reasons": [
+            "policy_satisfied"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [
+        "supplier"
+      ],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "sem-f08": {
+    "rationale": "Relevant positive testimony does not link to the profile named project; no explicit distinct project established.",
+    "result": {
+      "request_id": "sem-f08",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_unclear"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "stage": "offline_public_report_reproduction",
+  "model_calls": 0,
+  "source": "Public source, fixtures, saved records and original measurement ledger; no .local, auth or raw transcripts",
+  "checks": [
+    {
+      "run": "dev-1",
+      "returncode": 0,
+      "byte_identical": true,
+      "before": {
+        "report.json": "259b670c9ba2a9e370fd39d47f522d998d9019b0070801367eb2822c411e7b94",
+        "report.md": "2471744dc9044dcf234f690422961ae06ed9f18d7127579dfd40ae886f15d39c",
+        "acceptance.svg": "f0c1f892d4145a0c935b1b66398e227bae5eacb821735b00ec6563ac57aa40bc"
+      },
+      "after": {
+        "report.json": "259b670c9ba2a9e370fd39d47f522d998d9019b0070801367eb2822c411e7b94",
+        "report.md": "2471744dc9044dcf234f690422961ae06ed9f18d7127579dfd40ae886f15d39c",
+        "acceptance.svg": "f0c1f892d4145a0c935b1b66398e227bae5eacb821735b00ec6563ac57aa40bc"
+      },
+      "stderr": ""
+    },
+    {
+      "run": "dev-2",
+      "returncode": 0,
+      "byte_identical": true,
+      "before": {
+        "report.json": "ebbd2836bbb99db2386fec28d84ade9555f924509d1bcb4cd2ef0f365136549e",
+        "report.md": "0b51eaac207d9274bad72926032756589bd11378440d6b9ee592f3ea678b7e5e",
+        "acceptance.svg": "7b61a2e9a3ddbcaf401fbe7d5543e9e5ca21d9c66095e87e668e98b72cecb6b6"
+      },
+      "after": {
+        "report.json": "ebbd2836bbb99db2386fec28d84ade9555f924509d1bcb4cd2ef0f365136549e",
+        "report.md": "0b51eaac207d9274bad72926032756589bd11378440d6b9ee592f3ea678b7e5e",
+        "acceptance.svg": "7b61a2e9a3ddbcaf401fbe7d5543e9e5ca21d9c66095e87e668e98b72cecb6b6"
+      },
+      "stderr": ""
+    },
+    {
+      "run": "formal-1",
+      "returncode": 0,
+      "byte_identical": true,
+      "before": {
+        "report.json": "36d8fff9f702eaf7b530d2da1912355b4a51e5d94dd6b83b5cb9a93a0649a989",
+        "report.md": "0d8f93f1bd2102b84324f875dd302ea625a5b108af37b25eba99e2a993a71878",
+        "acceptance.svg": "9ec7227279d4ad54c01fbe070290a2188c6835db07c26b809c505b7199d7179b"
+      },
+      "after": {
+        "report.json": "36d8fff9f702eaf7b530d2da1912355b4a51e5d94dd6b83b5cb9a93a0649a989",
+        "report.md": "0d8f93f1bd2102b84324f875dd302ea625a5b108af37b25eba99e2a993a71878",
+        "acceptance.svg": "9ec7227279d4ad54c01fbe070290a2188c6835db07c26b809c505b7199d7179b"
+      },
+      "stderr": ""
+    }
+  ]
+}

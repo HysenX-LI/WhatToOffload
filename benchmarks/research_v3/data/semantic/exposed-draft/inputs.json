@@ -1,0 +1,354 @@
+[
+  {
+    "request_id": "sem-f01",
+    "policy": {
+      "domain": "regulated instructions localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated instructions for project ORBIT."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "The purchase order Q2 is an alias of ORBIT. Under Q2 this vendor produced only promotional banners, never regulated instructions."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f02",
+    "policy": {
+      "domain": "regulated instructions localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated instructions for project ORBIT."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "The purchase order Q2 is separate from ORBIT. Under Q2 this vendor produced only promotional banners, never regulated instructions."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f03",
+    "policy": {
+      "domain": "both device labeling AND clinician handbook translation",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "prepare_contact"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "On project NORTH we translated device labeling and the clinician handbook."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "On NORTH this team translated the device labeling. The handbook translator is not recorded."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f04",
+    "policy": {
+      "domain": "both device labeling AND clinician handbook translation",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "prepare_contact"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "On project NORTH we translated device labeling and the clinician handbook."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "On NORTH this team translated the device labeling. The handbook translator is this same team."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f05",
+    "policy": {
+      "domain": "regulated instructions localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "Our team localized regulated instructions for the JUNIPER launch."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For the engagement reviewed here (identity unavailable), the regulated instructions were localized by another team, not this vendor."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f06",
+    "policy": {
+      "domain": "regulated instructions localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "Our team localized regulated instructions for the JUNIPER launch."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For the JUNIPER launch reviewed here, the regulated instructions were localized by another team, not this vendor."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f07",
+    "policy": {
+      "domain": "regulated medical localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "Our team has performed regulated medical localization."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For our LYRA launch this vendor localized regulated medical instructions."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f08",
+    "policy": {
+      "domain": "regulated medical localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "Our team performed regulated medical localization for the VEGA launch."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For our LYRA launch this vendor localized regulated medical instructions."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  }
+]

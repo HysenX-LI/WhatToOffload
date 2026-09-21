@@ -1,0 +1,20 @@
+{
+  "base_url": "https://api.openai.com/v1",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "output_token_parameter": "max_completion_tokens",
+  "service_tier": "default",
+  "api_key_env": "OPENAI_API_KEY",
+  "rates_verified": true,
+  "price_snapshot": "2026-09-20",
+  "price_source": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+  "input_usd_per_million": 5.0,
+  "output_usd_per_million": 20.0,
+  "max_input_bytes": 48000,
+  "max_output_tokens": 5000,
+  "max_calls": 160,
+  "budget_usd": 60.0,
+  "agent_turns": 6,
+  "build_turns": 10,
+  "docker_image": "python:3.11-slim"
+}

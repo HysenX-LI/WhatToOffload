@@ -1,0 +1,25 @@
+{
+  "workflow": "stockroom",
+  "arm": "without_skill",
+  "artifact_sha256": "eb401702cbd3017255d4446974f5eff95db32ef97d3000537afa59899a55d369",
+  "frozen_at": "2026-09-20T08:11:49.492664+00:00",
+  "records": [
+    "stockroom/without_skill/design",
+    "stockroom/without_skill/implementation"
+  ],
+  "resource_reads": [],
+  "debug_inside_implementation_ms": null,
+  "human_rework": null,
+  "decision": {
+    "mode": "implemented",
+    "rationale": "A deterministic, standard-library Python reconciler can produce the required desk receipts unattended, is proportionate to an 18-times-daily workflow, and can fail closed without any inventory write, network access, key, install, or agent judgment.",
+    "resources_read": [
+      "packet/desk_log.txt",
+      "packet/sop.md",
+      "packet/request.md",
+      "packet/old_totals.py",
+      "packet/acceptance.md",
+      "dev_inputs.json"
+    ]
+  }
+}

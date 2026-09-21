@@ -1,0 +1,66 @@
+{
+  "stage": "offline_clean_copy",
+  "at": "2026-09-20T08:21:34.422665+00:00",
+  "source": "Public source/data/resources only; no .git, .local, login or API credentials",
+  "model_calls": 0,
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "benchmarks",
+        "-t",
+        "."
+      ],
+      "returncode": 0,
+      "output": ".........................................................................\n----------------------------------------------------------------------\nRan 73 tests in 0.142s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "benchmarks.research_v3",
+        "offline"
+      ],
+      "returncode": 0,
+      "output": "{\"mode\": \"offline_contract_validation\", \"model_calls\": 0, \"audit\": {\"semantic\": 16, \"workflow\": 18}, \"successful\": true}\n............\n----------------------------------------------------------------------\nRan 12 tests in 0.016s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "benchmarks.research_v3",
+        "verify"
+      ],
+      "returncode": 0,
+      "output": "209bf1d112aeabeb3231d44060172c7680ff6411195063262d292f9026a638dc\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "benchmarks.codex_v2",
+        "verify",
+        "--freeze",
+        "benchmarks/codex_v2/freeze-codex-v2.json"
+      ],
+      "returncode": 0,
+      "output": "485cb22c9b66fd5f73ce34ed6c07d2a62e9fa72294a4d42bb191499d88f2a206\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "benchmarks.public_v1",
+        "verify",
+        "--freeze",
+        "benchmarks/public_v1/freeze-v1.json"
+      ],
+      "returncode": 0,
+      "output": "31478a4ed3e2f1f68cd7409c12abe9bac745583ed7bd0cb720075f01fd66de88\n"
+    }
+  ]
+}

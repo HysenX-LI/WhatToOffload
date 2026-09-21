@@ -1,0 +1,898 @@
+{
+  "metadata": {
+    "version": "codex-v2",
+    "run_id": "codex-v2-dev-execution-4",
+    "mode": "codex",
+    "split": "dev",
+    "study": "execution",
+    "created_at": "2026-09-20T06:58:19.848681+00:00",
+    "python": "3.9.6",
+    "system": {
+      "cli_version": "codex-cli 0.153.4",
+      "authentication": "ChatGPT",
+      "isolation_checks": {
+        "workspace_write": true,
+        "repo_denied": true,
+        "sibling_denied": true,
+        "symlink_denied": true,
+        "auth_denied": true,
+        "network_denied": true
+      }
+    },
+    "config": {
+      "cli": "/Applications/ChatGPT.app/Contents/Resources/codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "max_calls": 60,
+      "max_tools_per_call": 40,
+      "semantic_timeout_seconds": 120,
+      "agent_timeout_seconds": 240,
+      "build_timeout_seconds": 600,
+      "candidate_timeout_seconds": 360,
+      "total_timeout_seconds": 3600
+    },
+    "freeze_sha256": null,
+    "source_hashes": {
+      "SKILL.md": "4b4941831b139e74abacb33643e3898f5de526fab8b4a63cb0b7301d7d34e2d7",
+      "assets/templates/async-workflow-snapshot.json": "d0d937d7d7d3a62d04e1898f5c0e74d924eb32d12b0a4b05896591ee944131ef",
+      "assets/templates/candidate-analysis.md": "38cd017a07a4993514f28920b952e2f1efd6a6854d637f383c5ee8ceae46cfa0",
+      "assets/templates/durable-workflow-design.md": "aa4877930bc3b0852dbb7c476f1e3b451f99d95801edca23ff6c4e0a9276a6fa",
+      "assets/templates/result-envelope.json": "345742ce0e7e963fd4a979c09f79de69edd67ff668389a63e2c9994d2cc4ebd3",
+      "assets/templates/workflow-design.md": "5415a40c93a9d813c17c1ff00617cfb4cef1b001f97ab5a794c795a6d439cc97",
+      "benchmarks/contracts.py": "c732193bb161453e0a96c025ad49a0dc2c63f899128aba60c260e6576902cb2f",
+      "benchmarks/public_v1/PROTOCOL.md": "5c1adb716b578f8cbfbb46a49ce25d5a6664a20f38b948b780f691a975376d1e",
+      "benchmarks/public_v1/README.md": "6821c1a751c170914f07c5d130dfac4c77455d4d59db348a65a437ac7c05db48",
+      "benchmarks/public_v1/TASK.md": "a998f948128e9a5615b6e571b8c6c8498c4e52bd1f8a94ea2bc3db006b64c4f9",
+      "benchmarks/public_v1/__init__.py": "719bdb340c5a91047bcdb9b624f16f902be12ef9edb5eb32547c14081ad681cd",
+      "benchmarks/public_v1/__main__.py": "628702c985467b864802428db7f913521c9699c70999ca482b2fd2ccf716ea25",
+      "benchmarks/public_v1/contracts.py": "ee002b7f9daeaf1e3c4e723198ea1e8f2c62b9205ca59d597dd8d04f9bb85539",
+      "benchmarks/public_v1/data/SPLITS.json": "fcfb37b2c7ca4d93c4ef1c0066d2dc50a81c6d74600c23e18877cde9addc8812",
+      "benchmarks/public_v1/data/dev/gold.json": "64fb8b40b65243c572646fd74799b8db303e464af99f482d22f387b06e561d3d",
+      "benchmarks/public_v1/data/dev/inputs.json": "87b962544372e12682a6838168495a2eb26a543bdf882df7b1572aefd8fbde25",
+      "benchmarks/public_v1/data/final/gold.json": "f7d0f82f7af84f1cba3e397bb5a4ad8b49d4f92bba1f2a3d2ebc120d5a3677d0",
+      "benchmarks/public_v1/data/final/inputs.json": "17110c3f7c1b3e47ce6d74a7cef188c999821f6d28ddc6f684f2fdfc6d424934",
+      "benchmarks/public_v1/data/workflow_gold.json": "4ada2dbd41971cd7046d0272d337a795b10bde97332694b0f7a2f3d84bc0949e",
+      "benchmarks/public_v1/data/workflows.json": "e3f2f18f79dbdfbf72348af979a452832b4f63bf19288149841fd8c95d9bc54e",
+      "benchmarks/public_v1/evaluate.py": "ac13603384f5ec9f87d8856ea59973b07d3673c85208e40810ae3e25f9d4d90f",
+      "benchmarks/public_v1/experiments.py": "3cd3a748744e57ed4f8bbbf07b26cd60a94281c7393f3bc47121b3a05315f8a0",
+      "benchmarks/public_v1/helpers.py": "24854a4a15fe4c93543df83bc816a6fc0ddd7fbd49872315120f3282371ffc1f",
+      "benchmarks/public_v1/live-config.example.json": "e0a4aab38b6ca97b34a2a7dc1c6c390ec8c53dba979f67e8bc1ded674ca3aa88",
+      "benchmarks/public_v1/providers.py": "de8ef65077e996b2c204897d8964e5b0a865e47e386bfd73326cb21d005e88a9",
+      "benchmarks/public_v1/report.py": "0f7f5fa4dc9bdc04f34d52e68f64e0db005bba8b2f84da475ea1ddaeaf4e4093",
+      "benchmarks/public_v1/runner.py": "58bec63bd1b204d30102e24f265036860b943176f990a2afd838ab4c94601e19",
+      "benchmarks/public_v1/sandbox.py": "8c05c0b312f6a65f9502df062dd1ac1cb34c39039d6edd1e3cdf40c39267c6d9",
+      "benchmarks/public_v1/semantic_bridge.py": "e13253fd6e782f19743f3c35c871e6dd2edb2b25b040a22c543d0a7ac3748b9f",
+      "benchmarks/public_v1/task_skill.md": "aaa423b5763c46106deffee139ed040ce02abcd6474865f1441b8127e4a7fb89",
+      "benchmarks/public_v1/test_evaluation.py": "de2d555f5e9efd1d6aee996c97f288a2ecde373ac06b2c56d9a652e547fbfaa7",
+      "benchmarks/public_v1/test_experiments.py": "e6d3c129a04576e009730133bcf19180cadecf7db2f1554f19a56905938180ce",
+      "benchmarks/public_v1/test_public.py": "ad83adac9dd949abdb086abefcfac6ea50d89ff1a8d96475fb8c0eb1650e785b",
+      "examples/business-screening.md": "65940c7a9cc145931e8bcee601d52a63c3829f2010c434390256ded3b6816efa",
+      "examples/code-triage.md": "b01778a7a5ac3cf6acfec05429c4866b405b661e4a2b4d1707269ce32de4af19",
+      "examples/durable-vendor-review.md": "1ca73ec8a7a009fb4cbfdb1c8aa2f28c48fe9c66ae0a1f46434c63cd95df0cf7",
+      "examples/web-research.md": "4c06274c26c44f1487a5c58ce8c70b92f2ede6e86e0368107fae4df94142634d",
+      "references/durable-async-workflows.md": "1014420dec50f2be66368ee0c407e1c3f3e1ae3e4451a279d8359916c16fa0a3",
+      "references/executor-selection.md": "e57a79e068b0755faa9d34e3e060263609292611ba83252558a91d6ecab8383f",
+      "references/safety-and-uncertainty.md": "18baa0f1ea6299a2ff1f4db75ed24ed988a7449aa0dee428b301b850aef75061",
+      "references/short-lived-workflows.md": "65c98d432e14ff08827626b4b635c8a683f6b2c0dd195d18bc3abe7a663a1d87",
+      "references/test-driven-workflows.md": "65e432079a318d86434359c09ab485af94a90b61e601941710130af9af9ccd89",
+      "benchmarks/codex_v2/__init__.py": "74020e0d038035eb70ae36df214474e3b39590a75071d8351453c4cf00739f20",
+      "benchmarks/codex_v2/export.py": "a3cc190ee4cff0acc16ade981200bd0ba81d17fca03cbda6a642dd243fc7b231",
+      "benchmarks/codex_v2/runtime.py": "4b76b5a1c1a4e4061c8635130238a46f92db0d7f905c813bb883f74e7eb4302d",
+      "benchmarks/codex_v2/test_codex.py": "57e46c57fe7d065135e37884f963e0ffffa1c50adacfb09dbe2dd848a848b158",
+      "benchmarks/codex_v2/__main__.py": "6f47fc5525916da312cb199a3293ef8871b1bb6bca46def9127610534fadac02",
+      "benchmarks/codex_v2/report.py": "6fee72e873081b13f02b8d51d633ce7fefbcc30296b78afe3e67508782681d41",
+      "benchmarks/codex_v2/studies.py": "4602ee002746103bce42f97fc4af71a90a06151c898899b4cf8d64e05f8cd585",
+      "benchmarks/codex_v2/PROTOCOL.md": "4fb51ff3d4a5ad902e2c82c85b4c5a1aec25b3ddec1433125ff64ba8927d67d4",
+      "benchmarks/codex_v2/config.json": "7537a297917d1ff5c6f9af9e6067d507a93dc522e3a2571d478a2fdc60299335"
+    },
+    "stop_reason": null,
+    "billing_cost": null,
+    "preparation_cost": null,
+    "repetitions": 1,
+    "final_exposure_started": false,
+    "workflow_probe_count": 3,
+    "finished_at": "2026-09-20T07:01:03.266176+00:00"
+  },
+  "aggregate": {
+    "agent_direct": {
+      "attempts": 2,
+      "task_correctness": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "wrong_automatic_release": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "correct_review_recall": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "citation_precision": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "omission_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "record_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "actual_completion_rate": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "execution_failure_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "correct_input_handoffs": 0,
+      "correct_approval_handoffs": 0,
+      "median_wall_ms": 34297.2705,
+      "timed_attempts": 2,
+      "execution_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "observed_task_correctness": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "not_executed": 0,
+      "measurements": {
+        "codex_calls": 2,
+        "tool_calls": 6,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 88578,
+        "input_tokens_known_subtotal": 88578,
+        "input_tokens_measured_calls": 2,
+        "cached_input_tokens": 78848,
+        "cached_input_tokens_known_subtotal": 78848,
+        "cached_input_tokens_measured_calls": 2,
+        "output_tokens": 1646,
+        "output_tokens_known_subtotal": 1646,
+        "output_tokens_measured_calls": 2
+      }
+    },
+    "agent_task_skill": {
+      "attempts": 2,
+      "task_correctness": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "wrong_automatic_release": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "correct_review_recall": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "citation_precision": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "omission_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "record_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "actual_completion_rate": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "execution_failure_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "correct_input_handoffs": 0,
+      "correct_approval_handoffs": 0,
+      "median_wall_ms": 35918.6615,
+      "timed_attempts": 2,
+      "execution_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "observed_task_correctness": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "not_executed": 0,
+      "measurements": {
+        "codex_calls": 2,
+        "tool_calls": 6,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 79611,
+        "input_tokens_known_subtotal": 79611,
+        "input_tokens_measured_calls": 2,
+        "cached_input_tokens": 52352,
+        "cached_input_tokens_known_subtotal": 52352,
+        "cached_input_tokens_measured_calls": 2,
+        "output_tokens": 2038,
+        "output_tokens_known_subtotal": 2038,
+        "output_tokens_measured_calls": 2
+      }
+    },
+    "prepared_runner": {
+      "attempts": 2,
+      "task_correctness": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "wrong_automatic_release": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "correct_review_recall": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "citation_precision": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "omission_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "record_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "actual_completion_rate": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "execution_failure_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "correct_input_handoffs": 0,
+      "correct_approval_handoffs": 0,
+      "median_wall_ms": 11540.921999999999,
+      "timed_attempts": 2,
+      "execution_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "observed_task_correctness": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "not_executed": 0,
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 0,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 8652,
+        "input_tokens_known_subtotal": 8652,
+        "input_tokens_measured_calls": 1,
+        "cached_input_tokens": 0,
+        "cached_input_tokens_known_subtotal": 0,
+        "cached_input_tokens_measured_calls": 1,
+        "output_tokens": 24,
+        "output_tokens_known_subtotal": 24,
+        "output_tokens_measured_calls": 1
+      }
+    }
+  },
+  "builds": [],
+  "records": [
+    {
+      "attempt_id": "agent_direct:dev-equality:1",
+      "arm": "agent_direct",
+      "case_id": "dev-equality",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "dev-equality",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q",
+              "a-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "a"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 32425.695,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 1,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 39805,
+          "cached_input_tokens": 34944,
+          "output_tokens": 872,
+          "tool_calls": 3,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "825e5fac407ce69fd73d7f4a36421ff082f2dc2be5f0e5c5836c4556f10d4f2a"
+          ],
+          "wall_ms": 32422.09
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:dev-price:1",
+      "arm": "prepared_runner",
+      "case_id": "dev-price",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "dev-price",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q",
+              "a-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 0.19,
+      "cost_usd": null,
+      "calls": [],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:dev-price:1",
+      "arm": "agent_task_skill",
+      "case_id": "dev-price",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "dev-price",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q",
+              "a-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 30908.037,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 2,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 29527,
+          "cached_input_tokens": 24960,
+          "output_tokens": 827,
+          "tool_calls": 3,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "0796ffad012d7920bbf87b634a9f2030bd014a8ea2a815ff7e8d80d8a6c9fbb2"
+          ],
+          "wall_ms": 30903.124
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_direct:dev-price:1",
+      "arm": "agent_direct",
+      "case_id": "dev-price",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "dev-price",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q",
+              "a-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 36168.846,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 3,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 48773,
+          "cached_input_tokens": 43904,
+          "output_tokens": 774,
+          "tool_calls": 3,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "67b7f2ed026401ae8bdaa98a1d07b4ec243d1e701c30827091eb8e0e22c0ef93"
+          ],
+          "wall_ms": 36164.101
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:dev-equality:1",
+      "arm": "agent_task_skill",
+      "case_id": "dev-equality",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "dev-equality",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q",
+              "a-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "a"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 40929.286,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 4,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 50084,
+          "cached_input_tokens": 27392,
+          "output_tokens": 1211,
+          "tool_calls": 3,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "d151d778ab47cb6244333ecfc305bc1229782404ac2a757696cc8b71295ffad8"
+          ],
+          "wall_ms": 40924.302
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:dev-equality:1",
+      "arm": "prepared_runner",
+      "case_id": "dev-equality",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "dev-equality",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q",
+              "a-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "a"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 23081.654,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 5,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8652,
+          "cached_input_tokens": 0,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "a72a0ad323cae6335154e727390952e43ad3d7191e8ba5bedc32592dcf07255e"
+          ],
+          "wall_ms": 23079.386
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    }
+  ],
+  "all_measurements": {
+    "codex_calls": 5,
+    "tool_calls": 12,
+    "billing_cost": null,
+    "failed_calls": 0,
+    "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+    "input_tokens": 176841,
+    "input_tokens_known_subtotal": 176841,
+    "input_tokens_measured_calls": 5,
+    "cached_input_tokens": 131200,
+    "cached_input_tokens_known_subtotal": 131200,
+    "cached_input_tokens_measured_calls": 5,
+    "output_tokens": 3708,
+    "output_tokens_known_subtotal": 3708,
+    "output_tokens_measured_calls": 5
+  }
+}

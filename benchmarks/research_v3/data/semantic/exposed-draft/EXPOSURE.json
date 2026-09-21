@@ -1,0 +1,5 @@
+{
+  "status": "exposed_offline_regression",
+  "reason": "Three cases were used with an always-unclear injected fake in a pre-freeze countertest. No live models saw the draft. Retired the entire draft conservatively; no historical scores were changed.",
+  "replacement": "../final with different judgment-bearing facts, not a renamed draft"
+}

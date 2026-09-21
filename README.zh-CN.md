@@ -58,9 +58,11 @@ WhatToOffload 不是工作流运行平台。第二阶段可以设计并接入一
 
 WhatToOffload 负责识别哪些节点适合使用有界、带类型的语义判断。进入 Jev 实施前，Agent 必须读取当前环境中的 `typesafe-ai` Skill，并查阅最新的 [TypeSafe 官方文档](https://docs.typesafe.ai/llms.txt)。控制流、确定性规则、副作用和不确定性路由仍由代码负责。
 
-## 同一长任务的三组对比
+## 公开实验与历史对照
 
-主基准比较 **Codex 直接执行**、**Codex + 任务专用 Skill**、**通过 WhatToOffload 设计的 runner**。三组处理同一份本地任务：120 份源材料、24 个候选对象、3 个项目，包含报价修订、证据冲突、缺失信息、计算、排序和完整报告。
+新增[公开可复跑的 Codex 供应商初筛基准 v2](benchmarks/codex_v2/README.md)：提供输入、独立答案表、runner、评测器和开发／最终数据划分，分开比较执行效果与 WhatToOffload 对 runner 构建的增量作用。新实验只使用 ChatGPT 登录的 Codex（Sol/high），不使用独立计费 API、不估算美元价格。[当前证据及最终集状态](benchmarks/codex_v2/RESULTS.md)单独记录；下方历史长任务结果继续保留。
+
+历史长任务基准比较 **Codex 直接执行**、**Codex + 任务专用 Skill**、**通过 WhatToOffload 设计的 runner**。三组处理同一份本地任务：120 份源材料、24 个候选对象、3 个项目，包含报价修订、证据冲突、缺失信息、计算、排序和完整报告。
 
 两个 Codex 路径均使用独立的 **GPT-5.6 Sol high** 子智能体。任务 Skill 包含可复用的确定性辅助脚本；第三组则独立实测代码、Jev 与 DeepSeek 低置信度复核组成的 runner。每组正式运行 3 次，采用相同验收标准。
 
@@ -90,3 +92,7 @@ WhatToOffload 负责识别哪些节点适合使用有界、带类型的语义判
 当前仓库只包含 Skill 源文件。它不会自动安装，也不会配置或运行工作流基础设施。外部 API 探测默认关闭，只有获得明确授权后才会执行。
 
 在 2026-09-20 的开发验证中，一次获得明确授权的合成数据契约测试成功验证了 OpenRouter Decisions API 的 Choice、Noul、Score 返回，以及 DeepSeek OpenAI 兼容 Chat Completions 的严格 JSON 生成。仓库中不包含任何密钥或供应商专用运行配置；该结果只证明当次兼容性，不构成永久可用性保证。
+
+新增独立的 [v3 研究](benchmarks/research_v3/README.md)：澄清语义判断边界，并从原始工作流材料评测设计增益。旧 v2 结果与“本轮未观察到 Skill 构建增益”的结论保持不变。
+
+[v3 实测结果](benchmarks/research_v3/RESULTS.md)：新语义集两条执行路径均通过 8/8，有界 Codex 路径耗时与输入更少；原始工作流研究中，库存和发布两组验收相同，一次性客户沟通为普通组 3/4、Skill 组 4/4。发布两组设计评审超时、评分未知。这些只是小样本描述，不能据此证明 Skill 普遍优于普通 Codex。

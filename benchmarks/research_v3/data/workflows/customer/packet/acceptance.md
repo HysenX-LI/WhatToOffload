@@ -1,0 +1,1 @@
+Observable receipt: {case_id,status,unresolved:[codes],draft:string|null,commitments:[],action_performed:false}. The operator may remain an Agent; this format is a traceable desk receipt, not a mandated runner. Topic inclusion and prohibited commitments are necessary acceptance checks, not a complete measure of writing quality.

@@ -1,0 +1,42 @@
+[
+  {
+    "case_id": "s-dev-good",
+    "opening": {
+      "sensor": 5
+    },
+    "events": [
+      {
+        "id": "a",
+        "type": "receipt",
+        "sku": "sensor",
+        "quantity": 3
+      },
+      {
+        "id": "b",
+        "type": "reserve",
+        "sku": "sensor",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "case_id": "s-dev-conflict",
+    "opening": {
+      "sensor": 5
+    },
+    "events": [
+      {
+        "id": "a",
+        "type": "ship",
+        "sku": "sensor",
+        "quantity": 1
+      },
+      {
+        "id": "a",
+        "type": "ship",
+        "sku": "sensor",
+        "quantity": 2
+      }
+    ]
+  }
+]

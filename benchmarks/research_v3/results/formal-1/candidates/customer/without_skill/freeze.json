@@ -1,0 +1,25 @@
+{
+  "workflow": "customer",
+  "arm": "without_skill",
+  "construction_error": null,
+  "construction_complete": true,
+  "artifact_sha256": "f1d0dc60894fedaf29ff8d54ab9d10cf182fcada879c8f050b908ebc4a9b6a64",
+  "frozen_at": "2026-09-20T08:48:48.063130+00:00",
+  "records": [
+    "customer/without_skill/design"
+  ],
+  "resource_reads": [],
+  "debug_inside_implementation_ms": null,
+  "human_rework": null,
+  "decision": {
+    "mode": "keep_agent",
+    "rationale": "This is an explicitly one-off, context-sensitive trust repair. A later Codex operator can apply the small deterministic intake gate and receipt checklist with normal local tools, while preserving the human judgment and approval needed for the draft; a runner or new persistent aid would add unjustified process.",
+    "resources_read": [
+      "packet/desk_rules.md",
+      "packet/meeting_notes.txt",
+      "packet/request.md",
+      "packet/acceptance.md",
+      "dev_inputs.json"
+    ]
+  }
+}

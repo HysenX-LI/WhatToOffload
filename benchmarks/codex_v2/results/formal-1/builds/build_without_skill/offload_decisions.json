@@ -1,0 +1,17 @@
+[
+  {
+    "id": "repeat-screen",
+    "decision": "offload",
+    "reason": "The recurring workflow has explicit inputs, a versioned policy, bounded outputs, and a review exit for uncertainty."
+  },
+  {
+    "id": "changing-goal",
+    "decision": "keep_agent",
+    "reason": "The goal and success criteria change conversationally and depend on tacit context, so the work is not yet a stable runner."
+  },
+  {
+    "id": "one-off-negotiation",
+    "decision": "keep_agent",
+    "reason": "This is nonrecurring, relationship-sensitive work without specifiable outcomes or a reusable policy."
+  }
+]

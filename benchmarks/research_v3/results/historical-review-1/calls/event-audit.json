@@ -1,0 +1,117 @@
+[
+  {
+    "file": "call-001.events.jsonl",
+    "sha256": "07646ca459c45e2427135fe5ba8c39ab219981e73c1b09f1c5fb19303ccf018d",
+    "events": [
+      {
+        "type": "thread.started"
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_0",
+          "type": "error"
+        }
+      },
+      {
+        "type": "turn.started"
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_1",
+          "type": "agent_message"
+        }
+      },
+      {
+        "type": "item.started",
+        "item": {
+          "id": "item_2",
+          "type": "command_execution",
+          "status": "in_progress",
+          "exit_code": null
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_2",
+          "type": "command_execution",
+          "status": "completed",
+          "exit_code": 0
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_3",
+          "type": "agent_message"
+        }
+      },
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 18486,
+          "cached_input_tokens": 15104,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 594,
+          "reasoning_output_tokens": 340
+        }
+      }
+    ]
+  },
+  {
+    "file": "call-002.events.jsonl",
+    "sha256": "6b5da6210190259c0089d7b21b47197a98b98bd0d1f7dc812c4d368e8b2db5ed",
+    "events": [
+      {
+        "type": "thread.started"
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_0",
+          "type": "error"
+        }
+      },
+      {
+        "type": "turn.started"
+      },
+      {
+        "type": "item.started",
+        "item": {
+          "id": "item_1",
+          "type": "command_execution",
+          "status": "in_progress",
+          "exit_code": null
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_1",
+          "type": "command_execution",
+          "status": "completed",
+          "exit_code": 0
+        }
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_2",
+          "type": "agent_message"
+        }
+      },
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 18434,
+          "cached_input_tokens": 15104,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 671,
+          "reasoning_output_tokens": 433
+        }
+      }
+    ]
+  }
+]

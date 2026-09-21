@@ -1,0 +1,27 @@
+{
+  "workflow": "release",
+  "arm": "without_skill",
+  "construction_error": null,
+  "construction_complete": true,
+  "artifact_sha256": "81bd144d72ab9184a7f6ca30f14fd4b78e0b1f90ed061b7e33eb4ae7d740f44b",
+  "frozen_at": "2026-09-20T08:46:53.884222+00:00",
+  "records": [
+    "release/without_skill/design",
+    "release/without_skill/implementation",
+    "release/without_skill/debug"
+  ],
+  "resource_reads": [],
+  "debug_inside_implementation_ms": null,
+  "human_rework": null,
+  "decision": {
+    "mode": "implemented",
+    "rationale": "The receipt is a deterministic, side-effect-free transformation of one local snapshot; a small standard-library Python evaluator can produce it unattended without polling, persistence, network access, or agent judgment.",
+    "resources_read": [
+      "packet/sop.md",
+      "packet/history.txt",
+      "packet/request.md",
+      "packet/acceptance.md",
+      "dev_inputs.json"
+    ]
+  }
+}

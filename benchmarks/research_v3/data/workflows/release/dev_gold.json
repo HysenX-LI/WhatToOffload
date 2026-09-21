@@ -1,0 +1,18 @@
+[
+  {
+    "case_id": "r-dev-pass",
+    "status": "completed",
+    "build": "b1",
+    "next_action": "ready",
+    "reason": "ready",
+    "action_performed": false
+  },
+  {
+    "case_id": "r-dev-fail",
+    "status": "needs_review",
+    "build": "b1",
+    "next_action": "review",
+    "reason": "tests_failed",
+    "action_performed": false
+  }
+]

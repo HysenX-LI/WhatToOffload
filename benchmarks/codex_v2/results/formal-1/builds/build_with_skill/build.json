@@ -1,0 +1,53 @@
+{
+  "arm": "build_with_skill",
+  "status": "completed",
+  "syntax_valid": true,
+  "candidate_sha256": "afb3373b92ba192d17cdd17266913d747d1fa083ea5315664d7f6bdbacbaf168",
+  "boundary_decisions": [
+    {
+      "id": "repeat-screen",
+      "decision": "offload",
+      "reason": "The recurring screen has explicit inputs and outputs, stable policy rules, bounded semantic review, and no automatic external side effects."
+    },
+    {
+      "id": "changing-goal",
+      "decision": "keep_agent",
+      "reason": "The goals, success criteria, and tacit context change during the conversation, so the whole workflow does not yet have a stable runner boundary."
+    },
+    {
+      "id": "one-off-negotiation",
+      "decision": "keep_agent",
+      "reason": "This nonrecurring negotiation depends on live, relationship-sensitive judgment and has no specified reusable policy or acceptable outcomes."
+    }
+  ],
+  "human_rework_count": null,
+  "human_rework_minutes": null,
+  "repairs_attempted": false,
+  "cost_usd": null,
+  "candidate_frozen_at_unix": 1789888600.873417,
+  "wall_ms": 299038.194,
+  "calls": [
+    {
+      "call_id": 2,
+      "kind": "build",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 400972,
+      "cached_input_tokens": 366080,
+      "output_tokens": 14846,
+      "tool_calls": 13,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "04a5db265cedc629e929d26fb65d8ddbbc463c113708ba8e97ca0d8703eeb81c"
+      ],
+      "wall_ms": 299017.52
+    }
+  ],
+  "boundary_correct": 3,
+  "boundary_total": 3
+}

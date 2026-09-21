@@ -1,0 +1,25 @@
+{
+  "workflow": "stockroom",
+  "arm": "without_skill",
+  "artifact_sha256": "2a3eece60bf298b2bc7f922d5e1cddde1101080d4d834b0e57451d35a3840344",
+  "frozen_at": "2026-09-20T08:19:17.887901+00:00",
+  "records": [
+    "stockroom/without_skill/design",
+    "stockroom/without_skill/implementation"
+  ],
+  "resource_reads": [],
+  "debug_inside_implementation_ms": null,
+  "human_rework": null,
+  "decision": {
+    "mode": "implemented",
+    "rationale": "A small deterministic, read-only Python 3 reconciler can validate, deduplicate, calculate, and emit the required receipts unattended; the closed SOP and repeated daily volume justify local software, while review remains explicit for unresolved cases and no external or inventory action is needed.",
+    "resources_read": [
+      "dev_inputs.json",
+      "packet/acceptance.md",
+      "packet/desk_log.txt",
+      "packet/old_totals.py",
+      "packet/request.md",
+      "packet/sop.md"
+    ]
+  }
+}

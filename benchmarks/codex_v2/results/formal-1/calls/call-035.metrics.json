@@ -1,0 +1,20 @@
+{
+  "call_id": 35,
+  "kind": "semantic",
+  "status": "completed",
+  "cost_usd": null,
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "error": null,
+  "input_tokens": 8678,
+  "cached_input_tokens": 6656,
+  "output_tokens": 22,
+  "tool_calls": 0,
+  "transport_reconnections": 0,
+  "returncode": 0,
+  "reported_turns": 1,
+  "context_ids_sha256": [
+    "8532da00c64184ce7639841e4c7cfd80eccb79bb430974582ea622e070f12c30"
+  ],
+  "wall_ms": 8430.645
+}

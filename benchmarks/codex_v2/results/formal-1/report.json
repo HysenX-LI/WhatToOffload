@@ -1,0 +1,4751 @@
+{
+  "metadata": {
+    "version": "codex-v2",
+    "run_id": "codex-v2-formal-1",
+    "mode": "codex",
+    "split": "final",
+    "study": "both",
+    "created_at": "2026-09-20T07:06:44.239799+00:00",
+    "python": "3.9.6",
+    "system": {
+      "cli_version": "codex-cli 0.153.4",
+      "authentication": "ChatGPT",
+      "isolation_checks": {
+        "workspace_write": true,
+        "repo_denied": true,
+        "sibling_denied": true,
+        "symlink_denied": true,
+        "auth_denied": true,
+        "network_denied": true
+      }
+    },
+    "config": {
+      "cli": "/Applications/ChatGPT.app/Contents/Resources/codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "max_calls": 60,
+      "max_tools_per_call": 40,
+      "semantic_timeout_seconds": 120,
+      "agent_timeout_seconds": 240,
+      "build_timeout_seconds": 600,
+      "candidate_timeout_seconds": 360,
+      "total_timeout_seconds": 3600
+    },
+    "freeze_sha256": "485cb22c9b66fd5f73ce34ed6c07d2a62e9fa72294a4d42bb191499d88f2a206",
+    "source_hashes": {
+      "SKILL.md": "4b4941831b139e74abacb33643e3898f5de526fab8b4a63cb0b7301d7d34e2d7",
+      "assets/templates/async-workflow-snapshot.json": "d0d937d7d7d3a62d04e1898f5c0e74d924eb32d12b0a4b05896591ee944131ef",
+      "assets/templates/candidate-analysis.md": "38cd017a07a4993514f28920b952e2f1efd6a6854d637f383c5ee8ceae46cfa0",
+      "assets/templates/durable-workflow-design.md": "aa4877930bc3b0852dbb7c476f1e3b451f99d95801edca23ff6c4e0a9276a6fa",
+      "assets/templates/result-envelope.json": "345742ce0e7e963fd4a979c09f79de69edd67ff668389a63e2c9994d2cc4ebd3",
+      "assets/templates/workflow-design.md": "5415a40c93a9d813c17c1ff00617cfb4cef1b001f97ab5a794c795a6d439cc97",
+      "benchmarks/contracts.py": "c732193bb161453e0a96c025ad49a0dc2c63f899128aba60c260e6576902cb2f",
+      "benchmarks/public_v1/PROTOCOL.md": "5c1adb716b578f8cbfbb46a49ce25d5a6664a20f38b948b780f691a975376d1e",
+      "benchmarks/public_v1/README.md": "6821c1a751c170914f07c5d130dfac4c77455d4d59db348a65a437ac7c05db48",
+      "benchmarks/public_v1/TASK.md": "a998f948128e9a5615b6e571b8c6c8498c4e52bd1f8a94ea2bc3db006b64c4f9",
+      "benchmarks/public_v1/__init__.py": "719bdb340c5a91047bcdb9b624f16f902be12ef9edb5eb32547c14081ad681cd",
+      "benchmarks/public_v1/__main__.py": "628702c985467b864802428db7f913521c9699c70999ca482b2fd2ccf716ea25",
+      "benchmarks/public_v1/contracts.py": "ee002b7f9daeaf1e3c4e723198ea1e8f2c62b9205ca59d597dd8d04f9bb85539",
+      "benchmarks/public_v1/data/SPLITS.json": "fcfb37b2c7ca4d93c4ef1c0066d2dc50a81c6d74600c23e18877cde9addc8812",
+      "benchmarks/public_v1/data/dev/gold.json": "64fb8b40b65243c572646fd74799b8db303e464af99f482d22f387b06e561d3d",
+      "benchmarks/public_v1/data/dev/inputs.json": "87b962544372e12682a6838168495a2eb26a543bdf882df7b1572aefd8fbde25",
+      "benchmarks/public_v1/data/final/gold.json": "f7d0f82f7af84f1cba3e397bb5a4ad8b49d4f92bba1f2a3d2ebc120d5a3677d0",
+      "benchmarks/public_v1/data/final/inputs.json": "17110c3f7c1b3e47ce6d74a7cef188c999821f6d28ddc6f684f2fdfc6d424934",
+      "benchmarks/public_v1/data/workflow_gold.json": "4ada2dbd41971cd7046d0272d337a795b10bde97332694b0f7a2f3d84bc0949e",
+      "benchmarks/public_v1/data/workflows.json": "e3f2f18f79dbdfbf72348af979a452832b4f63bf19288149841fd8c95d9bc54e",
+      "benchmarks/public_v1/evaluate.py": "ac13603384f5ec9f87d8856ea59973b07d3673c85208e40810ae3e25f9d4d90f",
+      "benchmarks/public_v1/experiments.py": "3cd3a748744e57ed4f8bbbf07b26cd60a94281c7393f3bc47121b3a05315f8a0",
+      "benchmarks/public_v1/helpers.py": "24854a4a15fe4c93543df83bc816a6fc0ddd7fbd49872315120f3282371ffc1f",
+      "benchmarks/public_v1/live-config.example.json": "e0a4aab38b6ca97b34a2a7dc1c6c390ec8c53dba979f67e8bc1ded674ca3aa88",
+      "benchmarks/public_v1/providers.py": "de8ef65077e996b2c204897d8964e5b0a865e47e386bfd73326cb21d005e88a9",
+      "benchmarks/public_v1/report.py": "0f7f5fa4dc9bdc04f34d52e68f64e0db005bba8b2f84da475ea1ddaeaf4e4093",
+      "benchmarks/public_v1/runner.py": "58bec63bd1b204d30102e24f265036860b943176f990a2afd838ab4c94601e19",
+      "benchmarks/public_v1/sandbox.py": "8c05c0b312f6a65f9502df062dd1ac1cb34c39039d6edd1e3cdf40c39267c6d9",
+      "benchmarks/public_v1/semantic_bridge.py": "e13253fd6e782f19743f3c35c871e6dd2edb2b25b040a22c543d0a7ac3748b9f",
+      "benchmarks/public_v1/task_skill.md": "aaa423b5763c46106deffee139ed040ce02abcd6474865f1441b8127e4a7fb89",
+      "benchmarks/public_v1/test_evaluation.py": "de2d555f5e9efd1d6aee996c97f288a2ecde373ac06b2c56d9a652e547fbfaa7",
+      "benchmarks/public_v1/test_experiments.py": "e6d3c129a04576e009730133bcf19180cadecf7db2f1554f19a56905938180ce",
+      "benchmarks/public_v1/test_public.py": "ad83adac9dd949abdb086abefcfac6ea50d89ff1a8d96475fb8c0eb1650e785b",
+      "examples/business-screening.md": "65940c7a9cc145931e8bcee601d52a63c3829f2010c434390256ded3b6816efa",
+      "examples/code-triage.md": "b01778a7a5ac3cf6acfec05429c4866b405b661e4a2b4d1707269ce32de4af19",
+      "examples/durable-vendor-review.md": "1ca73ec8a7a009fb4cbfdb1c8aa2f28c48fe9c66ae0a1f46434c63cd95df0cf7",
+      "examples/web-research.md": "4c06274c26c44f1487a5c58ce8c70b92f2ede6e86e0368107fae4df94142634d",
+      "references/durable-async-workflows.md": "1014420dec50f2be66368ee0c407e1c3f3e1ae3e4451a279d8359916c16fa0a3",
+      "references/executor-selection.md": "e57a79e068b0755faa9d34e3e060263609292611ba83252558a91d6ecab8383f",
+      "references/safety-and-uncertainty.md": "18baa0f1ea6299a2ff1f4db75ed24ed988a7449aa0dee428b301b850aef75061",
+      "references/short-lived-workflows.md": "65c98d432e14ff08827626b4b635c8a683f6b2c0dd195d18bc3abe7a663a1d87",
+      "references/test-driven-workflows.md": "65e432079a318d86434359c09ab485af94a90b61e601941710130af9af9ccd89",
+      "benchmarks/codex_v2/__init__.py": "74020e0d038035eb70ae36df214474e3b39590a75071d8351453c4cf00739f20",
+      "benchmarks/codex_v2/export.py": "a3cc190ee4cff0acc16ade981200bd0ba81d17fca03cbda6a642dd243fc7b231",
+      "benchmarks/codex_v2/runtime.py": "647359aee4843194ebed7e3f2e9def5c2c13ef80435c50f032ab9d66c49daa18",
+      "benchmarks/codex_v2/test_codex.py": "30b76152c483518570a9c2565acad358109d98fda66704d2dc566d020975afac",
+      "benchmarks/codex_v2/__main__.py": "6f47fc5525916da312cb199a3293ef8871b1bb6bca46def9127610534fadac02",
+      "benchmarks/codex_v2/report.py": "9a2024edd2ec70720a3de96c141348d95b16c1a0e0c7850da8afc1f4423b4ffe",
+      "benchmarks/codex_v2/studies.py": "4602ee002746103bce42f97fc4af71a90a06151c898899b4cf8d64e05f8cd585",
+      "benchmarks/codex_v2/PROTOCOL.md": "fdbfc08b7a11165f6cbf5ef6d97f4793030d8478efb15467ecdcb6708dd564da",
+      "benchmarks/codex_v2/config.json": "7537a297917d1ff5c6f9af9e6067d507a93dc522e3a2571d478a2fdc60299335"
+    },
+    "stop_reason": null,
+    "billing_cost": null,
+    "preparation_cost": null,
+    "repetitions": 1,
+    "final_exposure_started": true,
+    "workflow_probe_count": 3,
+    "finished_at": "2026-09-20T07:30:32.619206+00:00"
+  },
+  "aggregate": {
+    "agent_direct": {
+      "attempts": 8,
+      "task_correctness": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "wrong_automatic_release": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 3,
+        "denominator": 12,
+        "value": 0.25
+      },
+      "correct_review_recall": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "citation_precision": {
+        "numerator": 46,
+        "denominator": 46,
+        "value": 1.0
+      },
+      "omission_rate": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "record_accuracy": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "actual_completion_rate": {
+        "numerator": 2,
+        "denominator": 8,
+        "value": 0.25
+      },
+      "execution_failure_rate": {
+        "numerator": 0,
+        "denominator": 8,
+        "value": 0.0
+      },
+      "correct_input_handoffs": 2,
+      "correct_approval_handoffs": 1,
+      "median_wall_ms": 30549.241,
+      "timed_attempts": 8,
+      "execution_coverage": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "observed_task_correctness": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "not_executed": 0,
+      "measurements": {
+        "codex_calls": 8,
+        "tool_calls": 24,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "transport_reconnections": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 268541,
+        "input_tokens_known_subtotal": 268541,
+        "input_tokens_measured_calls": 8,
+        "cached_input_tokens": 198016,
+        "cached_input_tokens_known_subtotal": 198016,
+        "cached_input_tokens_measured_calls": 8,
+        "output_tokens": 7158,
+        "output_tokens_known_subtotal": 7158,
+        "output_tokens_measured_calls": 8
+      }
+    },
+    "agent_task_skill": {
+      "attempts": 8,
+      "task_correctness": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "wrong_automatic_release": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 3,
+        "denominator": 12,
+        "value": 0.25
+      },
+      "correct_review_recall": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "citation_precision": {
+        "numerator": 46,
+        "denominator": 46,
+        "value": 1.0
+      },
+      "omission_rate": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "record_accuracy": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "actual_completion_rate": {
+        "numerator": 2,
+        "denominator": 8,
+        "value": 0.25
+      },
+      "execution_failure_rate": {
+        "numerator": 0,
+        "denominator": 8,
+        "value": 0.0
+      },
+      "correct_input_handoffs": 2,
+      "correct_approval_handoffs": 1,
+      "median_wall_ms": 40340.865999999995,
+      "timed_attempts": 8,
+      "execution_coverage": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "observed_task_correctness": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "not_executed": 0,
+      "measurements": {
+        "codex_calls": 8,
+        "tool_calls": 24,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "transport_reconnections": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 345302,
+        "input_tokens_known_subtotal": 345302,
+        "input_tokens_measured_calls": 8,
+        "cached_input_tokens": 279552,
+        "cached_input_tokens_known_subtotal": 279552,
+        "cached_input_tokens_measured_calls": 8,
+        "output_tokens": 9692,
+        "output_tokens_known_subtotal": 9692,
+        "output_tokens_measured_calls": 8
+      }
+    },
+    "build_with_skill": {
+      "attempts": 8,
+      "task_correctness": {
+        "numerator": 7,
+        "denominator": 8,
+        "value": 0.875
+      },
+      "wrong_automatic_release": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "correct_review_recall": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "citation_precision": {
+        "numerator": 46,
+        "denominator": 46,
+        "value": 1.0
+      },
+      "omission_rate": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "record_accuracy": {
+        "numerator": 11,
+        "denominator": 12,
+        "value": 0.9166666666666666
+      },
+      "actual_completion_rate": {
+        "numerator": 2,
+        "denominator": 8,
+        "value": 0.25
+      },
+      "execution_failure_rate": {
+        "numerator": 0,
+        "denominator": 8,
+        "value": 0.0
+      },
+      "correct_input_handoffs": 2,
+      "correct_approval_handoffs": 0,
+      "median_wall_ms": 9091.5355,
+      "timed_attempts": 8,
+      "execution_coverage": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "observed_task_correctness": {
+        "numerator": 7,
+        "denominator": 8,
+        "value": 0.875
+      },
+      "not_executed": 0,
+      "measurements": {
+        "codex_calls": 8,
+        "tool_calls": 0,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "transport_reconnections": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 69394,
+        "input_tokens_known_subtotal": 69394,
+        "input_tokens_measured_calls": 8,
+        "cached_input_tokens": 33280,
+        "cached_input_tokens_known_subtotal": 33280,
+        "cached_input_tokens_measured_calls": 8,
+        "output_tokens": 186,
+        "output_tokens_known_subtotal": 186,
+        "output_tokens_measured_calls": 8
+      }
+    },
+    "build_without_skill": {
+      "attempts": 8,
+      "task_correctness": {
+        "numerator": 7,
+        "denominator": 8,
+        "value": 0.875
+      },
+      "wrong_automatic_release": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "correct_review_recall": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "citation_precision": {
+        "numerator": 46,
+        "denominator": 46,
+        "value": 1.0
+      },
+      "omission_rate": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "record_accuracy": {
+        "numerator": 11,
+        "denominator": 12,
+        "value": 0.9166666666666666
+      },
+      "actual_completion_rate": {
+        "numerator": 2,
+        "denominator": 8,
+        "value": 0.25
+      },
+      "execution_failure_rate": {
+        "numerator": 0,
+        "denominator": 8,
+        "value": 0.0
+      },
+      "correct_input_handoffs": 2,
+      "correct_approval_handoffs": 0,
+      "median_wall_ms": 9228.5965,
+      "timed_attempts": 8,
+      "execution_coverage": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "observed_task_correctness": {
+        "numerator": 7,
+        "denominator": 8,
+        "value": 0.875
+      },
+      "not_executed": 0,
+      "measurements": {
+        "codex_calls": 8,
+        "tool_calls": 0,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "transport_reconnections": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 69407,
+        "input_tokens_known_subtotal": 69407,
+        "input_tokens_measured_calls": 8,
+        "cached_input_tokens": 39936,
+        "cached_input_tokens_known_subtotal": 39936,
+        "cached_input_tokens_measured_calls": 8,
+        "output_tokens": 186,
+        "output_tokens_known_subtotal": 186,
+        "output_tokens_measured_calls": 8
+      }
+    },
+    "prepared_runner": {
+      "attempts": 8,
+      "task_correctness": {
+        "numerator": 7,
+        "denominator": 8,
+        "value": 0.875
+      },
+      "wrong_automatic_release": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "correct_review_recall": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "citation_precision": {
+        "numerator": 46,
+        "denominator": 46,
+        "value": 1.0
+      },
+      "omission_rate": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "record_accuracy": {
+        "numerator": 11,
+        "denominator": 12,
+        "value": 0.9166666666666666
+      },
+      "actual_completion_rate": {
+        "numerator": 2,
+        "denominator": 8,
+        "value": 0.25
+      },
+      "execution_failure_rate": {
+        "numerator": 0,
+        "denominator": 8,
+        "value": 0.0
+      },
+      "correct_input_handoffs": 2,
+      "correct_approval_handoffs": 0,
+      "median_wall_ms": 8859.2755,
+      "timed_attempts": 8,
+      "execution_coverage": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "observed_task_correctness": {
+        "numerator": 7,
+        "denominator": 8,
+        "value": 0.875
+      },
+      "not_executed": 0,
+      "measurements": {
+        "codex_calls": 8,
+        "tool_calls": 0,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "transport_reconnections": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 69393,
+        "input_tokens_known_subtotal": 69393,
+        "input_tokens_measured_calls": 8,
+        "cached_input_tokens": 46592,
+        "cached_input_tokens_known_subtotal": 46592,
+        "cached_input_tokens_measured_calls": 8,
+        "output_tokens": 186,
+        "output_tokens_known_subtotal": 186,
+        "output_tokens_measured_calls": 8
+      }
+    }
+  },
+  "builds": [
+    {
+      "arm": "build_with_skill",
+      "status": "completed",
+      "syntax_valid": true,
+      "candidate_sha256": "afb3373b92ba192d17cdd17266913d747d1fa083ea5315664d7f6bdbacbaf168",
+      "boundary_decisions": [
+        {
+          "id": "repeat-screen",
+          "decision": "offload",
+          "reason": "The recurring screen has explicit inputs and outputs, stable policy rules, bounded semantic review, and no automatic external side effects."
+        },
+        {
+          "id": "changing-goal",
+          "decision": "keep_agent",
+          "reason": "The goals, success criteria, and tacit context change during the conversation, so the whole workflow does not yet have a stable runner boundary."
+        },
+        {
+          "id": "one-off-negotiation",
+          "decision": "keep_agent",
+          "reason": "This nonrecurring negotiation depends on live, relationship-sensitive judgment and has no specified reusable policy or acceptable outcomes."
+        }
+      ],
+      "human_rework_count": null,
+      "human_rework_minutes": null,
+      "repairs_attempted": false,
+      "cost_usd": null,
+      "candidate_frozen_at_unix": 1789888600.873417,
+      "wall_ms": 299038.194,
+      "calls": [
+        {
+          "call_id": 2,
+          "kind": "build",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 400972,
+          "cached_input_tokens": 366080,
+          "output_tokens": 14846,
+          "tool_calls": 13,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "04a5db265cedc629e929d26fb65d8ddbbc463c113708ba8e97ca0d8703eeb81c"
+          ],
+          "wall_ms": 299017.52
+        }
+      ],
+      "boundary_correct": 3,
+      "boundary_total": 3,
+      "candidate_cases_planned": 8,
+      "candidate_cases_runnable": 8,
+      "candidate_cases_correct": 7,
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 13,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "transport_reconnections": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 400972,
+        "input_tokens_known_subtotal": 400972,
+        "input_tokens_measured_calls": 1,
+        "cached_input_tokens": 366080,
+        "cached_input_tokens_known_subtotal": 366080,
+        "cached_input_tokens_measured_calls": 1,
+        "output_tokens": 14846,
+        "output_tokens_known_subtotal": 14846,
+        "output_tokens_measured_calls": 1
+      }
+    },
+    {
+      "arm": "build_without_skill",
+      "status": "completed",
+      "syntax_valid": true,
+      "candidate_sha256": "b0c5e613a99266e7098c2b409e3f565d99cf41eeec58a9bdbc2d1c2b1cf0844e",
+      "boundary_decisions": [
+        {
+          "id": "repeat-screen",
+          "decision": "offload",
+          "reason": "The recurring workflow has explicit inputs, a versioned policy, bounded outputs, and a review exit for uncertainty."
+        },
+        {
+          "id": "changing-goal",
+          "decision": "keep_agent",
+          "reason": "The goal and success criteria change conversationally and depend on tacit context, so the work is not yet a stable runner."
+        },
+        {
+          "id": "one-off-negotiation",
+          "decision": "keep_agent",
+          "reason": "This is nonrecurring, relationship-sensitive work without specifiable outcomes or a reusable policy."
+        }
+      ],
+      "human_rework_count": null,
+      "human_rework_minutes": null,
+      "repairs_attempted": false,
+      "cost_usd": null,
+      "candidate_frozen_at_unix": 1789888301.837114,
+      "wall_ms": 297613.58,
+      "calls": [
+        {
+          "call_id": 1,
+          "kind": "build",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 325686,
+          "cached_input_tokens": 277760,
+          "output_tokens": 14530,
+          "tool_calls": 12,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "b387bd78ae2b591d494c08fb1ddebf6ee0793a1183113253ac8e6b6b95c6269d"
+          ],
+          "wall_ms": 297596.162
+        }
+      ],
+      "boundary_correct": 3,
+      "boundary_total": 3,
+      "candidate_cases_planned": 8,
+      "candidate_cases_runnable": 8,
+      "candidate_cases_correct": 7,
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 12,
+        "billing_cost": null,
+        "failed_calls": 0,
+        "transport_reconnections": 0,
+        "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+        "input_tokens": 325686,
+        "input_tokens_known_subtotal": 325686,
+        "input_tokens_measured_calls": 1,
+        "cached_input_tokens": 277760,
+        "cached_input_tokens_known_subtotal": 277760,
+        "cached_input_tokens_measured_calls": 1,
+        "output_tokens": 14530,
+        "output_tokens_known_subtotal": 14530,
+        "output_tokens_measured_calls": 1
+      }
+    }
+  ],
+  "records": [
+    {
+      "attempt_id": "build_without_skill:final-duplicate-identities:1",
+      "arm": "build_without_skill",
+      "case_id": "final-duplicate-identities",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-duplicate-identities",
+        "status": "needs_review",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "x",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "conflicting_identity"
+            ],
+            "evidence_ids": [
+              "x-g",
+              "x-p",
+              "x-q",
+              "x-r"
+            ]
+          },
+          {
+            "id": "y",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "y-g",
+              "y-p",
+              "y-q",
+              "y-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "y"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 9269.524,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 3,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8680,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "036baa6f72050b74db084328f0a81bd3bd8289085af8b783bcf4b28d8845da5d"
+          ],
+          "wall_ms": 9176.134
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_without_skill:final-contact-partial-eligibility:1",
+      "arm": "build_without_skill",
+      "case_id": "final-contact-partial-eligibility",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-contact-partial-eligibility",
+        "status": "needs_review",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "z",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "z-g",
+              "z-p",
+              "z-q",
+              "z-r"
+            ]
+          },
+          {
+            "id": "e",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_conflict"
+            ],
+            "evidence_ids": [
+              "e-g",
+              "e-p",
+              "e-q",
+              "e-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "z"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 20627.764,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 4,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8675,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "dcf4e6984908009b1e0d4d93a8d5b9f78f917438417c5a91ea3e05c186017c47"
+          ],
+          "wall_ms": 11103.936
+        },
+        {
+          "call_id": 5,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8665,
+          "cached_input_tokens": 6656,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "2cba90cda2bc91f0db24105edbec0209c1d07f39957bc9f63691f25c8e5680a6"
+          ],
+          "wall_ms": 9415.346
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": false,
+        "reasons": [
+          "request mismatch: approval_required",
+          "request mismatch: status",
+          "row mismatch: e"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_without_skill:final-empty-pack:1",
+      "arm": "build_without_skill",
+      "case_id": "final-empty-pack",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object"
+        ],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-empty-pack",
+        "status": "needs_input",
+        "summary": "Screened 0 vendor record(s); no external action performed.",
+        "rows": [],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 96.21,
+      "cost_usd": null,
+      "calls": [],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:final-unclear-with-noise:1",
+      "arm": "prepared_runner",
+      "case_id": "final-unclear-with-noise",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-unclear-with-noise",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "u",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_unclear"
+            ],
+            "evidence_ids": [
+              "u-g",
+              "u-p",
+              "u-q",
+              "u-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 8796.661,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 6,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8688,
+          "cached_input_tokens": 6656,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "a781a4a60f76819ca9556e98d4b5da02724dd08726c2fb3d11a58ec8f5ed85ac"
+          ],
+          "wall_ms": 8794.416
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_without_skill:final-unclear-with-noise:1",
+      "arm": "build_without_skill",
+      "case_id": "final-unclear-with-noise",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-unclear-with-noise",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "u",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_unclear"
+            ],
+            "evidence_ids": [
+              "u-g",
+              "u-p",
+              "u-q",
+              "u-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 8966.517,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 7,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8692,
+          "cached_input_tokens": 6656,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "ec57ccba327703fb06444a6cd973311cae927990f058cbf1865318ebf3bc4348"
+          ],
+          "wall_ms": 8856.689
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_direct:final-missing-precedence:1",
+      "arm": "agent_direct",
+      "case_id": "final-missing-precedence",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-missing-precedence",
+        "status": "needs_input",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "m",
+            "status": "needs_input",
+            "decision": "undetermined",
+            "reasons": [
+              "missing_currency",
+              "missing_reference"
+            ],
+            "evidence_ids": [
+              "m-g",
+              "m-p",
+              "m-q"
+            ]
+          },
+          {
+            "id": "n",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "n-g",
+              "n-p",
+              "n-q",
+              "n-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "n"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 36697.56,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 8,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 29696,
+          "cached_input_tokens": 24832,
+          "output_tokens": 1254,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "314a6de9f34b9ba799d3edbf8203fe3a1c87accb5709991f800adb29c1256b67"
+          ],
+          "wall_ms": 36690.621
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 7,
+        "correct_citations": 7,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:final-duplicate-identities:1",
+      "arm": "prepared_runner",
+      "case_id": "final-duplicate-identities",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-duplicate-identities",
+        "status": "needs_review",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "x",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "conflicting_identity"
+            ],
+            "evidence_ids": [
+              "x-g",
+              "x-p",
+              "x-q",
+              "x-r"
+            ]
+          },
+          {
+            "id": "y",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "y-g",
+              "y-p",
+              "y-q",
+              "y-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "y"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 8921.89,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 9,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8669,
+          "cached_input_tokens": 0,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "f41c8260abd1e1ab01ab1f7d28efa9f4bd140b4fcd2918c3ff1a7222936fef30"
+          ],
+          "wall_ms": 8919.416
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_with_skill:final-contact-partial-eligibility:1",
+      "arm": "build_with_skill",
+      "case_id": "final-contact-partial-eligibility",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-contact-partial-eligibility",
+        "status": "needs_review",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "z",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "z-g",
+              "z-p",
+              "z-q",
+              "z-r"
+            ]
+          },
+          {
+            "id": "e",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_conflict"
+            ],
+            "evidence_ids": [
+              "e-g",
+              "e-p",
+              "e-q",
+              "e-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "z"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 27829.178,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 10,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8675,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "e7930141391abbd0d74c5f550b70b7c42104e753d3cf5518bdf3f0322147f23a"
+          ],
+          "wall_ms": 16514.582
+        },
+        {
+          "call_id": 11,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8660,
+          "cached_input_tokens": 0,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "de97c4e2a430a415b4e010429978eb2b4abf9c606db8adc75f06bd66ccb002f4"
+          ],
+          "wall_ms": 11200.877
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": false,
+        "reasons": [
+          "request mismatch: approval_required",
+          "request mismatch: status",
+          "row mismatch: e"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_direct:final-empty-pack:1",
+      "arm": "agent_direct",
+      "case_id": "final-empty-pack",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object"
+        ],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-empty-pack",
+        "status": "needs_input",
+        "summary": "Screened 0 vendor record(s); no external action performed.",
+        "rows": [],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 28706.596,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 12,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 28984,
+          "cached_input_tokens": 8320,
+          "output_tokens": 688,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "25c36a71536e4f676db7ac86fa926b4193d642d9a73770b30fa238d878a1d79f"
+          ],
+          "wall_ms": 28701.675
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:final-contact-partial-eligibility:1",
+      "arm": "agent_task_skill",
+      "case_id": "final-contact-partial-eligibility",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-contact-partial-eligibility",
+        "status": "needs_approval",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "z",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "z-g",
+              "z-p",
+              "z-q",
+              "z-r"
+            ]
+          },
+          {
+            "id": "e",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "reference_unrelated"
+            ],
+            "evidence_ids": [
+              "e-g",
+              "e-p",
+              "e-q",
+              "e-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "z"
+        ],
+        "approval_required": true,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 39476.06,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 13,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 50654,
+          "cached_input_tokens": 41344,
+          "output_tokens": 1149,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "a75a1848f270b9cd4f8f4c2d53bcde6f06933044f1871444d2e1f8f1c1b65087"
+          ],
+          "wall_ms": 39470.843
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": true
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:final-disputed-scope:1",
+      "arm": "agent_task_skill",
+      "case_id": "final-disputed-scope",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-disputed-scope",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "d",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_conflict"
+            ],
+            "evidence_ids": [
+              "d-g",
+              "d-p",
+              "d-q",
+              "d-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 48410.849,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 14,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 40528,
+          "cached_input_tokens": 35456,
+          "output_tokens": 994,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "133b43ea330c84250c441e6d4663cd433081854a29757fb3f28d2ffce44b2e89"
+          ],
+          "wall_ms": 48407.4
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:final-duplicate-identities:1",
+      "arm": "agent_task_skill",
+      "case_id": "final-duplicate-identities",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-duplicate-identities",
+        "status": "needs_review",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "x",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "conflicting_identity"
+            ],
+            "evidence_ids": [
+              "x-g",
+              "x-p",
+              "x-q",
+              "x-r"
+            ]
+          },
+          {
+            "id": "y",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "y-g",
+              "y-p",
+              "y-q",
+              "y-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "y"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 54539.897,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 15,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 52595,
+          "cached_input_tokens": 46080,
+          "output_tokens": 2011,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "fe4627c56b74f86630a0e0e2b3bd3fc88bb9237c4aa48f0e0cfe6d66a80eb69c"
+          ],
+          "wall_ms": 54534.725
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:final-disputed-scope:1",
+      "arm": "prepared_runner",
+      "case_id": "final-disputed-scope",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-disputed-scope",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "d",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_conflict"
+            ],
+            "evidence_ids": [
+              "d-g",
+              "d-p",
+              "d-q",
+              "d-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 12050.0,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 16,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8679,
+          "cached_input_tokens": 6656,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "364e987639f5449b8b51bd2b3efc8331f2aa87098d9274c88e5989b66322e3f9"
+          ],
+          "wall_ms": 12046.778
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_with_skill:final-revision-and-ranking:1",
+      "arm": "build_with_skill",
+      "case_id": "final-revision-and-ranking",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 3,
+        "correct_rows": 0,
+        "omitted_rows": 3,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-revision-and-ranking",
+        "status": "completed",
+        "summary": "Screened 3 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "c",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "c-g",
+              "c-p",
+              "c-q",
+              "c-r"
+            ]
+          },
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q2",
+              "a-r"
+            ]
+          },
+          {
+            "id": "b",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "b-g",
+              "b-p",
+              "b-q",
+              "b-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "b",
+          "c"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 20567.663,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 17,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8674,
+          "cached_input_tokens": 0,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "99fb7da0208fc3cac7f0d1690fdb9c2c091611854f86408f9651ea4edb23cfe2"
+          ],
+          "wall_ms": 11655.043
+        },
+        {
+          "call_id": 18,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8676,
+          "cached_input_tokens": 0,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "8ec0495487dca1f7e34fdf441ba5993bd3927334be9192faca678871c135fdf5"
+          ],
+          "wall_ms": 8793.503
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 3,
+        "correct_rows": 3,
+        "omitted_rows": 0,
+        "predicted_eligible": 2,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 12,
+        "correct_citations": 12,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:final-policy-change:1",
+      "arm": "prepared_runner",
+      "case_id": "final-policy-change",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-policy-change",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "w",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "w-g",
+              "w-p",
+              "w-q"
+            ]
+          }
+        ],
+        "shortlist": [
+          "w"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 0.2,
+      "cost_usd": null,
+      "calls": [],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 3,
+        "correct_citations": 3,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_with_skill:final-duplicate-identities:1",
+      "arm": "build_with_skill",
+      "case_id": "final-duplicate-identities",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-duplicate-identities",
+        "status": "needs_review",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "x",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "conflicting_identity"
+            ],
+            "evidence_ids": [
+              "x-g",
+              "x-p",
+              "x-q",
+              "x-r"
+            ]
+          },
+          {
+            "id": "y",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "y-g",
+              "y-p",
+              "y-q",
+              "y-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "y"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 9272.162,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 19,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8675,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "d98c26d76d26175f0d5cb468c21b8d997a702581ede1cd4efe4955de22bfeb66"
+          ],
+          "wall_ms": 9166.49
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_without_skill:final-missing-precedence:1",
+      "arm": "build_without_skill",
+      "case_id": "final-missing-precedence",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-missing-precedence",
+        "status": "needs_input",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "m",
+            "status": "needs_input",
+            "decision": "undetermined",
+            "reasons": [
+              "missing_currency",
+              "missing_reference"
+            ],
+            "evidence_ids": [
+              "m-g",
+              "m-p",
+              "m-q"
+            ]
+          },
+          {
+            "id": "n",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "n-g",
+              "n-p",
+              "n-q",
+              "n-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "n"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 10112.269,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 20,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8674,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "cb0f92a3e9fa144b0fd4d8fa3abc5cb1c6147198b2c8b0ca371a2995c1a49b7a"
+          ],
+          "wall_ms": 10007.919
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 7,
+        "correct_citations": 7,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_without_skill:final-revision-and-ranking:1",
+      "arm": "build_without_skill",
+      "case_id": "final-revision-and-ranking",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 3,
+        "correct_rows": 0,
+        "omitted_rows": 3,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-revision-and-ranking",
+        "status": "completed",
+        "summary": "Screened 3 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "c",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "c-g",
+              "c-p",
+              "c-q",
+              "c-r"
+            ]
+          },
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q2",
+              "a-r"
+            ]
+          },
+          {
+            "id": "b",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "b-g",
+              "b-p",
+              "b-q",
+              "b-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "b",
+          "c"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 24489.486,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 21,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8675,
+          "cached_input_tokens": 0,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "279ea01ede67c38a0bda5954296ea1136ea63e8ea2297f2d41110f59cbfcb4f6"
+          ],
+          "wall_ms": 8932.663
+        },
+        {
+          "call_id": 22,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8670,
+          "cached_input_tokens": 0,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "069df01b0289a9fe49292d6766adaba202ca77f03776c21136c87395ed5984e6"
+          ],
+          "wall_ms": 15452.516
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 3,
+        "correct_rows": 3,
+        "omitted_rows": 0,
+        "predicted_eligible": 2,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 12,
+        "correct_citations": 12,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_direct:final-unclear-with-noise:1",
+      "arm": "agent_direct",
+      "case_id": "final-unclear-with-noise",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-unclear-with-noise",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "u",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_unclear"
+            ],
+            "evidence_ids": [
+              "u-g",
+              "u-p",
+              "u-q",
+              "u-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 31742.585,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 23,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 39884,
+          "cached_input_tokens": 31616,
+          "output_tokens": 708,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "32330005b82462d6161745af7f1a496f4160eb3eb66ac47f509c2bd7b2906dd1"
+          ],
+          "wall_ms": 31736.498
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:final-unclear-with-noise:1",
+      "arm": "agent_task_skill",
+      "case_id": "final-unclear-with-noise",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-unclear-with-noise",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "u",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_unclear"
+            ],
+            "evidence_ids": [
+              "u-g",
+              "u-p",
+              "u-q",
+              "u-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 31440.006,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 24,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 29933,
+          "cached_input_tokens": 23296,
+          "output_tokens": 891,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "b8f1b8493bd06e469afc7cfdc13c3e4391b0723b0fbfcf0d36fd92233162491a"
+          ],
+          "wall_ms": 31433.568
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_with_skill:final-empty-pack:1",
+      "arm": "build_with_skill",
+      "case_id": "final-empty-pack",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object"
+        ],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-empty-pack",
+        "status": "needs_input",
+        "summary": "Screened 0 vendor record(s); no external action performed.",
+        "rows": [],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 103.528,
+      "cost_usd": null,
+      "calls": [],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_direct:final-contact-partial-eligibility:1",
+      "arm": "agent_direct",
+      "case_id": "final-contact-partial-eligibility",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-contact-partial-eligibility",
+        "status": "needs_approval",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "z",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "z-g",
+              "z-p",
+              "z-q",
+              "z-r"
+            ]
+          },
+          {
+            "id": "e",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "reference_unrelated"
+            ],
+            "evidence_ids": [
+              "e-g",
+              "e-p",
+              "e-q",
+              "e-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "z"
+        ],
+        "approval_required": true,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 35331.384,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 25,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 40650,
+          "cached_input_tokens": 31616,
+          "output_tokens": 1048,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "cf7071c362dd1dfc099a4d8df1092a196e4766268d80d6da1c3364f7deb349f4"
+          ],
+          "wall_ms": 35326.95
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": true
+      }
+    },
+    {
+      "attempt_id": "agent_direct:final-disputed-scope:1",
+      "arm": "agent_direct",
+      "case_id": "final-disputed-scope",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-disputed-scope",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "d",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_conflict"
+            ],
+            "evidence_ids": [
+              "d-g",
+              "d-p",
+              "d-q",
+              "d-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 29285.774,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 26,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 39850,
+          "cached_input_tokens": 35200,
+          "output_tokens": 743,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "67ab43c15d9db04c3d359f7b62cf10fd97be7de00c232f4e10591ecedd83e33c"
+          ],
+          "wall_ms": 29278.933
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_direct:final-duplicate-identities:1",
+      "arm": "agent_direct",
+      "case_id": "final-duplicate-identities",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-duplicate-identities",
+        "status": "needs_review",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "x",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "conflicting_identity"
+            ],
+            "evidence_ids": [
+              "x-g",
+              "x-p",
+              "x-q",
+              "x-r"
+            ]
+          },
+          {
+            "id": "y",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "y-g",
+              "y-p",
+              "y-q",
+              "y-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "y"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 28062.569,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 27,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 29887,
+          "cached_input_tokens": 24960,
+          "output_tokens": 785,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "e2f6c608d212dc04256fed5d0425f30069a2a0a37be536e1b79895f7e871d4d1"
+          ],
+          "wall_ms": 28055.636
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:final-policy-change:1",
+      "arm": "agent_task_skill",
+      "case_id": "final-policy-change",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-policy-change",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "w",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "w-g",
+              "w-p",
+              "w-q"
+            ]
+          }
+        ],
+        "shortlist": [
+          "w"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 41205.672,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 28,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 49648,
+          "cached_input_tokens": 35712,
+          "output_tokens": 1172,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "14714a7af50e78e3eda43b1f6ce99602c294bff0716445102af88b6ea0cf6c25"
+          ],
+          "wall_ms": 41199.999
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 3,
+        "correct_citations": 3,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_with_skill:final-missing-precedence:1",
+      "arm": "build_with_skill",
+      "case_id": "final-missing-precedence",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-missing-precedence",
+        "status": "needs_input",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "m",
+            "status": "needs_input",
+            "decision": "undetermined",
+            "reasons": [
+              "missing_currency",
+              "missing_reference"
+            ],
+            "evidence_ids": [
+              "m-g",
+              "m-p",
+              "m-q"
+            ]
+          },
+          {
+            "id": "n",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "n-g",
+              "n-p",
+              "n-q",
+              "n-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "n"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 11783.479,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 29,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8666,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "2734d3eefed069713db43323aad2e0fbab7186e3063acf7dddc2df7400b025af"
+          ],
+          "wall_ms": 11674.36
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 7,
+        "correct_citations": 7,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:final-revision-and-ranking:1",
+      "arm": "prepared_runner",
+      "case_id": "final-revision-and-ranking",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 3,
+        "correct_rows": 0,
+        "omitted_rows": 3,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-revision-and-ranking",
+        "status": "completed",
+        "summary": "Screened 3 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "c",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "c-g",
+              "c-p",
+              "c-q",
+              "c-r"
+            ]
+          },
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q2",
+              "a-r"
+            ]
+          },
+          {
+            "id": "b",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "b-g",
+              "b-p",
+              "b-q",
+              "b-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "b",
+          "c"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 21539.298,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 30,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8671,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "2d0c7ea1694a5a44e4f738203e8ab1f9c41c13a7339fcbcdc065e7a4a549af54"
+          ],
+          "wall_ms": 9098.889
+        },
+        {
+          "call_id": 31,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8671,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "fe5d5ee78933f123f488f40c45e93949677ec9da40e5f4b7061c2925a49d32d5"
+          ],
+          "wall_ms": 12436.318
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 3,
+        "correct_rows": 3,
+        "omitted_rows": 0,
+        "predicted_eligible": 2,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 12,
+        "correct_citations": 12,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:final-missing-precedence:1",
+      "arm": "agent_task_skill",
+      "case_id": "final-missing-precedence",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-missing-precedence",
+        "status": "needs_input",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "m",
+            "status": "needs_input",
+            "decision": "undetermined",
+            "reasons": [
+              "missing_currency",
+              "missing_reference"
+            ],
+            "evidence_ids": [
+              "m-g",
+              "m-p",
+              "m-q"
+            ]
+          },
+          {
+            "id": "n",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "n-g",
+              "n-p",
+              "n-q",
+              "n-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "n"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 35843.009,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 32,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 30169,
+          "cached_input_tokens": 23296,
+          "output_tokens": 1216,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "20754d896a47a79d387dd2e068cd4831194274fcf52000577780dafe16745024"
+          ],
+          "wall_ms": 35836.358
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 7,
+        "correct_citations": 7,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:final-empty-pack:1",
+      "arm": "prepared_runner",
+      "case_id": "final-empty-pack",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object"
+        ],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-empty-pack",
+        "status": "needs_input",
+        "summary": "Screened 0 vendor record(s); no external action performed.",
+        "rows": [],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 0.084,
+      "cost_usd": null,
+      "calls": [],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_direct:final-policy-change:1",
+      "arm": "agent_direct",
+      "case_id": "final-policy-change",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-policy-change",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "w",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "w-g",
+              "w-p",
+              "w-q"
+            ]
+          }
+        ],
+        "shortlist": [
+          "w"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 29355.897,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 33,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 29370,
+          "cached_input_tokens": 16384,
+          "output_tokens": 843,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "19f5d62d024b340c66da1386cb34a8710a77dd6acfc81418862ac5ae95c42c97"
+          ],
+          "wall_ms": 29350.509
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 3,
+        "correct_citations": 3,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_direct:final-revision-and-ranking:1",
+      "arm": "agent_direct",
+      "case_id": "final-revision-and-ranking",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 3,
+        "correct_rows": 0,
+        "omitted_rows": 3,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-revision-and-ranking",
+        "status": "completed",
+        "summary": "Screened 3 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "c",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "c-g",
+              "c-p",
+              "c-q",
+              "c-r"
+            ]
+          },
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q2",
+              "a-r"
+            ]
+          },
+          {
+            "id": "b",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "b-g",
+              "b-p",
+              "b-q",
+              "b-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "b",
+          "c"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 36259.194,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 34,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 30220,
+          "cached_input_tokens": 25088,
+          "output_tokens": 1089,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "d1485dd28ae664677102d3b856d1b16ee003ff20fb8457abe65032e16c0064cf"
+          ],
+          "wall_ms": 36254.135
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 3,
+        "correct_rows": 3,
+        "omitted_rows": 0,
+        "predicted_eligible": 2,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 12,
+        "correct_citations": 12,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_with_skill:final-disputed-scope:1",
+      "arm": "build_with_skill",
+      "case_id": "final-disputed-scope",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-disputed-scope",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "d",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_conflict"
+            ],
+            "evidence_ids": [
+              "d-g",
+              "d-p",
+              "d-q",
+              "d-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 8545.363,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 35,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8678,
+          "cached_input_tokens": 6656,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "8532da00c64184ce7639841e4c7cfd80eccb79bb430974582ea622e070f12c30"
+          ],
+          "wall_ms": 8430.645
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_with_skill:final-policy-change:1",
+      "arm": "build_with_skill",
+      "case_id": "final-policy-change",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-policy-change",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "w",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "w-g",
+              "w-p",
+              "w-q"
+            ]
+          }
+        ],
+        "shortlist": [
+          "w"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 92.827,
+      "cost_usd": null,
+      "calls": [],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 3,
+        "correct_citations": 3,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:final-empty-pack:1",
+      "arm": "agent_task_skill",
+      "case_id": "final-empty-pack",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object"
+        ],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-empty-pack",
+        "status": "needs_input",
+        "summary": "Screened 0 vendor record(s); no external action performed.",
+        "rows": [],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 35620.461,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 36,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 49838,
+          "cached_input_tokens": 44672,
+          "output_tokens": 906,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "a35ebebddb5b5bcaafaa73ddcbf42db0227c9a937c270ec46df7597c1263283b"
+          ],
+          "wall_ms": 35615.959
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 0,
+        "correct_rows": 0,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:final-contact-partial-eligibility:1",
+      "arm": "prepared_runner",
+      "case_id": "final-contact-partial-eligibility",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-contact-partial-eligibility",
+        "status": "needs_review",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "z",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "z-g",
+              "z-p",
+              "z-q",
+              "z-r"
+            ]
+          },
+          {
+            "id": "e",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_conflict"
+            ],
+            "evidence_ids": [
+              "e-g",
+              "e-p",
+              "e-q",
+              "e-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "z"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 18835.27,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 37,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8677,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "24f8f8cd67a96b829134164ad1d11ac1f0d9b647253419eef4cdca025c9c3f61"
+          ],
+          "wall_ms": 9927.759
+        },
+        {
+          "call_id": 38,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8672,
+          "cached_input_tokens": 6656,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "2b5121dd0f671ac26fd57d322818d0ebe251008ea3e92fad864700f038f86718"
+          ],
+          "wall_ms": 8901.937
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": false,
+        "reasons": [
+          "request mismatch: approval_required",
+          "request mismatch: status",
+          "row mismatch: e"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 8,
+        "correct_citations": 8,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_without_skill:final-disputed-scope:1",
+      "arm": "build_without_skill",
+      "case_id": "final-disputed-scope",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-disputed-scope",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "d",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_conflict"
+            ],
+            "evidence_ids": [
+              "d-g",
+              "d-p",
+              "d-q",
+              "d-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 9187.669,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 39,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8676,
+          "cached_input_tokens": 6656,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "9cc4d5fe7f585634cbba2a4311745962f40a4a5860401b98d1b7c098c8f44cc3"
+          ],
+          "wall_ms": 9081.931
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_without_skill:final-policy-change:1",
+      "arm": "build_without_skill",
+      "case_id": "final-policy-change",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-policy-change",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "w",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "w-g",
+              "w-p",
+              "w-q"
+            ]
+          }
+        ],
+        "shortlist": [
+          "w"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 95.016,
+      "cost_usd": null,
+      "calls": [],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 3,
+        "correct_citations": 3,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "agent_task_skill:final-revision-and-ranking:1",
+      "arm": "agent_task_skill",
+      "case_id": "final-revision-and-ranking",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 3,
+        "correct_rows": 0,
+        "omitted_rows": 3,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-revision-and-ranking",
+        "status": "completed",
+        "summary": "Screened 3 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "c",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "c-g",
+              "c-p",
+              "c-q",
+              "c-r"
+            ]
+          },
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q2",
+              "a-r"
+            ]
+          },
+          {
+            "id": "b",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "b-g",
+              "b-p",
+              "b-q",
+              "b-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "b",
+          "c"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 41302.059,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 40,
+          "kind": "agent",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 41937,
+          "cached_input_tokens": 29696,
+          "output_tokens": 1353,
+          "tool_calls": 3,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "55dfae3970c467a96792d637a03a36f4b978162259ce3afc9b264f71ec1e7db5"
+          ],
+          "wall_ms": 41299.199
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 3,
+        "correct_rows": 3,
+        "omitted_rows": 0,
+        "predicted_eligible": 2,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 12,
+        "correct_citations": 12,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "prepared_runner:final-missing-precedence:1",
+      "arm": "prepared_runner",
+      "case_id": "final-missing-precedence",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 2,
+        "correct_rows": 0,
+        "omitted_rows": 2,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-missing-precedence",
+        "status": "needs_input",
+        "summary": "Screened 2 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "m",
+            "status": "needs_input",
+            "decision": "undetermined",
+            "reasons": [
+              "missing_currency",
+              "missing_reference"
+            ],
+            "evidence_ids": [
+              "m-g",
+              "m-p",
+              "m-q"
+            ]
+          },
+          {
+            "id": "n",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "n-g",
+              "n-p",
+              "n-q",
+              "n-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "n"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 8354.775,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 41,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8666,
+          "cached_input_tokens": 6656,
+          "output_tokens": 24,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "235ecebe53881543166d9a8c4ea0c4b4e10d3694261a9722f444f49a7356bece"
+          ],
+          "wall_ms": 8351.677
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 2,
+        "correct_rows": 2,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 7,
+        "correct_citations": 7,
+        "actual_completion": false,
+        "correct_input_handoff": true,
+        "correct_approval_handoff": false
+      }
+    },
+    {
+      "attempt_id": "build_with_skill:final-unclear-with-noise:1",
+      "arm": "build_with_skill",
+      "case_id": "final-unclear-with-noise",
+      "repetition": 1,
+      "failure_grade": {
+        "passed": false,
+        "reasons": [
+          "output must be an object",
+          "vendor coverage mismatch"
+        ],
+        "expected_rows": 1,
+        "correct_rows": 0,
+        "omitted_rows": 1,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 1,
+        "correct_review_rows": 0,
+        "citations": 0,
+        "correct_citations": 0,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "final-unclear-with-noise",
+        "status": "needs_review",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "u",
+            "status": "needs_review",
+            "decision": "undetermined",
+            "reasons": [
+              "reference_unclear"
+            ],
+            "evidence_ids": [
+              "u-g",
+              "u-p",
+              "u-q",
+              "u-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "error": null,
+      "execution_status": "completed",
+      "wall_ms": 8910.909,
+      "cost_usd": null,
+      "calls": [
+        {
+          "call_id": 42,
+          "kind": "semantic",
+          "status": "completed",
+          "cost_usd": null,
+          "model": "gpt-5.6-sol",
+          "reasoning_effort": "high",
+          "error": null,
+          "input_tokens": 8690,
+          "cached_input_tokens": 6656,
+          "output_tokens": 22,
+          "tool_calls": 0,
+          "transport_reconnections": 0,
+          "returncode": 0,
+          "reported_turns": 1,
+          "context_ids_sha256": [
+            "b774031343ed3f18445c3d0f5ba57b7625ead0f5e4497f5dc0740c933a82c9de"
+          ],
+          "wall_ms": 8801.946
+        }
+      ],
+      "runnable": true,
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 1,
+        "gold_review_rows": 1,
+        "correct_review_rows": 1,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": false,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      }
+    }
+  ],
+  "all_measurements": {
+    "codex_calls": 42,
+    "tool_calls": 73,
+    "billing_cost": null,
+    "failed_calls": 0,
+    "transport_reconnections": 0,
+    "tool_count_basis": "unique CLI-reported tool items; unreported internal invocations unknown",
+    "input_tokens": 1548695,
+    "input_tokens_known_subtotal": 1548695,
+    "input_tokens_measured_calls": 42,
+    "cached_input_tokens": 1241216,
+    "cached_input_tokens_known_subtotal": 1241216,
+    "cached_input_tokens_measured_calls": 42,
+    "output_tokens": 46784,
+    "output_tokens_known_subtotal": 46784,
+    "output_tokens_measured_calls": 42
+  }
+}

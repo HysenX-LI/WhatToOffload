@@ -1,0 +1,183 @@
+{
+  "run": "research-v3-dev-1",
+  "metadata": {
+    "version": "research-v3.1",
+    "stage": "dev",
+    "split": "dev",
+    "mode": "real_codex",
+    "started_at": "2026-09-20T08:04:08.144028+00:00",
+    "config": {
+      "cli": "/Applications/ChatGPT.app/Contents/Resources/codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "max_calls": 8,
+      "max_tools_per_call": 40,
+      "semantic_timeout_seconds": 120,
+      "agent_timeout_seconds": 240,
+      "build_timeout_seconds": 300,
+      "candidate_timeout_seconds": 30,
+      "total_timeout_seconds": 1200
+    },
+    "freeze_sha256": null,
+    "billing_cost": null,
+    "human_rework": null,
+    "final_exposure_before_run": false,
+    "stop_reason": "Codex_build_timeout",
+    "preflight": {
+      "cli_version": "codex-cli 0.153.4",
+      "authentication": "ChatGPT",
+      "isolation_checks": {
+        "workspace_write": true,
+        "repo_denied": true,
+        "sibling_denied": true,
+        "symlink_denied": true,
+        "auth_denied": true,
+        "network_denied": true
+      }
+    },
+    "ended_at": "2026-09-20T08:11:49.495136+00:00",
+    "wall_ms": 461254.784,
+    "measurements": {
+      "codex_calls": 4,
+      "tool_calls": 21,
+      "failed_calls": 1,
+      "billing_cost": null,
+      "human_rework": null,
+      "usage_complete": false,
+      "input_tokens_known": 112795,
+      "cached_input_tokens_known": 68608,
+      "output_tokens_known": 6120
+    }
+  },
+  "annotations": [
+    {
+      "id": "semantic-review-1",
+      "phase": "semantic_annotation",
+      "split": "dev",
+      "status": "completed",
+      "reviewer_type": "Codex_model_review",
+      "labels": [
+        {
+          "case_id": "link-other",
+          "verdict": "unrelated",
+          "rationale": "The profile concerns regulated instructions under contract A, while the reference expressly concerns contract B and describes only advertising slogans; the project IDs differ and no alias links them."
+        },
+        {
+          "case_id": "link-same",
+          "verdict": "conflict",
+          "rationale": "Both documents identify contract A, and the reference explicitly states that only advertising slogans were in scope and no regulated instructions were included."
+        },
+        {
+          "case_id": "partial",
+          "verdict": "unclear",
+          "rationale": "Both documents identify project D, but the reference confirms only instructions and cannot comment on the required patient-leaflet component."
+        },
+        {
+          "case_id": "denied",
+          "verdict": "conflict",
+          "rationale": "Both documents identify project D, and the reference explicitly denies that the vendor localized the claimed patient leaflets."
+        },
+        {
+          "case_id": "no-link",
+          "verdict": "unclear",
+          "rationale": "The profile identifies project C, but the reference cannot identify its engagement and therefore lacks positive same-project linkage; its bare denial cannot refute project C."
+        },
+        {
+          "case_id": "other-work",
+          "verdict": "unrelated",
+          "rationale": "The reference lacks linkage to profile project C and affirmatively describes its unidentified engagement as advertising-slogan work only, which is a different domain."
+        },
+        {
+          "case_id": "support",
+          "verdict": "corroborated",
+          "rationale": "Both documents explicitly identify project E, and the reference confirms that the vendor localized regulated instructions for that project."
+        },
+        {
+          "case_id": "vague",
+          "verdict": "unclear",
+          "rationale": "The reference links to project E but offers only praise for friendliness and responsiveness, without confirming the claimed regulated-instructions localization."
+        }
+      ],
+      "wall_ms": 35030.6,
+      "call_ids": [
+        1
+      ],
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 1,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 28897,
+        "cached_input_tokens_known": 15104,
+        "output_tokens_known": 853
+      }
+    },
+    {
+      "id": "semantic-review-2",
+      "phase": "semantic_annotation",
+      "split": "dev",
+      "status": "completed",
+      "reviewer_type": "Codex_model_review",
+      "labels": [
+        {
+          "case_id": "link-other",
+          "verdict": "unrelated",
+          "rationale": "The claim concerns regulated instructions for contract A, while the reference describes only advertising slogans for explicitly different contract B; no same-project linkage exists."
+        },
+        {
+          "case_id": "link-same",
+          "verdict": "conflict",
+          "rationale": "Both documents identify contract A, and the reference says the vendor handled only advertising slogans and that regulated instructions were not in scope."
+        },
+        {
+          "case_id": "partial",
+          "verdict": "unclear",
+          "rationale": "Both documents identify project D, but the reference confirms only instructions and cannot comment on the required patient-leaflet component."
+        },
+        {
+          "case_id": "denied",
+          "verdict": "conflict",
+          "rationale": "Both documents identify project D, and the reference explicitly denies that the vendor localized the claimed patient leaflets."
+        },
+        {
+          "case_id": "no-link",
+          "verdict": "unclear",
+          "rationale": "The claim identifies project C, but the reference's denial concerns an engagement whose project identity is unavailable, so there is no positive same-project linkage."
+        },
+        {
+          "case_id": "other-work",
+          "verdict": "unrelated",
+          "rationale": "The claim identifies project C, while the unlinked reference affirmatively describes only advertising-slogan work for its unidentified engagement."
+        },
+        {
+          "case_id": "support",
+          "verdict": "corroborated",
+          "rationale": "Both documents identify project E, and the reference confirms that this vendor localized regulated instructions for that project."
+        },
+        {
+          "case_id": "vague",
+          "verdict": "unclear",
+          "rationale": "Although both documents identify project E, the reference offers only praise for friendliness and responsiveness and does not confirm the claimed regulated-instructions work."
+        }
+      ],
+      "wall_ms": 29308.692,
+      "call_ids": [
+        2
+      ],
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 1,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 28948,
+        "cached_input_tokens_known": 13312,
+        "output_tokens_known": 829
+      }
+    }
+  ],
+  "report_sha256": "259b670c9ba2a9e370fd39d47f522d998d9019b0070801367eb2822c411e7b94"
+}

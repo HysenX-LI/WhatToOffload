@@ -1,0 +1,33 @@
+{
+  "arm": "build_with_skill",
+  "status": "failed",
+  "syntax_valid": false,
+  "candidate_sha256": null,
+  "boundary_decisions": null,
+  "human_rework_count": null,
+  "human_rework_minutes": null,
+  "repairs_attempted": false,
+  "cost_usd": null,
+  "error": "Codex_transport_or_quota_failure",
+  "wall_ms": 392276.874,
+  "calls": [
+    {
+      "call_id": 2,
+      "kind": "build",
+      "status": "failed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": "Codex_transport_or_quota_failure",
+      "input_tokens": null,
+      "cached_input_tokens": null,
+      "output_tokens": null,
+      "tool_calls": 8,
+      "returncode": -9,
+      "reported_turns": 0,
+      "wall_ms": 392263.117
+    }
+  ],
+  "boundary_correct": 0,
+  "boundary_total": 3
+}

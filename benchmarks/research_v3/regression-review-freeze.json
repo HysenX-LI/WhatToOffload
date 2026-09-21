@@ -1,0 +1,7 @@
+{
+  "created_at": "2026-09-20T08:43:54.324558+00:00",
+  "status": "registered_not_executed",
+  "protocol_sha256": "4d926a00adb44ceaad6be50fa17799418a4336803a76ef897bbf88b01eabf501",
+  "rules_sha256": "436cebce1723df39b7d6d0f23563112e16eaca7e4b3af42573b11c5f7c8bc8d7",
+  "budget": "Only unused capacity inside main formal 48-call/4800-second cap; max2 calls x120 seconds"
+}

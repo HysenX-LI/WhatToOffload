@@ -1,0 +1,17 @@
+[
+  {
+    "id": "repeat-screen",
+    "decision": "offload",
+    "reason": "The recurring workflow has explicit inputs, a stable eligibility policy, bounded outputs, and clear review exits without external actions."
+  },
+  {
+    "id": "changing-goal",
+    "decision": "keep_agent",
+    "reason": "The goal and success criteria keep changing, while essential context is tacit and must be explored conversationally."
+  },
+  {
+    "id": "one-off-negotiation",
+    "decision": "keep_agent",
+    "reason": "This one-time, relationship-sensitive negotiation lacks specifiable outcomes and requires live judgment about trust and commitments."
+  }
+]

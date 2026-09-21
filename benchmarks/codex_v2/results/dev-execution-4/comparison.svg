@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="305" viewBox="0 0 980 305">
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="sans-serif" fill="#111827"><text x="24" y="30" font-size="20">Scheduled task acceptance — codex</text>
+<text x="24" y="55" font-size="12">6 attempts; correctness includes required handoffs. Completion is reported separately.</text>
+<text x="24" y="95" font-size="13">agent_direct</text>
+<rect x="285" y="79" width="350.0" height="20" fill="#2563eb"/>
+<text x="650" y="95" font-size="13">2/2 (100.0%)</text>
+<text x="24" y="160" font-size="13">agent_task_skill</text>
+<rect x="285" y="144" width="350.0" height="20" fill="#2563eb"/>
+<text x="650" y="160" font-size="13">2/2 (100.0%)</text>
+<text x="24" y="225" font-size="13">prepared_runner</text>
+<rect x="285" y="209" width="350.0" height="20" fill="#2563eb"/>
+<text x="650" y="225" font-size="13">2/2 (100.0%)</text>
+</g></svg>

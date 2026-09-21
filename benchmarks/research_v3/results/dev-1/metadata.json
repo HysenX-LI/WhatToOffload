@@ -1,0 +1,49 @@
+{
+  "version": "research-v3.1",
+  "stage": "dev",
+  "split": "dev",
+  "mode": "real_codex",
+  "started_at": "2026-09-20T08:04:08.144028+00:00",
+  "config": {
+    "cli": "/Applications/ChatGPT.app/Contents/Resources/codex",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "high",
+    "max_calls": 8,
+    "max_tools_per_call": 40,
+    "semantic_timeout_seconds": 120,
+    "agent_timeout_seconds": 240,
+    "build_timeout_seconds": 300,
+    "candidate_timeout_seconds": 30,
+    "total_timeout_seconds": 1200
+  },
+  "freeze_sha256": null,
+  "billing_cost": null,
+  "human_rework": null,
+  "final_exposure_before_run": false,
+  "stop_reason": "Codex_build_timeout",
+  "preflight": {
+    "cli_version": "codex-cli 0.153.4",
+    "authentication": "ChatGPT",
+    "isolation_checks": {
+      "workspace_write": true,
+      "repo_denied": true,
+      "sibling_denied": true,
+      "symlink_denied": true,
+      "auth_denied": true,
+      "network_denied": true
+    }
+  },
+  "ended_at": "2026-09-20T08:11:49.495136+00:00",
+  "wall_ms": 461254.784,
+  "measurements": {
+    "codex_calls": 4,
+    "tool_calls": 21,
+    "failed_calls": 1,
+    "billing_cost": null,
+    "human_rework": null,
+    "usage_complete": false,
+    "input_tokens_known": 112795,
+    "cached_input_tokens_known": 68608,
+    "output_tokens_known": 6120
+  }
+}

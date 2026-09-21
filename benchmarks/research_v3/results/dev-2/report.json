@@ -1,0 +1,1112 @@
+{
+  "metadata": {
+    "version": "research-v3.1",
+    "stage": "dev",
+    "split": "dev",
+    "mode": "real_codex",
+    "started_at": "2026-09-20T08:13:37.706447+00:00",
+    "config": {
+      "cli": "/Applications/ChatGPT.app/Contents/Resources/codex",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "max_calls": 4,
+      "max_tools_per_call": 40,
+      "semantic_timeout_seconds": 120,
+      "agent_timeout_seconds": 240,
+      "build_timeout_seconds": 300,
+      "candidate_timeout_seconds": 30,
+      "total_timeout_seconds": 738
+    },
+    "freeze_sha256": null,
+    "billing_cost": null,
+    "human_rework": null,
+    "final_exposure_before_run": false,
+    "stop_reason": null,
+    "development_evidence": null,
+    "source_snapshot_sha256": "87ecc4c9feca958094c0699e65990d64cdd70a97cca46147eb406f083a582241",
+    "prior_development": "research-v3-dev-1",
+    "preflight": {
+      "cli_version": "codex-cli 0.153.4",
+      "authentication": "ChatGPT",
+      "isolation_checks": {
+        "workspace_write": true,
+        "repo_denied": true,
+        "sibling_denied": true,
+        "symlink_denied": true,
+        "auth_denied": true,
+        "network_denied": true
+      }
+    },
+    "ended_at": "2026-09-20T08:19:57.475096+00:00",
+    "wall_ms": 379770.375,
+    "measurements": {
+      "codex_calls": 4,
+      "tool_calls": 22,
+      "failed_calls": 0,
+      "billing_cost": null,
+      "human_rework": null,
+      "usage_complete": true,
+      "input_tokens_known": 396658,
+      "cached_input_tokens_known": 313728,
+      "output_tokens_known": 14966
+    }
+  },
+  "measurements": {
+    "codex_calls": 4,
+    "tool_calls": 22,
+    "failed_calls": 0,
+    "billing_cost": null,
+    "human_rework": null,
+    "usage_complete": true,
+    "input_tokens_known": 396658,
+    "cached_input_tokens_known": 313728,
+    "output_tokens_known": 14966
+  },
+  "records": [
+    {
+      "id": "stockroom/without_skill/design",
+      "phase": "design",
+      "workflow": "stockroom",
+      "arm": "without_skill",
+      "status": "completed",
+      "decision": {
+        "mode": "implemented",
+        "rationale": "A small deterministic, read-only Python 3 reconciler can validate, deduplicate, calculate, and emit the required receipts unattended; the closed SOP and repeated daily volume justify local software, while review remains explicit for unresolved cases and no external or inventory action is needed.",
+        "resources_read": [
+          "dev_inputs.json",
+          "packet/acceptance.md",
+          "packet/desk_log.txt",
+          "packet/old_totals.py",
+          "packet/request.md",
+          "packet/sop.md"
+        ]
+      },
+      "wall_ms": 143640.379,
+      "call_ids": [
+        1
+      ],
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 7,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 96177,
+        "cached_input_tokens_known": 74240,
+        "output_tokens_known": 5427
+      }
+    },
+    {
+      "id": "stockroom/without_skill/implementation",
+      "phase": "implementation",
+      "workflow": "stockroom",
+      "arm": "without_skill",
+      "status": "completed",
+      "wall_ms": 196180.137,
+      "call_ids": [
+        2
+      ],
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 12,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 250182,
+        "cached_input_tokens_known": 200448,
+        "output_tokens_known": 8707
+      }
+    },
+    {
+      "id": "stockroom/without_skill/execute",
+      "phase": "workflow_execution",
+      "workflow": "stockroom",
+      "arm": "without_skill",
+      "status": "completed",
+      "mode": "implemented",
+      "cases": [
+        {
+          "case_id": "s-dev-good",
+          "output": {
+            "case_id": "s-dev-good",
+            "status": "completed",
+            "on_hand": {
+              "sensor": 8
+            },
+            "available": {
+              "sensor": 6
+            },
+            "issue": "none",
+            "action_performed": false
+          },
+          "error": null,
+          "grade": {
+            "passed": true,
+            "reasons": []
+          },
+          "wall_ms": 123.608
+        },
+        {
+          "case_id": "s-dev-conflict",
+          "output": {
+            "case_id": "s-dev-conflict",
+            "status": "needs_review",
+            "on_hand": {},
+            "available": {},
+            "issue": "conflict",
+            "action_performed": false
+          },
+          "error": null,
+          "grade": {
+            "passed": true,
+            "reasons": []
+          },
+          "wall_ms": 123.919
+        }
+      ],
+      "wall_ms": 247.715,
+      "call_ids": [],
+      "measurements": {
+        "codex_calls": 0,
+        "tool_calls": 0,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 0,
+        "cached_input_tokens_known": 0,
+        "output_tokens_known": 0
+      }
+    },
+    {
+      "id": "semantic/link-other/direct",
+      "phase": "semantic_execution",
+      "arm": "direct",
+      "case_id": "link-other",
+      "status": "completed",
+      "output": {
+        "request_id": "link-other",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "supplier",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "reference_unrelated"
+            ],
+            "evidence_ids": [
+              "claim",
+              "price",
+              "regions",
+              "witness"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "wall_ms": 30622.693,
+      "call_ids": [
+        3
+      ],
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 3,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 41157,
+        "cached_input_tokens_known": 32384,
+        "output_tokens_known": 811
+      }
+    },
+    {
+      "id": "semantic/link-other/bounded",
+      "phase": "semantic_execution",
+      "arm": "bounded",
+      "case_id": "link-other",
+      "status": "completed",
+      "output": {
+        "request_id": "link-other",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "supplier",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "reference_unrelated"
+            ],
+            "evidence_ids": [
+              "claim",
+              "price",
+              "regions",
+              "witness"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      },
+      "verdicts": [
+        "unrelated"
+      ],
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "wall_ms": 8714.661,
+      "call_ids": [
+        4
+      ],
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 0,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 9142,
+        "cached_input_tokens_known": 6656,
+        "output_tokens_known": 21
+      }
+    }
+  ],
+  "not_executed": [],
+  "semantic": {
+    "direct": {
+      "acceptance": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "coverage": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "observed_acceptance": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "wrong_release": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "wrong_release_gold_noneligible": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "correct_review": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "conservative_review": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "approval_handoff": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "business_completion": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "row_correctness": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "omission": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "citation": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "failed_attempts": 0,
+      "median_wall_ms": 30622.693,
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 3,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 41157,
+        "cached_input_tokens_known": 32384,
+        "output_tokens_known": 811
+      },
+      "cases": [
+        {
+          "id": "semantic/link-other/direct",
+          "phase": "semantic_execution",
+          "case_id": "link-other",
+          "arm": "direct",
+          "failure_grade": {
+            "passed": false,
+            "reasons": [
+              "output must be an object",
+              "vendor coverage mismatch"
+            ],
+            "expected_rows": 1,
+            "correct_rows": 0,
+            "omitted_rows": 1,
+            "predicted_eligible": 0,
+            "wrong_releases": 0,
+            "review_rows": 0,
+            "gold_review_rows": 0,
+            "correct_review_rows": 0,
+            "citations": 0,
+            "correct_citations": 0,
+            "actual_completion": false,
+            "correct_input_handoff": false,
+            "correct_approval_handoff": false
+          },
+          "expected_status": "completed",
+          "observed_status": "completed",
+          "grade": {
+            "passed": true,
+            "reasons": [],
+            "expected_rows": 1,
+            "correct_rows": 1,
+            "omitted_rows": 0,
+            "predicted_eligible": 0,
+            "wrong_releases": 0,
+            "review_rows": 0,
+            "gold_review_rows": 0,
+            "correct_review_rows": 0,
+            "citations": 4,
+            "correct_citations": 4,
+            "actual_completion": true,
+            "correct_input_handoff": false,
+            "correct_approval_handoff": false
+          }
+        }
+      ]
+    },
+    "bounded": {
+      "acceptance": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "coverage": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "observed_acceptance": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "wrong_release": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "wrong_release_gold_noneligible": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "review_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "correct_review": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "conservative_review": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "approval_handoff": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "business_completion": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "row_correctness": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "omission": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "citation": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "failed_attempts": 0,
+      "median_wall_ms": 8714.661,
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 0,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 9142,
+        "cached_input_tokens_known": 6656,
+        "output_tokens_known": 21
+      },
+      "cases": [
+        {
+          "id": "semantic/link-other/bounded",
+          "phase": "semantic_execution",
+          "case_id": "link-other",
+          "arm": "bounded",
+          "failure_grade": {
+            "passed": false,
+            "reasons": [
+              "output must be an object",
+              "vendor coverage mismatch"
+            ],
+            "expected_rows": 1,
+            "correct_rows": 0,
+            "omitted_rows": 1,
+            "predicted_eligible": 0,
+            "wrong_releases": 0,
+            "review_rows": 0,
+            "gold_review_rows": 0,
+            "correct_review_rows": 0,
+            "citations": 0,
+            "correct_citations": 0,
+            "actual_completion": false,
+            "correct_input_handoff": false,
+            "correct_approval_handoff": false
+          },
+          "expected_status": "completed",
+          "observed_status": "completed",
+          "grade": {
+            "passed": true,
+            "reasons": [],
+            "expected_rows": 1,
+            "correct_rows": 1,
+            "omitted_rows": 0,
+            "predicted_eligible": 0,
+            "wrong_releases": 0,
+            "review_rows": 0,
+            "gold_review_rows": 0,
+            "correct_review_rows": 0,
+            "citations": 4,
+            "correct_citations": 4,
+            "actual_completion": true,
+            "correct_input_handoff": false,
+            "correct_approval_handoff": false
+          }
+        }
+      ]
+    }
+  },
+  "workflows": {
+    "stockroom/without_skill": {
+      "mode": "implemented",
+      "status": "completed",
+      "acceptance": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "cases": [
+        {
+          "case_id": "s-dev-good",
+          "output": {
+            "case_id": "s-dev-good",
+            "status": "completed",
+            "on_hand": {
+              "sensor": 8
+            },
+            "available": {
+              "sensor": 6
+            },
+            "issue": "none",
+            "action_performed": false
+          },
+          "error": null,
+          "grade": {
+            "passed": true,
+            "reasons": []
+          },
+          "wall_ms": 123.608
+        },
+        {
+          "case_id": "s-dev-conflict",
+          "output": {
+            "case_id": "s-dev-conflict",
+            "status": "needs_review",
+            "on_hand": {},
+            "available": {},
+            "issue": "conflict",
+            "action_performed": false
+          },
+          "error": null,
+          "grade": {
+            "passed": true,
+            "reasons": []
+          },
+          "wall_ms": 123.919
+        }
+      ],
+      "execution_wall_ms": 247.715,
+      "execution_measurements": {
+        "codex_calls": 0,
+        "tool_calls": 0,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 0,
+        "cached_input_tokens_known": 0,
+        "output_tokens_known": 0
+      },
+      "phases": {
+        "design": [
+          {
+            "id": "stockroom/without_skill/design",
+            "phase": "design",
+            "workflow": "stockroom",
+            "arm": "without_skill",
+            "status": "completed",
+            "decision": {
+              "mode": "implemented",
+              "rationale": "A small deterministic, read-only Python 3 reconciler can validate, deduplicate, calculate, and emit the required receipts unattended; the closed SOP and repeated daily volume justify local software, while review remains explicit for unresolved cases and no external or inventory action is needed.",
+              "resources_read": [
+                "dev_inputs.json",
+                "packet/acceptance.md",
+                "packet/desk_log.txt",
+                "packet/old_totals.py",
+                "packet/request.md",
+                "packet/sop.md"
+              ]
+            },
+            "wall_ms": 143640.379,
+            "call_ids": [
+              1
+            ],
+            "measurements": {
+              "codex_calls": 1,
+              "tool_calls": 7,
+              "failed_calls": 0,
+              "billing_cost": null,
+              "human_rework": null,
+              "usage_complete": true,
+              "input_tokens_known": 96177,
+              "cached_input_tokens_known": 74240,
+              "output_tokens_known": 5427
+            }
+          }
+        ],
+        "implementation": [
+          {
+            "id": "stockroom/without_skill/implementation",
+            "phase": "implementation",
+            "workflow": "stockroom",
+            "arm": "without_skill",
+            "status": "completed",
+            "wall_ms": 196180.137,
+            "call_ids": [
+              2
+            ],
+            "measurements": {
+              "codex_calls": 1,
+              "tool_calls": 12,
+              "failed_calls": 0,
+              "billing_cost": null,
+              "human_rework": null,
+              "usage_complete": true,
+              "input_tokens_known": 250182,
+              "cached_input_tokens_known": 200448,
+              "output_tokens_known": 8707
+            }
+          }
+        ],
+        "debug": [],
+        "design_review": []
+      },
+      "runnable_script_cases": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "correct_approval_handoff": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "business_completion": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "execution_failures": 0,
+      "model_review": null,
+      "model_review_total": null
+    }
+  },
+  "annotations": {
+    "link-other": {
+      "author_annotation": {
+        "verdict": "unrelated",
+        "rationale": "Explicit other project, affirmative other work."
+      },
+      "model_reviews": {
+        "semantic-review-1": {
+          "case_id": "link-other",
+          "verdict": "unrelated",
+          "rationale": "The profile concerns regulated instructions under contract A, while the reference expressly concerns contract B and describes only advertising slogans; the project IDs differ and no alias links them."
+        },
+        "semantic-review-2": {
+          "case_id": "link-other",
+          "verdict": "unrelated",
+          "rationale": "The claim concerns regulated instructions for contract A, while the reference describes only advertising slogans for explicitly different contract B; no same-project linkage exists."
+        }
+      },
+      "both_returned": true,
+      "reviewer_agreement": true,
+      "all_match_author": true
+    },
+    "link-same": {
+      "author_annotation": {
+        "verdict": "conflict",
+        "rationale": "Same contract explicitly denies asserted scope."
+      },
+      "model_reviews": {
+        "semantic-review-1": {
+          "case_id": "link-same",
+          "verdict": "conflict",
+          "rationale": "Both documents identify contract A, and the reference explicitly states that only advertising slogans were in scope and no regulated instructions were included."
+        },
+        "semantic-review-2": {
+          "case_id": "link-same",
+          "verdict": "conflict",
+          "rationale": "Both documents identify contract A, and the reference says the vendor handled only advertising slogans and that regulated instructions were not in scope."
+        }
+      },
+      "both_returned": true,
+      "reviewer_agreement": true,
+      "all_match_author": true
+    },
+    "partial": {
+      "author_annotation": {
+        "verdict": "unclear",
+        "rationale": "Required leaflets not established; no denial."
+      },
+      "model_reviews": {
+        "semantic-review-1": {
+          "case_id": "partial",
+          "verdict": "unclear",
+          "rationale": "Both documents identify project D, but the reference confirms only instructions and cannot comment on the required patient-leaflet component."
+        },
+        "semantic-review-2": {
+          "case_id": "partial",
+          "verdict": "unclear",
+          "rationale": "Both documents identify project D, but the reference confirms only instructions and cannot comment on the required patient-leaflet component."
+        }
+      },
+      "both_returned": true,
+      "reviewer_agreement": true,
+      "all_match_author": true
+    },
+    "denied": {
+      "author_annotation": {
+        "verdict": "conflict",
+        "rationale": "Same project explicit denial overrides partial support."
+      },
+      "model_reviews": {
+        "semantic-review-1": {
+          "case_id": "denied",
+          "verdict": "conflict",
+          "rationale": "Both documents identify project D, and the reference explicitly denies that the vendor localized the claimed patient leaflets."
+        },
+        "semantic-review-2": {
+          "case_id": "denied",
+          "verdict": "conflict",
+          "rationale": "Both documents identify project D, and the reference explicitly denies that the vendor localized the claimed patient leaflets."
+        }
+      },
+      "both_returned": true,
+      "reviewer_agreement": true,
+      "all_match_author": true
+    },
+    "no-link": {
+      "author_annotation": {
+        "verdict": "unclear",
+        "rationale": "Bare unlinked denial, no affirmative other work."
+      },
+      "model_reviews": {
+        "semantic-review-1": {
+          "case_id": "no-link",
+          "verdict": "unclear",
+          "rationale": "The profile identifies project C, but the reference cannot identify its engagement and therefore lacks positive same-project linkage; its bare denial cannot refute project C."
+        },
+        "semantic-review-2": {
+          "case_id": "no-link",
+          "verdict": "unclear",
+          "rationale": "The claim identifies project C, but the reference's denial concerns an engagement whose project identity is unavailable, so there is no positive same-project linkage."
+        }
+      },
+      "both_returned": true,
+      "reviewer_agreement": true,
+      "all_match_author": true
+    },
+    "other-work": {
+      "author_annotation": {
+        "verdict": "unrelated",
+        "rationale": "Affirmative other work without same-project linkage."
+      },
+      "model_reviews": {
+        "semantic-review-1": {
+          "case_id": "other-work",
+          "verdict": "unrelated",
+          "rationale": "The reference lacks linkage to profile project C and affirmatively describes its unidentified engagement as advertising-slogan work only, which is a different domain."
+        },
+        "semantic-review-2": {
+          "case_id": "other-work",
+          "verdict": "unrelated",
+          "rationale": "The claim identifies project C, while the unlinked reference affirmatively describes only advertising-slogan work for its unidentified engagement."
+        }
+      },
+      "both_returned": true,
+      "reviewer_agreement": true,
+      "all_match_author": true
+    },
+    "support": {
+      "author_annotation": {
+        "verdict": "corroborated",
+        "rationale": "Positive linked support."
+      },
+      "model_reviews": {
+        "semantic-review-1": {
+          "case_id": "support",
+          "verdict": "corroborated",
+          "rationale": "Both documents explicitly identify project E, and the reference confirms that the vendor localized regulated instructions for that project."
+        },
+        "semantic-review-2": {
+          "case_id": "support",
+          "verdict": "corroborated",
+          "rationale": "Both documents identify project E, and the reference confirms that this vendor localized regulated instructions for that project."
+        }
+      },
+      "both_returned": true,
+      "reviewer_agreement": true,
+      "all_match_author": true
+    },
+    "vague": {
+      "author_annotation": {
+        "verdict": "unclear",
+        "rationale": "Praise is not scope evidence."
+      },
+      "model_reviews": {
+        "semantic-review-1": {
+          "case_id": "vague",
+          "verdict": "unclear",
+          "rationale": "The reference links to project E but offers only praise for friendliness and responsiveness, without confirming the claimed regulated-instructions localization."
+        },
+        "semantic-review-2": {
+          "case_id": "vague",
+          "verdict": "unclear",
+          "rationale": "Although both documents identify project E, the reference offers only praise for friendliness and responsiveness and does not confirm the claimed regulated-instructions work."
+        }
+      },
+      "both_returned": true,
+      "reviewer_agreement": true,
+      "all_match_author": true
+    }
+  },
+  "candidate_details": {
+    "stockroom/without_skill": {
+      "workflow": "stockroom",
+      "arm": "without_skill",
+      "artifact_sha256": "2a3eece60bf298b2bc7f922d5e1cddde1101080d4d834b0e57451d35a3840344",
+      "frozen_at": "2026-09-20T08:19:17.887901+00:00",
+      "records": [
+        "stockroom/without_skill/design",
+        "stockroom/without_skill/implementation"
+      ],
+      "resource_reads": [],
+      "debug_inside_implementation_ms": null,
+      "human_rework": null,
+      "decision": {
+        "mode": "implemented",
+        "rationale": "A small deterministic, read-only Python 3 reconciler can validate, deduplicate, calculate, and emit the required receipts unattended; the closed SOP and repeated daily volume justify local software, while review remains explicit for unresolved cases and no external or inventory action is needed.",
+        "resources_read": [
+          "dev_inputs.json",
+          "packet/acceptance.md",
+          "packet/desk_log.txt",
+          "packet/old_totals.py",
+          "packet/request.md",
+          "packet/sop.md"
+        ]
+      }
+    }
+  },
+  "metric_definitions": {
+    "task_acceptance": "accepted complete receipts / scheduled cases; coverage separately; unresolved correct handoffs count as accepted, not business completion",
+    "wrong_auto_release": "wrong eligible or shortlist entries / all predicted eligible entries; also / gold noneligible records",
+    "conservative_review": "predicted review rows where expected row resolves / expected resolved rows",
+    "correct_approval_handoff": "accepted needs_approval cases / expected needs_approval cases",
+    "business_completion": "accepted completed cases / expected completed cases; no handoff counts as completion",
+    "citation": "expected selected source citations / all emitted citations; provenance validity, not independent truth proof",
+    "workflow_acceptance": "literal external receipt plus safety checks; customer prose quality not fully measured",
+    "latency": "phase wall includes workspace setup, Codex startup/context/tools/return; excludes independent grading where separable; script batch includes trivial per-case grading",
+    "tokens": "reported CLI input includes cached_input; known subtotals with completeness, not billing price",
+    "model_design_score": "one blinded Codex reviewer per candidate, five dimensions 0..2, not deterministic acceptance"
+  },
+  "prior_development": {
+    "run": "research-v3-dev-1",
+    "metadata": {
+      "version": "research-v3.1",
+      "stage": "dev",
+      "split": "dev",
+      "mode": "real_codex",
+      "started_at": "2026-09-20T08:04:08.144028+00:00",
+      "config": {
+        "cli": "/Applications/ChatGPT.app/Contents/Resources/codex",
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "max_calls": 8,
+        "max_tools_per_call": 40,
+        "semantic_timeout_seconds": 120,
+        "agent_timeout_seconds": 240,
+        "build_timeout_seconds": 300,
+        "candidate_timeout_seconds": 30,
+        "total_timeout_seconds": 1200
+      },
+      "freeze_sha256": null,
+      "billing_cost": null,
+      "human_rework": null,
+      "final_exposure_before_run": false,
+      "stop_reason": "Codex_build_timeout",
+      "preflight": {
+        "cli_version": "codex-cli 0.153.4",
+        "authentication": "ChatGPT",
+        "isolation_checks": {
+          "workspace_write": true,
+          "repo_denied": true,
+          "sibling_denied": true,
+          "symlink_denied": true,
+          "auth_denied": true,
+          "network_denied": true
+        }
+      },
+      "ended_at": "2026-09-20T08:11:49.495136+00:00",
+      "wall_ms": 461254.784,
+      "measurements": {
+        "codex_calls": 4,
+        "tool_calls": 21,
+        "failed_calls": 1,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": false,
+        "input_tokens_known": 112795,
+        "cached_input_tokens_known": 68608,
+        "output_tokens_known": 6120
+      }
+    },
+    "annotations": [
+      {
+        "id": "semantic-review-1",
+        "phase": "semantic_annotation",
+        "split": "dev",
+        "status": "completed",
+        "reviewer_type": "Codex_model_review",
+        "labels": [
+          {
+            "case_id": "link-other",
+            "verdict": "unrelated",
+            "rationale": "The profile concerns regulated instructions under contract A, while the reference expressly concerns contract B and describes only advertising slogans; the project IDs differ and no alias links them."
+          },
+          {
+            "case_id": "link-same",
+            "verdict": "conflict",
+            "rationale": "Both documents identify contract A, and the reference explicitly states that only advertising slogans were in scope and no regulated instructions were included."
+          },
+          {
+            "case_id": "partial",
+            "verdict": "unclear",
+            "rationale": "Both documents identify project D, but the reference confirms only instructions and cannot comment on the required patient-leaflet component."
+          },
+          {
+            "case_id": "denied",
+            "verdict": "conflict",
+            "rationale": "Both documents identify project D, and the reference explicitly denies that the vendor localized the claimed patient leaflets."
+          },
+          {
+            "case_id": "no-link",
+            "verdict": "unclear",
+            "rationale": "The profile identifies project C, but the reference cannot identify its engagement and therefore lacks positive same-project linkage; its bare denial cannot refute project C."
+          },
+          {
+            "case_id": "other-work",
+            "verdict": "unrelated",
+            "rationale": "The reference lacks linkage to profile project C and affirmatively describes its unidentified engagement as advertising-slogan work only, which is a different domain."
+          },
+          {
+            "case_id": "support",
+            "verdict": "corroborated",
+            "rationale": "Both documents explicitly identify project E, and the reference confirms that the vendor localized regulated instructions for that project."
+          },
+          {
+            "case_id": "vague",
+            "verdict": "unclear",
+            "rationale": "The reference links to project E but offers only praise for friendliness and responsiveness, without confirming the claimed regulated-instructions localization."
+          }
+        ],
+        "wall_ms": 35030.6,
+        "call_ids": [
+          1
+        ],
+        "measurements": {
+          "codex_calls": 1,
+          "tool_calls": 1,
+          "failed_calls": 0,
+          "billing_cost": null,
+          "human_rework": null,
+          "usage_complete": true,
+          "input_tokens_known": 28897,
+          "cached_input_tokens_known": 15104,
+          "output_tokens_known": 853
+        }
+      },
+      {
+        "id": "semantic-review-2",
+        "phase": "semantic_annotation",
+        "split": "dev",
+        "status": "completed",
+        "reviewer_type": "Codex_model_review",
+        "labels": [
+          {
+            "case_id": "link-other",
+            "verdict": "unrelated",
+            "rationale": "The claim concerns regulated instructions for contract A, while the reference describes only advertising slogans for explicitly different contract B; no same-project linkage exists."
+          },
+          {
+            "case_id": "link-same",
+            "verdict": "conflict",
+            "rationale": "Both documents identify contract A, and the reference says the vendor handled only advertising slogans and that regulated instructions were not in scope."
+          },
+          {
+            "case_id": "partial",
+            "verdict": "unclear",
+            "rationale": "Both documents identify project D, but the reference confirms only instructions and cannot comment on the required patient-leaflet component."
+          },
+          {
+            "case_id": "denied",
+            "verdict": "conflict",
+            "rationale": "Both documents identify project D, and the reference explicitly denies that the vendor localized the claimed patient leaflets."
+          },
+          {
+            "case_id": "no-link",
+            "verdict": "unclear",
+            "rationale": "The claim identifies project C, but the reference's denial concerns an engagement whose project identity is unavailable, so there is no positive same-project linkage."
+          },
+          {
+            "case_id": "other-work",
+            "verdict": "unrelated",
+            "rationale": "The claim identifies project C, while the unlinked reference affirmatively describes only advertising-slogan work for its unidentified engagement."
+          },
+          {
+            "case_id": "support",
+            "verdict": "corroborated",
+            "rationale": "Both documents identify project E, and the reference confirms that this vendor localized regulated instructions for that project."
+          },
+          {
+            "case_id": "vague",
+            "verdict": "unclear",
+            "rationale": "Although both documents identify project E, the reference offers only praise for friendliness and responsiveness and does not confirm the claimed regulated-instructions work."
+          }
+        ],
+        "wall_ms": 29308.692,
+        "call_ids": [
+          2
+        ],
+        "measurements": {
+          "codex_calls": 1,
+          "tool_calls": 1,
+          "failed_calls": 0,
+          "billing_cost": null,
+          "human_rework": null,
+          "usage_complete": true,
+          "input_tokens_known": 28948,
+          "cached_input_tokens_known": 13312,
+          "output_tokens_known": 829
+        }
+      }
+    ],
+    "report_sha256": "259b670c9ba2a9e370fd39d47f522d998d9019b0070801367eb2822c411e7b94"
+  }
+}

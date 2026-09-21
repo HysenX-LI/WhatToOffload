@@ -1,0 +1,1037 @@
+[
+  {
+    "attempt_id": "build_without_skill:final-duplicate-identities:1",
+    "arm": "build_without_skill",
+    "case_id": "final-duplicate-identities",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:final-contact-partial-eligibility:1",
+    "arm": "build_without_skill",
+    "case_id": "final-contact-partial-eligibility",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:final-empty-pack:1",
+    "arm": "build_without_skill",
+    "case_id": "final-empty-pack",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object"
+      ],
+      "expected_rows": 0,
+      "correct_rows": 0,
+      "omitted_rows": 0,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:final-unclear-with-noise:1",
+    "arm": "prepared_runner",
+    "case_id": "final-unclear-with-noise",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:final-unclear-with-noise:1",
+    "arm": "build_without_skill",
+    "case_id": "final-unclear-with-noise",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:final-missing-precedence:1",
+    "arm": "agent_direct",
+    "case_id": "final-missing-precedence",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:final-duplicate-identities:1",
+    "arm": "prepared_runner",
+    "case_id": "final-duplicate-identities",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:final-contact-partial-eligibility:1",
+    "arm": "build_with_skill",
+    "case_id": "final-contact-partial-eligibility",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:final-empty-pack:1",
+    "arm": "agent_direct",
+    "case_id": "final-empty-pack",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object"
+      ],
+      "expected_rows": 0,
+      "correct_rows": 0,
+      "omitted_rows": 0,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:final-contact-partial-eligibility:1",
+    "arm": "agent_task_skill",
+    "case_id": "final-contact-partial-eligibility",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:final-disputed-scope:1",
+    "arm": "agent_task_skill",
+    "case_id": "final-disputed-scope",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:final-duplicate-identities:1",
+    "arm": "agent_task_skill",
+    "case_id": "final-duplicate-identities",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:final-disputed-scope:1",
+    "arm": "prepared_runner",
+    "case_id": "final-disputed-scope",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:final-revision-and-ranking:1",
+    "arm": "build_with_skill",
+    "case_id": "final-revision-and-ranking",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 3,
+      "correct_rows": 0,
+      "omitted_rows": 3,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:final-policy-change:1",
+    "arm": "prepared_runner",
+    "case_id": "final-policy-change",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:final-duplicate-identities:1",
+    "arm": "build_with_skill",
+    "case_id": "final-duplicate-identities",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:final-missing-precedence:1",
+    "arm": "build_without_skill",
+    "case_id": "final-missing-precedence",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:final-revision-and-ranking:1",
+    "arm": "build_without_skill",
+    "case_id": "final-revision-and-ranking",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 3,
+      "correct_rows": 0,
+      "omitted_rows": 3,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:final-unclear-with-noise:1",
+    "arm": "agent_direct",
+    "case_id": "final-unclear-with-noise",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:final-unclear-with-noise:1",
+    "arm": "agent_task_skill",
+    "case_id": "final-unclear-with-noise",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:final-empty-pack:1",
+    "arm": "build_with_skill",
+    "case_id": "final-empty-pack",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object"
+      ],
+      "expected_rows": 0,
+      "correct_rows": 0,
+      "omitted_rows": 0,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:final-contact-partial-eligibility:1",
+    "arm": "agent_direct",
+    "case_id": "final-contact-partial-eligibility",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:final-disputed-scope:1",
+    "arm": "agent_direct",
+    "case_id": "final-disputed-scope",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:final-duplicate-identities:1",
+    "arm": "agent_direct",
+    "case_id": "final-duplicate-identities",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:final-policy-change:1",
+    "arm": "agent_task_skill",
+    "case_id": "final-policy-change",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:final-missing-precedence:1",
+    "arm": "build_with_skill",
+    "case_id": "final-missing-precedence",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:final-revision-and-ranking:1",
+    "arm": "prepared_runner",
+    "case_id": "final-revision-and-ranking",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 3,
+      "correct_rows": 0,
+      "omitted_rows": 3,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:final-missing-precedence:1",
+    "arm": "agent_task_skill",
+    "case_id": "final-missing-precedence",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:final-empty-pack:1",
+    "arm": "prepared_runner",
+    "case_id": "final-empty-pack",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object"
+      ],
+      "expected_rows": 0,
+      "correct_rows": 0,
+      "omitted_rows": 0,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:final-policy-change:1",
+    "arm": "agent_direct",
+    "case_id": "final-policy-change",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:final-revision-and-ranking:1",
+    "arm": "agent_direct",
+    "case_id": "final-revision-and-ranking",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 3,
+      "correct_rows": 0,
+      "omitted_rows": 3,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:final-disputed-scope:1",
+    "arm": "build_with_skill",
+    "case_id": "final-disputed-scope",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:final-policy-change:1",
+    "arm": "build_with_skill",
+    "case_id": "final-policy-change",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:final-empty-pack:1",
+    "arm": "agent_task_skill",
+    "case_id": "final-empty-pack",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object"
+      ],
+      "expected_rows": 0,
+      "correct_rows": 0,
+      "omitted_rows": 0,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:final-contact-partial-eligibility:1",
+    "arm": "prepared_runner",
+    "case_id": "final-contact-partial-eligibility",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:final-disputed-scope:1",
+    "arm": "build_without_skill",
+    "case_id": "final-disputed-scope",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:final-policy-change:1",
+    "arm": "build_without_skill",
+    "case_id": "final-policy-change",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:final-revision-and-ranking:1",
+    "arm": "agent_task_skill",
+    "case_id": "final-revision-and-ranking",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 3,
+      "correct_rows": 0,
+      "omitted_rows": 3,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:final-missing-precedence:1",
+    "arm": "prepared_runner",
+    "case_id": "final-missing-precedence",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 2,
+      "correct_rows": 0,
+      "omitted_rows": 2,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:final-unclear-with-noise:1",
+    "arm": "build_with_skill",
+    "case_id": "final-unclear-with-noise",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 1,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  }
+]

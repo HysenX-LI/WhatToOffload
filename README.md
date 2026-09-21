@@ -58,9 +58,15 @@ The three short-lived walkthroughs now describe multi-stage tasks with conflicti
 
 WhatToOffload identifies places where a narrow typed semantic judgment is a better fit than prompt-and-parse generation. Before implementing a Jev node, the agent must read the available `typesafe-ai` skill and the current [TypeSafe documentation](https://docs.typesafe.ai/llms.txt). Code remains responsible for control flow, deterministic rules, side effects, and uncertainty routing.
 
-## Three ways to complete a longer task
+## Public experiments and historical comparisons
 
-The primary benchmark compares **Codex**, **Codex + a task-specific Skill**, and **a WhatToOffload-designed runner** on the same local workload: 120 source documents, 24 candidates and three projects, with revised quotations, evidence conflicts, missing inputs, calculations, rankings and a complete report.
+For a fully public runnable workflow, use the [Codex supplier-screening benchmark v2](benchmarks/codex_v2/README.md).
+It separates prepared execution from runner construction with/without WhatToOffload,
+uses existing ChatGPT-authenticated Codex (Sol/high), and needs no independent model
+API or price estimate. See [current evidence and final-set status](benchmarks/codex_v2/RESULTS.md).
+The earlier long-task observations below remain historical and unchanged.
+
+The historical long-task benchmark compares **Codex**, **Codex + a task-specific Skill**, and **a WhatToOffload-designed runner** on the same local workload: 120 source documents, 24 candidates and three projects, with revised quotations, evidence conflicts, missing inputs, calculations, rankings and a complete report.
 
 The two Codex paths use fresh **GPT-5.6 Sol high** subagents. The Skill path includes reusable deterministic helpers. The third path is an independently measured runner combining code, Jev and DeepSeek review for uncertain cases. Each final path runs three times under the same acceptance contract.
 
@@ -90,3 +96,7 @@ Future work may add more professional-skill routing, richer visualization, and f
 This repository contains the source skill only. It is not installed automatically and does not provision or operate workflow infrastructure. External API probes are opt-in and require explicit authorization.
 
 During development on 2026-09-20, an explicitly authorized synthetic contract probe verified Choice, Noul, and Score results through the OpenRouter Decisions API and strict JSON generation through DeepSeek's OpenAI-compatible Chat Completions API. The repository contains no credentials or provider-specific runtime configuration, and this probe is evidence of compatibility rather than a permanent service guarantee.
+
+A new prospective [v3 research study](benchmarks/research_v3/README.md) separates semantic-boundary annotation from design using raw workflow materials. It preserves all v2 results and the no-observed-Skill-construction-gain finding.
+
+[v3 results](benchmarks/research_v3/RESULTS.md): both semantic execution paths accepted 8/8 new cases; bounded Codex used less time and input. Raw-workflow pairs tied on stock/release acceptance; the one-off customer receipt was 3/4 without Skill versus 4/4 with Skill. Two release design reviews timed out. These are small descriptive observations, not general proof of Skill superiority.

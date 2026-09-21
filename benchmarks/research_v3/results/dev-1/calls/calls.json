@@ -1,0 +1,85 @@
+{
+  "calls": [
+    {
+      "call_id": 1,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 28897,
+      "cached_input_tokens": 15104,
+      "output_tokens": 853,
+      "tool_calls": 1,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "f229af577d31fefbf45a03193ef6a7e4feacb8e0cf56d2d347a2bf795ad70711"
+      ],
+      "wall_ms": 35027.584
+    },
+    {
+      "call_id": 2,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 28948,
+      "cached_input_tokens": 13312,
+      "output_tokens": 829,
+      "tool_calls": 1,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "f45035cfba671305b2f48aa68e5ff305d074a8516595ce6e66a3b6a809205451"
+      ],
+      "wall_ms": 29304.249
+    },
+    {
+      "call_id": 3,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 54950,
+      "cached_input_tokens": 40192,
+      "output_tokens": 4438,
+      "tool_calls": 4,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "c4aa6101cafca7233b03c845ad72005434450f3781f42509e6b476f9bc043f72"
+      ],
+      "wall_ms": 96763.777
+    },
+    {
+      "call_id": 4,
+      "kind": "build",
+      "status": "failed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": "Codex_build_timeout",
+      "input_tokens": null,
+      "cached_input_tokens": null,
+      "output_tokens": null,
+      "tool_calls": 15,
+      "transport_reconnections": 0,
+      "returncode": -9,
+      "reported_turns": 0,
+      "context_ids_sha256": [
+        "656e3ca90811e607250f0c936c55ab88da520339ffce5aa768a6b5d68385bb47"
+      ],
+      "wall_ms": 300034.301
+    }
+  ],
+  "stop_reason": "Codex_build_timeout"
+}

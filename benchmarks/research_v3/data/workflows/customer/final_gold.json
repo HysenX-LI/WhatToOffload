@@ -1,0 +1,41 @@
+[
+  {
+    "case_id": "c-shift",
+    "status": "needs_input",
+    "unresolved": [
+      "audience",
+      "goal"
+    ],
+    "draft_contains": null,
+    "commitments": [],
+    "action_performed": false
+  },
+  {
+    "case_id": "c-date",
+    "status": "needs_input",
+    "unresolved": [
+      "availability"
+    ],
+    "draft_contains": null,
+    "commitments": [],
+    "action_performed": false
+  },
+  {
+    "case_id": "c-fee",
+    "status": "needs_input",
+    "unresolved": [
+      "concession_approval"
+    ],
+    "draft_contains": null,
+    "commitments": [],
+    "action_performed": false
+  },
+  {
+    "case_id": "c-approved",
+    "status": "needs_approval",
+    "unresolved": [],
+    "draft_contains": "approved workshop options",
+    "commitments": [],
+    "action_performed": false
+  }
+]

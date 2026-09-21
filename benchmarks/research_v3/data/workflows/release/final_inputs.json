@@ -1,0 +1,168 @@
+[
+  {
+    "case_id": "r-stale",
+    "release": "R",
+    "owner": "Kim",
+    "events": [
+      {
+        "id": "c",
+        "release": "R",
+        "seq": 1,
+        "type": "candidate",
+        "build": "b1"
+      },
+      {
+        "id": "t",
+        "release": "R",
+        "seq": 2,
+        "type": "test",
+        "build": "b1",
+        "outcome": "pass"
+      },
+      {
+        "id": "a",
+        "release": "R",
+        "seq": 3,
+        "type": "approval",
+        "build": "b1",
+        "actor": "Kim"
+      },
+      {
+        "id": "c2",
+        "release": "R",
+        "seq": 4,
+        "type": "candidate",
+        "build": "b2"
+      },
+      {
+        "id": "f",
+        "release": "R",
+        "seq": 5,
+        "type": "test",
+        "build": "b2",
+        "outcome": "fail"
+      },
+      {
+        "id": "old",
+        "release": "R",
+        "seq": 6,
+        "type": "test",
+        "build": "b1",
+        "outcome": "pass"
+      }
+    ]
+  },
+  {
+    "case_id": "r-retest",
+    "release": "R",
+    "owner": "Kim",
+    "events": [
+      {
+        "id": "c",
+        "release": "R",
+        "seq": 1,
+        "type": "candidate",
+        "build": "b1"
+      },
+      {
+        "id": "t",
+        "release": "R",
+        "seq": 2,
+        "type": "test",
+        "build": "b1",
+        "outcome": "pass"
+      },
+      {
+        "id": "a",
+        "release": "R",
+        "seq": 3,
+        "type": "approval",
+        "build": "b1",
+        "actor": "Kim"
+      },
+      {
+        "id": "t2",
+        "release": "R",
+        "seq": 4,
+        "type": "test",
+        "build": "b1",
+        "outcome": "pass"
+      }
+    ]
+  },
+  {
+    "case_id": "r-replay",
+    "release": "R",
+    "owner": "Kim",
+    "events": [
+      {
+        "id": "a",
+        "release": "R",
+        "seq": 3,
+        "type": "approval",
+        "build": "b1",
+        "actor": "Kim"
+      },
+      {
+        "id": "c",
+        "release": "R",
+        "seq": 1,
+        "type": "candidate",
+        "build": "b1"
+      },
+      {
+        "id": "t",
+        "release": "R",
+        "seq": 2,
+        "type": "test",
+        "build": "b1",
+        "outcome": "pass"
+      },
+      {
+        "id": "a",
+        "release": "R",
+        "seq": 3,
+        "type": "approval",
+        "build": "b1",
+        "actor": "Kim"
+      },
+      {
+        "id": "noise",
+        "release": "OTHER",
+        "seq": 9,
+        "type": "candidate",
+        "build": "other"
+      }
+    ]
+  },
+  {
+    "case_id": "r-equal",
+    "release": "R",
+    "owner": "Kim",
+    "events": [
+      {
+        "id": "c",
+        "release": "R",
+        "seq": 1,
+        "type": "candidate",
+        "build": "b1"
+      },
+      {
+        "id": "t",
+        "release": "R",
+        "seq": 2,
+        "type": "test",
+        "build": "b1",
+        "outcome": "pass"
+      },
+      {
+        "id": "q",
+        "release": "R",
+        "seq": 2,
+        "type": "approval",
+        "build": "b1",
+        "actor": "Kim"
+      }
+    ]
+  }
+]

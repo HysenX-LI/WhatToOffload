@@ -1,0 +1,1 @@
+Public synthetic artifacts, all attempts, failures, reviews and measurements. Raw prompt/tool/session logs remain local. Hashes bind public audits to original JSONL. No credentials or historical private material. Model review is not human annotation.

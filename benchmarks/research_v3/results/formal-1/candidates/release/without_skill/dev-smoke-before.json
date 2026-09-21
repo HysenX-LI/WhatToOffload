@@ -1,0 +1,26 @@
+[
+  {
+    "case_id": "r-dev-pass",
+    "output": null,
+    "error": "ValueError:candidate_returncode:1:python3: error: couldn't create cache file '/var/folders/cj/rys2pxk90xx0b24n2t_2xp5w0000gn/T/xcrun_db-vTSy2cUs' (errno=Operation not permitted)\npython3: error: couldn't create cache file '/var/folders/cj/rys2pxk90xx0b24n2t_2xp5w0000gn/T/xcrun_db-IuLxPV17' (errno=Operation not permitted)\nrelease_desk: top-level input must be a JSON array\n",
+    "grade": {
+      "passed": false,
+      "reasons": [
+        "missing_object"
+      ]
+    },
+    "wall_ms": 137.895
+  },
+  {
+    "case_id": "r-dev-fail",
+    "output": null,
+    "error": "ValueError:candidate_returncode:1:python3: error: couldn't create cache file '/var/folders/cj/rys2pxk90xx0b24n2t_2xp5w0000gn/T/xcrun_db-76qwNnV3' (errno=Operation not permitted)\npython3: error: couldn't create cache file '/var/folders/cj/rys2pxk90xx0b24n2t_2xp5w0000gn/T/xcrun_db-QR41nfVT' (errno=Operation not permitted)\nrelease_desk: top-level input must be a JSON array\n",
+    "grade": {
+      "passed": false,
+      "reasons": [
+        "missing_object"
+      ]
+    },
+    "wall_ms": 112.158
+  }
+]

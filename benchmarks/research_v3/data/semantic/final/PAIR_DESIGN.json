@@ -1,0 +1,33 @@
+{
+  "source": "New synthetic prospective final after initial un-frozen draft was exercised by offline stub countertests. No final model/executor has seen these replacement cases before freeze.",
+  "pairs": [
+    {
+      "cases": [
+        "sem-f01",
+        "sem-f02"
+      ],
+      "contrast": "same client/deliverable/engagement tuple versus different client"
+    },
+    {
+      "cases": [
+        "sem-f03",
+        "sem-f04"
+      ],
+      "contrast": "required domain includes two components versus only the supported component; source texts identical"
+    },
+    {
+      "cases": [
+        "sem-f05",
+        "sem-f06"
+      ],
+      "contrast": "quoted exact claim versus unidentified engagement"
+    },
+    {
+      "cases": [
+        "sem-f07",
+        "sem-f08"
+      ],
+      "contrast": "named project linkage versus unavailable project identity"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "workflow": "release",
+  "arm": "with_skill",
+  "construction_error": null,
+  "construction_complete": true,
+  "artifact_sha256": "2af33df6371475e56940c64cd2668e072d1f0f51ef4389b65c1c9ae5ea9bc8e4",
+  "frozen_at": "2026-09-20T08:38:53.529586+00:00",
+  "records": [
+    "release/with_skill/design",
+    "release/with_skill/implementation"
+  ],
+  "resource_reads": [
+    {
+      "call_id": 5,
+      "command": "/bin/zsh -lc \"sed -n '1,260p' skill/SKILL.md\"",
+      "output_nonempty": true
+    },
+    {
+      "call_id": 5,
+      "command": "/bin/zsh -lc \"wc -l -c 'skill/assets/templates/workflow-design.md' && sed -n '1,320p' 'skill/assets/templates/workflow-design.md'\"",
+      "output_nonempty": true
+    },
+    {
+      "call_id": 5,
+      "command": "/bin/zsh -lc \"wc -l -c 'skill/references/short-lived-workflows.md' && sed -n '1,320p' 'skill/references/short-lived-workflows.md'\"",
+      "output_nonempty": true
+    },
+    {
+      "call_id": 5,
+      "command": "/bin/zsh -lc \"wc -l -c 'skill/assets/templates/result-envelope.json' && sed -n '1,320p' 'skill/assets/templates/result-envelope.json'\"",
+      "output_nonempty": true
+    },
+    {
+      "call_id": 5,
+      "command": "/bin/zsh -lc \"wc -l -c 'skill/references/test-driven-workflows.md' && sed -n '1,320p' 'skill/references/test-driven-workflows.md'\"",
+      "output_nonempty": true
+    },
+    {
+      "call_id": 5,
+      "command": "/bin/zsh -lc \"wc -l -c 'skill/references/executor-selection.md' && sed -n '1,320p' 'skill/references/executor-selection.md'\"",
+      "output_nonempty": true
+    },
+    {
+      "call_id": 5,
+      "command": "/bin/zsh -lc \"wc -l -c 'skill/references/safety-and-uncertainty.md' && sed -n '1,320p' 'skill/references/safety-and-uncertainty.md'\"",
+      "output_nonempty": true
+    }
+  ],
+  "debug_inside_implementation_ms": null,
+  "human_rework": null,
+  "decision": {
+    "mode": "implemented",
+    "rationale": "The snapshot-to-receipt policy is fully structured and deterministic, so a pure standard-library Python reducer can deliver the exact desk receipt unattended while leaving persistence, waiting, approvals, and all side effects with existing systems.",
+    "resources_read": [
+      "packet/acceptance.md",
+      "packet/history.txt",
+      "packet/request.md",
+      "packet/sop.md",
+      "dev_inputs.json",
+      "skill/SKILL.md",
+      "skill/references/short-lived-workflows.md",
+      "skill/assets/templates/workflow-design.md",
+      "skill/references/executor-selection.md",
+      "skill/references/safety-and-uncertainty.md",
+      "skill/references/test-driven-workflows.md",
+      "skill/assets/templates/result-envelope.json"
+    ]
+  }
+}

@@ -1,0 +1,745 @@
+{
+  "calls": [
+    {
+      "call_id": 1,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 66348,
+      "cached_input_tokens": 57216,
+      "output_tokens": 5341,
+      "tool_calls": 5,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "2ed39369e0e676fd0c7c66edf3f9b6fad7ebf3a491d64fc359d70585f3b8a16f"
+      ],
+      "wall_ms": 137859.58
+    },
+    {
+      "call_id": 2,
+      "kind": "build",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 187169,
+      "cached_input_tokens": 157440,
+      "output_tokens": 8797,
+      "tool_calls": 10,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "199c231ac60e9fe495b3491092f95c3b16ccf5fa02962b1825ab2e7f8984c77b"
+      ],
+      "wall_ms": 195226.98
+    },
+    {
+      "call_id": 3,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 132573,
+      "cached_input_tokens": 106368,
+      "output_tokens": 8043,
+      "tool_calls": 7,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "134ed0aef6aa53ac250ceb028f211af943e5b6cba9027e82d5c00b6fb13b1aa0"
+      ],
+      "wall_ms": 192695.293
+    },
+    {
+      "call_id": 4,
+      "kind": "build",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 129707,
+      "cached_input_tokens": 112768,
+      "output_tokens": 5854,
+      "tool_calls": 8,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "10d61c9989f3117942546496a6efbbd32d6eb68be305db96e48ca5baecb295e9"
+      ],
+      "wall_ms": 133350.962
+    },
+    {
+      "call_id": 5,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 121215,
+      "cached_input_tokens": 82560,
+      "output_tokens": 7718,
+      "tool_calls": 16,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "b4eff7036568a29bf5d9dca715a605b26a130494e6e41191fcaff088457bef92"
+      ],
+      "wall_ms": 172796.518
+    },
+    {
+      "call_id": 6,
+      "kind": "build",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 318382,
+      "cached_input_tokens": 286208,
+      "output_tokens": 10435,
+      "tool_calls": 19,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "6abdb3f4dd936014fba36136570cfae2991f34753df2e688984351badfe963cf"
+      ],
+      "wall_ms": 238658.258
+    },
+    {
+      "call_id": 7,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 68551,
+      "cached_input_tokens": 51456,
+      "output_tokens": 6327,
+      "tool_calls": 5,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "1686e75c0297e32846c4e1b83c59ec22497ff3c335892aa3e833cc4dc5dffa44"
+      ],
+      "wall_ms": 136444.154
+    },
+    {
+      "call_id": 8,
+      "kind": "build",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 160283,
+      "cached_input_tokens": 125056,
+      "output_tokens": 7585,
+      "tool_calls": 9,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "f03babe53f6d52e77caed383a1f54299f8e5d4ab09144ec02bd2249ae38347c4"
+      ],
+      "wall_ms": 169489.96
+    },
+    {
+      "call_id": 9,
+      "kind": "build",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 207985,
+      "cached_input_tokens": 189440,
+      "output_tokens": 7722,
+      "tool_calls": 11,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "bd26bbaf4f313d3b0c361aeaac558e4ea9fe8d5c04d0fef1bdae69f67c7092b3"
+      ],
+      "wall_ms": 173907.978
+    },
+    {
+      "call_id": 10,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 65411,
+      "cached_input_tokens": 56832,
+      "output_tokens": 5025,
+      "tool_calls": 5,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "eadca845fe8df16f20cb3da3d18e98549ee7faf0b560a1e87a9bdca2e4a9716b"
+      ],
+      "wall_ms": 114169.095
+    },
+    {
+      "call_id": 11,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 109825,
+      "cached_input_tokens": 91264,
+      "output_tokens": 6150,
+      "tool_calls": 7,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "a8cc043f96768ca6c15e8601158001411e1279c7cb99a968ed846bdebf09a1da"
+      ],
+      "wall_ms": 152244.538
+    },
+    {
+      "call_id": 12,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 38601,
+      "cached_input_tokens": 30720,
+      "output_tokens": 1660,
+      "tool_calls": 2,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "0708729a1bbaa2f35b77bf545c9350c37f37ac51f68f90d97b9e1710312c3138"
+      ],
+      "wall_ms": 49040.701
+    },
+    {
+      "call_id": 13,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 48146,
+      "cached_input_tokens": 32512,
+      "output_tokens": 2854,
+      "tool_calls": 3,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "ffc14eba18921e090a6e8874417f4d7d56a720c5003aa78cad0bd85d3d12abb6"
+      ],
+      "wall_ms": 83214.434
+    },
+    {
+      "call_id": 14,
+      "kind": "semantic",
+      "status": "failed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": "Codex_semantic_timeout",
+      "input_tokens": null,
+      "cached_input_tokens": null,
+      "output_tokens": null,
+      "tool_calls": 2,
+      "transport_reconnections": 0,
+      "returncode": -9,
+      "reported_turns": 0,
+      "context_ids_sha256": [
+        "99947a007a4463a546bc56b1b222a65056e6aa419f972845bee92e31003363dd"
+      ],
+      "wall_ms": 120046.685
+    },
+    {
+      "call_id": 15,
+      "kind": "semantic",
+      "status": "failed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": "Codex_semantic_timeout",
+      "input_tokens": null,
+      "cached_input_tokens": null,
+      "output_tokens": null,
+      "tool_calls": 1,
+      "transport_reconnections": 0,
+      "returncode": -9,
+      "reported_turns": 0,
+      "context_ids_sha256": [
+        "83f48d2469344e2e303fe14fd029fbcbe21bf039205a8251de5c31496801ab60"
+      ],
+      "wall_ms": 120092.261
+    },
+    {
+      "call_id": 16,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 41420,
+      "cached_input_tokens": 30464,
+      "output_tokens": 3039,
+      "tool_calls": 2,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "91dee483b0b9e1f1360e270f064cc5515311c8df7304c37a774e986b334274d2"
+      ],
+      "wall_ms": 83093.678
+    },
+    {
+      "call_id": 17,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 53080,
+      "cached_input_tokens": 43136,
+      "output_tokens": 3168,
+      "tool_calls": 4,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "052a782f95e75eb23a277e524dfd6cbf2815bd52792cd064a5af7c6f3f7f6646"
+      ],
+      "wall_ms": 83760.107
+    },
+    {
+      "call_id": 18,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 31189,
+      "cached_input_tokens": 25984,
+      "output_tokens": 890,
+      "tool_calls": 2,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "9cf8307473698a0a5fc155d2421d3da6a4c6819389ca4002684cb5f1586ba747"
+      ],
+      "wall_ms": 33088.222
+    },
+    {
+      "call_id": 19,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 28935,
+      "cached_input_tokens": 23680,
+      "output_tokens": 748,
+      "tool_calls": 1,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "6fe7399e3e33c5726a61503dcebf4ca58e7440f6cc11686ac4969480006636e6"
+      ],
+      "wall_ms": 27748.354
+    },
+    {
+      "call_id": 20,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 65684,
+      "cached_input_tokens": 45696,
+      "output_tokens": 2585,
+      "tool_calls": 5,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "1715d5c7982f0c5cc885ba6aa53c9aac808a885e1e2091e0744215c4f20c4414"
+      ],
+      "wall_ms": 67249.153
+    },
+    {
+      "call_id": 21,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 65899,
+      "cached_input_tokens": 57728,
+      "output_tokens": 1691,
+      "tool_calls": 5,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "d8fae39f5755781a11db33b4dce1b14d61e75ff6e16bff1beaed69f201d0f56b"
+      ],
+      "wall_ms": 50077.22
+    },
+    {
+      "call_id": 22,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 50934,
+      "cached_input_tokens": 36992,
+      "output_tokens": 930,
+      "tool_calls": 3,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "a0b4f5593fe4cff36d01629bb8974af0d0b71b6febcb90c5f6e58c1fa3494a37"
+      ],
+      "wall_ms": 39541.078
+    },
+    {
+      "call_id": 23,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 9175,
+      "cached_input_tokens": 6656,
+      "output_tokens": 21,
+      "tool_calls": 0,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "04c9d619f95d0ac05b89b1d238d84a1f9c38cf3d4cfcb99731f5788279dc7146"
+      ],
+      "wall_ms": 10662.922
+    },
+    {
+      "call_id": 24,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 9169,
+      "cached_input_tokens": 0,
+      "output_tokens": 21,
+      "tool_calls": 0,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "22af19833dea4ef92331135e93da72c4f64eb9ec900f5511da07987efc68189f"
+      ],
+      "wall_ms": 9093.115
+    },
+    {
+      "call_id": 25,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 50793,
+      "cached_input_tokens": 45056,
+      "output_tokens": 921,
+      "tool_calls": 3,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "abb65a05d773ddce4c7bf5ff4f78fa1cfbd02cc110a9e4cbcf22c4c3e279c559"
+      ],
+      "wall_ms": 33817.758
+    },
+    {
+      "call_id": 26,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 39752,
+      "cached_input_tokens": 32640,
+      "output_tokens": 872,
+      "tool_calls": 3,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "8e70caad02263ecefcbe56a01df9cfae50f05023ed82d42c2ccd668a10c470be"
+      ],
+      "wall_ms": 33734.722
+    },
+    {
+      "call_id": 27,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 9168,
+      "cached_input_tokens": 6656,
+      "output_tokens": 21,
+      "tool_calls": 0,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "75cf895ab1f5fff21de30dafc187ed925f0402babc48c7640ebcc5b5190b4505"
+      ],
+      "wall_ms": 8957.145
+    },
+    {
+      "call_id": 28,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 9162,
+      "cached_input_tokens": 6656,
+      "output_tokens": 23,
+      "tool_calls": 0,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "a6046f03c50e80cdfcb15917a26bb39e5aad22064054a549eb79a2bad52778a0"
+      ],
+      "wall_ms": 11035.84
+    },
+    {
+      "call_id": 29,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 50926,
+      "cached_input_tokens": 45056,
+      "output_tokens": 954,
+      "tool_calls": 3,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "ea5783d0e8f9c1213969fd45bd77c75a8af8647929dab3e7ef7ea659b38e862a"
+      ],
+      "wall_ms": 35180.833
+    },
+    {
+      "call_id": 30,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 41803,
+      "cached_input_tokens": 36352,
+      "output_tokens": 937,
+      "tool_calls": 4,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "070d00250c32c864b3fa6f7a406f5520e0edd0e2b2d7691e59bb7b7bc4d399b7"
+      ],
+      "wall_ms": 31867.204
+    },
+    {
+      "call_id": 31,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 9162,
+      "cached_input_tokens": 6656,
+      "output_tokens": 21,
+      "tool_calls": 0,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "69bfbca9e80621076a00a30284c56b875e10c684b45c4952dbbbfdf15a1b505b"
+      ],
+      "wall_ms": 9741.607
+    },
+    {
+      "call_id": 32,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 9153,
+      "cached_input_tokens": 6656,
+      "output_tokens": 21,
+      "tool_calls": 0,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "090157509a2f792e64f484a18a545135034268114bb2a8d4e6357cb79cc54ddd"
+      ],
+      "wall_ms": 9131.252
+    },
+    {
+      "call_id": 33,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 42071,
+      "cached_input_tokens": 36480,
+      "output_tokens": 962,
+      "tool_calls": 4,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "546be994bb9a222ca05408e2f23eea8a07fa7d060a0415da7cdd00a8ffc825d8"
+      ],
+      "wall_ms": 35949.344
+    },
+    {
+      "call_id": 34,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 41985,
+      "cached_input_tokens": 36480,
+      "output_tokens": 909,
+      "tool_calls": 4,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "70badb65658c636289f1f8eb88cd1e5b9ebbbc548388290c9366a519c487043a"
+      ],
+      "wall_ms": 34092.224
+    },
+    {
+      "call_id": 35,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 9144,
+      "cached_input_tokens": 6656,
+      "output_tokens": 23,
+      "tool_calls": 0,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "936032893f247ae5576e352aac7ef62814a56c47e7f5808a71b3401200b7487a"
+      ],
+      "wall_ms": 9166.42
+    },
+    {
+      "call_id": 36,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 9148,
+      "cached_input_tokens": 6656,
+      "output_tokens": 21,
+      "tool_calls": 0,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "6721f08e49067e1e852bd785c56fce0a8e28458c4ac79fb365edbd0c994adb52"
+      ],
+      "wall_ms": 9833.319
+    },
+    {
+      "call_id": 37,
+      "kind": "agent",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 60150,
+      "cached_input_tokens": 49664,
+      "output_tokens": 922,
+      "tool_calls": 4,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "bb7fbdbe331c892f8494462ae33da7872eed51f502872973ee4b0b5efceec4cb"
+      ],
+      "wall_ms": 38843.435
+    }
+  ],
+  "stop_reason": null
+}

@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "stage": "exposed_historical_regression_model_review",
+    "started_at": "2026-09-20T09:10:57.636518+00:00",
+    "formal_run": "research-v3-formal-1",
+    "formal_calls": 37,
+    "remaining_formal_seconds_at_start": 1804,
+    "classification": "model_annotation_not_human_label_not_regrading",
+    "billing_cost": null,
+    "stop_reason": null,
+    "preflight": {
+      "cli_version": "codex-cli 0.153.4",
+      "authentication": "ChatGPT",
+      "isolation_checks": {
+        "workspace_write": true,
+        "repo_denied": true,
+        "sibling_denied": true,
+        "symlink_denied": true,
+        "auth_denied": true,
+        "network_denied": true
+      }
+    },
+    "ended_at": "2026-09-20T09:11:48.064896+00:00",
+    "measurements": {
+      "codex_calls": 2,
+      "tool_calls": 2,
+      "failed_calls": 0,
+      "billing_cost": null,
+      "human_rework": null,
+      "usage_complete": true,
+      "input_tokens_known": 36920,
+      "cached_input_tokens_known": 30208,
+      "output_tokens_known": 1265
+    },
+    "combined_formal_calls": 39,
+    "combined_elapsed_seconds": 3046.047
+  },
+  "records": [
+    {
+      "id": "historical-review-1",
+      "phase": "exposed_annotation",
+      "status": "completed",
+      "labels": [
+        {
+          "vendor_id": "z",
+          "verdict": "corroborated",
+          "rationale": "z-r directly confirms that this team localized medical-device instructions for a regulated launch, supporting the broad medical-localization capability claimed in z-p."
+        },
+        {
+          "vendor_id": "e",
+          "verdict": "unrelated",
+          "rationale": "e-r affirmatively describes only marketing-slogan work, a different domain, and provides no positive linkage to the regulated medical-document work claimed in e-p; its scope denial therefore does not establish a same-claim conflict."
+        }
+      ],
+      "reviewer_type": "Codex_model_review",
+      "wall_ms": 24278.708,
+      "call_ids": [
+        1
+      ],
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 1,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 18486,
+        "cached_input_tokens_known": 15104,
+        "output_tokens_known": 594
+      }
+    },
+    {
+      "id": "historical-review-2",
+      "phase": "exposed_annotation",
+      "status": "completed",
+      "labels": [
+        {
+          "vendor_id": "z",
+          "verdict": "corroborated",
+          "rationale": "z-r directly confirms that this team localized medical-device instructions for a regulated client launch, supporting the broad medical-localization capability claim in z-p; no specific profile project requires further linkage."
+        },
+        {
+          "vendor_id": "e",
+          "verdict": "unrelated",
+          "rationale": "e-r affirmatively describes only marketing-slogan work, a different domain from the regulated medical-document work claimed in e-p. It provides no positive linkage to a profile project, so its scope denial is not a same-claim conflict."
+        }
+      ],
+      "reviewer_type": "Codex_model_review",
+      "wall_ms": 26054.247,
+      "call_ids": [
+        2
+      ],
+      "measurements": {
+        "codex_calls": 1,
+        "tool_calls": 1,
+        "failed_calls": 0,
+        "billing_cost": null,
+        "human_rework": null,
+        "usage_complete": true,
+        "input_tokens_known": 18434,
+        "cached_input_tokens_known": 15104,
+        "output_tokens_known": 671
+      }
+    }
+  ],
+  "comparison": {
+    "z": {
+      "historical_frozen_verdict": "corroborated",
+      "new_rule_model_annotations": {
+        "historical-review-1": {
+          "vendor_id": "z",
+          "verdict": "corroborated",
+          "rationale": "z-r directly confirms that this team localized medical-device instructions for a regulated launch, supporting the broad medical-localization capability claimed in z-p."
+        },
+        "historical-review-2": {
+          "vendor_id": "z",
+          "verdict": "corroborated",
+          "rationale": "z-r directly confirms that this team localized medical-device instructions for a regulated client launch, supporting the broad medical-localization capability claim in z-p; no specific profile project requires further linkage."
+        }
+      }
+    },
+    "e": {
+      "historical_frozen_verdict": "unrelated",
+      "new_rule_model_annotations": {
+        "historical-review-1": {
+          "vendor_id": "e",
+          "verdict": "unrelated",
+          "rationale": "e-r affirmatively describes only marketing-slogan work, a different domain, and provides no positive linkage to the regulated medical-document work claimed in e-p; its scope denial therefore does not establish a same-claim conflict."
+        },
+        "historical-review-2": {
+          "vendor_id": "e",
+          "verdict": "unrelated",
+          "rationale": "e-r affirmatively describes only marketing-slogan work, a different domain from the regulated medical-document work claimed in e-p. It provides no positive linkage to a profile project, so its scope denial is not a same-claim conflict."
+        }
+      }
+    }
+  },
+  "not_executed_reviewers": []
+}

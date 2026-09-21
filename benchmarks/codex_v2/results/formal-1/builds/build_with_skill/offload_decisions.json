@@ -1,0 +1,17 @@
+[
+  {
+    "id": "repeat-screen",
+    "decision": "offload",
+    "reason": "The recurring screen has explicit inputs and outputs, stable policy rules, bounded semantic review, and no automatic external side effects."
+  },
+  {
+    "id": "changing-goal",
+    "decision": "keep_agent",
+    "reason": "The goals, success criteria, and tacit context change during the conversation, so the whole workflow does not yet have a stable runner boundary."
+  },
+  {
+    "id": "one-off-negotiation",
+    "decision": "keep_agent",
+    "reason": "This nonrecurring negotiation depends on live, relationship-sensitive judgment and has no specified reusable policy or acceptable outcomes."
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "arm": "build_without_skill",
+  "status": "completed",
+  "syntax_valid": true,
+  "candidate_sha256": "3d647d8fa727e3788f3f3a7014376191cabb46eeb32cde40ad9c37537e57f290",
+  "boundary_decisions": [
+    {
+      "id": "repeat-screen",
+      "decision": "offload",
+      "reason": "The recurring workflow has explicit inputs, a stable eligibility policy, bounded outputs, and clear review exits without external actions."
+    },
+    {
+      "id": "changing-goal",
+      "decision": "keep_agent",
+      "reason": "The goal and success criteria keep changing, while essential context is tacit and must be explored conversationally."
+    },
+    {
+      "id": "one-off-negotiation",
+      "decision": "keep_agent",
+      "reason": "This one-time, relationship-sensitive negotiation lacks specifiable outcomes and requires live judgment about trust and commitments."
+    }
+  ],
+  "human_rework_count": null,
+  "human_rework_minutes": null,
+  "repairs_attempted": false,
+  "cost_usd": null,
+  "candidate_frozen_at_unix": 1789886963.764533,
+  "wall_ms": 429054.218,
+  "calls": [
+    {
+      "call_id": 1,
+      "kind": "build",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 329557,
+      "cached_input_tokens": 297600,
+      "output_tokens": 21900,
+      "tool_calls": 9,
+      "returncode": 0,
+      "reported_turns": 1,
+      "wall_ms": 429045.587
+    }
+  ],
+  "boundary_correct": 3,
+  "boundary_total": 3
+}

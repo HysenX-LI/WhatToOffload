@@ -1,0 +1,354 @@
+[
+  {
+    "request_id": "sem-f01",
+    "policy": {
+      "domain": "regulated device instructions localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized the device instructions for client Ember, their 2024 cardiac-monitor launch."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For client Ember and its 2024 cardiac-monitor launch, this supplier produced only advertising taglines; it did not localize device instructions."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f02",
+    "policy": {
+      "domain": "regulated device instructions localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized the device instructions for client Ember, their 2024 cardiac-monitor launch."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For client Flint and its 2024 cardiac-monitor launch, this supplier produced only advertising taglines; it did not localize device instructions."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f03",
+    "policy": {
+      "domain": "BOTH device instructions AND patient leaflet localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "prepare_contact"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "On project Cedar we localized device instructions and the patient leaflet."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For Cedar this vendor localized the device instructions. We have no record identifying who localized the patient leaflet."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f04",
+    "policy": {
+      "domain": "device instructions localization ONLY; leaflet work is not required",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "prepare_contact"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "On project Cedar we localized device instructions and the patient leaflet."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For Cedar this vendor localized the device instructions. We have no record identifying who localized the patient leaflet."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f05",
+    "policy": {
+      "domain": "regulated labeling translation",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We translated the regulated labels for contract K9."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "Regarding the assertion \"We translated the regulated labels for contract K9\": those labels were translated by another supplier, not this vendor."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f06",
+    "policy": {
+      "domain": "regulated labeling translation",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We translated the regulated labels for contract K9."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "Regarding an engagement whose identity is withheld: those labels were translated by another supplier, not this vendor."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f07",
+    "policy": {
+      "domain": "regulated safety manual localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated safety manuals for project Haven."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For project Haven, this vendor localized the regulated safety manuals."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "sem-f08",
+    "policy": {
+      "domain": "regulated safety manual localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated safety manuals for project Haven."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For a project whose identity is unavailable, this vendor localized the regulated safety manuals."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "case_id": "r-stale",
+    "status": "needs_review",
+    "build": "b2",
+    "next_action": "review",
+    "reason": "tests_failed",
+    "action_performed": false
+  },
+  {
+    "case_id": "r-retest",
+    "status": "needs_approval",
+    "build": "b1",
+    "next_action": "request_approval",
+    "reason": "owner_approval_missing",
+    "action_performed": false
+  },
+  {
+    "case_id": "r-replay",
+    "status": "completed",
+    "build": "b1",
+    "next_action": "ready",
+    "reason": "ready",
+    "action_performed": false
+  },
+  {
+    "case_id": "r-equal",
+    "status": "needs_review",
+    "build": null,
+    "next_action": "review",
+    "reason": "ambiguous_order",
+    "action_performed": false
+  }
+]

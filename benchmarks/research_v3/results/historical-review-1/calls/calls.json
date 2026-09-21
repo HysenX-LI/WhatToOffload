@@ -1,0 +1,45 @@
+{
+  "calls": [
+    {
+      "call_id": 1,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 18486,
+      "cached_input_tokens": 15104,
+      "output_tokens": 594,
+      "tool_calls": 1,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "6d81e84b94db1d3cafa361a00139f7b5aaa549ac8ccef34cc88c3ea51a10c9cb"
+      ],
+      "wall_ms": 24277.239
+    },
+    {
+      "call_id": 2,
+      "kind": "semantic",
+      "status": "completed",
+      "cost_usd": null,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "error": null,
+      "input_tokens": 18434,
+      "cached_input_tokens": 15104,
+      "output_tokens": 671,
+      "tool_calls": 1,
+      "transport_reconnections": 0,
+      "returncode": 0,
+      "reported_turns": 1,
+      "context_ids_sha256": [
+        "0012a40bff8d48463141cbc0787f6eacf357d3b3a1336840731d54dcaeacf0bf"
+      ],
+      "wall_ms": 26051.819
+    }
+  ],
+  "stop_reason": null
+}

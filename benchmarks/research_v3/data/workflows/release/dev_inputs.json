@@ -1,0 +1,54 @@
+[
+  {
+    "case_id": "r-dev-pass",
+    "release": "R",
+    "owner": "Kim",
+    "events": [
+      {
+        "id": "a",
+        "release": "R",
+        "seq": 3,
+        "type": "approval",
+        "build": "b1",
+        "actor": "Kim"
+      },
+      {
+        "id": "c",
+        "release": "R",
+        "seq": 1,
+        "type": "candidate",
+        "build": "b1"
+      },
+      {
+        "id": "t",
+        "release": "R",
+        "seq": 2,
+        "type": "test",
+        "build": "b1",
+        "outcome": "pass"
+      }
+    ]
+  },
+  {
+    "case_id": "r-dev-fail",
+    "release": "R",
+    "owner": "Kim",
+    "events": [
+      {
+        "id": "c",
+        "release": "R",
+        "seq": 1,
+        "type": "candidate",
+        "build": "b1"
+      },
+      {
+        "id": "f",
+        "release": "R",
+        "seq": 2,
+        "type": "test",
+        "build": "b1",
+        "outcome": "fail"
+      }
+    ]
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "id": "semantic-review-1",
+    "phase": "semantic_annotation",
+    "split": "dev"
+  },
+  {
+    "id": "semantic-review-2",
+    "phase": "semantic_annotation",
+    "split": "dev"
+  },
+  {
+    "id": "stockroom/without_skill/design",
+    "phase": "design",
+    "workflow": "stockroom",
+    "arm": "without_skill"
+  },
+  {
+    "id": "stockroom/without_skill/execute",
+    "phase": "workflow_execution",
+    "workflow": "stockroom",
+    "arm": "without_skill",
+    "cases": [
+      {
+        "case_id": "s-dev-good",
+        "expected_status": "completed"
+      },
+      {
+        "case_id": "s-dev-conflict",
+        "expected_status": "needs_review"
+      }
+    ]
+  },
+  {
+    "id": "semantic/link-other/direct",
+    "phase": "semantic_execution",
+    "case_id": "link-other",
+    "arm": "direct",
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    },
+    "expected_status": "completed"
+  },
+  {
+    "id": "semantic/link-other/bounded",
+    "phase": "semantic_execution",
+    "case_id": "link-other",
+    "arm": "bounded",
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    },
+    "expected_status": "completed"
+  }
+]

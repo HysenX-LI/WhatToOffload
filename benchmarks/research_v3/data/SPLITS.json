@@ -1,0 +1,16 @@
+{
+  "version": "research-v3.1",
+  "source": "New public synthetic fixtures written from operational motifs by the implementer; no private client data. Not human independently annotated.",
+  "semantic_dev": "8 paired boundary examples; available only to development reviewers/executors",
+  "semantic_final": "8 replacement transfer cases: tuple identity, policy-required components, quoted claim identity, absent positive-project linkage. Initial un-frozen draft retired after offline stub exposure.",
+  "workflows": [
+    "stockroom",
+    "release",
+    "customer"
+  ],
+  "workflow_split": "2 visible development cases and 4 withheld final cases per workflow. Temporal, duplication, invalid-source and changed-intent boundaries, not randomized names only.",
+  "author_exposure": "Author/evaluator has seen all; independent model contexts have no labels or evaluator conversation.",
+  "old_final": "all public_v1 final exposed in v2 and now regression only",
+  "initial_final_status": "not_executed; actual exposure is append-only EXPOSURE.jsonl",
+  "exposed_draft": "semantic/exposed-draft is offline exposed regression, never an unseen final"
+}

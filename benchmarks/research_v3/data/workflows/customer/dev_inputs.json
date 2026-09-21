@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "c-dev-open",
+    "goal": null,
+    "audience": "sponsor",
+    "topic": "workshop follow-up",
+    "wants_date": false,
+    "availability_confirmed": false,
+    "wants_concession": false,
+    "concession_approved": false
+  },
+  {
+    "case_id": "c-dev-ready",
+    "goal": "repair trust",
+    "audience": "sponsor",
+    "topic": "workshop follow-up",
+    "wants_date": false,
+    "availability_confirmed": false,
+    "wants_concession": false,
+    "concession_approved": false
+  }
+]

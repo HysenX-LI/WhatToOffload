@@ -1,0 +1,34 @@
+{
+  "sem-f01": {
+    "verdict": "conflict",
+    "rationale": "Explicit alias establishes same project; direct refutation."
+  },
+  "sem-f02": {
+    "verdict": "unrelated",
+    "rationale": "Explicit separate project with affirmative other work."
+  },
+  "sem-f03": {
+    "verdict": "unclear",
+    "rationale": "Two required components; silence about second is insufficient, not denial."
+  },
+  "sem-f04": {
+    "verdict": "corroborated",
+    "rationale": "All required components positively linked."
+  },
+  "sem-f05": {
+    "verdict": "unclear",
+    "rationale": "No affirmative vendor other work and no same-claim linkage."
+  },
+  "sem-f06": {
+    "verdict": "conflict",
+    "rationale": "Explicit same launch refutes who performed the claimed work."
+  },
+  "sem-f07": {
+    "verdict": "corroborated",
+    "rationale": "Direct relevant testimony supports broad capability without needing a named profile project."
+  },
+  "sem-f08": {
+    "verdict": "unrelated",
+    "rationale": "Positive reference explicitly describes different project from named claim."
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "s-dev-good",
+    "status": "completed",
+    "on_hand": {
+      "sensor": 8
+    },
+    "available": {
+      "sensor": 6
+    },
+    "issue": "none",
+    "action_performed": false
+  },
+  {
+    "case_id": "s-dev-conflict",
+    "status": "needs_review",
+    "on_hand": {},
+    "available": {},
+    "issue": "conflict",
+    "action_performed": false
+  }
+]

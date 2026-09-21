@@ -1,0 +1,4 @@
+08:00 duplicate scanner upload was counted twice; clerk corrected manually.
+10:15 reservation was accidentally treated as a shipment.
+12:05 unknown SKU had to be checked against a missing catalog entry.
+12:15 correct arithmetic still cannot authorize an inventory write.

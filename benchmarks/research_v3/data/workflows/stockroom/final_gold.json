@@ -1,0 +1,40 @@
+[
+  {
+    "case_id": "s-replay",
+    "status": "completed",
+    "on_hand": {
+      "probe": 9,
+      "cable": 3
+    },
+    "available": {
+      "probe": 6,
+      "cable": 3
+    },
+    "issue": "none",
+    "action_performed": false
+  },
+  {
+    "case_id": "s-negative",
+    "status": "needs_review",
+    "on_hand": {},
+    "available": {},
+    "issue": "negative",
+    "action_performed": false
+  },
+  {
+    "case_id": "s-foreign",
+    "status": "needs_review",
+    "on_hand": {},
+    "available": {},
+    "issue": "invalid",
+    "action_performed": false
+  },
+  {
+    "case_id": "s-missing",
+    "status": "needs_input",
+    "on_hand": {},
+    "available": {},
+    "issue": "missing",
+    "action_performed": false
+  }
+]

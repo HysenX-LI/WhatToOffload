@@ -1,0 +1,1 @@
+Observable receipt: {case_id,status,on_hand:{SKU:integer},available:{SKU:integer},issue,action_performed:false}. Status completed/needs_input/needs_review/failed. On unresolved cases both maps are empty. This is only the external receipt format, not an implementation design.

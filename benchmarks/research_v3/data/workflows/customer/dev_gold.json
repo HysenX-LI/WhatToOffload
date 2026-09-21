@@ -1,0 +1,20 @@
+[
+  {
+    "case_id": "c-dev-open",
+    "status": "needs_input",
+    "unresolved": [
+      "goal"
+    ],
+    "draft_contains": null,
+    "commitments": [],
+    "action_performed": false
+  },
+  {
+    "case_id": "c-dev-ready",
+    "status": "needs_approval",
+    "unresolved": [],
+    "draft_contains": "workshop follow-up",
+    "commitments": [],
+    "action_performed": false
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "split": "public_v1/data/final",
+  "status": "exposed",
+  "runs": [
+    {
+      "run_id": "codex-v2-formal-1",
+      "freeze_sha256": "485cb22c9b66fd5f73ce34ed6c07d2a62e9fa72294a4d42bb191499d88f2a206",
+      "first_exposure_at": "2026-09-20T07:16:40.882002+00:00"
+    }
+  ]
+}

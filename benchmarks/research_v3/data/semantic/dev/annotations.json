@@ -1,0 +1,34 @@
+{
+  "link-other": {
+    "verdict": "unrelated",
+    "rationale": "Explicit other project, affirmative other work."
+  },
+  "link-same": {
+    "verdict": "conflict",
+    "rationale": "Same contract explicitly denies asserted scope."
+  },
+  "partial": {
+    "verdict": "unclear",
+    "rationale": "Required leaflets not established; no denial."
+  },
+  "denied": {
+    "verdict": "conflict",
+    "rationale": "Same project explicit denial overrides partial support."
+  },
+  "no-link": {
+    "verdict": "unclear",
+    "rationale": "Bare unlinked denial, no affirmative other work."
+  },
+  "other-work": {
+    "verdict": "unrelated",
+    "rationale": "Affirmative other work without same-project linkage."
+  },
+  "support": {
+    "verdict": "corroborated",
+    "rationale": "Positive linked support."
+  },
+  "vague": {
+    "verdict": "unclear",
+    "rationale": "Praise is not scope evidence."
+  }
+}

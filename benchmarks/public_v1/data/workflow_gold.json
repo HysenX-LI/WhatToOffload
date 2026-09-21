@@ -1,0 +1,5 @@
+{
+  "repeat-screen": "offload",
+  "changing-goal": "keep_agent",
+  "one-off-negotiation": "keep_agent"
+}

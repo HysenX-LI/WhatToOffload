@@ -6,7 +6,7 @@
   "properties": {
     "status": {
       "type": "string",
-      "enum": ["completed", "needs_review"]
+      "enum": ["completed", "needs_input", "needs_review", "needs_approval", "failed"]
     },
     "scenario_id": {"type": "string"},
     "decision": {"type": "string"},

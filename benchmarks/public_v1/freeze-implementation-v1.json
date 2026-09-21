@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-09-20T04:34:20.009356+00:00",
+  "stage": "implementation and prompts stable before final case authoring; no final executor run",
+  "files": {
+    "benchmarks/public_v1/runner.py": "58bec63bd1b204d30102e24f265036860b943176f990a2afd838ab4c94601e19",
+    "benchmarks/public_v1/semantic_bridge.py": "e13253fd6e782f19743f3c35c871e6dd2edb2b25b040a22c543d0a7ac3748b9f",
+    "benchmarks/public_v1/__init__.py": "719bdb340c5a91047bcdb9b624f16f902be12ef9edb5eb32547c14081ad681cd",
+    "benchmarks/public_v1/sandbox.py": "8c05c0b312f6a65f9502df062dd1ac1cb34c39039d6edd1e3cdf40c39267c6d9",
+    "benchmarks/public_v1/providers.py": "de8ef65077e996b2c204897d8964e5b0a865e47e386bfd73326cb21d005e88a9",
+    "benchmarks/public_v1/test_evaluation.py": "7412505a5f741883f5aa1453033b86f71ac835d4f2fcc6801e2157a3b35722ee",
+    "benchmarks/public_v1/test_public.py": "ad83adac9dd949abdb086abefcfac6ea50d89ff1a8d96475fb8c0eb1650e785b",
+    "benchmarks/public_v1/experiments.py": "3cd3a748744e57ed4f8bbbf07b26cd60a94281c7393f3bc47121b3a05315f8a0",
+    "benchmarks/public_v1/contracts.py": "2af1910804da7ab86df1d24e6cf067eb9b44a2ea01e6632461df350491413390",
+    "benchmarks/public_v1/evaluate.py": "ac13603384f5ec9f87d8856ea59973b07d3673c85208e40810ae3e25f9d4d90f",
+    "benchmarks/public_v1/test_experiments.py": "e6d3c129a04576e009730133bcf19180cadecf7db2f1554f19a56905938180ce",
+    "benchmarks/public_v1/helpers.py": "24854a4a15fe4c93543df83bc816a6fc0ddd7fbd49872315120f3282371ffc1f",
+    "benchmarks/public_v1/__main__.py": "628702c985467b864802428db7f913521c9699c70999ca482b2fd2ccf716ea25",
+    "benchmarks/public_v1/report.py": "0f7f5fa4dc9bdc04f34d52e68f64e0db005bba8b2f84da475ea1ddaeaf4e4093",
+    "benchmarks/public_v1/TASK.md": "6dce4b4780166c5239cb61d71d91ccf57c43f10ec1813c92322f56d6560c1610",
+    "benchmarks/public_v1/PROTOCOL.md": "992c307985828e348bb7832399500cea853aed915502800e4cea56813875afc0",
+    "benchmarks/public_v1/task_skill.md": "aaa423b5763c46106deffee139ed040ce02abcd6474865f1441b8127e4a7fb89",
+    "benchmarks/public_v1/live-config.example.json": "e0a4aab38b6ca97b34a2a7dc1c6c390ec8c53dba979f67e8bc1ded674ca3aa88",
+    "benchmarks/contracts.py": "c732193bb161453e0a96c025ad49a0dc2c63f899128aba60c260e6576902cb2f"
+  }
+}

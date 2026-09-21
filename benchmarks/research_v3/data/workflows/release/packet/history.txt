@@ -1,0 +1,4 @@
+Monday: a delayed pass for an old build hid a current build failure.
+Tuesday: approval arrived before the retest; release owner required a fresh sign-off.
+Wednesday: the assistant kept polling despite no new snapshot; caller already owns waiting.
+Thursday: old release events appeared in a new release export.

@@ -1,0 +1,220 @@
+{
+  "link-other": {
+    "rationale": "Explicit other project, affirmative other work.",
+    "result": {
+      "request_id": "link-other",
+      "status": "completed",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "completed",
+          "decision": "ineligible",
+          "reasons": [
+            "reference_unrelated"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "link-same": {
+    "rationale": "Same contract explicitly denies asserted scope.",
+    "result": {
+      "request_id": "link-same",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_conflict"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "partial": {
+    "rationale": "Required leaflets not established; no denial.",
+    "result": {
+      "request_id": "partial",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_unclear"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "denied": {
+    "rationale": "Same project explicit denial overrides partial support.",
+    "result": {
+      "request_id": "denied",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_conflict"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "no-link": {
+    "rationale": "Bare unlinked denial, no affirmative other work.",
+    "result": {
+      "request_id": "no-link",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_unclear"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "other-work": {
+    "rationale": "Affirmative other work without same-project linkage.",
+    "result": {
+      "request_id": "other-work",
+      "status": "completed",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "completed",
+          "decision": "ineligible",
+          "reasons": [
+            "reference_unrelated"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  },
+  "support": {
+    "rationale": "Positive linked support.",
+    "result": {
+      "request_id": "support",
+      "status": "needs_approval",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "completed",
+          "decision": "eligible",
+          "reasons": [
+            "policy_satisfied"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [
+        "supplier"
+      ],
+      "approval_required": true,
+      "action_performed": false
+    }
+  },
+  "vague": {
+    "rationale": "Praise is not scope evidence.",
+    "result": {
+      "request_id": "vague",
+      "status": "needs_review",
+      "summary": "Screened 1 vendor record(s); no external action performed.",
+      "rows": [
+        {
+          "id": "supplier",
+          "status": "needs_review",
+          "decision": "undetermined",
+          "reasons": [
+            "reference_unclear"
+          ],
+          "evidence_ids": [
+            "claim",
+            "price",
+            "regions",
+            "witness"
+          ]
+        }
+      ],
+      "shortlist": [],
+      "approval_required": false,
+      "action_performed": false
+    }
+  }
+}

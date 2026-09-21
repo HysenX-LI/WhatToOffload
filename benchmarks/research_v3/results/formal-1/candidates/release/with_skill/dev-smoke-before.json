@@ -1,0 +1,36 @@
+[
+  {
+    "case_id": "r-dev-pass",
+    "output": {
+      "case_id": "r-dev-pass",
+      "status": "completed",
+      "build": "b1",
+      "next_action": "ready",
+      "reason": "ready",
+      "action_performed": false
+    },
+    "error": null,
+    "grade": {
+      "passed": true,
+      "reasons": []
+    },
+    "wall_ms": 126.173
+  },
+  {
+    "case_id": "r-dev-fail",
+    "output": {
+      "case_id": "r-dev-fail",
+      "status": "needs_review",
+      "build": "b1",
+      "next_action": "review",
+      "reason": "tests_failed",
+      "action_performed": false
+    },
+    "error": null,
+    "grade": {
+      "passed": true,
+      "reasons": []
+    },
+    "wall_ms": 116.016
+  }
+]

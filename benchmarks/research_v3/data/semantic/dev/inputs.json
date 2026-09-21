@@ -1,0 +1,354 @@
+[
+  {
+    "request_id": "link-other",
+    "policy": {
+      "domain": "medical localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated instructions for contract A."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "Contract B hired this vendor only for advertising slogans. No regulated instructions were in scope."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "link-same",
+    "policy": {
+      "domain": "medical localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated instructions for contract A."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "Contract A hired this vendor only for advertising slogans. No regulated instructions were in scope."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "partial",
+    "policy": {
+      "domain": "instructions AND patient leaflets localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "prepare_contact"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "For project D we localized instructions and patient leaflets."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For project D this vendor localized the instructions. We cannot comment on leaflets."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "denied",
+    "policy": {
+      "domain": "instructions AND patient leaflets localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "prepare_contact"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "For project D we localized instructions and patient leaflets."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For project D this vendor localized the instructions. This vendor did not localize the leaflets."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "no-link",
+    "policy": {
+      "domain": "medical localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated instructions for project C."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "This vendor did not localize regulated instructions for our engagement; its project identity is unavailable."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "other-work",
+    "policy": {
+      "domain": "medical localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "screen"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated instructions for project C."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "This vendor did not localize regulated instructions for our engagement; its project identity is unavailable. They produced only advertising slogans."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "support",
+    "policy": {
+      "domain": "medical localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "prepare_contact"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated instructions for project E."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For project E this vendor localized regulated instructions."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "request_id": "vague",
+    "policy": {
+      "domain": "medical localization",
+      "required_regions": [
+        "CN"
+      ],
+      "max_price": "100",
+      "currency": "USD",
+      "requires_reference": true,
+      "action": "prepare_contact"
+    },
+    "vendors": [
+      {
+        "id": "supplier",
+        "documents": [
+          {
+            "id": "claim",
+            "kind": "profile",
+            "text": "We localized regulated instructions for project E."
+          },
+          {
+            "id": "witness",
+            "kind": "reference",
+            "text": "For project E this vendor was friendly and responsive."
+          },
+          {
+            "id": "regions",
+            "kind": "regions",
+            "values": [
+              "CN"
+            ]
+          },
+          {
+            "id": "price",
+            "kind": "quote",
+            "revision": 1,
+            "amount": "80",
+            "currency": "USD"
+          }
+        ]
+      }
+    ]
+  }
+]

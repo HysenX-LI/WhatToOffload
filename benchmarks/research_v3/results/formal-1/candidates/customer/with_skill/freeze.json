@@ -1,0 +1,41 @@
+{
+  "workflow": "customer",
+  "arm": "with_skill",
+  "construction_error": null,
+  "construction_complete": true,
+  "artifact_sha256": "744bb3b1bf83ee136b68b046866ce01436880d82c97f38e3380861765b58b5a9",
+  "frozen_at": "2026-09-20T08:51:20.331610+00:00",
+  "records": [
+    "customer/with_skill/design"
+  ],
+  "resource_reads": [
+    {
+      "call_id": 11,
+      "command": "/bin/zsh -lc \"sed -n '1,260p' skill/SKILL.md\"",
+      "output_nonempty": true
+    },
+    {
+      "call_id": 11,
+      "command": "/bin/zsh -lc 'for f in skill/references/short-lived-workflows.md skill/references/executor-selection.md skill/references/safety-and-uncertainty.md skill/assets/templates/workflow-design.md; do echo \"===== $f\"; sed -n '\"'1,360p' \\\"\"'$f\"; done'",
+      "output_nonempty": true
+    }
+  ],
+  "debug_inside_implementation_ms": null,
+  "human_rework": null,
+  "decision": {
+    "mode": "keep_agent",
+    "rationale": "This is an explicitly one-off, short-lived relationship-repair task whose value depends on changing-goal conversation and prose judgment. The exact intake and receipt rules can be enforced as an Agent checklist, while human approval contains semantic and side-effect risk; a local runner would add interface and maintenance cost without safely delivering the qualitative desk receipt unattended.",
+    "resources_read": [
+      "dev_inputs.json",
+      "packet/acceptance.md",
+      "packet/desk_rules.md",
+      "packet/meeting_notes.txt",
+      "packet/request.md",
+      "skill/SKILL.md",
+      "skill/assets/templates/workflow-design.md",
+      "skill/references/executor-selection.md",
+      "skill/references/safety-and-uncertainty.md",
+      "skill/references/short-lived-workflows.md"
+    ]
+  }
+}

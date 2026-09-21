@@ -1,0 +1,20 @@
+{
+  "call_id": 1,
+  "kind": "agent",
+  "status": "completed",
+  "cost_usd": null,
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "error": null,
+  "input_tokens": 66348,
+  "cached_input_tokens": 57216,
+  "output_tokens": 5341,
+  "tool_calls": 5,
+  "transport_reconnections": 0,
+  "returncode": 0,
+  "reported_turns": 1,
+  "context_ids_sha256": [
+    "2ed39369e0e676fd0c7c66edf3f9b6fad7ebf3a491d64fc359d70585f3b8a16f"
+  ],
+  "wall_ms": 137859.58
+}

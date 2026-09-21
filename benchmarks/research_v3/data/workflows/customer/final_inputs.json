@@ -1,0 +1,42 @@
+[
+  {
+    "case_id": "c-shift",
+    "goal": null,
+    "audience": null,
+    "topic": "facilitator feedback",
+    "wants_date": false,
+    "availability_confirmed": false,
+    "wants_concession": false,
+    "concession_approved": false
+  },
+  {
+    "case_id": "c-date",
+    "goal": "repair trust",
+    "audience": "sponsor",
+    "topic": "replacement session",
+    "wants_date": true,
+    "availability_confirmed": false,
+    "wants_concession": false,
+    "concession_approved": false
+  },
+  {
+    "case_id": "c-fee",
+    "goal": "repair trust",
+    "audience": "sponsor",
+    "topic": "fee discussion",
+    "wants_date": false,
+    "availability_confirmed": false,
+    "wants_concession": true,
+    "concession_approved": false
+  },
+  {
+    "case_id": "c-approved",
+    "goal": "repair trust",
+    "audience": "sponsor",
+    "topic": "approved workshop options",
+    "wants_date": true,
+    "availability_confirmed": true,
+    "wants_concession": true,
+    "concession_approved": true
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "version": "supplier-screening-v1",
+  "created_on": "2026-09-20",
+  "source": "new manually authored synthetic materials; no private long-benchmark content",
+  "author_independence": "same author as implementation; not independently blinded",
+  "development": {
+    "cases": 10,
+    "vendor_records": 11,
+    "usage": "implementation and offline rehearsal"
+  },
+  "final": {
+    "cases": 8,
+    "vendor_records": 12,
+    "usage": "prospective holdout; no executor run at delivery",
+    "created_after": "freeze-implementation-v1.json",
+    "coverage": {
+      "final-revision-and-ranking": [
+        "normal",
+        "revision_precedence",
+        "ranking_tie"
+      ],
+      "final-missing-precedence": [
+        "missing_materials",
+        "precedence",
+        "partial_result"
+      ],
+      "final-disputed-scope": [
+        "conflict",
+        "semantic_boundary"
+      ],
+      "final-duplicate-identities": [
+        "duplicates",
+        "conflicting_identity",
+        "noise"
+      ],
+      "final-policy-change": [
+        "rule_change",
+        "equality"
+      ],
+      "final-unclear-with-noise": [
+        "review",
+        "noise",
+        "untrusted_instructions"
+      ],
+      "final-contact-partial-eligibility": [
+        "approval",
+        "negative_semantic_case"
+      ],
+      "final-empty-pack": [
+        "missing_materials",
+        "empty_batch"
+      ]
+    }
+  },
+  "calibration": null,
+  "calibration_reason": "no tuned confidence threshold; discrete evidence verdicts",
+  "boundary_probes": {
+    "count": 3,
+    "expected_keep_agent": 2,
+    "role": "construction-arm output assessment; labels never provided to builders"
+  },
+  "retirement_rule": "If final outcomes inform any implementation/prompt/threshold/grader fix, move this entire final split to development and author a new final version; never refresh a used freeze.",
+  "pre_formal_amendment": "Code review before any final executor run tightened summaries to an exact factual receipt, blocking contradictory approval prose; only receipt strings changed in gold, not decision labels. freeze-v1.json is the authoritative formal freeze; the earlier implementation snapshot records pre-authoring history."
+}

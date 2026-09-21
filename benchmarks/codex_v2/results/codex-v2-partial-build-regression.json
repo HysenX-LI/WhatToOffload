@@ -1,0 +1,98 @@
+{
+  "mode": "simulation",
+  "build_status": "transport_interrupted_not_a_completed_build",
+  "candidate_sha256": "4e7f9fd21aba7689a9712dd0562df14f36f03b038438d3230fbed25fe4406d2f",
+  "model_calls": 0,
+  "records": [
+    {
+      "case": "dev-equality",
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 1,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "dev-equality",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "eligible",
+            "reasons": [
+              "policy_satisfied"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q",
+              "a-r"
+            ]
+          }
+        ],
+        "shortlist": [
+          "a"
+        ],
+        "approval_required": false,
+        "action_performed": false
+      }
+    },
+    {
+      "case": "dev-price",
+      "grade": {
+        "passed": true,
+        "reasons": [],
+        "expected_rows": 1,
+        "correct_rows": 1,
+        "omitted_rows": 0,
+        "predicted_eligible": 0,
+        "wrong_releases": 0,
+        "review_rows": 0,
+        "gold_review_rows": 0,
+        "correct_review_rows": 0,
+        "citations": 4,
+        "correct_citations": 4,
+        "actual_completion": true,
+        "correct_input_handoff": false,
+        "correct_approval_handoff": false
+      },
+      "output": {
+        "request_id": "dev-price",
+        "status": "completed",
+        "summary": "Screened 1 vendor record(s); no external action performed.",
+        "rows": [
+          {
+            "id": "a",
+            "status": "completed",
+            "decision": "ineligible",
+            "reasons": [
+              "over_budget"
+            ],
+            "evidence_ids": [
+              "a-g",
+              "a-p",
+              "a-q",
+              "a-r"
+            ]
+          }
+        ],
+        "shortlist": [],
+        "approval_required": false,
+        "action_performed": false
+      }
+    }
+  ]
+}

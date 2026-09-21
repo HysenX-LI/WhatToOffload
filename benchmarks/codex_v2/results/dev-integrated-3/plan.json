@@ -1,0 +1,262 @@
+[
+  {
+    "attempt_id": "agent_direct:dev-equality:1",
+    "arm": "agent_direct",
+    "case_id": "dev-equality",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:dev-equality:1",
+    "arm": "build_with_skill",
+    "case_id": "dev-equality",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:dev-price:1",
+    "arm": "prepared_runner",
+    "case_id": "dev-price",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_direct:dev-price:1",
+    "arm": "agent_direct",
+    "case_id": "dev-price",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:dev-price:1",
+    "arm": "build_without_skill",
+    "case_id": "dev-price",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_without_skill:dev-equality:1",
+    "arm": "build_without_skill",
+    "case_id": "dev-equality",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:dev-price:1",
+    "arm": "agent_task_skill",
+    "case_id": "dev-price",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "agent_task_skill:dev-equality:1",
+    "arm": "agent_task_skill",
+    "case_id": "dev-equality",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "prepared_runner:dev-equality:1",
+    "arm": "prepared_runner",
+    "case_id": "dev-equality",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  },
+  {
+    "attempt_id": "build_with_skill:dev-price:1",
+    "arm": "build_with_skill",
+    "case_id": "dev-price",
+    "repetition": 1,
+    "failure_grade": {
+      "passed": false,
+      "reasons": [
+        "output must be an object",
+        "vendor coverage mismatch"
+      ],
+      "expected_rows": 1,
+      "correct_rows": 0,
+      "omitted_rows": 1,
+      "predicted_eligible": 0,
+      "wrong_releases": 0,
+      "review_rows": 0,
+      "gold_review_rows": 0,
+      "correct_review_rows": 0,
+      "citations": 0,
+      "correct_citations": 0,
+      "actual_completion": false,
+      "correct_input_handoff": false,
+      "correct_approval_handoff": false
+    }
+  }
+]

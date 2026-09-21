@@ -1,0 +1,14 @@
+[
+  {
+    "id": "repeat-screen",
+    "description": "Every morning process supplier packs against the same versioned eligibility policy. Inputs and output tables are explicit, volume is recurring, uncertain records can exit to review, and no messages or purchases are sent. Decide whether to design a bounded runner."
+  },
+  {
+    "id": "changing-goal",
+    "description": "In an ongoing conversation a founder is deciding whether to launch a product, change the market or abandon the idea. Goals and success criteria change after every answer and most relevant context is tacit. Decide whether this whole conversation should now be implemented as a repeatable runner."
+  },
+  {
+    "id": "one-off-negotiation",
+    "description": "A one-time relationship-sensitive supplier negotiation needs live trade-offs about trust, taste and commitments. The owner cannot yet specify acceptable outcomes, examples or reusable policy, and expects no recurrence. Decide whether the whole negotiation should be offloaded into a new runner."
+  }
+]

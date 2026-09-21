@@ -1,0 +1,67 @@
+[
+  {
+    "case_id": "s-replay",
+    "opening": {
+      "probe": 7,
+      "cable": 4
+    },
+    "events": [
+      {
+        "id": "u",
+        "type": "receipt",
+        "sku": "probe",
+        "quantity": 2
+      },
+      {
+        "id": "u",
+        "type": "receipt",
+        "sku": "probe",
+        "quantity": 2
+      },
+      {
+        "id": "v",
+        "type": "ship",
+        "sku": "cable",
+        "quantity": 1
+      },
+      {
+        "id": "w",
+        "type": "reserve",
+        "sku": "probe",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "case_id": "s-negative",
+    "opening": {
+      "probe": 2
+    },
+    "events": [
+      {
+        "id": "x",
+        "type": "reserve",
+        "sku": "probe",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "case_id": "s-foreign",
+    "opening": {
+      "probe": 2
+    },
+    "events": [
+      {
+        "id": "x",
+        "type": "receipt",
+        "sku": "adapter",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "case_id": "s-missing",
+    "events": []
+  }
+]

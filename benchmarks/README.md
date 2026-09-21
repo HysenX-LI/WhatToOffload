@@ -1,6 +1,24 @@
-# Three-arm long-task benchmark
+> Active public experiment: [Codex v2](codex_v2/README.md), using existing ChatGPT login only.
+> [Current results and final-set status](codex_v2/RESULTS.md). The public_v1 API/$60 proposal below is historical, unexecuted and not authorized for this run.
 
-The primary comparison is now the same longer local task completed through three independently measured paths:
+# Public reproducible benchmark v1
+
+Start with [public_v1/README.md](public_v1/README.md) for the runnable public supplier
+case, independent answer tables, development/final splits, offline checks, isolated
+execution/construction comparisons and generated reports. Its archived result is **offline software validation only**. For current Codex experiments and final-set exposure, use the v2 results linked above.
+
+The historical microbenchmark harness now rejects missing/ill-typed fields,
+invented citations and noncanonical approval actions. Summary generation cannot
+replace protected fields, and expected non-completed outcomes can be correct.
+Its v2 acceptance contract is stricter than the archived contract. Archived
+measurements have not been rewritten or relabeled; future `--write-results` writes
+to a fresh `.local/microbenchmark-v2-*` directory (or a new `--output-dir`).
+Historical graphs are generated dynamically on new runs. These repairs concern
+the shipped microbenchmark only, not the unavailable private long-task runner.
+
+# Three-arm long-task benchmark (historical evidence)
+
+The archived long-task comparison used the same local task through three independently measured paths:
 
 | Arm | How the task runs | What is included |
 | --- | --- | --- |
@@ -97,3 +115,9 @@ The report records a dated snapshot and source URLs for:
 - [DeepSeek API pricing](https://api-docs.deepseek.com/quick_start/pricing/)
 
 Re-run or update the snapshot before using these figures for a budget decision. Provider prices, aliases, and alpha endpoints can change.
+
+## Prospective v3 research
+
+See [research_v3](research_v3/README.md) for the separate semantic-boundary and raw-workflow design studies, with blind model review, prospective freezes and architecture-neutral external acceptance. Historical artifacts remain unchanged.
+
+The [completed v3 evidence](research_v3/RESULTS.md) separates prepared-execution savings from the limited raw-design observations, preserves reviewer timeouts and the failed customer receipt, and leaves the v2 no-observed-build-gain finding intact.

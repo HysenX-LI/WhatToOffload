@@ -1,0 +1,98 @@
+{
+  "dev-1": {
+    "measurements": {
+      "codex_calls": 4,
+      "tool_calls": 21,
+      "failed_calls": 1,
+      "billing_cost": null,
+      "human_rework": null,
+      "usage_complete": false,
+      "input_tokens_known": 112795,
+      "cached_input_tokens_known": 68608,
+      "output_tokens_known": 6120
+    },
+    "nonzero_tool_exits": [],
+    "note": "Nonzero tool exits include expected development red tests and failed exploratory commands; they are not all failed model invocations."
+  },
+  "dev-2": {
+    "measurements": {
+      "codex_calls": 4,
+      "tool_calls": 22,
+      "failed_calls": 0,
+      "billing_cost": null,
+      "human_rework": null,
+      "usage_complete": true,
+      "input_tokens_known": 396658,
+      "cached_input_tokens_known": 313728,
+      "output_tokens_known": 14966
+    },
+    "nonzero_tool_exits": [
+      {
+        "file": "call-002.events.jsonl",
+        "item_id": "item_8",
+        "exit_code": 1
+      }
+    ],
+    "note": "Nonzero tool exits include expected development red tests and failed exploratory commands; they are not all failed model invocations."
+  },
+  "formal-1": {
+    "measurements": {
+      "codex_calls": 37,
+      "tool_calls": 157,
+      "failed_calls": 2,
+      "billing_cost": null,
+      "human_rework": null,
+      "usage_complete": false,
+      "input_tokens_known": 2392098,
+      "cached_input_tokens_known": 1971840,
+      "output_tokens_known": 103211
+    },
+    "nonzero_tool_exits": [
+      {
+        "file": "call-008.events.jsonl",
+        "item_id": "item_8",
+        "exit_code": 1
+      }
+    ],
+    "note": "Nonzero tool exits include expected development red tests and failed exploratory commands; they are not all failed model invocations."
+  },
+  "historical-review-1": {
+    "measurements": {
+      "codex_calls": 2,
+      "tool_calls": 2,
+      "failed_calls": 0,
+      "billing_cost": null,
+      "human_rework": null,
+      "usage_complete": true,
+      "input_tokens_known": 36920,
+      "cached_input_tokens_known": 30208,
+      "output_tokens_known": 1265
+    },
+    "nonzero_tool_exits": [],
+    "note": "Nonzero tool exits include expected development red tests and failed exploratory commands; they are not all failed model invocations."
+  },
+  "all": {
+    "measurements": {
+      "codex_calls": 47,
+      "tool_calls": 202,
+      "failed_calls": 3,
+      "billing_cost": null,
+      "human_rework": null,
+      "usage_complete": false,
+      "input_tokens_known": 2938471,
+      "cached_input_tokens_known": 2384384,
+      "output_tokens_known": 125562
+    },
+    "context_ids_observed": 47,
+    "distinct_context_ids": 47,
+    "registered_caps": {
+      "development_calls": 8,
+      "formal_including_supplement_calls": 48,
+      "development_seconds": 1200,
+      "formal_including_supplement_seconds": 4800
+    },
+    "formal_plus_supplement_calls": 39,
+    "formal_plus_supplement_elapsed_seconds": 3046.047,
+    "development_elapsed_seconds": 841.025159
+  }
+}

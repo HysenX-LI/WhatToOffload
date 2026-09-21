@@ -1,0 +1,27 @@
+{
+  "workflow": "stockroom",
+  "arm": "without_skill",
+  "construction_error": null,
+  "construction_complete": true,
+  "artifact_sha256": "f37dfc0b67124c3e5b06f188df75409442d3073444c9faa0eb9be50d58c0bdba",
+  "frozen_at": "2026-09-20T08:26:35.449136+00:00",
+  "records": [
+    "stockroom/without_skill/design",
+    "stockroom/without_skill/implementation"
+  ],
+  "resource_reads": [],
+  "debug_inside_implementation_ms": null,
+  "human_rework": null,
+  "decision": {
+    "mode": "implemented",
+    "rationale": "The reconciliation is frequent, deterministic, fully specified, read-only, and safely handled by a small unattended standard-library Python tool; the existing helper is insufficient, while retaining an agent would preserve unnecessary supervision.",
+    "resources_read": [
+      "packet/acceptance.md",
+      "packet/desk_log.txt",
+      "packet/old_totals.py",
+      "packet/request.md",
+      "packet/sop.md",
+      "dev_inputs.json"
+    ]
+  }
+}

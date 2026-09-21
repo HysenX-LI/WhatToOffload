@@ -1,0 +1,33 @@
+{
+  "source": "Synthetic implementer-authored minimal contrasts; names neutralized before any final model exposure.",
+  "pairs": [
+    {
+      "cases": [
+        "sem-f01",
+        "sem-f02"
+      ],
+      "contrast": "explicit same-project alias vs explicit separate project"
+    },
+    {
+      "cases": [
+        "sem-f03",
+        "sem-f04"
+      ],
+      "contrast": "required component author unknown vs confirmed"
+    },
+    {
+      "cases": [
+        "sem-f05",
+        "sem-f06"
+      ],
+      "contrast": "same claim linkage absent vs established"
+    },
+    {
+      "cases": [
+        "sem-f07",
+        "sem-f08"
+      ],
+      "contrast": "broad capability vs explicitly different named project"
+    }
+  ]
+}

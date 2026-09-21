@@ -1,0 +1,45 @@
+{
+  "workflow": "stockroom",
+  "arm": "with_skill",
+  "construction_error": null,
+  "construction_complete": true,
+  "artifact_sha256": "1c459b2d264f4d32f795d162f44c5363ef99c1a3044fe9ff1a6c501ce401ea4b",
+  "frozen_at": "2026-09-20T08:32:01.740246+00:00",
+  "records": [
+    "stockroom/with_skill/design",
+    "stockroom/with_skill/implementation"
+  ],
+  "resource_reads": [
+    {
+      "call_id": 3,
+      "command": "/bin/zsh -lc \"python3 - <<'PY'\nfrom pathlib import Path\nfor name in ['skill/SKILL.md','dev_inputs.json','packet/acceptance.md','packet/desk_log.txt','packet/old_totals.py','packet/request.md','packet/sop.md']:\n    p=Path(name)\n    print(f'===== {name} ({p.stat().st_size} bytes) =====')\n    print(p.read_text())\nPY\"",
+      "output_nonempty": true
+    },
+    {
+      "call_id": 3,
+      "command": "/bin/zsh -lc \"python3 - <<'PY'\nfrom pathlib import Path\nfiles = [\n 'skill/references/short-lived-workflows.md',\n 'skill/assets/templates/workflow-design.md',\n 'skill/references/executor-selection.md',\n 'skill/references/safety-and-uncertainty.md',\n 'skill/references/test-driven-workflows.md',\n 'skill/assets/templates/result-envelope.json',\n]\nfor name in files:\n    p=Path(name)\n    print(f'===== {name} ({p.stat().st_size} bytes) =====')\n    print(p.read_text())\nPY\"",
+      "output_nonempty": true
+    }
+  ],
+  "debug_inside_implementation_ms": null,
+  "human_rework": null,
+  "decision": {
+    "mode": "implemented",
+    "rationale": "The batch is a short-lived, deterministic transformation with explicit validation, de-duplication, arithmetic, exception, and no-write rules, so unattended standard-library Python can deliver the desk receipt without an agent, model, network, or durable runtime; this design-only phase specifies that implementation but does not add production code.",
+    "resources_read": [
+      "dev_inputs.json",
+      "packet/acceptance.md",
+      "packet/desk_log.txt",
+      "packet/old_totals.py",
+      "packet/request.md",
+      "packet/sop.md",
+      "skill/SKILL.md",
+      "skill/references/short-lived-workflows.md",
+      "skill/assets/templates/workflow-design.md",
+      "skill/references/executor-selection.md",
+      "skill/references/safety-and-uncertainty.md",
+      "skill/references/test-driven-workflows.md",
+      "skill/assets/templates/result-envelope.json"
+    ]
+  }
+}

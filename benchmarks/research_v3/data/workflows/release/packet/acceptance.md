@@ -1,0 +1,1 @@
+Observable receipt: {case_id,status,build:string|null,next_action,reason,action_performed:false}. Input has release, owner and events. Each event has id,release,seq,type and where relevant build, outcome, actor. This is the external desk receipt, not an internal architecture.
