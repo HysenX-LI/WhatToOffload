@@ -16,7 +16,7 @@ Move stable, contractible work out of repeated agent supervision while keeping o
 
 Analysis or optimization is not permission to edit code, install the skill, publish data, make live calls, deploy, or perform side effects.
 
-Keep a lightweight handoff across modes: stable candidate/design IDs, analysis/design versions, input or case-set version, frozen quality boundary, explicitly accepted trade-offs, and exact authorization scope. Use the supplied templates rather than inventing a state-management system.
+Keep a lightweight handoff across modes: stable candidate/design IDs, analysis/design versions, input or case-set version, frozen quality boundary, explicitly accepted trade-offs, and exact authorization scope. Use the supplied templates rather than inventing a state-management system. Before implementation, project the accepted design into a validated implementation capsule; do not make the builder reconstruct those decisions from the analysis narrative.
 
 ## Load resources progressively
 
@@ -29,6 +29,7 @@ Start with this file and the available evidence. Do not preload every reference,
 - Read [safety and uncertainty](references/safety-and-uncertainty.md) for model judgment, credentials, external calls, or side effects.
 - Read [workflow observability](references/workflow-observability.md) for multi-stage retrieval, semantic decisions, fallback, or measured quality that needs causal diagnosis.
 - Read [test-driven workflows](references/test-driven-workflows.md) only when detailed design or implementation makes executable behavior relevant.
+- Read [the capsule-driven builder protocol](references/builder-protocol.md) only when implementation has been authorized and the design is ready to freeze.
 - Read at most the closest example after the domain and workflow class are known.
 
 Treat files under `assets/` as output resources, not background instructions.
@@ -73,7 +74,15 @@ Before specifying Jev questions or code, read the available `typesafe-ai` skill 
 
 ## Implement within authorization
 
-Preserve the target stack and begin from the approved design handoff. Follow [test-driven workflows](references/test-driven-workflows.md): first observe a meaningful test fail, then implement the smallest slice and keep provider calls mocked by default. Use the target project's interface conventions; for a standalone runner, prefer an importable function plus JSON CLI.
+Preserve the target stack and begin from the approved design handoff. Before editing code, follow [the capsule-driven builder protocol](references/builder-protocol.md): emit an implementation capsule conforming to `assets/schemas/implementation-capsule.schema.json`, keep `unresolved` empty, and validate it with `scripts/validate_implementation_capsule.py`. The capsule contains only frozen implementation decisions, target paths, public contracts, exact acceptance cases, construction budgets, and stop conditions; keep alternatives and explanatory analysis in the human-readable design.
+
+For a standalone bounded Python runner, `scripts/materialize_bounded_runner.py` can place the versioned scaffold and generated contract tests in a new empty directory. For an existing project, preserve its interface and test conventions rather than forcing that scaffold. In both cases, keep stable parsing, envelopes, CLI behavior, or arithmetic in supplied immutable helpers when available instead of regenerating them in the domain implementation.
+
+When an isolated builder is available and authorized, give it only the validated capsule, generated manifest and tests, declared context paths, target files, and the builder protocol. Do not inject this full Skill, candidate analysis, rejected alternatives, or unrelated repository context into the builder. If implementation stays in the current agent, treat the capsule as frozen and do not reopen workflow selection unless a declared stop condition is reached.
+
+Follow [test-driven workflows](references/test-driven-workflows.md): generated contract tests are the initial executable boundary, first observe a meaningful failure, then implement the smallest slice and keep provider calls mocked by default. Independent or frozen cases remain necessary for consequential semantics and transfer claims. A builder must not author the only tests that define its own interpretation of an ambiguous contract.
+
+Use a harness-owned manifest outside the builder directory and run `scripts/verify_implementation_build.py <runner-root> --manifest <harness-manifest> --run-tests` for a materialized standalone runner. Enforce wall-time, tool-call, test-command, and input-token budgets outside the builder when the harness can measure them; bookkeeping should not consume the construction budget. A capsule conflict, unavailable declared dependency, ambiguous acceptance case, authorization mismatch, or exhausted budget returns `needs_reanalysis` rather than inviting the builder to redesign the workflow.
 
 A precise authorization for a live external or paid call in the current task remains valid for that same service, data, cost, target, effect, and scope. Confirm again only when one of those changes materially. General implementation authorization never implies a live call or side effect. Never place credentials, raw identities, or provider payloads in portable logs or returned state.
 

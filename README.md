@@ -68,6 +68,14 @@ Validate quality before comparing cost and latency, and document the cases
 that still return to the agent or require human review.
 ```
 
+Before coding, WhatToOffload compiles the accepted design into a compact implementation capsule: frozen node decisions, exact public contracts, authorized paths, executable acceptance cases, construction budgets, and stop conditions. A lightweight builder receives that capsule and only the declared project context instead of rereading the full analysis and Skill. Standalone Python runners can reuse the supplied scaffold, generated contract tests, and immutable helpers.
+
+```bash
+python3 scripts/validate_implementation_capsule.py implementation-capsule.json
+python3 scripts/materialize_bounded_runner.py implementation-capsule.json ./runner --manifest-out ./runner-manifest.lock.json
+python3 scripts/verify_implementation_build.py ./runner --manifest ./runner-manifest.lock.json --run-tests
+```
+
 A precise current-task authorization for a live API or paid-model call remains valid for the same service, data, cost, target, effect, and scope. Confirm again when one changes materially. Deployment and external side effects remain within their exact authorization boundary.
 
 ## What it produces
@@ -78,7 +86,7 @@ WhatToOffload separates analysis, design, and implementation so a recommendation
 | --- | --- | --- |
 | **Analyze** | Up to three leading candidates, prerequisites, benefits, capability loss, risks, and validation plans | No |
 | **Design** | Node-by-node workflow, executor choices, contracts, recovery paths, handoffs, and acceptance tests | No |
-| **Implement** | Tested runner or project integration using the existing stack | Yes, only when explicitly requested |
+| **Implement** | Validated implementation capsule plus a tested runner or project integration using the existing stack | Yes, only when explicitly requested |
 
 Candidates may be **short-lived**—finishing in one invocation—or **durable asynchronous**, where state must survive restarts or wait for an event, timer, retry, review, or approval.
 
@@ -94,6 +102,8 @@ For each atomic step, the Skill records both a capability role and a concrete im
 | Replan around changing goals or negotiate with the user | Current agent or human | Does the work still require open-ended exploration or accountability? |
 
 The result is not a mandatory code → Jev → LLM cascade. Each step goes to the simplest executor that can meet its quality, safety, and testability requirements. Code owns deterministic control flow and side effects; uncertain or unsupported cases follow explicit recovery and handoff paths.
+
+Once the design is frozen, implementation uses a separate capsule-driven boundary. The design remains the human review record; the capsule is the compact, machine-validated projection used by the builder. Generated tests define the accepted observable contract, while independent cases remain necessary for consequential semantics and transfer claims. [Read the builder protocol](references/builder-protocol.md).
 
 For broad information retrieval, code and search tools own source discovery, source-type priorities, normalization, deduplication, retrieval order, and explicit budgets. Jev is reserved for narrow semantic ambiguity after deterministic filtering; WhatToOffload does not recommend sending every candidate or page-expansion decision to Jev. A broad Jev-routing policy remains experimental until it improves complete-task quality and cost on separately frozen transfer cases. Exhausting a retrieval budget leaves the result unresolved rather than turning it into a verified no-match.
 
@@ -167,10 +177,12 @@ This measures repeated execution after the program was prepared; one-time constr
 | --- | --- |
 | [SKILL.md](SKILL.md) | Agent instructions and operating modes |
 | [LICENSE](LICENSE) | MIT license |
-| [`references/`](references/) | Executor selection, workflow observability, workflow classes, safety, uncertainty, and test-driven implementation |
-| [`assets/templates/`](assets/templates/) | Candidate/design handoffs plus example audit, gap, result-envelope, and durable-snapshot artifacts |
-| [`assets/schemas/`](assets/schemas/) | Formal audit-event, frozen-field-reference, and gap-attribution JSON Schemas |
-| [`scripts/`](scripts/) | Standard-library audit validation and deterministic field-level gap attribution |
+| [`references/`](references/) | Executor selection, workflow observability, workflow classes, safety, test-driven implementation, and the capsule builder protocol |
+| [`assets/templates/`](assets/templates/) | Candidate/design handoffs plus implementation-capsule, audit, gap, result-envelope, and durable-snapshot artifacts |
+| [`assets/schemas/`](assets/schemas/) | Formal implementation-capsule, audit-event, frozen-field-reference, and gap-attribution JSON Schemas |
+| [`assets/scaffolds/`](assets/scaffolds/) | Versioned standalone-runner boilerplate used by the capsule materializer |
+| [`assets/components/`](assets/components/) | Optional immutable implementation helpers selected by a capsule |
+| [`scripts/`](scripts/) | Capsule validation/materialization/build verification, audit validation, and deterministic gap attribution |
 | [`examples/`](examples/) | Worked short-lived and durable workflow analyses |
 | [`benchmarks/`](benchmarks/) | Benchmark method, fixtures, tests, reports, and published aggregate results |
 

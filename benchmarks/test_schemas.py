@@ -12,7 +12,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class SchemaFilesTests(unittest.TestCase):
     def test_formal_schemas_are_valid_json_and_identify_drafts(self):
-        names = ("workflow-audit-event.schema.json", "gap-attribution.schema.json", "frozen-field-reference.schema.json")
+        names = (
+            "workflow-audit-event.schema.json",
+            "gap-attribution.schema.json",
+            "frozen-field-reference.schema.json",
+            "implementation-capsule.schema.json",
+        )
         for name in names:
             with self.subTest(name=name):
                 value = json.loads((ROOT / "assets" / "schemas" / name).read_text(encoding="utf-8"))

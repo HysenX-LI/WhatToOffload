@@ -1,0 +1,82 @@
+{
+  "capsule_version": 1,
+  "capsule_id": "invoice-screening-v1",
+  "source": {
+    "design_id": "invoice-screening-design",
+    "design_version": "1",
+    "input_version": "case-set-1",
+    "quality_boundary": "Every accepted case matches the frozen result envelope exactly.",
+    "accepted_tradeoffs": [],
+    "authorization_scope": ["create a local standalone runner", "run offline tests"],
+    "references": []
+  },
+  "target": {
+    "mode": "standalone_python_runner",
+    "stack": "python_stdlib",
+    "package": "workflow_runner",
+    "scaffold_id": "python-bounded-runner-v1",
+    "components": [],
+    "context_paths": [],
+    "allowed_changes": ["workflow_runner/core.py"],
+    "immutable_paths": [
+      "workflow_runner/__init__.py",
+      "workflow_runner/__main__.py",
+      "workflow_runner/cli.py",
+      "workflow_runner/envelope.py",
+      "tests/test_generated_contract.py"
+    ],
+    "dependencies": []
+  },
+  "decisions": {
+    "workflow_class": "short_lived_bounded",
+    "nodes": [
+      {
+        "id": "validate-and-compose",
+        "capability_role": "code",
+        "implementation": "workflow_runner.core.run",
+        "input_contract": {"type": "object"},
+        "output_contract": {"type": "object"}
+      }
+    ]
+  },
+  "public_contract": {
+    "entrypoint": "workflow_runner:run",
+    "input_schema": {"type": "object"},
+    "output_schema": {"type": "object"},
+    "statuses": ["completed", "needs_input", "failed"],
+    "configuration_names": []
+  },
+  "change_plan": [
+    {
+      "path": "workflow_runner/core.py",
+      "action": "modify",
+      "responsibility": "Implement the frozen domain contract without changing the scaffold."
+    }
+  ],
+  "acceptance": {
+    "cases": [
+      {
+        "name": "example completed result",
+        "input": {"value": "example"},
+        "expected": {
+          "status": "completed",
+          "summary": "Processed input.",
+          "result": {"value": "example"},
+          "required_action": null,
+          "diagnostics": null,
+          "resume": null
+        }
+      }
+    ],
+    "commands": [["python3", "-m", "unittest", "discover", "-s", "tests", "-v"]],
+    "final_command_index": 0
+  },
+  "build_budget": {
+    "wall_seconds": 180,
+    "max_tool_calls": 8,
+    "max_test_commands": 2,
+    "max_input_tokens": 80000
+  },
+  "stop_conditions": ["capsule_conflicts_with_target", "budget_exhausted", "acceptance_contract_is_ambiguous"],
+  "unresolved": []
+}

@@ -69,6 +69,14 @@ Codex 通常会自动发现新安装的 Skill；如果没有出现，请重启 C
 仍需交回 Agent 或人工审核。
 ```
 
+编码前，WhatToOffload 会把已确认设计编译成紧凑的实施规格（implementation capsule）：冻结的节点决定、精确公共契约、授权文件范围、可执行验收案例、构建预算和停止条件。轻量 Builder 只接收 capsule 和明确列出的项目上下文，不重新读取完整分析与 Skill。独立 Python runner 还可以复用版本化脚手架、生成式契约测试和不可修改 helper。
+
+```bash
+python3 scripts/validate_implementation_capsule.py implementation-capsule.json
+python3 scripts/materialize_bounded_runner.py implementation-capsule.json ./runner --manifest-out ./runner-manifest.lock.json
+python3 scripts/verify_implementation_build.py ./runner --manifest ./runner-manifest.lock.json --run-tests
+```
+
 当前任务中对真实 API 或付费模型调用的精确授权，可在服务、数据、费用、目标、副作用和范围不变时继续复用；其中任一项发生实质变化时才重新确认。部署和外部副作用仍必须保持在对应的精确授权边界内。
 
 ## 会得到什么
@@ -79,7 +87,7 @@ WhatToOffload 把分析、设计和实施分开，避免一个优化建议未经
 | --- | --- | --- |
 | **分析** | 最多三个优先候选，以及前提、收益、能力损失、风险和验证方案 | 否 |
 | **设计** | 逐节点工作流、执行方式、输入输出契约、恢复路径、交回条件和验收测试 | 否 |
-| **实施** | 使用现有技术栈实现并测试 runner 或项目集成 | 是，仅在明确要求时 |
+| **实施** | 生成并校验 implementation capsule，再使用现有技术栈实现和测试 runner 或项目集成 | 是，仅在明确要求时 |
 
 候选流程可以是一次调用内完成的**短时流程**，也可以是需要跨重启保存状态，或等待事件、定时器、重试、审核和审批的**持久异步流程**。
 
@@ -95,6 +103,8 @@ Skill 会为每个原子步骤同时记录“能力角色”和“具体实现�
 | 目标变化后重新规划，或与用户协商 | 当前 Agent 或人工 | 是否仍需要开放探索或承担责任？ |
 
 最终方案并不强制采用“代码 → Jev → LLM”的固定流水线。每一步都交给能够满足质量、安全和可测试要求的最简单执行者。确定性控制流和副作用由代码负责；不确定或不支持的情况进入明确的恢复与交回路径。
+
+设计冻结后，实施进入独立的 capsule 边界。完整设计仍是人类审阅记录，capsule 则是交给 Builder 的紧凑、可机器校验的投影。生成式测试定义已接受的可观察契约；重要语义和迁移能力仍需要独立冻结案例验证。[查看 Builder 协议](references/builder-protocol.md)。
 
 面对大范围信息查询时，来源发现、来源类型优先级、规范化、去重、检索顺序和明确预算由代码与检索工具负责。确定性筛选之后，只把证据充分、范围明确且会改变后续动作的语义歧义交给 Jev；WhatToOffload 不再建议把每个候选或页面扩展判断都交给 Jev。广泛使用 Jev 路由仍属于实验方案，只有在独立冻结的迁移案例中同时改善完整任务质量与成本后才能采用。检索预算耗尽意味着结果仍未解决，不能被写成已验证的“没有找到”。
 
@@ -168,10 +178,12 @@ Skill 会为每个原子步骤同时记录“能力角色”和“具体实现�
 | --- | --- |
 | [SKILL.md](SKILL.md) | Agent 指令与工作模式 |
 | [LICENSE](LICENSE) | MIT 许可证 |
-| [`references/`](references/) | 执行方式选择、工作流可观测性、流程分类、安全、不确定性和测试驱动实施 |
-| [`assets/templates/`](assets/templates/) | 分析/设计交接，以及审计、缺漏、结果信封和持久状态快照示例 |
-| [`assets/schemas/`](assets/schemas/) | 审计事件、冻结字段参考和缺漏归因的正式 JSON Schema |
-| [`scripts/`](scripts/) | 基于标准库的审计校验器与确定性字段级缺漏归因工具 |
+| [`references/`](references/) | 执行方式选择、工作流可观测性、流程分类、安全、测试驱动实施和 capsule Builder 协议 |
+| [`assets/templates/`](assets/templates/) | 分析/设计交接，以及 implementation capsule、审计、缺漏、结果信封和持久状态快照示例 |
+| [`assets/schemas/`](assets/schemas/) | implementation capsule、审计事件、冻结字段参考和缺漏归因的正式 JSON Schema |
+| [`assets/scaffolds/`](assets/scaffolds/) | capsule materializer 使用的版本化独立 runner 脚手架 |
+| [`assets/components/`](assets/components/) | capsule 可选择的不可修改实施 helper |
+| [`scripts/`](scripts/) | capsule 校验/生成/构建验证、审计校验和确定性缺漏归因工具 |
 | [`examples/`](examples/) | 短时与持久工作流的完整案例 |
 | [`benchmarks/`](benchmarks/) | Benchmark 方法、Fixture、测试、报告和公开汇总结果 |
 

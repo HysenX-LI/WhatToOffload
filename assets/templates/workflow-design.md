@@ -109,6 +109,21 @@ Complete one row per material substitution. Include a retained agent/LLM node wh
 
 Describe the smallest changes needed in the target project. Preserve its language, package manager, test stack, and existing authorization boundaries.
 
+## Implementation capsule projection
+
+After implementation is authorized, project this design into `implementation-capsule.json` using `assets/templates/implementation-capsule.json` and validate it before editing code. Carry only implementation-critical facts:
+
+- design/input versions, frozen quality boundary, accepted trade-offs, and authorization scope;
+- target mode, stack, scaffold/components, context paths, allowed changes, immutable paths, and dependencies;
+- frozen node executors and concrete implementations;
+- exact public input/output schemas and statuses;
+- file-level change plan;
+- executable acceptance cases and commands;
+- wall-time, tool-call, test-command, and input-token budgets;
+- explicit construction stop conditions and an empty `unresolved` list.
+
+Do not copy candidate ranking, rejected alternatives, explanatory evidence, or benchmark narrative into the capsule. An isolated builder receives the validated capsule and [builder protocol](../../references/builder-protocol.md), not this full design document.
+
 ## Test-first acceptance plan
 
 - First behavior slice and expected failing assertion:

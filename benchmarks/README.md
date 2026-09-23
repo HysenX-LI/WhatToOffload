@@ -1,3 +1,17 @@
+# Implementation-build benchmark records
+
+`benchmarks/build_benchmark.py` summarizes sanitized construction records for comparing a full Skill-driven builder with capsule-driven builders. Each JSON or JSONL record contains an arm, terminal build status, wall time, tool and test-command counts, quality and budget results, and optional measured input-token or repeated-context fields.
+
+The summarizer reports success, quality, budget compliance, median and p90 wall time, median tool/test calls, and optional token/context medians by arm. It does not launch agents or infer missing token counts. Keep raw conversations, source material, and private paths outside committed records.
+
+```bash
+python3 -m benchmarks.build_benchmark .local/build-experiment/runs.jsonl
+```
+
+Construction comparisons must use the same task, scaffold availability, model, reasoning effort, acceptance suite, and measurement boundary. Report capsule preparation as a separate one-time cost when reuse or payback is being evaluated.
+
+---
+
 # Private website long-horizon benchmark
 
 The website comparison measures three paths against the same private task and shared quality rubric. The report presents the latest measured workflow configuration; the exact case and raw artifacts are not published.
